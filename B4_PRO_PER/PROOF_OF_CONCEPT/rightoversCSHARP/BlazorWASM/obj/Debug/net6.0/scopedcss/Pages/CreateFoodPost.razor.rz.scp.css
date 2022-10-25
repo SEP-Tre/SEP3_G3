@@ -1,0 +1,49 @@
+.card[b-xauouoch9k] {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    text-align: center;
+    margin: 20px auto auto;
+    
+}
+
+.card h3[b-xauouoch9k] {
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card *[b-xauouoch9k] {
+    margin: 2px auto 2px auto;
+    display: block;
+}
+
+.card input[b-xauouoch9k] {
+    margin-bottom: 10px;
+}
+
+.biginput[b-xauouoch9k] {
+    margin-bottom: 10px;
+}
+
+.acceptbtn[b-xauouoch9k] {
+    text-transform: uppercase;
+    color: white;
+    background-color: #0a53be;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+.acceptbtn:disabled[b-xauouoch9k] {
+    text-transform: uppercase;
+    color: white;
+    background-color: grey;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+}
+

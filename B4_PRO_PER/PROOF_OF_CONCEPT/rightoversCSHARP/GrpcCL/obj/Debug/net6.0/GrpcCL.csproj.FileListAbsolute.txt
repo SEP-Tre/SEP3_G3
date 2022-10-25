@@ -1,0 +1,17 @@
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\bin\Debug\net6.0\GrpcCL.deps.json
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\bin\Debug\net6.0\GrpcCL.dll
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\bin\Debug\net6.0\GrpcCL.pdb
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\GrpcCL.csproj.AssemblyReference.cache
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\GrpcCL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\GrpcCL.AssemblyInfoInputs.cache
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\GrpcCL.AssemblyInfo.cs
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\GrpcCL.csproj.CoreCompileInputs.cache
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\GrpcCL.dll
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\refint\GrpcCL.dll
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\GrpcCL.pdb
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\ref\GrpcCL.dll
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\bin\Debug\net6.0\Application.dll
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\bin\Debug\net6.0\Domain.dll
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\bin\Debug\net6.0\Application.pdb
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\bin\Debug\net6.0\Domain.pdb
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\GrpcCL\obj\Debug\net6.0\GrpcCL.csproj.CopyComplete
