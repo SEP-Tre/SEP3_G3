@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\HttpClients.csproj": {}
+    "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\HttpClients.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj": {
+    "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\thanks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thanks\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -53,21 +53,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\thanks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\obj\\",
+        "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\HttpClients.csproj",
+        "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thanks\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -79,8 +79,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj"
+              "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj"
               }
             }
           }
@@ -110,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

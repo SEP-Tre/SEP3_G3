@@ -1662,11 +1662,4 @@ C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversC
 C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\obj\Debug\net6.0\refint\BlazorWASM.dll
 C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\obj\Debug\net6.0\BlazorWASM.pdb
 C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\obj\Debug\net6.0\ref\BlazorWASM.dll
-C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Radzen.Blazor.dll
-C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Linq.Dynamic.Core.dll
-C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Linq.Dynamic.Core.dll.gz
-C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Radzen.Blazor.dll.gz
-C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\bin\Debug\net6.0\Radzen.Blazor.dll
-C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
-C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\obj\Debug\net6.0\build-gz\Z5v81QKT.gz
-C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\obj\Debug\net6.0\build-gz\TOOCuuHw.gz
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\UIComponents\Modal.razor.rz.scp.css
