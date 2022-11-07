@@ -18,4 +18,11 @@ public class FoodPostLogic : IFoodPostLogic
     {
         return fpDao.Create(dto);
     }
+    
+    public async Task<IEnumerable<OverSimpleFoodPostDto>> GetAsync()
+    {
+        IEnumerable<OverSimpleFoodPostDto> allPosts = await fpDao.GetAsync();
+        Console.WriteLine(allPosts.ToString());
+        return allPosts;
+    }
 }

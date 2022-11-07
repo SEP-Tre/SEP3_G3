@@ -1,44 +1,67 @@
-﻿@page "/"
-@page "/CreateFoodPost"
+﻿@page "/CreateFoodPost"
 @using HttpClients.ClientInterfaces
+@using BlazorWASM.Pages.UIComponents
+@using Domain.Classes
 @using Domain.DTOs
 @using Microsoft.VisualBasic.CompilerServices
-@inject IFoodPostService fpService
-
+@inject NavigationManager navMgr
+@inject IFoodPostService fpService;
 
 <div class="card">
-    <h3>Make Food Post</h3>
+    <h3>Create Food Post</h3>
     <div class="form-group field">
         <label>Title:</label>
-        
+        <br/>
         <input type="text" @bind="title" @bind:event="oninput"/>
-        <label>Category:</label>
-        <input type="text" @bind="category" @bind:event="oninput"/>
+    </div>
+    <div class="form-group field">
         <label>Description:</label>
-        <textarea class="biginput" @bind="description" @bind:event="oninput"></textarea>
-        <label>Image Url:</label>
-        <input type="text" @bind="pictureUrl" @bind:event="oninput"/>
-        <label>Days Until Expiraton:</label>
-        <input type="text" @bind="daysUntilExpired" @bind:event="oninput"/>
+        <br/>
+        <input type="text" @bind="description" @bind:event="oninput"/>
+    </div>
+    <div class="form-group field">
+        <label>Category:</label>
+        <br/>
+        <input type="text" @bind="category" @bind:event="oninput"/>
+    </div>
+    <div class="form-group field">
+        <label>Days left to consume: </label>
+        <input type="text" @bind="daysLeftToEat" @bind:event="oninput"/>
+
+    </div>
+    <div class="form-group field">
+        <label>Upload image:</label>
+        <br/>
+        <InputFile></InputFile>
         @if (!string.IsNullOrEmpty(resultMsg))
         {
             <label style="color: @color">@resultMsg</label>
         }
     </div>
     <div class="button-row">
-        <button @onclick="Create" disabled="@(string.IsNullOrEmpty(title) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(pictureUrl) || string.IsNullOrEmpty(daysUntilExpired))" class="acceptbtn">Create</button>
+        <button @onclick="CreateAsync" class="acceptbtn">Create</button>
     </div>
+    <Modal ShowModal="showModal">
+        <p>@createdDtoString</p>
+        <button @onclick="@Proceed">Wonderful</button>
+    </Modal>
 </div>
 
-
 @code {
-    private string title = "";
-    private string category = "";
-    private string description = "";
-    private string pictureUrl = "";
-    private string daysUntilExpired = "";
-    private string resultMsg = "";
-    private string color = "";
+    private string title;
+    private string description;
+    private string daysLeftToEat;
+    private string category;
+    private string pictureUrl;
+    private string color = "red";
+    private bool showModal;
+    private string createdDtoString;
+
+    private string resultMsg;
+
+    protected override void OnInitialized()
+    {
+    }
 
     private async Task clear()
     {
@@ -46,26 +69,31 @@
         category = "";
         description = "";
         pictureUrl = "";
-        daysUntilExpired = "";
     }
 
-    private async Task Create()
+    private async Task CreateAsync()
     {
-        resultMsg = "";
-
         try
         {
-            int days = IntegerType.FromString(daysUntilExpired);
-            await fpService.Create(new FoodPostCreationDTO(title, category, description, pictureUrl, days));
+            int howManyDays = IntegerType.FromString(daysLeftToEat);
+            FoodPost newFoodPost = await fpService.Create(new FoodPostCreationDTO(title, category, description, "defaultPictureUrl", howManyDays));
             await clear();
             resultMsg = "Food Post successfully created";
             color = "green";
+            createdDtoString = "Your Food Post <" + newFoodPost.Title + "> was created.";
+            showModal = true;
         }
         catch (Exception e)
         {
             resultMsg = e.Message;
             color = "red";
         }
+    }
+
+    private void Proceed()
+    {
+        showModal = false;
+        navMgr.NavigateTo("/");
     }
 
 }

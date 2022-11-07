@@ -10,3 +10,15 @@ C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rig
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\refint\Domain.dll
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\Domain.pdb
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\ref\Domain.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\bin\Debug\net6.0\Domain.deps.json
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\bin\Debug\net6.0\Domain.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\bin\Debug\net6.0\Domain.pdb
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\Domain.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\refint\Domain.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\Domain.pdb
+C:\Users\thanks\Documents\GitHub\SEP3_G3\B4_PRO_PER\PROOF_OF_CONCEPT\rightoversCSHARP\Domain\obj\Debug\net6.0\ref\Domain.dll
