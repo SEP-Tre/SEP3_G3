@@ -1,49 +1,26 @@
 .card[b-xauouoch9k] {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 16px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 350px;
     padding: 25px;
     text-align: center;
-    margin: 20px auto auto;
-    
+    margin: auto;
+    margin-top: 25px;
+    border-radius: 15px;
 }
 
-.card h3[b-xauouoch9k] {
-    font-size: 26px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.card *[b-xauouoch9k] {
-    margin: 2px auto 2px auto;
-    display: block;
-}
-
-.card input[b-xauouoch9k] {
-    margin-bottom: 10px;
-}
-
-.biginput[b-xauouoch9k] {
-    margin-bottom: 10px;
+.field[b-xauouoch9k] {
+    margin-top: 20px;
 }
 
 .acceptbtn[b-xauouoch9k] {
-    text-transform: uppercase;
-    color: white;
-    background-color: #0a53be;
-    font-weight: bold;
-    padding: 0 10px 0 10px;
-    cursor: pointer;
+    background-color:lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.acceptbtn:disabled[b-xauouoch9k] {
-    text-transform: uppercase;
-    color: white;
-    background-color: grey;
-    font-weight: bold;
-    padding: 0 10px 0 10px;
+.button-row[b-xauouoch9k]{
+    margin-top: 15px;
 }
-

@@ -45,6 +45,37 @@ public final class FoodPostServiceGrpc {
     return getPostMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.GetAllRequest,
+      sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetAllFoodPostsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getAllFoodPosts",
+      requestType = sep3.g3.rightoversjava.grpc.generated.GetAllRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.FoodPostResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.GetAllRequest,
+      sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetAllFoodPostsMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.GetAllRequest, sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetAllFoodPostsMethod;
+    if ((getGetAllFoodPostsMethod = FoodPostServiceGrpc.getGetAllFoodPostsMethod) == null) {
+      synchronized (FoodPostServiceGrpc.class) {
+        if ((getGetAllFoodPostsMethod = FoodPostServiceGrpc.getGetAllFoodPostsMethod) == null) {
+          FoodPostServiceGrpc.getGetAllFoodPostsMethod = getGetAllFoodPostsMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.GetAllRequest, sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getAllFoodPosts"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.GetAllRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.FoodPostResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FoodPostServiceMethodDescriptorSupplier("getAllFoodPosts"))
+              .build();
+        }
+      }
+    }
+    return getGetAllFoodPostsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -100,6 +131,13 @@ public final class FoodPostServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPostMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getAllFoodPosts(sep3.g3.rightoversjava.grpc.generated.GetAllRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllFoodPostsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -109,6 +147,13 @@ public final class FoodPostServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.FoodPostRequest,
                 sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>(
                   this, METHODID_POST)))
+          .addMethod(
+            getGetAllFoodPostsMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.GetAllRequest,
+                sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>(
+                  this, METHODID_GET_ALL_FOOD_POSTS)))
           .build();
     }
   }
@@ -134,6 +179,14 @@ public final class FoodPostServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getPostMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getAllFoodPosts(sep3.g3.rightoversjava.grpc.generated.GetAllRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getGetAllFoodPostsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -155,6 +208,14 @@ public final class FoodPostServiceGrpc {
     public sep3.g3.rightoversjava.grpc.generated.FoodPostResponse post(sep3.g3.rightoversjava.grpc.generated.FoodPostRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getPostMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getAllFoodPosts(
+        sep3.g3.rightoversjava.grpc.generated.GetAllRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getGetAllFoodPostsMethod(), getCallOptions(), request);
     }
   }
 
@@ -182,6 +243,7 @@ public final class FoodPostServiceGrpc {
   }
 
   private static final int METHODID_POST = 0;
+  private static final int METHODID_GET_ALL_FOOD_POSTS = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -202,6 +264,10 @@ public final class FoodPostServiceGrpc {
       switch (methodId) {
         case METHODID_POST:
           serviceImpl.post((sep3.g3.rightoversjava.grpc.generated.FoodPostRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>) responseObserver);
+          break;
+        case METHODID_GET_ALL_FOOD_POSTS:
+          serviceImpl.getAllFoodPosts((sep3.g3.rightoversjava.grpc.generated.GetAllRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>) responseObserver);
           break;
         default:
@@ -266,6 +332,7 @@ public final class FoodPostServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new FoodPostServiceFileDescriptorSupplier())
               .addMethod(getPostMethod())
+              .addMethod(getGetAllFoodPostsMethod())
               .build();
         }
       }

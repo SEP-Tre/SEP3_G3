@@ -22,6 +22,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/B4_PRO_PER/PROOF_OF_CONCEPT/rightoversCSHARP/BlazorWASM/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/B4_PRO_PER/PROOF_OF_CONCEPT/rightoversCSHARP/BlazorWASM/Pages/ViewFoodPosts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld0Zvb2RQb3N0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/B4_PRO_PER/PROOF_OF_CONCEPT/rightoversCSHARP/BlazorWASM/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -33,6 +41,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/B4_PRO_PER/PROOF_OF_CONCEPT/rightoversCSHARP/BlazorWASM/Pages/CreateFoodPost.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlRm9vZFBvc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xauouoch9k
+
+[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/B4_PRO_PER/PROOF_OF_CONCEPT/rightoversCSHARP/BlazorWASM/Pages/UIComponents/Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVUlDb21wb25lbnRzXE1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-sp2tgkowl2
 
 [C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/B4_PRO_PER/PROOF_OF_CONCEPT/rightoversCSHARP/BlazorWASM/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

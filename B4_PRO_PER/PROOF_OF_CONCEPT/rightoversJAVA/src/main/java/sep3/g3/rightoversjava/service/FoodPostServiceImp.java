@@ -6,6 +6,8 @@ import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
 
+import java.util.ArrayList;
+
 @Service
 public class FoodPostServiceImp implements FoodPostService {
 
@@ -15,5 +17,10 @@ public class FoodPostServiceImp implements FoodPostService {
     public FoodPost create(FoodPostCreationDTO dto) {
         FoodPost fpObj = new FoodPost(dto.getTitle(), dto.getCategory_(), dto.getDescription(), dto.getPictureUrl(), dto.getDaysUntilExpired());
         return fpRepository.save(fpObj);
+    }
+
+    @Override
+    public ArrayList<FoodPost> getAllFoodPosts() {
+        return (ArrayList<FoodPost>) fpRepository.findAll();
     }
 }
