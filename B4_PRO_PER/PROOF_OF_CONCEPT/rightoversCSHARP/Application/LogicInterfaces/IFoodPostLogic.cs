@@ -6,4 +6,5 @@ namespace Application.LogicInterfaces;
 public interface IFoodPostLogic
 {
     public Task<FoodPost> CreateAsync(FoodPostCreationDTO dto);
+    Task<IEnumerable<OverSimpleFoodPostDto>> GetAsync();
 }

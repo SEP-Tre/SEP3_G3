@@ -6,4 +6,5 @@ namespace HttpClients.ClientInterfaces;
 public interface IFoodPostService
 {
     Task<FoodPost> Create(FoodPostCreationDTO dto);
+    Task<ICollection<OverSimpleFoodPostDto>> GetAsync();
 }

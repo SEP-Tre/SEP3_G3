@@ -53,6 +53,20 @@ public class FoodPostsController : ControllerBase
         }
     }
     
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<OverSimpleFoodPostDto>>> GetAsync()
+    {
+        try
+        {
+            var posts = await fpLogic.GetAsync();
 
+            return Ok(posts);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
 
+            return StatusCode(500, e.Message);
+        }
+    }
 }

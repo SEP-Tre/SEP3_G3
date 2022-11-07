@@ -30,4 +30,30 @@ public class FoodPostHttpClient : IFoodPostService
         })!;
         return fp;
     }
+    
+    public async Task<ICollection<OverSimpleFoodPostDto>> GetAsync()
+    {
+        HttpResponseMessage response = await client.GetAsync("/FoodPosts");
+        // Console.Write("API: " + response);
+        string content = await response.Content.ReadAsStringAsync();
+        // Console.Write("Content: " + content);
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        ICollection<OverSimpleFoodPostDto> foodPostDtos =
+            JsonSerializer.Deserialize<ICollection<OverSimpleFoodPostDto>>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            })!;
+        /*
+        foreach (var item in foodPostDtos)
+        {
+            Console.Write("Post: " + item.Title + ": " + item.Category);
+        }
+        */
+
+        return foodPostDtos;
+    }
 }

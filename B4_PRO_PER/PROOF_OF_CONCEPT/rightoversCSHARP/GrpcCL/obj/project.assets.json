@@ -5,14 +5,10 @@
       "Google.Protobuf/3.21.8": {
         "type": "package",
         "compile": {
-          "lib/net5.0/Google.Protobuf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net5.0/Google.Protobuf.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Google.Protobuf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net5.0/Google.Protobuf.dll": {}
         }
       },
       "Grpc.Core.Api/2.49.0": {
@@ -21,14 +17,10 @@
           "System.Memory": "4.5.3"
         },
         "compile": {
-          "lib/netstandard2.1/Grpc.Core.Api.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.1/Grpc.Core.Api.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {}
         }
       },
       "Grpc.Net.Client/2.49.0": {
@@ -38,14 +30,10 @@
           "Microsoft.Extensions.Logging.Abstractions": "3.0.3"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.Client.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Grpc.Net.Client.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.Client.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Grpc.Net.Client.dll": {}
         }
       },
       "Grpc.Net.Common/2.49.0": {
@@ -54,14 +42,10 @@
           "Grpc.Core.Api": "2.49.0"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.Common.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Grpc.Net.Common.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.Common.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Grpc.Net.Common.dll": {}
         }
       },
       "Grpc.Tools/2.50.0": {
@@ -74,14 +58,10 @@
       "Microsoft.Extensions.Logging.Abstractions/3.0.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
       "System.Memory/4.5.3": {
@@ -327,19 +307,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\laura\\.nuget\\packages\\": {}
+    "C:\\Users\\thanks\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\GrpcCL.csproj",
+      "projectUniqueName": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\GrpcCL.csproj",
       "projectName": "GrpcCL",
-      "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\GrpcCL.csproj",
-      "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\obj\\",
+      "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\GrpcCL.csproj",
+      "packagesPath": "C:\\Users\\thanks\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\thanks\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -351,11 +331,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Application\\Application.csproj"
+            "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Application\\Application.csproj"
             },
-            "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj"
+            "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Domain\\Domain.csproj"
             }
           }
         }
@@ -401,7 +381,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

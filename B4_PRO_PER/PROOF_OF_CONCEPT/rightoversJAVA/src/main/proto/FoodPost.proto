@@ -21,6 +21,11 @@ message FoodPostResponse {
   string fp_state = 7;
 }
 
+message GetAllRequest {
+  bool filler = 1;
+}
+
 service FoodPostService {
   rpc post(FoodPostRequest) returns (FoodPostResponse);
+  rpc getAllFoodPosts(GetAllRequest) returns (stream FoodPostResponse);
 }

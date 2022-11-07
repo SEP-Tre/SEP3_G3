@@ -5,14 +5,10 @@
       "Google.Protobuf/3.21.8": {
         "type": "package",
         "compile": {
-          "lib/net5.0/Google.Protobuf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net5.0/Google.Protobuf.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Google.Protobuf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net5.0/Google.Protobuf.dll": {}
         }
       },
       "Grpc.Core.Api/2.49.0": {
@@ -21,14 +17,10 @@
           "System.Memory": "4.5.3"
         },
         "compile": {
-          "lib/netstandard2.1/Grpc.Core.Api.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.1/Grpc.Core.Api.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {}
         }
       },
       "Grpc.Net.Client/2.49.0": {
@@ -38,14 +30,10 @@
           "Microsoft.Extensions.Logging.Abstractions": "3.0.3"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.Client.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Grpc.Net.Client.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.Client.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Grpc.Net.Client.dll": {}
         }
       },
       "Grpc.Net.Common/2.49.0": {
@@ -54,14 +42,10 @@
           "Grpc.Core.Api": "2.49.0"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.Common.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Grpc.Net.Common.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.Common.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Grpc.Net.Common.dll": {}
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
@@ -78,27 +62,19 @@
       "Microsoft.Extensions.Logging.Abstractions/3.0.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.OpenApi/1.2.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
         }
       },
       "Swashbuckle.AspNetCore/6.2.3": {
@@ -119,14 +95,10 @@
           "Microsoft.OpenApi": "1.2.3"
         },
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -138,27 +110,19 @@
           "Swashbuckle.AspNetCore.Swagger": "6.2.3"
         },
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
         }
       },
       "Swashbuckle.AspNetCore.SwaggerUI/6.2.3": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -502,19 +466,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\laura\\.nuget\\packages\\": {}
+    "C:\\Users\\thanks\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\WebAPI\\WebAPI.csproj",
-      "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\WebAPI\\WebAPI.csproj",
+      "packagesPath": "C:\\Users\\thanks\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\thanks\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -526,11 +490,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Application\\Application.csproj"
+            "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\Application\\Application.csproj"
             },
-            "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\GrpcCL.csproj": {
-              "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\GrpcCL.csproj"
+            "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\GrpcCL.csproj": {
+              "projectPath": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\B4_PRO_PER\\PROOF_OF_CONCEPT\\rightoversCSHARP\\GrpcCL\\GrpcCL.csproj"
             }
           }
         }
@@ -569,7 +533,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
