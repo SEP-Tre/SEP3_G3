@@ -44,7 +44,7 @@ public class FoodPostsController : ControllerBase
         try
         {
             FoodPost foodPost = await fpLogic.CreateAsync(dto);
-            return Created($"/foodposts/{foodPost.PostId}", foodPost);
+            return Created($"/FoodPosts/{foodPost.PostId}", foodPost);
         }
         catch (Exception e)
         {
