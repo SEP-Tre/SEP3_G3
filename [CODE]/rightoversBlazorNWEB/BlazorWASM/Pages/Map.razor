@@ -1,0 +1,54 @@
+﻿@page "/Map"
+@using Microsoft.JSInterop
+@using Radzen
+@using Radzen.Blazor
+@inject IJSRuntime JSRuntime
+<div class="container-fluid">
+    <div class="row p-3">
+        <div class="col">
+            <RadzenCard Class="mb-4">
+                <RadzenCheckBox @bind-Value=@showHorsensMarker Name="showMarker"/>
+                <RadzenLabel Text="Show marker for Horsens" Component="showMarker" Style="margin-left: 8px; vertical-align: middle;"/>
+            </RadzenCard>
+            <RadzenGoogleMap @ref=map style="height: 400px" Options=@(new Dictionary<string, object> { { "disableDoubleClickZoom", true } })
+                             Zoom=@zoom ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center=@(new GoogleMapPosition() { Lat = 55.863352, Lng = 9.838155 }) MapClick=@OnMapClick MarkerClick=@OnMarkerClick>
+                <Markers>
+                    <RadzenGoogleMapMarker Title="London" Label="London" Position=@(new GoogleMapPosition() { Lat = 51.5074, Lng = 0.1278 })/>
+                    <RadzenGoogleMapMarker Title="Paris " Label="Paris" Position=@(new GoogleMapPosition() { Lat = 48.8566, Lng = 2.3522 })/>
+                    @if (showHorsensMarker)
+                    {
+                        <RadzenGoogleMapMarker Title="Horsens " Label="Horsens" Position=@(new GoogleMapPosition() { Lat = 55.863352, Lng = 9.838155 })/>
+                    }
+                </Markers>
+            </RadzenGoogleMap>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    int zoom = 9;
+    bool showHorsensMarker;
+    RadzenGoogleMap map;
+
+    void OnMapClick(GoogleMapClickEventArgs args)
+    {
+        Console.Write($"Map clicked at Lat: {args.Position.Lat}, Lng: {args.Position.Lng}");
+    }
+
+    async Task OnMarkerClick(RadzenGoogleMapMarker marker)
+    {
+        var message = $"Custom information about <b>{marker.Title}</b>";
+
+        var code = $@"
+var map = Radzen['{map.UniqueID}'].instance;
+var marker = map.markers.find(m => m.title == '{marker.Title}');
+if(window.infoWindow) {{window.infoWindow.close();}}
+window.infoWindow = new google.maps.InfoWindow({{content: '{message}'}});
+setTimeout(() => window.infoWindow.open(map, marker), 200);
+";
+
+        await JSRuntime.InvokeVoidAsync("eval", code);
+    }
+
+}

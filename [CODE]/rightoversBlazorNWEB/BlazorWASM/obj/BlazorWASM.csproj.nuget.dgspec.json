@@ -53,6 +53,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "Microsoft.JSInterop": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.3.3, )"
             }
           },
           "imports": [

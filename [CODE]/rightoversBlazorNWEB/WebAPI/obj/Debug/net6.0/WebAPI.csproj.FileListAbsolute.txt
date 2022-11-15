@@ -4,7 +4,6 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\D
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\WebAPI.deps.json
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\WebAPI.runtimeconfig.json
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\WebAPI.dll
-C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\ref\WebAPI.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\WebAPI.pdb
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Google.Protobuf.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Grpc.Core.Api.dll
@@ -35,3 +34,4 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\D
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\Debug\net6.0\refint\WebAPI.dll
