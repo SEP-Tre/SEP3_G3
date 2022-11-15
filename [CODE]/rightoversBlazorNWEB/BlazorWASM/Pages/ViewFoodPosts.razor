@@ -1,0 +1,63 @@
+﻿@page "/ViewFoodPosts"
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@inject IFoodPostService foodPostWebService
+@inject NavigationManager navMgr
+
+<div class="d-flex justify-content-center">
+    <h3>Food Posts</h3>
+</div>
+@if (posts == null)
+{
+    <p>Loading...</p>
+}
+else if (!posts.Any())
+{
+    <p>No Posts to display. Sorry :(</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in posts)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Category</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@if (!string.IsNullOrEmpty(msg))
+{
+    <label style="color: red">@msg</label>
+}
+
+
+
+@code {
+    private ICollection<OverSimpleFoodPostDto>? posts;
+    private string msg = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            posts = await foodPostWebService.GetAsync();
+            Console.Write("Posts: " + posts);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+
+}
