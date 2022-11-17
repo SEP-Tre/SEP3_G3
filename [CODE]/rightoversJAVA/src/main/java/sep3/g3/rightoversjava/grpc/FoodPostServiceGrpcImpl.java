@@ -42,8 +42,13 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
         // System.out.println("All posts: " + allPosts.toString());
         for (int i = 0; i < allPosts.size(); i++)
         {
+            FoodPost foodPost =allPosts.get(i);
             FoodPostResponse response = FoodPostResponse.newBuilder()
-                    .setTitle(allPosts.get(i).getTitle()).setCategory(allPosts.get(i).getCategory_()).build();
+                    .setTitle(foodPost.getTitle())
+                    .setCategory(foodPost.getCategory_())
+                    .setFpId(foodPost.getPost_id())
+                    .build();
+
             responseObserver.onNext(response);
         };
         responseObserver.onCompleted();

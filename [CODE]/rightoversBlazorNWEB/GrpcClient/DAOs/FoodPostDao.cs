@@ -42,9 +42,11 @@ public class FoodPostDao : IFoodPostDao
         // Because it is a stream, lets make a Dto for the current one we are on
         await foreach (var message in response.ResponseStream.ReadAllAsync())
         {
+            Console.WriteLine($"This is found id: {message.FpId}" );
             if (message.Category != null && message.Title != null)
             {
                 OverSimpleFoodPostDto simpleFoodPostDto = new OverSimpleFoodPostDto{
+                    id = message.FpId,
                     Title = message.Title,
                     Category = message.Category
                 };
