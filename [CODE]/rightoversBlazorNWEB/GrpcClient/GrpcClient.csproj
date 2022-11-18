@@ -23,4 +23,8 @@
         <Protobuf Include="Protos\FoodPostGrpc.proto" GrpcServices="Client" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Protobuf Include="Protos\AddressGrpc.proto" GrpcServices="Client" />
+    </ItemGroup>
+
 </Project>

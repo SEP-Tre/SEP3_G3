@@ -5,7 +5,7 @@ using Grpc.Core;
 using Grpc.Net.Client;
 using GrpcCL;
 
-namespace GrpcCl.DAOs;
+namespace GrpcClient.DAOs;
 
 public class FoodPostDao : IFoodPostDao
 {
