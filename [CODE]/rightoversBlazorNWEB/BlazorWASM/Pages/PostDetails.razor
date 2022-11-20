@@ -1,0 +1,33 @@
+﻿@page "/PostDetails/{id:int}"
+@using Domain.Classes
+@using HttpClients.ClientInterfaces
+@inject IFoodPostService foodPostService
+
+<div class="d-flex justify-content-center">
+    <div class="card-back">
+        <div class="card d-flex justify-content-center">
+            <h3>PostDetails of: @id , @title</h3>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter] public int id { get; set; }
+    public string title;
+
+    protected  override async Task OnInitializedAsync()
+    {
+        try
+        {
+            FoodPost foodPost = await foodPostService.GetSingleAsync(id);
+            title = foodPost.Title;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }       
+    }
+
+}

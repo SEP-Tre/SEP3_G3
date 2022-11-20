@@ -1,7 +1,10 @@
 using Application.DAOInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
-using GrpcCl.DAOs;
+using GrpcClient.Converters;
+using GrpcClient.DAOs;
+using GrpcClient.IConverters;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IFoodPostConverter, FoodPostConverter>();
 builder.Services.AddScoped<IFoodPostDao, FoodPostDao>();
 builder.Services.AddScoped<IFoodPostLogic, FoodPostLogic>();
 
