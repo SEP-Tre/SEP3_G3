@@ -1,9 +1,12 @@
+using System.Text;
 using Application.DAOInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
 using GrpcClient.Converters;
 using GrpcClient.DAOs;
 using GrpcClient.IConverters;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +21,22 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IFoodPostConverter, FoodPostConverter>();
 builder.Services.AddScoped<IFoodPostDao, FoodPostDao>();
 builder.Services.AddScoped<IFoodPostLogic, FoodPostLogic>();
+builder.Services.AddScoped<IUserDao, UserDao>();
+builder.Services.AddScoped<IUserLogic, UserLogic>();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -35,6 +53,7 @@ app.UseCors(x => x
     .AllowCredentials());
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 
 app.UseAuthorization();
 
