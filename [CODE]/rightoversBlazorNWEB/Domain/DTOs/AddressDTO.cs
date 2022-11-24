@@ -30,6 +30,6 @@ public class AddressDTO
 
     public AddressDTO()
     {
-        
+
     }
 }

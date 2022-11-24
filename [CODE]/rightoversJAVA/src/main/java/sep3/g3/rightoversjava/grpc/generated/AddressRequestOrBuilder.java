@@ -4,48 +4,58 @@
 package sep3.g3.rightoversjava.grpc.generated;
 
 public interface AddressRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:sep3.g3.AddressRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:sep3.g3.AddressRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string street = 1;</code>
-   * @return The street.
-   */
-  java.lang.String getStreet();
-  /**
-   * <code>string street = 1;</code>
-   * @return The bytes for street.
-   */
-  com.google.protobuf.ByteString
-      getStreetBytes();
+    /**
+     * <code>string street = 1;</code>
+     *
+     * @return The street.
+     */
+    java.lang.String getStreet();
 
-  /**
-   * <code>string street_number = 2;</code>
-   * @return The streetNumber.
-   */
-  java.lang.String getStreetNumber();
-  /**
-   * <code>string street_number = 2;</code>
-   * @return The bytes for streetNumber.
-   */
-  com.google.protobuf.ByteString
-      getStreetNumberBytes();
+    /**
+     * <code>string street = 1;</code>
+     *
+     * @return The bytes for street.
+     */
+    com.google.protobuf.ByteString
+    getStreetBytes();
 
-  /**
-   * <code>int32 post_code = 3;</code>
-   * @return The postCode.
-   */
-  int getPostCode();
+    /**
+     * <code>string street_number = 2;</code>
+     *
+     * @return The streetNumber.
+     */
+    java.lang.String getStreetNumber();
 
-  /**
-   * <code>string city = 4;</code>
-   * @return The city.
-   */
-  java.lang.String getCity();
-  /**
-   * <code>string city = 4;</code>
-   * @return The bytes for city.
-   */
-  com.google.protobuf.ByteString
-      getCityBytes();
+    /**
+     * <code>string street_number = 2;</code>
+     *
+     * @return The bytes for streetNumber.
+     */
+    com.google.protobuf.ByteString
+    getStreetNumberBytes();
+
+    /**
+     * <code>int32 post_code = 3;</code>
+     *
+     * @return The postCode.
+     */
+    int getPostCode();
+
+    /**
+     * <code>string city = 4;</code>
+     *
+     * @return The city.
+     */
+    java.lang.String getCity();
+
+    /**
+     * <code>string city = 4;</code>
+     *
+     * @return The bytes for city.
+     */
+    com.google.protobuf.ByteString
+    getCityBytes();
 }

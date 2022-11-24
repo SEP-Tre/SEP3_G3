@@ -3,8 +3,6 @@ package sep3.g3.rightoversjava.grpc;
 import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.grpc.generated.FoodPostRequest;
 import sep3.g3.rightoversjava.grpc.generated.FoodPostResponse;
 import sep3.g3.rightoversjava.grpc.generated.FoodPostServiceGrpc;
@@ -36,16 +34,15 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
 
     @Override
     public void getAllFoodPosts(GetAllRequest request,
-                                StreamObserver<FoodPostResponse> responseObserver)
-    {
+                                StreamObserver<FoodPostResponse> responseObserver) {
         ArrayList<FoodPost> allPosts = service.getAllFoodPosts();
         // System.out.println("All posts: " + allPosts.toString());
-        for (int i = 0; i < allPosts.size(); i++)
-        {
+        for (int i = 0; i < allPosts.size(); i++) {
             FoodPostResponse response = FoodPostResponse.newBuilder()
                     .setTitle(allPosts.get(i).getTitle()).setCategory(allPosts.get(i).getCategory_()).build();
             responseObserver.onNext(response);
-        };
+        }
+        ;
         responseObserver.onCompleted();
     }
 }

@@ -11,16 +11,16 @@ public class AddressCoords
 
     public AddressCoords()
     {
-        
+
     }
-    
+
     public static AddressCoords ConvertAddressToCoords(AddressDTO addressDto)
     {
-        string address = 
-                addressDto.Street + " " +
-                addressDto.StreetNumber + ", " +
-                addressDto.PostCode + " " +
-                addressDto.City;
+        string address =
+            addressDto.Street + " " +
+            addressDto.StreetNumber + ", " +
+            addressDto.PostCode + " " +
+            addressDto.City;
         string requestUri =
             string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false",
                 Uri.EscapeDataString(address), API_KEY);

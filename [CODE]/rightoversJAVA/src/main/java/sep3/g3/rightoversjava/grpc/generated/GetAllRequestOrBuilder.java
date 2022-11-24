@@ -4,12 +4,13 @@
 package sep3.g3.rightoversjava.grpc.generated;
 
 public interface GetAllRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:sep3.g3.GetAllRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:sep3.g3.GetAllRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>bool filler = 1;</code>
-   * @return The filler.
-   */
-  boolean getFiller();
+    /**
+     * <code>bool filler = 1;</code>
+     *
+     * @return The filler.
+     */
+    boolean getFiller();
 }

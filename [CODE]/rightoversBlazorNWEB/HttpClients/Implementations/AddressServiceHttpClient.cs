@@ -23,9 +23,8 @@ public class AddressServiceHttpClient : IAddressService
         var result = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode) throw new Exception(result);
-        
-        var address = JsonSerializer.Deserialize<AddressDTO>(result, new JsonSerializerOptions
-        {
+
+        var address = JsonSerializer.Deserialize<AddressDTO>(result, new JsonSerializerOptions{
             PropertyNameCaseInsensitive = true
         })!;
 
@@ -38,10 +37,9 @@ public class AddressServiceHttpClient : IAddressService
         var content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode) throw new Exception(content);
-        
+
         var addressDtos =
-            JsonSerializer.Deserialize<ICollection<AddressDTO>>(content, new JsonSerializerOptions
-            {
+            JsonSerializer.Deserialize<ICollection<AddressDTO>>(content, new JsonSerializerOptions{
                 PropertyNameCaseInsensitive = true
             })!;
 
@@ -71,13 +69,15 @@ public class AddressServiceHttpClient : IAddressService
         response.Close();
         readstream.Close();
 
-        Tuple<double, double> output=new Tuple<double, double>(0,0);
+        Tuple<double, double> output = new Tuple<double, double>(0, 0);
 
         DataTable dt = new DataTable();
 
         foreach (DataRow row in dsResult.Tables["result"].Rows)
         {
-            string geometry_id = dsResult.Tables["geometry"].Select("result_id = " + row["result_id"].ToString())[0]["geometry_id"].ToString();
+            string geometry_id =
+                dsResult.Tables["geometry"].Select("result_id = " + row["result_id"].ToString())[0]["geometry_id"]
+                    .ToString();
 
             DataRow location = dsResult.Tables["location"].Select("geometry_id=" + geometry_id)[0];
 
@@ -87,7 +87,9 @@ public class AddressServiceHttpClient : IAddressService
 
             addressDto.Latitude = Convert.ToDouble(location["lat"]);
             addressDto.Longitude = Convert.ToDouble(location["lng"]);
-        };
+        }
+
+        ;
 
         return addressDto;
     }

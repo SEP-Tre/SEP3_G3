@@ -9,17 +9,15 @@ namespace GrpcClient.DAOs;
 
 public class FoodPostDao : IFoodPostDao
 {
-    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions
-    {
+    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
         UnsafeUseInsecureChannelCallCredentials = true
     });
-    
+
     private static FoodPostService.FoodPostServiceClient client = new(channel);
 
     public async Task<FoodPost> Create(FoodPostCreationDTO dto)
     {
-        FoodPostResponse response = await client.postAsync(new FoodPostRequest
-        {
+        FoodPostResponse response = await client.postAsync(new FoodPostRequest{
             Category = dto.Category,
             DaysUntilExpired = dto.DaysUntilExpired,
             Description = dto.Description,
@@ -29,9 +27,10 @@ public class FoodPostDao : IFoodPostDao
 
         FoodPost fp = new FoodPost(response.FpId, response.Title, response.Category, response.Category,
             response.PictureUrl, response.DaysUntilExpired, response.FpState);
+
         return fp;
     }
-    
+
     public async Task<IEnumerable<OverSimpleFoodPostDto>> GetAsync()
     {
         // Missing an await, but where?
@@ -52,6 +51,7 @@ public class FoodPostDao : IFoodPostDao
                 Console.WriteLine("I found a post: " + simpleFoodPostDto.Title + " : " + simpleFoodPostDto.Category);
             }
         }
+
         return listHolder;
     }
 }

@@ -12,13 +12,12 @@ namespace GrpcClient.DAOs;
 public class AddressDao : IAddressDao
 
 {
-    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions
-    {
+    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
         UnsafeUseInsecureChannelCallCredentials = true
     });
 
     private static AddressService.AddressServiceClient client = new(channel);
-    
+
     public async Task<AddressDTO> Create(AddressDTO dto)
     {
         // Await here would be nice
@@ -32,15 +31,15 @@ public class AddressDao : IAddressDao
         Console.WriteLine(response);
 
         AddressDTO addressDto = new AddressDTO(
-            response.AddressId, 
-            response.Street, 
-            response.StreetNumber, 
+            response.AddressId,
+            response.Street,
+            response.StreetNumber,
             response.PostCode,
             response.City);
 
         return addressDto;
     }
-    
+
     public async Task<IEnumerable<AddressDTO>> GetAll()
     {
         List<AddressDTO> listHolder = new List<AddressDTO>();
@@ -62,6 +61,7 @@ public class AddressDao : IAddressDao
                 listHolder.Add(addressDto);
             }
         }
+
         return listHolder;
     }
 }

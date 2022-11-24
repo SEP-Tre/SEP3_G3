@@ -34,7 +34,7 @@ public class AddressController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
+
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AddressDTO>>> GetAsync()
     {
@@ -49,6 +49,6 @@ public class AddressController : ControllerBase
             Console.WriteLine(e);
 
             return StatusCode(500, e.Message);
-        }   
+        }
     }
 }

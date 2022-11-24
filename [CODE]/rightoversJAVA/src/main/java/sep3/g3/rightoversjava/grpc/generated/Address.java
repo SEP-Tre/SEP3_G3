@@ -4,76 +4,79 @@
 package sep3.g3.rightoversjava.grpc.generated;
 
 public final class Address {
-  private Address() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sep3_g3_AddressRequest_descriptor;
-  static final 
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_sep3_g3_AddressRequest_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sep3_g3_AddressRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sep3_g3_AddressResponse_descriptor;
-  static final 
+            internal_static_sep3_g3_AddressRequest_fieldAccessorTable;
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_sep3_g3_AddressResponse_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sep3_g3_AddressResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sep3_g3_GetAllRequest_descriptor;
-  static final 
+            internal_static_sep3_g3_AddressResponse_fieldAccessorTable;
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_sep3_g3_GetAllRequest_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sep3_g3_GetAllRequest_fieldAccessorTable;
+            internal_static_sep3_g3_GetAllRequest_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\rAddress.proto\022\007sep3.g3\"X\n\016AddressReque" +
-      "st\022\016\n\006street\030\001 \001(\t\022\025\n\rstreet_number\030\002 \001(" +
-      "\t\022\021\n\tpost_code\030\003 \001(\005\022\014\n\004city\030\004 \001(\t\"m\n\017Ad" +
-      "dressResponse\022\022\n\naddress_id\030\001 \001(\005\022\016\n\006str" +
-      "eet\030\002 \001(\t\022\025\n\rstreet_number\030\003 \001(\t\022\021\n\tpost" +
-      "_code\030\004 \001(\005\022\014\n\004city\030\005 \001(\t\"\037\n\rGetAllReque" +
-      "st\022\016\n\006filler\030\001 \001(\0102\233\001\n\016AddressService\022B\n" +
-      "\rcreateAddress\022\027.sep3.g3.AddressRequest\032" +
-      "\030.sep3.g3.AddressResponse\022E\n\017getAllAddre" +
-      "sses\022\026.sep3.g3.GetAllRequest\032\030.sep3.g3.A" +
-      "ddressResponse0\001B)\n%sep3.g3.rightoversja" +
-      "va.grpc.generatedP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_sep3_g3_AddressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_sep3_g3_AddressRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sep3_g3_AddressRequest_descriptor,
-        new java.lang.String[] { "Street", "StreetNumber", "PostCode", "City", });
-    internal_static_sep3_g3_AddressResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_sep3_g3_AddressResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sep3_g3_AddressResponse_descriptor,
-        new java.lang.String[] { "AddressId", "Street", "StreetNumber", "PostCode", "City", });
-    internal_static_sep3_g3_GetAllRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_sep3_g3_GetAllRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sep3_g3_GetAllRequest_descriptor,
-        new java.lang.String[] { "Filler", });
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\rAddress.proto\022\007sep3.g3\"X\n\016AddressReque" +
+                        "st\022\016\n\006street\030\001 \001(\t\022\025\n\rstreet_number\030\002 \001(" +
+                        "\t\022\021\n\tpost_code\030\003 \001(\005\022\014\n\004city\030\004 \001(\t\"m\n\017Ad" +
+                        "dressResponse\022\022\n\naddress_id\030\001 \001(\005\022\016\n\006str" +
+                        "eet\030\002 \001(\t\022\025\n\rstreet_number\030\003 \001(\t\022\021\n\tpost" +
+                        "_code\030\004 \001(\005\022\014\n\004city\030\005 \001(\t\"\037\n\rGetAllReque" +
+                        "st\022\016\n\006filler\030\001 \001(\0102\233\001\n\016AddressService\022B\n" +
+                        "\rcreateAddress\022\027.sep3.g3.AddressRequest\032" +
+                        "\030.sep3.g3.AddressResponse\022E\n\017getAllAddre" +
+                        "sses\022\026.sep3.g3.GetAllRequest\032\030.sep3.g3.A" +
+                        "ddressResponse0\001B)\n%sep3.g3.rightoversja" +
+                        "va.grpc.generatedP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_sep3_g3_AddressRequest_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_sep3_g3_AddressRequest_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_sep3_g3_AddressRequest_descriptor,
+                new java.lang.String[]{"Street", "StreetNumber", "PostCode", "City",});
+        internal_static_sep3_g3_AddressResponse_descriptor =
+                getDescriptor().getMessageTypes().get(1);
+        internal_static_sep3_g3_AddressResponse_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_sep3_g3_AddressResponse_descriptor,
+                new java.lang.String[]{"AddressId", "Street", "StreetNumber", "PostCode", "City",});
+        internal_static_sep3_g3_GetAllRequest_descriptor =
+                getDescriptor().getMessageTypes().get(2);
+        internal_static_sep3_g3_GetAllRequest_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_sep3_g3_GetAllRequest_descriptor,
+                new java.lang.String[]{"Filler",});
+    }
+    private Address() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

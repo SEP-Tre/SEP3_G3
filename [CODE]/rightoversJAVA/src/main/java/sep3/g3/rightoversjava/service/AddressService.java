@@ -7,5 +7,6 @@ import java.util.ArrayList;
 
 public interface AddressService {
     Address create(AddressDTO dto);
+
     ArrayList<Address> getAllAddresses();
 }
