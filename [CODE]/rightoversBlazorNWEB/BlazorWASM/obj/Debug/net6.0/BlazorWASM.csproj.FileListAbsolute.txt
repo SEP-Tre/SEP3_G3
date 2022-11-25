@@ -14,6 +14,7 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\b
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\icudt_no_CJK.dat
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\icudt.dat
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Authorization.dll
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Forms.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Web.dll
@@ -266,6 +267,7 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\b
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Threading.Thread.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Runtime.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Reflection.Emit.ILGeneration.dll.gz
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Data.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.IO.IsolatedStorage.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Resources.Writer.dll.gz
@@ -311,6 +313,7 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\b
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Threading.Overlapped.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\icudt.dat.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Xml.Linq.dll.gz
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Radzen.Blazor.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Runtime.Serialization.Primitives.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Text.Json.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Security.Cryptography.Csp.dll.gz
@@ -365,7 +368,6 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\b
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Diagnostics.Process.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.ComponentModel.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Diagnostics.Debug.dll.gz
-C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\netstandard.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Formats.Asn1.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Runtime.Loader.dll.gz
@@ -393,6 +395,7 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\b
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Diagnostics.TextWriterTraceListener.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Net.HttpListener.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Linq.Parallel.dll.gz
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Domain.pdb.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\WindowsBase.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.IO.Compression.ZipFile.dll.gz
@@ -407,13 +410,14 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\b
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.Options.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Diagnostics.TraceSource.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.IO.FileSystem.DriveInfo.dll.gz
-C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\Radzen.Blazor.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\wwwroot\_framework\System.Security.AccessControl.dll.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\BlazorWASM.staticwebassets.runtime.json
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\BlazorWASM.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\BlazorWASM.pdb
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Radzen.Blazor.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Authorization.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.WebAssembly.dll
@@ -434,7 +438,6 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\b
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.JSInterop.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.JSInterop.WebAssembly.dll
-C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Radzen.Blazor.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\System.IO.Pipelines.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\bin\Debug\net6.0\Microsoft.CSharp.dll
@@ -620,8 +623,10 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\o
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\BlazorWASM.AssemblyInfo.cs
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\BlazorWASM.csproj.CoreCompileInputs.cache
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\BlazorWASM.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\m5SviuM7.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\HsHs7Mep.gz
-C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\tM1Zq9SR.gz
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\xTTuzjg7.gz
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\eLImTjnZ.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\BQni5HVt.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\bGBKN2TF.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\SvgPuwvt.gz
@@ -642,7 +647,6 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\o
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\w9AUHurE.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\rKCSnJDu.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\nwF2RoXA.gz
-C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\ztCBpeWy.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\a2Y8tm+5.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\2BMPsmT+.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\jG3LQkyg.gz
@@ -829,6 +833,7 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\o
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\CreateFoodPost.razor.rz.scp.css
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\Login.razor.rz.scp.css
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\PostDetails.razor.rz.scp.css
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\UIComponents\Modal.razor.rz.scp.css
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css

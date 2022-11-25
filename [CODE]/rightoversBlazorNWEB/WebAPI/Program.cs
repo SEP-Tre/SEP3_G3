@@ -2,6 +2,7 @@ using System.Text;
 using Application.DAOInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
+using Domain.Auth;
 using GrpcClient.Converters;
 using GrpcClient.DAOs;
 using GrpcClient.IConverters;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IFoodPostDao, FoodPostDao>();
 builder.Services.AddScoped<IFoodPostLogic, FoodPostLogic>();
 builder.Services.AddScoped<IUserDao, UserDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
+AuthorizationPolicies.AddPolicies(builder.Services);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {

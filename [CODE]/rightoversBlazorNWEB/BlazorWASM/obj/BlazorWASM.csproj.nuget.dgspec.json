@@ -45,9 +45,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Custom.Radzen.Blazor": {
+              "target": "Package",
+              "version": "[4.3.6, )"
+            },
             "Microsoft.AspNetCore.Authorization": {
               "target": "Package",
               "version": "[6.0.11, )"
+            },
+            "Microsoft.AspNetCore.Components.Authorization": {
+              "target": "Package",
+              "version": "[6.0.10, )"
             },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",

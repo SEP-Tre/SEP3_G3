@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Custom.Radzen.Blazor/4.3.6": {
+        "type": "package",
+        "dependencies": {
+          "LibSassBuilder": "2.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.0",
+          "Microsoft.AspNetCore.Components.Web": "6.0.0",
+          "Microsoft.CSharp": "4.7.0",
+          "System.Linq.Dynamic.Core": "1.2.22"
+        },
+        "compile": {
+          "lib/net6.0/Radzen.Blazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Radzen.Blazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/Custom.Radzen.Blazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Custom.Radzen.Blazor.props": {}
+        }
+      },
       "LibSassBuilder/2.0.1": {
         "type": "package",
         "build": {
@@ -22,11 +44,11 @@
           "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components/6.0.8": {
+      "Microsoft.AspNetCore.Components/6.0.10": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "6.0.8",
-          "Microsoft.AspNetCore.Components.Analyzers": "6.0.8"
+          "Microsoft.AspNetCore.Authorization": "6.0.10",
+          "Microsoft.AspNetCore.Components.Analyzers": "6.0.10"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
@@ -35,10 +57,23 @@
           "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/6.0.8": {
+      "Microsoft.AspNetCore.Components.Analyzers/6.0.10": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Authorization/6.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "6.0.10",
+          "Microsoft.AspNetCore.Components": "6.0.10"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Authorization.dll": {}
         }
       },
       "Microsoft.AspNetCore.Components.Forms/6.0.8": {
@@ -466,6 +501,28 @@
       }
     },
     "net6.0/browser-wasm": {
+      "Custom.Radzen.Blazor/4.3.6": {
+        "type": "package",
+        "dependencies": {
+          "LibSassBuilder": "2.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.0",
+          "Microsoft.AspNetCore.Components.Web": "6.0.0",
+          "Microsoft.CSharp": "4.7.0",
+          "System.Linq.Dynamic.Core": "1.2.22"
+        },
+        "compile": {
+          "lib/net6.0/Radzen.Blazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Radzen.Blazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/Custom.Radzen.Blazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Custom.Radzen.Blazor.props": {}
+        }
+      },
       "LibSassBuilder/2.0.1": {
         "type": "package",
         "build": {
@@ -486,11 +543,11 @@
           "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components/6.0.8": {
+      "Microsoft.AspNetCore.Components/6.0.10": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "6.0.8",
-          "Microsoft.AspNetCore.Components.Analyzers": "6.0.8"
+          "Microsoft.AspNetCore.Authorization": "6.0.10",
+          "Microsoft.AspNetCore.Components.Analyzers": "6.0.10"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
@@ -499,10 +556,23 @@
           "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/6.0.8": {
+      "Microsoft.AspNetCore.Components.Analyzers/6.0.10": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.Authorization/6.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "6.0.10",
+          "Microsoft.AspNetCore.Components": "6.0.10"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Authorization.dll": {}
         }
       },
       "Microsoft.AspNetCore.Components.Forms/6.0.8": {
@@ -925,6 +995,50 @@
     }
   },
   "libraries": {
+    "Custom.Radzen.Blazor/4.3.6": {
+      "sha512": "yZ1q9w7ZdfJVdLqJTBlgWyzxK0GGSbWqIo/+4lTxhP3DHDiHuLr8dJgNE5meorkHUojr3eFVkQkEa2wf9dQnxQ==",
+      "type": "package",
+      "path": "custom.radzen.blazor/4.3.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/Custom.Radzen.Blazor.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Custom.Radzen.Blazor.props",
+        "buildTransitive/Custom.Radzen.Blazor.props",
+        "custom.radzen.blazor.4.3.6.nupkg.sha512",
+        "custom.radzen.blazor.nuspec",
+        "icon.png",
+        "lib/net5.0/Radzen.Blazor.dll",
+        "lib/net5.0/Radzen.Blazor.xml",
+        "lib/net6.0/Radzen.Blazor.dll",
+        "lib/net6.0/Radzen.Blazor.xml",
+        "lib/net7.0/Radzen.Blazor.dll",
+        "lib/net7.0/Radzen.Blazor.xml",
+        "staticwebassets/Radzen.Blazor.js",
+        "staticwebassets/fonts/MaterialIcons-Regular.woff",
+        "staticwebassets/fonts/SourceSansPro-Black.woff",
+        "staticwebassets/fonts/SourceSansPro-BlackIt.woff",
+        "staticwebassets/fonts/SourceSansPro-Bold.woff",
+        "staticwebassets/fonts/SourceSansPro-BoldIt.woff",
+        "staticwebassets/fonts/SourceSansPro-ExtraLight.woff",
+        "staticwebassets/fonts/SourceSansPro-ExtraLightIt.woff",
+        "staticwebassets/fonts/SourceSansPro-It.woff",
+        "staticwebassets/fonts/SourceSansPro-Light.woff",
+        "staticwebassets/fonts/SourceSansPro-LightIt.woff",
+        "staticwebassets/fonts/SourceSansPro-Regular.woff",
+        "staticwebassets/fonts/SourceSansPro-Semibold.woff",
+        "staticwebassets/fonts/SourceSansPro-SemiboldIt.woff",
+        "staticwebassets/fonts/roboto-v15-latin-300.woff",
+        "staticwebassets/fonts/roboto-v15-latin-700.woff",
+        "staticwebassets/fonts/roboto-v15-latin-regular.woff",
+        "staticwebassets/fonts/roboto-v30-latin-300.woff",
+        "staticwebassets/fonts/roboto-v30-latin-500.woff",
+        "staticwebassets/fonts/roboto-v30-latin-700.woff",
+        "staticwebassets/fonts/roboto-v30-latin-regular.woff"
+      ]
+    },
     "LibSassBuilder/2.0.1": {
       "sha512": "f+7TWQtCirW94VdzKL9SaAfeSF96TeEqdtDztmTGbndrcUlZZlL6uJLZKQCXQgj1BB3OqX0584OCvqFHrkAusA==",
       "type": "package",
@@ -974,10 +1088,10 @@
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components/6.0.8": {
-      "sha512": "PB0k59EAiTctVaI5Yq3YHvwodXcsAcXPAn9TWJ9Yz+qrJ1+vuvP9sIBdnDgJKIzKLX6fg6QwKIGoO80B42G+aA==",
+    "Microsoft.AspNetCore.Components/6.0.10": {
+      "sha512": "/HXMFugfVysPPoBEiLKUrJglnQeGFibKkb9IKF6asJGkO4LCv5eTObElG0oRTNp8pDfbf7dLOXK9HNq2hvY1gw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components/6.0.8",
+      "path": "microsoft.aspnetcore.components/6.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -985,14 +1099,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.xml",
-        "microsoft.aspnetcore.components.6.0.8.nupkg.sha512",
+        "microsoft.aspnetcore.components.6.0.10.nupkg.sha512",
         "microsoft.aspnetcore.components.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Analyzers/6.0.8": {
-      "sha512": "87BAjhlq/NEo00EtVc2MzXwaGTfF8q6fbeoefd/u3wN13G0LrCMAt5hUMNeu4Fz4TOz5FbuHUoBopPo7mENTuQ==",
+    "Microsoft.AspNetCore.Components.Analyzers/6.0.10": {
+      "sha512": "krpTqAgPWTPTHYVW3EK8iJpKoJlauDt7oYeSasVGYCb7PMEPd7KfpTJR0efJZN4m4oVHViHXEcFZuWD7dIiAKA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/6.0.8",
+      "path": "microsoft.aspnetcore.components.analyzers/6.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1001,8 +1115,23 @@
         "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
         "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.6.0.8.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.6.0.10.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.Authorization/6.0.10": {
+      "sha512": "pd9jT42tZAbLC5zW16jdGRLSmo9VPQG9drpFgDeEeuTC5IuQhTXLLXlhj3OSE3vzRD/+DnKUMxbjlXEuQMojaw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.authorization/6.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net6.0/Microsoft.AspNetCore.Components.Authorization.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Components.Authorization.xml",
+        "microsoft.aspnetcore.components.authorization.6.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.authorization.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Components.Forms/6.0.8": {
@@ -1907,9 +2036,11 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Custom.Radzen.Blazor >= 4.3.6",
       "Domain >= 1.0.0",
       "HttpClients >= 1.0.0",
       "Microsoft.AspNetCore.Authorization >= 6.0.11",
+      "Microsoft.AspNetCore.Components.Authorization >= 6.0.10",
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.8",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.8",
       "Microsoft.JSInterop >= 6.0.8",
@@ -1960,9 +2091,17 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Custom.Radzen.Blazor": {
+            "target": "Package",
+            "version": "[4.3.6, )"
+          },
           "Microsoft.AspNetCore.Authorization": {
             "target": "Package",
             "version": "[6.0.11, )"
+          },
+          "Microsoft.AspNetCore.Components.Authorization": {
+            "target": "Package",
+            "version": "[6.0.10, )"
           },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",
