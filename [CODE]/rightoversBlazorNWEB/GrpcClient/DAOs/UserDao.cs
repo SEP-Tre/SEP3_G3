@@ -9,7 +9,6 @@ namespace GrpcClient.DAOs;
 
 public class UserDao : IUserDao
 {
-    
     private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions
     {
         UnsafeUseInsecureChannelCallCredentials = true
@@ -27,12 +26,29 @@ public class UserDao : IUserDao
     */
     public Task<User> LoginAsync(UserLoginDto dto)
     {
-        throw new NotImplementedException();
+        //TODO change those two methods.
+        User user = new User();
+        user.Id = 0;
+        user.UserName = dto.UserName;
+        user.Password = dto.Password;
+        user.FirstName = "KamiloTest";
+        user.Address = new Address(0, "The great street",
+            "16B/1", 8700, "Horsens", 0, 0);
+        return Task.FromResult(user);
     }
-    
+
 
     public Task<User> RegisterAsync(UserCreationDto dto)
     {
-        throw new NotImplementedException();
+        User user = new User();
+        user.UserName = dto.UserName;
+        user.Password = dto.Password;
+        user.Address = new Address(0,
+            dto.AddressCreationDto.StreetName,
+            dto.AddressCreationDto.StreetNumber,
+            dto.AddressCreationDto.PostalCode,
+            dto.AddressCreationDto.CityName,
+            0, 0);
+        return Task.FromResult(user);
     }
 }
