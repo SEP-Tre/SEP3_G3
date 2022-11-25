@@ -1,0 +1,2 @@
+obj\Debug\net6.0\Protos/FoodPostGrpc.cs \
+obj\Debug\net6.0\Protos/FoodPostGrpcGrpc.cs: Protos/FoodPostGrpc.proto
