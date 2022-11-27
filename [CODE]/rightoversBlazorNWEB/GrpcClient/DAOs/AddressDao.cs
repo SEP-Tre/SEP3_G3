@@ -18,31 +18,35 @@ public class AddressDao : IAddressDao
 
     private static AddressService.AddressServiceClient client = new(channel);
 
-    public async Task<AddressDTO> Create(AddressDTO dto)
+    public async Task<AddressCreationDTO> Create(AddressCreationDTO dto)
     {
         // Await here would be nice
         AddressResponse response = client.createAddress(new AddressRequest{
             Street = dto.Street,
             StreetNumber = dto.StreetNumber,
             PostCode = dto.PostCode,
-            City = dto.City
+            City = dto.City,
+            Longitude = dto.Longitude,
+            Latitude = dto.Latitude
         });
         Console.WriteLine(dto);
         Console.WriteLine(response);
-
-        AddressDTO addressDto = new AddressDTO(
+        
+        AddressCreationDTO addressDto = new AddressCreationDTO(
             response.AddressId,
             response.Street,
             response.StreetNumber,
             response.PostCode,
-            response.City);
+            response.City,
+            response.Longitude,
+            response.Latitude);
 
         return addressDto;
     }
 
-    public async Task<IEnumerable<AddressDTO>> GetAll()
+    public async Task<IEnumerable<AddressCreationDTO>> GetAll()
     {
-        List<AddressDTO> listHolder = new List<AddressDTO>();
+        List<AddressCreationDTO> listHolder = new List<AddressCreationDTO>();
         AsyncServerStreamingCall<AddressResponse> response = client.getAllAddresses(
             new GetAllRequest{
                 Filler = true
@@ -51,12 +55,14 @@ public class AddressDao : IAddressDao
         {
             if (message.StreetNumber != null)
             {
-                AddressDTO addressDto = new AddressDTO{
+                AddressCreationDTO addressDto = new AddressCreationDTO{
                     AddressId = message.AddressId,
                     Street = message.Street,
                     StreetNumber = message.StreetNumber,
                     PostCode = message.PostCode,
-                    City = message.City
+                    City = message.City,
+                    Longitude = message.Longitude,
+                    Latitude = message.Latitude
                 };
                 listHolder.Add(addressDto);
             }

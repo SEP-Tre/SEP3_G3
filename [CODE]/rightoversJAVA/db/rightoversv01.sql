@@ -23,10 +23,12 @@ CREATE TABLE address
     street        varchar(100),
     street_number varchar(30),
     city          varchar(50),
-    post_code     int
+    post_code     int,
+    longitude     numeric,
+    latitude      numeric
 );
 
-INSERT INTO address(street, street_number, post_code, city)
-VALUES ('Haldsvej', '1', 8700, 'Horsens'),
-       ('Banegårdsgade', '2', 8700, 'Horsens'),
-       ('Torvet', '9', 8700, 'Horsens');
+INSERT INTO address(street, street_number, post_code, city, longitude, latitude)
+VALUES ('Haldsvej', '1', 8700, 'Horsens', 55.87746972455174, 9.835904241121996),
+       ('Banegårdsgade', '2', 8700, 'Horsens', 55.86358739147706, 9.837638462738413),
+       ('Torvet', '9', 8700, 'Horsens', 55.86216308465828, 9.851752734511157);

@@ -3,7 +3,7 @@ package sep3.g3.rightoversjava.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.Address;
-import sep3.g3.rightoversjava.model.AddressDTO;
+import sep3.g3.rightoversjava.model.AddressCreationDTO;
 import sep3.g3.rightoversjava.repository.AddressRepository;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class AddressServiceImp implements AddressService {
 
 
     @Override
-    public Address create(AddressDTO dto) {
+    public Address create(AddressCreationDTO dto) {
         return addressRepository.save(new Address(dto));
     }
 

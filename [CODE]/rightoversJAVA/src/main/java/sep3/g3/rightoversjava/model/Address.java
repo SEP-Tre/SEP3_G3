@@ -15,16 +15,19 @@ public class Address {
     private String streetNumber;
     private String city;
     private int postCode;
+    private double longitude;
+    private double latitude;
 
     public Address() {
     }
 
-    public Address(AddressDTO dto) {
-        addressId = dto.getAddressId();
+    public Address(AddressCreationDTO dto) {
         street = dto.getStreet();
         streetNumber = dto.getStreetNumber();
         city = dto.getCity();
         postCode = dto.getPostCode();
+        longitude = dto.getLongitude();
+        latitude = dto.getLatitude();
     }
 
     public Address(int addressId, String streetNumber, String street, String city, int postCode) {
@@ -73,5 +76,21 @@ public class Address {
 
     public void setPostCode(int postCode) {
         this.postCode = postCode;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 }

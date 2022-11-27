@@ -14,7 +14,7 @@ public class AddressCoords
 
     }
 
-    public static AddressCoords ConvertAddressToCoords(AddressDTO addressDto)
+    public static AddressCoords ConvertAddressToCoords(AddressCreationDTO addressDto)
     {
         string address =
             addressDto.Street + " " +

@@ -8,6 +8,8 @@ message AddressRequest {
   string street_number = 2;
   int32 post_code = 3;
   string city = 4;
+  double longitude = 5;
+  double latitude = 6;
 }
 
 message AddressResponse {
@@ -16,6 +18,8 @@ message AddressResponse {
   string street_number = 3;
   int32 post_code = 4;
   string city = 5;
+  double longitude = 6;
+  double latitude = 7;
 }
 
 message GetAllRequest {

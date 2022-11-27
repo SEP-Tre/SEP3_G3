@@ -1,32 +1,35 @@
 package sep3.g3.rightoversjava.model;
 
 // Currently identical to address, but important for adjustment later
-public class AddressDTO {
+public class AddressCreationDTO {
     private int addressId;
     //String so we don't need an optional lettering after
     private String streetNumber;
     private String street;
     private String city;
     private int postCode;
+    private double longitude;
+    private double latitude;
 
-    public AddressDTO() {
-    }
-
-    public AddressDTO(int addressId, String streetNumber, String street, String city, int postCode) {
-        this.addressId = addressId;
-        this.streetNumber = streetNumber;
-        this.street = street;
-        this.city = city;
-        this.postCode = postCode;
+    public AddressCreationDTO() {
     }
 
     //To be used by creation request
-    public AddressDTO(String streetNumber, String street, String city, int postCode) {
-        this.addressId = Integer.MAX_VALUE;
+    public AddressCreationDTO(String streetNumber, String street, String city, int postCode) {
         this.streetNumber = streetNumber;
         this.street = street;
         this.city = city;
         this.postCode = postCode;
+        // I did find a good way to initialize the other attributes - CF
+    }
+
+    public AddressCreationDTO(String streetNumber, String street, String city, int postCode, double longitude, double latitude) {
+        this.streetNumber = streetNumber;
+        this.street = street;
+        this.city = city;
+        this.postCode = postCode;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
     public int getAddressId() {
@@ -67,5 +70,21 @@ public class AddressDTO {
 
     public void setPostCode(int postCode) {
         this.postCode = postCode;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 }

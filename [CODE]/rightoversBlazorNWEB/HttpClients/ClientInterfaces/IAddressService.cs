@@ -4,7 +4,7 @@ namespace HttpClients.ClientInterfaces;
 
 public interface IAddressService
 {
-    Task<AddressDTO> CreateAsync(AddressDTO dto);
-    Task<ICollection<AddressDTO>> GetAsync();
-    Task<AddressDTO> GetCoordsAsync(AddressDTO addressDto);
+    Task<AddressCreationDTO> CreateAsync(AddressCreationDTO dto);
+    Task<ICollection<AddressCreationDTO>> GetAsync();
+    Task<AddressCreationDTO> GetCoordsAsync(AddressCreationDTO addressDto);
 }

@@ -7,7 +7,7 @@ import sep3.g3.rightoversjava.grpc.generated.AddressResponse;
 import sep3.g3.rightoversjava.grpc.generated.AddressServiceGrpc;
 import sep3.g3.rightoversjava.grpc.generated.GetAllRequest;
 import sep3.g3.rightoversjava.model.Address;
-import sep3.g3.rightoversjava.model.AddressDTO;
+import sep3.g3.rightoversjava.model.AddressCreationDTO;
 import sep3.g3.rightoversjava.service.AddressService;
 
 import java.util.ArrayList;
@@ -21,11 +21,13 @@ public class AddressServiceGrpcImpl extends AddressServiceGrpc.AddressServiceImp
     }
 
     public void createAddress(AddressRequest request, StreamObserver<AddressResponse> responseObserver) {
-        Address address = addressService.create(new AddressDTO(
+        Address address = addressService.create(new AddressCreationDTO(
                 request.getStreetNumber(),
                 request.getStreet(),
                 request.getCity(),
-                request.getPostCode()));
+                request.getPostCode(),
+                request.getLongitude(),
+                request.getLatitude()));
 
         AddressResponse addressResponse = AddressResponse.newBuilder()
                 .setAddressId(address.getAddressId())
@@ -33,6 +35,8 @@ public class AddressServiceGrpcImpl extends AddressServiceGrpc.AddressServiceImp
                 .setStreetNumber(address.getStreetNumber())
                 .setPostCode(address.getPostCode())
                 .setCity(address.getCity())
+                .setLongitude(address.getLongitude())
+                .setLatitude(address.getLatitude())
                 .build();
 
         responseObserver.onNext(addressResponse);
@@ -49,6 +53,8 @@ public class AddressServiceGrpcImpl extends AddressServiceGrpc.AddressServiceImp
                     .setStreetNumber(address.getStreetNumber())
                     .setPostCode(address.getPostCode())
                     .setCity(address.getCity())
+                    .setLongitude(address.getLongitude())
+                    .setLatitude(address.getLatitude())
                     .build();
             responseObserver.onNext(addressResponse);
         }

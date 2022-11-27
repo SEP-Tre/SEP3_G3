@@ -24,22 +24,23 @@ namespace AddressGrpcCl {
     static AddressGrpcReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhQcm90b3MvQWRkcmVzc0dycGMucHJvdG8SB3NlcDMuZzMiWAoOQWRkcmVz",
+            "ChhQcm90b3MvQWRkcmVzc0dycGMucHJvdG8SB3NlcDMuZzMifQoOQWRkcmVz",
             "c1JlcXVlc3QSDgoGc3RyZWV0GAEgASgJEhUKDXN0cmVldF9udW1iZXIYAiAB",
-            "KAkSEQoJcG9zdF9jb2RlGAMgASgFEgwKBGNpdHkYBCABKAkibQoPQWRkcmVz",
-            "c1Jlc3BvbnNlEhIKCmFkZHJlc3NfaWQYASABKAUSDgoGc3RyZWV0GAIgASgJ",
-            "EhUKDXN0cmVldF9udW1iZXIYAyABKAkSEQoJcG9zdF9jb2RlGAQgASgFEgwK",
-            "BGNpdHkYBSABKAkiHwoNR2V0QWxsUmVxdWVzdBIOCgZmaWxsZXIYASABKAgy",
-            "mwEKDkFkZHJlc3NTZXJ2aWNlEkIKDWNyZWF0ZUFkZHJlc3MSFy5zZXAzLmcz",
-            "LkFkZHJlc3NSZXF1ZXN0Ghguc2VwMy5nMy5BZGRyZXNzUmVzcG9uc2USRQoP",
-            "Z2V0QWxsQWRkcmVzc2VzEhYuc2VwMy5nMy5HZXRBbGxSZXF1ZXN0Ghguc2Vw",
-            "My5nMy5BZGRyZXNzUmVzcG9uc2UwAUIQqgINQWRkcmVzc0dycGNDbGIGcHJv",
-            "dG8z"));
+            "KAkSEQoJcG9zdF9jb2RlGAMgASgFEgwKBGNpdHkYBCABKAkSEQoJbG9uZ2l0",
+            "dWRlGAUgASgBEhAKCGxhdGl0dWRlGAYgASgBIpIBCg9BZGRyZXNzUmVzcG9u",
+            "c2USEgoKYWRkcmVzc19pZBgBIAEoBRIOCgZzdHJlZXQYAiABKAkSFQoNc3Ry",
+            "ZWV0X251bWJlchgDIAEoCRIRCglwb3N0X2NvZGUYBCABKAUSDAoEY2l0eRgF",
+            "IAEoCRIRCglsb25naXR1ZGUYBiABKAESEAoIbGF0aXR1ZGUYByABKAEiHwoN",
+            "R2V0QWxsUmVxdWVzdBIOCgZmaWxsZXIYASABKAgymwEKDkFkZHJlc3NTZXJ2",
+            "aWNlEkIKDWNyZWF0ZUFkZHJlc3MSFy5zZXAzLmczLkFkZHJlc3NSZXF1ZXN0",
+            "Ghguc2VwMy5nMy5BZGRyZXNzUmVzcG9uc2USRQoPZ2V0QWxsQWRkcmVzc2Vz",
+            "EhYuc2VwMy5nMy5HZXRBbGxSZXF1ZXN0Ghguc2VwMy5nMy5BZGRyZXNzUmVz",
+            "cG9uc2UwAUIQqgINQWRkcmVzc0dycGNDbGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::AddressGrpcCl.AddressRequest), global::AddressGrpcCl.AddressRequest.Parser, new[]{ "Street", "StreetNumber", "PostCode", "City" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AddressGrpcCl.AddressResponse), global::AddressGrpcCl.AddressResponse.Parser, new[]{ "AddressId", "Street", "StreetNumber", "PostCode", "City" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AddressGrpcCl.AddressRequest), global::AddressGrpcCl.AddressRequest.Parser, new[]{ "Street", "StreetNumber", "PostCode", "City", "Longitude", "Latitude" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AddressGrpcCl.AddressResponse), global::AddressGrpcCl.AddressResponse.Parser, new[]{ "AddressId", "Street", "StreetNumber", "PostCode", "City", "Longitude", "Latitude" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AddressGrpcCl.GetAllRequest), global::AddressGrpcCl.GetAllRequest.Parser, new[]{ "Filler" }, null, null, null, null)
           }));
     }
@@ -85,6 +86,8 @@ namespace AddressGrpcCl {
       streetNumber_ = other.streetNumber_;
       postCode_ = other.postCode_;
       city_ = other.city_;
+      longitude_ = other.longitude_;
+      latitude_ = other.latitude_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -142,6 +145,30 @@ namespace AddressGrpcCl {
       }
     }
 
+    /// <summary>Field number for the "longitude" field.</summary>
+    public const int LongitudeFieldNumber = 5;
+    private double longitude_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Longitude {
+      get { return longitude_; }
+      set {
+        longitude_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "latitude" field.</summary>
+    public const int LatitudeFieldNumber = 6;
+    private double latitude_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Latitude {
+      get { return latitude_; }
+      set {
+        latitude_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -161,6 +188,8 @@ namespace AddressGrpcCl {
       if (StreetNumber != other.StreetNumber) return false;
       if (PostCode != other.PostCode) return false;
       if (City != other.City) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Longitude, other.Longitude)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Latitude, other.Latitude)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -172,6 +201,8 @@ namespace AddressGrpcCl {
       if (StreetNumber.Length != 0) hash ^= StreetNumber.GetHashCode();
       if (PostCode != 0) hash ^= PostCode.GetHashCode();
       if (City.Length != 0) hash ^= City.GetHashCode();
+      if (Longitude != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Longitude);
+      if (Latitude != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Latitude);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -206,6 +237,14 @@ namespace AddressGrpcCl {
         output.WriteRawTag(34);
         output.WriteString(City);
       }
+      if (Longitude != 0D) {
+        output.WriteRawTag(41);
+        output.WriteDouble(Longitude);
+      }
+      if (Latitude != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(Latitude);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -232,6 +271,14 @@ namespace AddressGrpcCl {
         output.WriteRawTag(34);
         output.WriteString(City);
       }
+      if (Longitude != 0D) {
+        output.WriteRawTag(41);
+        output.WriteDouble(Longitude);
+      }
+      if (Latitude != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(Latitude);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -253,6 +300,12 @@ namespace AddressGrpcCl {
       }
       if (City.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(City);
+      }
+      if (Longitude != 0D) {
+        size += 1 + 8;
+      }
+      if (Latitude != 0D) {
+        size += 1 + 8;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -277,6 +330,12 @@ namespace AddressGrpcCl {
       }
       if (other.City.Length != 0) {
         City = other.City;
+      }
+      if (other.Longitude != 0D) {
+        Longitude = other.Longitude;
+      }
+      if (other.Latitude != 0D) {
+        Latitude = other.Latitude;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -309,6 +368,14 @@ namespace AddressGrpcCl {
             City = input.ReadString();
             break;
           }
+          case 41: {
+            Longitude = input.ReadDouble();
+            break;
+          }
+          case 49: {
+            Latitude = input.ReadDouble();
+            break;
+          }
         }
       }
     #endif
@@ -338,6 +405,14 @@ namespace AddressGrpcCl {
           }
           case 34: {
             City = input.ReadString();
+            break;
+          }
+          case 41: {
+            Longitude = input.ReadDouble();
+            break;
+          }
+          case 49: {
+            Latitude = input.ReadDouble();
             break;
           }
         }
@@ -386,6 +461,8 @@ namespace AddressGrpcCl {
       streetNumber_ = other.streetNumber_;
       postCode_ = other.postCode_;
       city_ = other.city_;
+      longitude_ = other.longitude_;
+      latitude_ = other.latitude_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -455,6 +532,30 @@ namespace AddressGrpcCl {
       }
     }
 
+    /// <summary>Field number for the "longitude" field.</summary>
+    public const int LongitudeFieldNumber = 6;
+    private double longitude_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Longitude {
+      get { return longitude_; }
+      set {
+        longitude_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "latitude" field.</summary>
+    public const int LatitudeFieldNumber = 7;
+    private double latitude_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public double Latitude {
+      get { return latitude_; }
+      set {
+        latitude_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -475,6 +576,8 @@ namespace AddressGrpcCl {
       if (StreetNumber != other.StreetNumber) return false;
       if (PostCode != other.PostCode) return false;
       if (City != other.City) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Longitude, other.Longitude)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Latitude, other.Latitude)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -487,6 +590,8 @@ namespace AddressGrpcCl {
       if (StreetNumber.Length != 0) hash ^= StreetNumber.GetHashCode();
       if (PostCode != 0) hash ^= PostCode.GetHashCode();
       if (City.Length != 0) hash ^= City.GetHashCode();
+      if (Longitude != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Longitude);
+      if (Latitude != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Latitude);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -525,6 +630,14 @@ namespace AddressGrpcCl {
         output.WriteRawTag(42);
         output.WriteString(City);
       }
+      if (Longitude != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(Longitude);
+      }
+      if (Latitude != 0D) {
+        output.WriteRawTag(57);
+        output.WriteDouble(Latitude);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -555,6 +668,14 @@ namespace AddressGrpcCl {
         output.WriteRawTag(42);
         output.WriteString(City);
       }
+      if (Longitude != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(Longitude);
+      }
+      if (Latitude != 0D) {
+        output.WriteRawTag(57);
+        output.WriteDouble(Latitude);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -579,6 +700,12 @@ namespace AddressGrpcCl {
       }
       if (City.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(City);
+      }
+      if (Longitude != 0D) {
+        size += 1 + 8;
+      }
+      if (Latitude != 0D) {
+        size += 1 + 8;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -606,6 +733,12 @@ namespace AddressGrpcCl {
       }
       if (other.City.Length != 0) {
         City = other.City;
+      }
+      if (other.Longitude != 0D) {
+        Longitude = other.Longitude;
+      }
+      if (other.Latitude != 0D) {
+        Latitude = other.Latitude;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -642,6 +775,14 @@ namespace AddressGrpcCl {
             City = input.ReadString();
             break;
           }
+          case 49: {
+            Longitude = input.ReadDouble();
+            break;
+          }
+          case 57: {
+            Latitude = input.ReadDouble();
+            break;
+          }
         }
       }
     #endif
@@ -675,6 +816,14 @@ namespace AddressGrpcCl {
           }
           case 42: {
             City = input.ReadString();
+            break;
+          }
+          case 49: {
+            Longitude = input.ReadDouble();
+            break;
+          }
+          case 57: {
+            Latitude = input.ReadDouble();
             break;
           }
         }
