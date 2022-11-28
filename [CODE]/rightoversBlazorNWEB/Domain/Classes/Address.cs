@@ -2,26 +2,39 @@
 
 public class Address
 {
-    public int Id  { get; set; }
-    public string StreetName  { get; set; }
-    public string StreetNumber  { get; set; }
-    public int PostalCode  { get; set; }
-    public string CityName  { get; set; }
-    public double Longitude  { get; set; }
-    public double Latitude  { get; set; }
+    public int AddressId { get; set; }
+    public string StreetNumber { get; set; }
+    public string Street { get; set; }
+    public int PostCode { get; set; }
+    public string City { get; set; }
+    public double Longitude { get; set; }
+    public double Latitude { get; set; }
 
-    public Address(int id, string streetName, string streetNumber, int postalCode, string cityName, double longitude, double latitude)
+    public Address(int addressId, string streetNumber, string street, int postCode, string city, double longitude, double latitude)
     {
-        Id = id;
-        StreetName = streetName;
+        AddressId = addressId;
         StreetNumber = streetNumber;
-        PostalCode = postalCode;
-        CityName = cityName;
+        Street = street;
+        PostCode = postCode;
+        City = city;
         Longitude = longitude;
         Latitude = latitude;
     }
 
-    public Address()
+    public Address(int addressId, string streetNumber, string street, int postCode, string city)
     {
+        AddressId = addressId;
+        StreetNumber = streetNumber;
+        Street = street;
+        PostCode = postCode;
+        City = city;
+    }
+
+    public Address(string streetNumber, string street, int postCode, string city)
+    {
+        StreetNumber = streetNumber;
+        Street = street;
+        PostCode = postCode;
+        City = city;
     }
 }

@@ -21,10 +21,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFoodPostConverter, FoodPostConverter>();
 builder.Services.AddScoped<IFoodPostDao, FoodPostDao>();
+builder.Services.AddScoped<IAddressDao, AddressDao>();
 builder.Services.AddScoped<IFoodPostLogic, FoodPostLogic>();
 builder.Services.AddScoped<IUserDao, UserDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 AuthorizationPolicies.AddPolicies(builder.Services);
+builder.Services.AddScoped<IAddressLogic, AddressLogic>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
@@ -55,7 +57,6 @@ app.UseCors(x => x
     .AllowCredentials());
 
 app.UseHttpsRedirection();
-app.UseAuthentication();
 
 app.UseAuthorization();
 

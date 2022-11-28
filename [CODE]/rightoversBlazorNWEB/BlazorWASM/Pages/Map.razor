@@ -2,22 +2,31 @@
 @using Microsoft.JSInterop
 @using Radzen
 @using Radzen.Blazor
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@using System.Net
+@using System.Text
+@using System.Xml.Linq
+@using System.Data
+@using Microsoft.VisualBasic.CompilerServices
+@inject IAddressService addressService
+@inject NavigationManager navMgr
 @inject IJSRuntime JSRuntime
 <div class="container-fluid">
     <div class="row p-3">
         <div class="col">
             <RadzenCard Class="mb-4">
-                <RadzenCheckBox @bind-Value=@showHorsensMarker Name="showMarker"/>
-                <RadzenLabel Text="Show marker for Horsens" Component="showMarker" Style="margin-left: 8px; vertical-align: middle;"/>
+                @msg
             </RadzenCard>
-            <RadzenGoogleMap @ref=map style="height: 400px" Options=@(new Dictionary<string, object> { { "disableDoubleClickZoom", true } })
-                             Zoom=@zoom ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center=@(new GoogleMapPosition() { Lat = 55.863352, Lng = 9.838155 }) MapClick=@OnMapClick MarkerClick=@OnMarkerClick>
+            <RadzenGoogleMap @ref=map style="height: 400px" Options=@(new Dictionary<string, object>{{"disableDoubleClickZoom", true}})
+                             Zoom=@zoom ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center=@(new GoogleMapPosition(){Lat = 55.863352, Lng = 9.838155}) MapClick=@OnMapClick MarkerClick=@OnMarkerClick>
                 <Markers>
-                    <RadzenGoogleMapMarker Title="London" Label="London" Position=@(new GoogleMapPosition() { Lat = 51.5074, Lng = 0.1278 })/>
-                    <RadzenGoogleMapMarker Title="Paris " Label="Paris" Position=@(new GoogleMapPosition() { Lat = 48.8566, Lng = 2.3522 })/>
-                    @if (showHorsensMarker)
+                    @if (addressDtos != null)
                     {
-                        <RadzenGoogleMapMarker Title="Horsens " Label="Horsens" Position=@(new GoogleMapPosition() { Lat = 55.863352, Lng = 9.838155 })/>
+                        @foreach (var item in addressDtos)
+                        {
+                            <RadzenGoogleMapMarker Position=@(new GoogleMapPosition(){Lat = @item.Latitude, Lng = @item.Longitude})></RadzenGoogleMapMarker>
+                        }
                     }
                 </Markers>
             </RadzenGoogleMap>
@@ -25,11 +34,121 @@
     </div>
 </div>
 
+<div class="card">
+    <h3>Mark New Address</h3>
+    <div class="form-group field">
+        <label>Street:</label>
+        <br/>
+        <input type="text" @bind="street" @bind:event="oninput"/>
+    </div>
+    <div class="form-group field">
+        <label>Street Number:</label>
+        <br/>
+        <input type="text" @bind="streetNumber" @bind:event="oninput"/>
+    </div>
+    <div class="form-group field">
+        <label>Post Code:</label>
+        <br/>
+        <input type="text" @bind="postCode" @bind:event="oninput"/>
+    </div>
+    <div class="form-group field">
+        <label>City: </label>
+        <br/>
+        <input type="text" @bind="city" @bind:event="oninput"/>
+
+    </div>
+    <div class="button-row">
+        <button @onclick="CreateAsync" class="acceptbtn">Mark</button>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <h3>Food Posts</h3>
+</div>
+@if (addressDtos == null)
+{
+    <p>Loading...</p>
+}
+else if (!addressDtos.Any())
+{
+    <p>No addresses to display. Sorry :(</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Street</th>
+            <th>Street Number</th>
+            <th>Post Code</th>
+            <th>City</th>
+            <th>Latitude</th>
+            <th>Longtitude</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in addressDtos)
+        {
+            <tr>
+                <td>@item.Street</td>
+                <td>@item.StreetNumber</td>
+                <td>@item.PostCode</td>
+                <td>@item.City</td>
+                <td>@item.Latitude</td>
+                <td>@item.Longitude</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
 
 @code {
-    int zoom = 9;
-    bool showHorsensMarker;
-    RadzenGoogleMap map;
+    private int zoom = 12;
+    private bool showHorsensMarker;
+    private RadzenGoogleMap map;
+    private ICollection<AddressCreationDTO>? addressDtos;
+    private ICollection<AddressCoords>? coordinates;
+    private string msg;
+    private string street;
+    private string streetNumber;
+    private string postCode;
+    private string city;
+    private bool showModal;
+    private string createdDtoString;
+
+    private async Task clear()
+    {
+        street = "";
+        streetNumber = "";
+        postCode = "";
+        city = "";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            addressDtos = await addressService.GetAsync();
+            foreach (var addressDto in addressDtos)
+            {
+                if (addressDto.Longitude == 0)
+                {
+                    AddressCreationDTO coordDto = await addressService.GetCoordsAsync(addressDto);
+                    addressDto.Latitude = coordDto.Latitude;
+                    addressDto.Longitude = coordDto.Longitude;
+                }
+            }
+
+            Console.Write("Addresses: " + addressDtos);
+        }
+        catch (
+            Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
 
     void OnMapClick(GoogleMapClickEventArgs args)
     {
@@ -49,6 +168,36 @@ setTimeout(() => window.infoWindow.open(map, marker), 200);
 ";
 
         await JSRuntime.InvokeVoidAsync("eval", code);
+    }
+
+    private async Task Proceed()
+    {
+        showModal = false;
+        await OnInitializedAsync();
+        navMgr.NavigateTo("/Map");
+    }
+
+    private async Task CreateAsync()
+    {
+        try
+        {
+            var postCodeInt = IntegerType.FromString(this.postCode);
+            var newAddress = await addressService.CreateAsync(new AddressCreationDTO(){
+                Street = street,
+                StreetNumber = streetNumber,
+                PostCode = postCodeInt,
+                City = city
+            });
+            await clear();
+            createdDtoString = "Your address was added.";
+            msg = createdDtoString;
+            await Proceed();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
     }
 
 }
