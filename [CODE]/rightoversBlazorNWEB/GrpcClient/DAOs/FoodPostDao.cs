@@ -15,7 +15,7 @@ public class FoodPostDao : IFoodPostDao
     {
         UnsafeUseInsecureChannelCallCredentials = true
     });
-
+    
     private static FoodPostService.FoodPostServiceClient client = new(channel);
 
     private readonly IFoodPostConverter converter;
@@ -36,7 +36,9 @@ public class FoodPostDao : IFoodPostDao
             Title = dto.Title
         });
 
-        FoodPost fp = converter.getFoodPost(response);
+        FoodPost fp = new FoodPost(response.FpId, response.Title, response.Category, response.Category,
+            response.PictureUrl, response.DaysUntilExpired, response.FpState);
+
         return fp;
     }
 
@@ -79,5 +81,5 @@ public class FoodPostDao : IFoodPostDao
         return foodPost;
     }
 
-    
+
 }

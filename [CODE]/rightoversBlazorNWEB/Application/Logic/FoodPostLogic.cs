@@ -13,16 +13,17 @@ public class FoodPostLogic : IFoodPostLogic
     {
         fpDao = dao;
     }
-    
+
     public Task<FoodPost> CreateAsync(FoodPostCreationDTO dto)
     {
         return fpDao.Create(dto);
     }
-    
+
     public async Task<IEnumerable<OverSimpleFoodPostDto>> GetAsync()
     {
         IEnumerable<OverSimpleFoodPostDto> allPosts = await fpDao.GetAsync();
         Console.WriteLine(allPosts.ToString());
+
         return allPosts;
     }
 

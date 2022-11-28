@@ -17,7 +17,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFoodPostConverter, FoodPostConverter>();
 builder.Services.AddScoped<IFoodPostDao, FoodPostDao>();
+builder.Services.AddScoped<IAddressDao, AddressDao>();
 builder.Services.AddScoped<IFoodPostLogic, FoodPostLogic>();
+builder.Services.AddScoped<IAddressLogic, AddressLogic>();
 
 var app = builder.Build();
 
