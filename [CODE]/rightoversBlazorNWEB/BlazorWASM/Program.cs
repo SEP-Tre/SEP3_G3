@@ -8,7 +8,8 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7182") });
+builder.Services.AddScoped(sp => new HttpClient{BaseAddress = new Uri("https://localhost:7182")});
 builder.Services.AddScoped<IFoodPostService, FoodPostHttpClient>();
+builder.Services.AddScoped<IAddressService, AddressServiceHttpClient>();
 
 await builder.Build().RunAsync();
