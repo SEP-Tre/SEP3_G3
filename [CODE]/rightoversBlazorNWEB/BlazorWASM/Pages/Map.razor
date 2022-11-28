@@ -107,7 +107,7 @@ else
     private int zoom = 12;
     private bool showHorsensMarker;
     private RadzenGoogleMap map;
-    private ICollection<AddressCreationDTO>? addressDtos;
+    private ICollection<AddressCreationDto>? addressDtos;
     private ICollection<AddressCoords>? coordinates;
     private string msg;
     private string street;
@@ -134,7 +134,7 @@ else
             {
                 if (addressDto.Longitude == 0)
                 {
-                    AddressCreationDTO coordDto = await addressService.GetCoordsAsync(addressDto);
+                    AddressCreationDto coordDto = await addressService.GetCoordsAsync(addressDto);
                     addressDto.Latitude = coordDto.Latitude;
                     addressDto.Longitude = coordDto.Longitude;
                 }
@@ -182,7 +182,7 @@ setTimeout(() => window.infoWindow.open(map, marker), 200);
         try
         {
             var postCodeInt = IntegerType.FromString(this.postCode);
-            var newAddress = await addressService.CreateAsync(new AddressCreationDTO(){
+            var newAddress = await addressService.CreateAsync(new AddressCreationDto(){
                 Street = street,
                 StreetNumber = streetNumber,
                 PostCode = postCodeInt,

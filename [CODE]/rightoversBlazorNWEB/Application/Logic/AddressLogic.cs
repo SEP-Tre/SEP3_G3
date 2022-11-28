@@ -14,12 +14,12 @@ public class AddressLogic : IAddressLogic
         addressDao = dao;
     }
 
-    public async Task<AddressCreationDTO> CreateAsync(AddressCreationDTO addressDto)
+    public async Task<AddressCreationDto> CreateAsync(AddressCreationDto addressDto)
     {
         return await addressDao.Create(addressDto);
     }
 
-    public async Task<IEnumerable<AddressCreationDTO>> GetAllAsync()
+    public async Task<IEnumerable<AddressCreationDto>> GetAllAsync()
     {
         return await addressDao.GetAll();
     }

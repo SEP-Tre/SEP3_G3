@@ -5,6 +5,6 @@ namespace Application.LogicInterfaces;
 
 public interface IAddressLogic
 {
-    Task<AddressCreationDTO> CreateAsync(AddressCreationDTO addressDto);
-    Task<IEnumerable<AddressCreationDTO>> GetAllAsync();
+    Task<AddressCreationDto> CreateAsync(AddressCreationDto addressDto);
+    Task<IEnumerable<AddressCreationDto>> GetAllAsync();
 }
