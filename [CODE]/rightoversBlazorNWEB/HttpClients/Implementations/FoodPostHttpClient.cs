@@ -51,4 +51,20 @@ public class FoodPostHttpClient : IFoodPostService
 
         return foodPostDtos;
     }
+
+    public async Task<FoodPost> GetSingleAsync(int id)
+    {
+        var response = await client.GetAsync($"/FoodPosts/Single?id={id}");
+        // Console.Write("API: " + response);
+        var content = await response.Content.ReadAsStringAsync();
+        // Console.Write("Content: " + content);
+        if (!response.IsSuccessStatusCode) throw new Exception(content);
+
+        var foodPost =
+            JsonSerializer.Deserialize<FoodPost>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            })!;
+        return foodPost;
+    }
 }

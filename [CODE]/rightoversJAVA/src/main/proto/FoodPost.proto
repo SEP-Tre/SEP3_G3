@@ -24,8 +24,14 @@ message FoodPostResponse {
 message GetAllRequest {
   bool filler = 1;
 }
+message FoodPostID
+{
+  int32 id=1;
+}
+
 
 service FoodPostService {
   rpc post(FoodPostRequest) returns (FoodPostResponse);
   rpc getAllFoodPosts(GetAllRequest) returns (stream FoodPostResponse);
+  rpc getSingleFoodPost(FoodPostID) returns (FoodPostResponse);
 }

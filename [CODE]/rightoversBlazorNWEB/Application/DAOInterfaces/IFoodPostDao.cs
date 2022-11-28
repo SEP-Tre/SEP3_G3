@@ -7,4 +7,5 @@ public interface IFoodPostDao
 {
     public Task<FoodPost> Create(FoodPostCreationDTO dto);
     public Task<IEnumerable<OverSimpleFoodPostDto>> GetAsync();
+    public Task<FoodPost> GetSingleAsync(int id);
 }

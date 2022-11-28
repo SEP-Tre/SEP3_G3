@@ -26,4 +26,9 @@ public class FoodPostLogic : IFoodPostLogic
 
         return allPosts;
     }
+
+    public Task<FoodPost> GetSingleAsync(int id)
+    {
+        return fpDao.GetSingleAsync(id);
+    }
 }
