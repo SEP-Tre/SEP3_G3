@@ -4,21 +4,47 @@
 @inject IUserService userService
 @inject NavigationManager navMgr
 @page "/Register"
-<RadzenAccordion class="w-100">
-    <Items>
-        <RadzenAccordionItem Text="User credentials" Icon="">
-            Details for Orders
-        </RadzenAccordionItem>
-        <RadzenAccordionItem Text="Address information" Icon="account_box">
-            Details for Employees
-        </RadzenAccordionItem>
-    </Items>
-</RadzenAccordion>
+
+<div class="d-flex flex-column align-items-center card-back">
+    <RadzenCard class="my-2 w-75 ">
+        <div class="d-flex flex-column justify-content-around">
+            <RadzenText Text="User credentials"></RadzenText>
+            <RadzenTextBox Placeholder="Enter your first name..." Change=@(args => userDto.FirstName = args) Class="w-100 my-2"/>
+
+            <RadzenTextBox Placeholder="Enter your user name..." Change=@(args => userDto.UserName = args) Class="w-100 my-2"/>
+
+            <RadzenPassword Placeholder="Enter your password..." Change=@(args => userDto.Password = args) Class="w-100 my-2"/>
+        </div>
+    </RadzenCard>
+    <RadzenCard class="my-2 w-75">
+        <div class="d-flex flex-column justify-content-around">
+            <RadzenText Text="Address"></RadzenText>
+            <RadzenTextBox Placeholder="Enter your street name..." Change=@(args => addressDto.Street = args) Class="w-100 my-2"/>
+
+            <RadzenTextBox Placeholder="Enter your street number with other information..." Change=@(args => addressDto.StreetNumber = args) Class="w-100 my-2"/>
+
+            <RadzenPassword Placeholder="Enter your post code..." Change=@(args => addressDto.PostCode = Convert.ToInt32(args)) Class="w-100 my-2"/>
+
+            <RadzenTextBox Placeholder="Enter your city..." Change=@(args => addressDto.City = args) Class="w-100 my-2"/>
+
+        </div>
+    </RadzenCard>
+    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => RegisterUser()) Text="Register" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+
+</div>
+
 
 @code {
-    private UserCreationDto userDto = new UserCreationDto();
-    private AddressCreationDto addressDto = new AddressCreationDto();
+    private UserCreationDto userDto;
+    private AddressCreationDto addressDto;
     private string errorMsg;
+
+    protected override Task OnInitializedAsync()
+    {
+        userDto = new UserCreationDto();
+        addressDto = new AddressCreationDto();
+        return Task.CompletedTask;
+    }
 
     private async Task RegisterUser()
     {
@@ -26,6 +52,8 @@
         {
             if (ValidDto())
             {
+                userDto.AddressCreationDto = addressDto;
+                Console.WriteLine(userDto.toString());
                 User user = await userService.RegisterAsync(userDto);
                 Console.WriteLine($"User id: {user.Id}, City name {user.Address.City}");
             }
@@ -33,7 +61,7 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
+                throw;
         }
     }
 

@@ -10,6 +10,7 @@ namespace HttpClients.Implementations;
 public class UserHttpClient : IUserService
 {
     private readonly HttpClient client;
+    private readonly IAddressService addressService;
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }
     private static string? Jwt { get; set; } = "";
 
@@ -35,6 +36,12 @@ public class UserHttpClient : IUserService
 
     public async Task<User> RegisterAsync(UserCreationDto dto)
     {
+        //TODO there might be a problem create async
+        Console.WriteLine(dto.toString());
+        AddressCreationDto addressCreationDto = dto.AddressCreationDto;
+        Console.WriteLine(addressCreationDto.toString());
+        AddressCreationDto createdAddress=await addressService.CreateAsync(addressCreationDto);
+        Console.WriteLine(createdAddress.toString());
         var response = await client.PostAsJsonAsync("/Users/register", dto);
         var content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode) throw new Exception(content);

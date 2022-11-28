@@ -30,10 +30,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fisch/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/fisch/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UIComponents/LoginButtons.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVUlDb21wb25lbnRzXExvZ2luQnV0dG9ucy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -61,6 +57,10 @@ build_metadata.AdditionalFiles.CssScope = b-xm4hp2nt19
 [C:/Users/fisch/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/PostDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-jixqs6uerm
+
+[C:/Users/fisch/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-hyqv80bnnt
 
 [C:/Users/fisch/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UIComponents/Modal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVUlDb21wb25lbnRzXE1vZGFsLnJhem9y
