@@ -27,7 +27,7 @@
             if (ValidDto())
             {
                 User user = await userService.RegisterAsync(userDto);
-                Console.WriteLine($"User id: {user.Id}, City name {user.Address.CityName}");
+                Console.WriteLine($"User id: {user.Id}, City name {user.Address.City}");
             }
         }
         catch (Exception e)
@@ -46,10 +46,10 @@
             errorMsg = "Fields cannot be empty.";
             return false;
         }
-        if (string.IsNullOrEmpty(addressDto.CityName)
-            || string.IsNullOrEmpty(addressDto.StreetName)
+        if (string.IsNullOrEmpty(addressDto.City)
+            || string.IsNullOrEmpty(addressDto.Street)
             || string.IsNullOrEmpty(addressDto.StreetNumber)
-            || addressDto.PostalCode == 0)
+            || addressDto.PostCode == 0)
         {
             errorMsg = "Fields cannot be empty.";
             return false;

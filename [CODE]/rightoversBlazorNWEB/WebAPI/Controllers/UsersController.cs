@@ -65,11 +65,11 @@ public class UsersController : ControllerBase
             new Claim("Id", user.Id.ToString()),
             new Claim("UserName", user.UserName),
             new Claim("FirstName", user.FirstName),
-            new Claim("AddressId", user.Address.Id.ToString()),
-            new Claim("StreetName", user.Address.StreetName),
+            new Claim("AddressId", user.Address.AddressId.ToString()),
+            new Claim("StreetName", user.Address.Street),
             new Claim("StreetNumber", user.Address.StreetNumber),
-            new Claim("PostalCode", user.Address.PostalCode.ToString()),
-            new Claim("City", user.Address.CityName),
+            new Claim("PostalCode", user.Address.PostCode.ToString()),
+            new Claim("City", user.Address.City),
             new Claim("Longitude", user.Address.Longitude.ToString()),
             new Claim("Latitude", user.Address.Latitude.ToString())
             //@context.User.Longitude <- This is a string.

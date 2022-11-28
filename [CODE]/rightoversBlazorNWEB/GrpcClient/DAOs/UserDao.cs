@@ -44,10 +44,10 @@ public class UserDao : IUserDao
         user.UserName = dto.UserName;
         user.Password = dto.Password;
         user.Address = new Address(0,
-            dto.AddressCreationDto.StreetName,
             dto.AddressCreationDto.StreetNumber,
-            dto.AddressCreationDto.PostalCode,
-            dto.AddressCreationDto.CityName,
+            dto.AddressCreationDto.Street,
+            dto.AddressCreationDto.PostCode,
+            dto.AddressCreationDto.City,
             0, 0);
         return Task.FromResult(user);
     }

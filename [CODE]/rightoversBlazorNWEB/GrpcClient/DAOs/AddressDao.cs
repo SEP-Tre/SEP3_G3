@@ -18,7 +18,7 @@ public class AddressDao : IAddressDao
 
     private static AddressService.AddressServiceClient client = new(channel);
 
-    public async Task<AddressCreationDTO> Create(AddressCreationDTO dto)
+    public async Task<AddressCreationDto> Create(AddressCreationDto dto)
     {
         // Await here would be nice
         AddressResponse response = client.createAddress(new AddressRequest{
@@ -32,7 +32,7 @@ public class AddressDao : IAddressDao
         Console.WriteLine(dto);
         Console.WriteLine(response);
         
-        AddressCreationDTO addressDto = new AddressCreationDTO(
+        AddressCreationDto addressDto = new AddressCreationDto(
             response.AddressId,
             response.Street,
             response.StreetNumber,
@@ -44,9 +44,9 @@ public class AddressDao : IAddressDao
         return addressDto;
     }
 
-    public async Task<IEnumerable<AddressCreationDTO>> GetAll()
+    public async Task<IEnumerable<AddressCreationDto>> GetAll()
     {
-        List<AddressCreationDTO> listHolder = new List<AddressCreationDTO>();
+        List<AddressCreationDto> listHolder = new List<AddressCreationDto>();
         AsyncServerStreamingCall<AddressResponse> response = client.getAllAddresses(
             new GetAllRequest{
                 Filler = true
@@ -55,7 +55,7 @@ public class AddressDao : IAddressDao
         {
             if (message.StreetNumber != null)
             {
-                AddressCreationDTO addressDto = new AddressCreationDTO{
+                AddressCreationDto addressDto = new AddressCreationDto{
                     AddressId = message.AddressId,
                     Street = message.Street,
                     StreetNumber = message.StreetNumber,

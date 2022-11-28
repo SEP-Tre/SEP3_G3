@@ -14,7 +14,7 @@ public class FoodPostLogic : IFoodPostLogic
         fpDao = dao;
     }
 
-    public Task<FoodPost> CreateAsync(FoodPostCreationDTO dto)
+    public Task<FoodPost> CreateAsync(FoodPostCreationDto dto)
     {
         return fpDao.Create(dto);
     }

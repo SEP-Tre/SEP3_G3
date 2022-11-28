@@ -15,7 +15,7 @@ public class FoodPostHttpClient : IFoodPostService
         this.client = client;
     }
 
-    public async Task<FoodPost> Create(FoodPostCreationDTO dto)
+    public async Task<FoodPost> Create(FoodPostCreationDto dto)
     {
         var response = await client.PostAsJsonAsync("/FoodPosts", dto);
         var result = await response.Content.ReadAsStringAsync();

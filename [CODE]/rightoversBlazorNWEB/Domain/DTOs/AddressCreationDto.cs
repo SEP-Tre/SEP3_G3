@@ -1,21 +1,37 @@
 ﻿namespace Domain.DTOs;
 
+//NOTE: Added long and lat
 public class AddressCreationDto
 {
-    public string StreetName  { get; set; }
-    public string StreetNumber  { get; set; }
-    public int PostalCode  { get; set; }
-    public string CityName  { get; set; }
+    public int AddressId { get; set; }
+    public string StreetNumber { get; set; }
+    public string Street { get; set; }
+    public int PostCode { get; set; }
+    public string City { get; set; }
+    public double Longitude { get; set; }
+    public double Latitude { get; set; }
 
-    public AddressCreationDto(string streetName, string streetNumber, int postalCode, string cityName)
+    public AddressCreationDto(int addressId, string streetNumber, string street, int postCode, string city, double longitude, double latitude)
     {
-        StreetName = streetName;
+        AddressId = addressId;
         StreetNumber = streetNumber;
-        PostalCode = postalCode;
-        CityName = cityName;
+        Street = street;
+        PostCode = postCode;
+        City = city;
+        Longitude = longitude;
+        Latitude = latitude;
+    }
+
+    public AddressCreationDto(string streetNumber, string street, int postCode, string city)
+    {
+        StreetNumber = streetNumber;
+        Street = street;
+        PostCode = postCode;
+        City = city;
     }
 
     public AddressCreationDto()
     {
+
     }
 }

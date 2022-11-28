@@ -18,12 +18,12 @@ public class AddressController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<AddressCreationDTO>> CreateAsync(AddressCreationDTO addressDto)
+    public async Task<ActionResult<AddressCreationDto>> CreateAsync(AddressCreationDto addressDto)
     {
 
         try
         {
-            AddressCreationDTO savedAddressDto = await addressLogic.CreateAsync(addressDto);
+            AddressCreationDto savedAddressDto = await addressLogic.CreateAsync(addressDto);
 
             return Created($"/addresses/{savedAddressDto.AddressId}", savedAddressDto);
         }
@@ -36,7 +36,7 @@ public class AddressController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<AddressCreationDTO>>> GetAsync()
+    public async Task<ActionResult<IEnumerable<AddressCreationDto>>> GetAsync()
     {
         try
         {

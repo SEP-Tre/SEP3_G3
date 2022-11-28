@@ -25,7 +25,7 @@ public class FoodPostDao : IFoodPostDao
         this.converter = converter;
     }
 
-    public async Task<FoodPost> Create(FoodPostCreationDTO dto)
+    public async Task<FoodPost> Create(FoodPostCreationDto dto)
     {
         FoodPostResponse response = await client.postAsync(new FoodPostRequest
         {

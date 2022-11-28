@@ -1,8 +1,8 @@
 ﻿namespace Domain.DTOs;
 
-public class FoodPostCreationDTO
+public class FoodPostCreationDto
 {
-    public FoodPostCreationDTO(string title, string category, string description, string pictureUrl,
+    public FoodPostCreationDto(string title, string category, string description, string pictureUrl,
         int daysUntilExpired)
     {
         Title = title;

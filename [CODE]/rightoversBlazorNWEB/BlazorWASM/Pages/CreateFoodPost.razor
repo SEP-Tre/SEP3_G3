@@ -75,7 +75,7 @@
         try
         {
             var howManyDays = IntegerType.FromString(daysLeftToEat);
-            var newFoodPost = await fpService.Create(new FoodPostCreationDTO(title, category, description, "defaultPictureUrl", howManyDays));
+            var newFoodPost = await fpService.Create(new FoodPostCreationDto(title, category, description, "defaultPictureUrl", howManyDays));
             await clear();
             resultMsg = "Food Post successfully created";
             color = "green";

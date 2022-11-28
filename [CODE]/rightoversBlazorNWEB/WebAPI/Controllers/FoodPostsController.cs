@@ -17,7 +17,7 @@ public class FoodPostsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<FoodPost>> CreateAsync(FoodPostCreationDTO dto)
+    public async Task<ActionResult<FoodPost>> CreateAsync(FoodPostCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Title))
         {

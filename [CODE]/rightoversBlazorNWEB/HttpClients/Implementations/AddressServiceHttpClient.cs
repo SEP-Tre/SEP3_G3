@@ -17,7 +17,7 @@ public class AddressServiceHttpClient : IAddressService
         this.client = client;
     }
 
-    public async Task<AddressCreationDTO> CreateAsync(AddressCreationDTO addressDto)
+    public async Task<AddressCreationDto> CreateAsync(AddressCreationDto addressDto)
     {
         // Set the coordinates for the new address
         string address =
@@ -67,14 +67,14 @@ public class AddressServiceHttpClient : IAddressService
 
         if (!response2.IsSuccessStatusCode) throw new Exception(result);
 
-        var address2 = JsonSerializer.Deserialize<AddressCreationDTO>(result, new JsonSerializerOptions{
+        var address2 = JsonSerializer.Deserialize<AddressCreationDto>(result, new JsonSerializerOptions{
             PropertyNameCaseInsensitive = true
         })!;
 
         return address2;
     }
 
-    public async Task<ICollection<AddressCreationDTO>> GetAsync()
+    public async Task<ICollection<AddressCreationDto>> GetAsync()
     {
         var response = await client.GetAsync("/Address");
         var content = await response.Content.ReadAsStringAsync();
@@ -82,14 +82,14 @@ public class AddressServiceHttpClient : IAddressService
         if (!response.IsSuccessStatusCode) throw new Exception(content);
 
         var addressDtos =
-            JsonSerializer.Deserialize<ICollection<AddressCreationDTO>>(content, new JsonSerializerOptions{
+            JsonSerializer.Deserialize<ICollection<AddressCreationDto>>(content, new JsonSerializerOptions{
                 PropertyNameCaseInsensitive = true
             })!;
 
         return addressDtos;
     }
 
-    public async Task<AddressCreationDTO> GetCoordsAsync(AddressCreationDTO addressDto)
+    public async Task<AddressCreationDto> GetCoordsAsync(AddressCreationDto addressDto)
     {
         string address =
             addressDto.Street + "+" +

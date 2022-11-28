@@ -4,6 +4,6 @@ namespace Application.DAOInterfaces;
 
 public interface IAddressDao
 {
-    public Task<AddressCreationDTO> Create(AddressCreationDTO dto);
-    public Task<IEnumerable<AddressCreationDTO>> GetAll();
+    public Task<AddressCreationDto> Create(AddressCreationDto dto);
+    public Task<IEnumerable<AddressCreationDto>> GetAll();
 }
