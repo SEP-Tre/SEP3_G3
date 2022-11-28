@@ -28,6 +28,17 @@ CREATE TABLE address
     latitude      numeric
 );
 
+DROP TABLE IF EXISTS user_;
+CREATE TABLE user_
+(
+    username varchar(50) primary key,
+    firstname varchar(50),
+    password_ varchar(100),
+    address_id int references address(address_id),
+    isBusiness bool
+);
+
+
 INSERT INTO address(street, street_number, post_code, city, longitude, latitude)
 VALUES ('Haldsvej', '1', 8700, 'Horsens', 55.87746972455174, 9.835904241121996),
        ('Banegårdsgade', '2', 8700, 'Horsens', 55.86358739147706, 9.837638462738413),
