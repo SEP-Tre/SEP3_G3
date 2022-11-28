@@ -18,10 +18,6 @@ public class UserServiceImp implements UserService {
 
     @Override
     public User registerUser(UserCreationDTO dto) {
-
-        Address address = new Address(dto.getAddressCreationDTO());
-        addressRepository.save(address);
-
         User user = new User(dto);
         return userRepository.save(user);
     }

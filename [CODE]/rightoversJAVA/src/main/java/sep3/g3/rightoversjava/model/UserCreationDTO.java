@@ -6,12 +6,15 @@ public class UserCreationDTO {
     private String password;
     private AddressCreationDTO addressCreationDTO;
 
-    public UserCreationDTO(String firstName, String userName, String password, String streetName, String streetNumber,
+    public UserCreationDTO(String firstName, String userName,
+                           String password, String streetName,
+                           String streetNumber,
                            int postalCode, String cityName) {
         this.firstName = firstName;
         this.username = userName;
         this.password = password;
-        this.addressCreationDTO = new AddressCreationDTO(streetNumber, streetName, cityName, postalCode);
+        this.addressCreationDTO = new AddressCreationDTO(
+                streetNumber, streetName, cityName, postalCode);
     }
 
     public String getFirstName() {

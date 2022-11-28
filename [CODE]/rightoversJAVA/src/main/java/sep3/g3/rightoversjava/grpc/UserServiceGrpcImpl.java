@@ -11,16 +11,17 @@ import sep3.g3.rightoversjava.model.UserLoginDTO;
 import sep3.g3.rightoversjava.service.UserService;
 
 @Configurable
-public class UserServiceGrpcImpl extends UserServiceGrpc.UserServiceImplBase {
+public class UserServiceGrpcImpl
+        extends UserServiceGrpc.UserServiceImplBase {
     private UserService userService;
 
     public UserServiceGrpcImpl() {
         userService = SpringContext.getBean(UserService.class);
-
     }
 
     @Override
-    public void register(UserCreationRequest request, StreamObserver<UserMessage> responseObserver) {
+    public void register(UserCreationRequest request,
+                         StreamObserver<UserMessage> responseObserver) {
         User user = userService.registerUser(new UserCreationDTO(
                 request.getFirstname(),
                 request.getUsername(),
@@ -30,12 +31,9 @@ public class UserServiceGrpcImpl extends UserServiceGrpc.UserServiceImplBase {
                 request.getPostalCode(),
                 request.getCityName()
         ));
-
         UserMessage userMessage = getUserMessageFromUser(user);
-
         responseObserver.onNext(userMessage);
         responseObserver.onCompleted();
-
     }
 
     private UserMessage getUserMessageFromUser(User user) {
@@ -63,8 +61,11 @@ public class UserServiceGrpcImpl extends UserServiceGrpc.UserServiceImplBase {
     }
 
     @Override
-    public void login(UserLoginRequest request, StreamObserver<UserMessage> responseObserver) {
-        UserLoginDTO dto = new UserLoginDTO(request.getUsername(), request.getPassword());
+    public void login(UserLoginRequest request,
+                      StreamObserver<UserMessage> responseObserver) {
+        UserLoginDTO dto = new UserLoginDTO(
+                request.getUsername(),
+                request.getPassword());
         try {
             User user = userService.login(dto);
             UserMessage userMessage = getUserMessageFromUser(user);
@@ -72,14 +73,10 @@ public class UserServiceGrpcImpl extends UserServiceGrpc.UserServiceImplBase {
             responseObserver.onCompleted();
         }
         catch (Exception e) {
-            responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT.withDescription(e.getMessage())
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
                     .asRuntimeException());
         }
-
-        // maybe an exception is thrown on the method above,
-        // IDK what happens
-
-
-
     }
 }
