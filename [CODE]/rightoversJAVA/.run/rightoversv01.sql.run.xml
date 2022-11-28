@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="rightoversv01.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/db/rightoversv01.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="a3e5dfdf-eb31-48ea-8bc7-f918d06f9602" />
+    <method v="2" />
+  </configuration>
+</component>

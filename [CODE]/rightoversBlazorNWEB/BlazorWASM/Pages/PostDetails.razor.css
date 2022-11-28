@@ -1,0 +1,88 @@
+﻿.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 350px;
+    height: 400px;
+    padding: 35px;
+    text-align: center;
+    margin-top: 25px;
+    border-radius: 15px;
+    border-left-style: groove;
+    
+}
+
+.card-back
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 400px;
+    height: 500px;
+    padding: 25px;
+    text-align: center;
+    margin-top: 25px;
+    border-radius: 15px;
+    background-image: linear-gradient(180deg, rgb(5, 163, 47) 0%, rgb(4, 102, 56) 70%);
+}
+.card-back-title
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 250px;
+    height: 60px;
+    padding: 5px;
+    text-align: center;
+    margin: auto;
+    border-radius: 15px;
+    background-image: linear-gradient(180deg, rgb(5, 163, 47) 0%, rgb(4, 102, 56) 70%);
+}
+
+.card-title {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 15px;
+    border-left-style: groove;
+    background-color: white;
+}
+
+.sm-text
+{
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: gray;
+}
+.bg-text
+{
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-justify: kashida;
+}
+.title
+{
+    font-size: 25px;
+}
+
+.bckgrnd
+{
+    background-image: linear-gradient(180deg, rgb(5, 163, 47) 0%, rgb(4, 102, 56) 70%);
+}
+
+.field {
+    margin-top: 20px;
+}
+
+.acceptbtn {
+    background-color: lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-row {
+    margin-top: 15px;
+}

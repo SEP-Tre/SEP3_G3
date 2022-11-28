@@ -1,0 +1,31 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "sep3.g3.rightoversjava.grpc.generated";
+package sep3.g3;
+
+message AddressRequest {
+  string street = 1;
+  string street_number = 2;
+  int32 post_code = 3;
+  string city = 4;
+  double longitude = 5;
+  double latitude = 6;
+}
+
+message AddressResponse {
+  int32 address_id = 1;
+  string street = 2;
+  string street_number = 3;
+  int32 post_code = 4;
+  string city = 5;
+  double longitude = 6;
+  double latitude = 7;
+}
+
+message GetAllRequest {
+  bool filler = 1;
+}
+service AddressService{
+  rpc createAddress(AddressRequest) returns (AddressResponse);
+  rpc getAllAddresses(GetAllRequest) returns (stream AddressResponse);
+}
