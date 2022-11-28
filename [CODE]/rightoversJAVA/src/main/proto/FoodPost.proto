@@ -29,9 +29,20 @@ message FoodPostID
   int32 id=1;
 }
 
+message FoodPostReservation
+{
+  int32 user_id = 1;
+  int32 foodpost_id = 2;
+}
+
+message ReservationResponse {
+  bool filler = 1;
+}
+
 
 service FoodPostService {
   rpc post(FoodPostRequest) returns (FoodPostResponse);
   rpc getAllFoodPosts(GetAllRequest) returns (stream FoodPostResponse);
   rpc getSingleFoodPost(FoodPostID) returns (FoodPostResponse);
+  rpc reserve(FoodPostReservation) returns (ReservationResponse);
 }

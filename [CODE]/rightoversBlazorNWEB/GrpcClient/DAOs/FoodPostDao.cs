@@ -80,6 +80,16 @@ public class FoodPostDao : IFoodPostDao
         FoodPost foodPost = converter.getFoodPost(response);
         return foodPost;
     }
+    
+    public async Task Reserve(FoodPostReservationDto dto)
+    {
+        ReservationResponse response = await client.reserveAsync(new FoodPostReservation
+        {
+            FoodpostId = dto.FoodPostId,
+            UserId = dto.UserId
+        });
+        // Response is unused because it is filler
+    }
 
 
 }

@@ -31,4 +31,9 @@ public class FoodPostLogic : IFoodPostLogic
     {
         return fpDao.GetSingleAsync(id);
     }
+
+    public async Task ReserveAsync(FoodPostReservationDto dto)
+    {
+        await fpDao.Reserve(dto);
+    }
 }

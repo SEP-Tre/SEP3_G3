@@ -1,9 +1,9 @@
 package sep3.g3.rightoversjava.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.FoodPostReservationDto;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
 
 import java.util.ArrayList;
@@ -42,5 +42,16 @@ public class FoodPostServiceImp implements FoodPostService
             throw new NoSuchElementException("Food post with such ID does not exist.");
         }
         return foodPostOptional.get();
+    }
+
+    // Should this return something? - CF
+    // TODO: Add user
+    @Override
+    public void reserve(FoodPostReservationDto dto) {
+        // Simplify with custom query
+        // TODO: save the user in the join table
+        FoodPost selected = fpRepository.findById(dto.getFoodPostId()).get();
+        selected.setPostState("reserved");
+        fpRepository.save(selected);
     }
 }

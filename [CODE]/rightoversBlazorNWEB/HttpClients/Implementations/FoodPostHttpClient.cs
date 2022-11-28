@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json;
 using Domain.Classes;
 using Domain.DTOs;
@@ -66,5 +67,18 @@ public class FoodPostHttpClient : IFoodPostService
                 PropertyNameCaseInsensitive = true
             })!;
         return foodPost;
+    }
+
+    public async Task ReserveAsync(int id)
+    {
+        string idAsJson = JsonSerializer.Serialize(id);
+        StringContent body = new StringContent(idAsJson, Encoding.UTF8, "application/json");
+        
+        HttpResponseMessage response = await client.PatchAsync($"/FoodPosts/{id}", body);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
     }
 }

@@ -77,12 +77,31 @@ public class FoodPostsController : ControllerBase
     }
 
     [HttpGet, Route("Single")]
-    public async Task<ActionResult<FoodPost>> GetSingleAsync([FromQuery]int id) 
+    public async Task<ActionResult<FoodPost>> GetSingleAsync([FromQuery] int id)
     {
         try
         {
             FoodPost foodPost = await fpLogic.GetSingleAsync(id);
+
             return Ok(foodPost);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            return StatusCode(500, e.Message);
+        }
+    }
+
+    // TODO: Preemptively solve conflict
+    // Could conflict with a later need to update the post
+    [HttpPatch]
+    public async Task<ActionResult> ReserveAsync([FromBody] FoodPostReservationDto dto)
+    {
+        try
+        {
+            await fpLogic.ReserveAsync(dto);
+            return Ok();
         }
         catch (Exception e)
         {

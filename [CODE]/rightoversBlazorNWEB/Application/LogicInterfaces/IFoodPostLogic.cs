@@ -8,4 +8,5 @@ public interface IFoodPostLogic
     public Task<FoodPost> CreateAsync(FoodPostCreationDto dto);
     Task<IEnumerable<OverSimpleFoodPostDto>> GetAsync();
     public Task<FoodPost> GetSingleAsync(int id);
+    public Task ReserveAsync(FoodPostReservationDto dto);
 }

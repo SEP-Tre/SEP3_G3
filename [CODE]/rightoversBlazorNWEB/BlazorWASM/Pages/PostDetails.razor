@@ -38,6 +38,9 @@
         </div>
     </div>
 </div>
+<div>
+    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(foodPost.PostId)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+</div>
 
 
 @code {
@@ -61,6 +64,12 @@
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    // TODO: Use context to add current user
+    public async Task Reserve(int id)
+    {
+        await foodPostService.ReserveAsync(id);
     }
 
 }
