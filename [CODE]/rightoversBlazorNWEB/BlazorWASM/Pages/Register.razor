@@ -1,5 +1,60 @@
-﻿<h3>Register</h3>
+﻿@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@using Domain.Classes
+@inject IUserService userService
+@inject NavigationManager navMgr
+@page "/Register"
+<RadzenAccordion class="w-100">
+    <Items>
+        <RadzenAccordionItem Text="User credentials" Icon="">
+            Details for Orders
+        </RadzenAccordionItem>
+        <RadzenAccordionItem Text="Address information" Icon="account_box">
+            Details for Employees
+        </RadzenAccordionItem>
+    </Items>
+</RadzenAccordion>
 
 @code {
-    
+    private UserCreationDto userDto = new UserCreationDto();
+    private AddressCreationDto addressDto = new AddressCreationDto();
+    private string errorMsg;
+
+    private async Task RegisterUser()
+    {
+        try
+        {
+            if (ValidDto())
+            {
+                User user = await userService.RegisterAsync(userDto);
+                Console.WriteLine($"User id: {user.Id}, City name {user.Address.CityName}");
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private bool ValidDto()
+    {
+        if (string.IsNullOrEmpty(userDto.FirstName)
+            || string.IsNullOrEmpty(userDto.UserName)
+            || string.IsNullOrEmpty(userDto.Password))
+        {
+            errorMsg = "Fields cannot be empty.";
+            return false;
+        }
+        if (string.IsNullOrEmpty(addressDto.CityName)
+            || string.IsNullOrEmpty(addressDto.StreetName)
+            || string.IsNullOrEmpty(addressDto.StreetNumber)
+            || addressDto.PostalCode == 0)
+        {
+            errorMsg = "Fields cannot be empty.";
+            return false;
+        }
+        return true;
+    }
+
 }
