@@ -2,6 +2,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "sep3.g3.rightoversjava.grpc.generated";
 package sep3.g3;
+import "google/protobuf/timestamp.proto";
 
 message FoodPostRequest {
   string title = 1;
@@ -9,6 +10,22 @@ message FoodPostRequest {
   string description = 3;
   string pictureUrl = 4;
   int32 daysUntilExpired = 5;
+  Date startDate = 6;
+  Date endDate = 7;
+  Time startTime = 8;
+  Time endTime = 9;
+  string username = 10;
+}
+
+message Date {
+  int32 day = 1;
+  int32 month = 2;
+  int32 year = 3;
+}
+
+message Time {
+  int32 hour = 1;
+  int32 minutes = 2;
 }
 
 message FoodPostResponse {
@@ -19,6 +36,12 @@ message FoodPostResponse {
   string pictureUrl = 5;
   int32 daysUntilExpired = 6;
   string fp_state = 7;
+  google.protobuf.Timestamp timestamp_posted = 8;
+  Date startDate = 9;
+  Date endDate = 10;
+  Time startTime = 11;
+  Time endTime = 12;
+  string username = 13;
 }
 
 message GetAllRequest {

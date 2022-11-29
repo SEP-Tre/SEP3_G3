@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 
 public interface FoodPostService {
 
-    FoodPost create(FoodPostCreationDTO dto);
+    FoodPost create(FoodPostCreationDTO dto) throws Exception;
 
     ArrayList<FoodPost> getAllFoodPosts();
 

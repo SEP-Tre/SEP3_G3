@@ -1,5 +1,6 @@
 package sep3.g3.rightoversjava.grpc;
 
+import com.google.protobuf.Timestamp;
 import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -14,6 +15,10 @@ import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
 import sep3.g3.rightoversjava.service.FoodPostService;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -32,12 +37,28 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
 
     @Override
     public void post(FoodPostRequest request, StreamObserver<FoodPostResponse> responseObserver) {
-        FoodPostCreationDTO dto = new FoodPostCreationDTO(request.getTitle(), request.getCategory(), request.getDescription(), request.getPictureUrl(), request.getDaysUntilExpired());
-        FoodPost created = service.create(dto);
-        FoodPostResponse response = FoodPostResponse.newBuilder().setFpId(created.getPost_id()).setTitle(created.getTitle()).setCategory(created.getCategory_()).setDescription(created.getDescription()).setPictureUrl(created.getPictureUrl()).setDaysUntilExpired(created.getDaysUntilExpired()).setFpState(created.getPostState()).build();
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
+        Date sd = request.getStartDate();
+        Date ed = request.getEndDate();
+        Time st = request.getStartTime();
+        Time et = request.getEndTime();
+        LocalDate startDate = LocalDate.of(sd.getYear(), sd.getMonth(), sd.getDay());
+        LocalDate endDate = LocalDate.of(ed.getYear(), ed.getMonth(), ed.getDay());
+        LocalTime startTime = LocalTime.of(st.getHour(), st.getMinutes());
+        LocalTime endTime = LocalTime.of(et.getHour(), et.getMinutes());
+        FoodPostCreationDTO dto = new FoodPostCreationDTO(request.getTitle(), request.getCategory(), request.getDescription(), request.getPictureUrl(), request.getDaysUntilExpired(), startDate, endDate, startTime, endTime, request.getUsername());
+        try {
+            FoodPost created = service.create(dto);
+            FoodPostResponse response = converter.getFoodPostResponse(created);
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+
+        }
+        catch (Exception e) {
+            responseObserver.onError(e);
+        }
+
     }
+
 
     @Override
     public void getAllFoodPosts(GetAllRequest request,

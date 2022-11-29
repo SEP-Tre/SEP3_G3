@@ -22,6 +22,10 @@ public class User {
         this.address = new Address(dto.getAddressCreationDTO());
     }
 
+    public User(String username) {
+        this.username = username;
+    }
+
     public User() {
 
     }

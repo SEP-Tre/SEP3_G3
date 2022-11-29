@@ -60,4 +60,76 @@ public interface FoodPostRequestOrBuilder extends
    * @return The daysUntilExpired.
    */
   int getDaysUntilExpired();
+
+  /**
+   * <code>.sep3.g3.Date startDate = 6;</code>
+   * @return Whether the startDate field is set.
+   */
+  boolean hasStartDate();
+  /**
+   * <code>.sep3.g3.Date startDate = 6;</code>
+   * @return The startDate.
+   */
+  sep3.g3.rightoversjava.grpc.generated.Date getStartDate();
+  /**
+   * <code>.sep3.g3.Date startDate = 6;</code>
+   */
+  sep3.g3.rightoversjava.grpc.generated.DateOrBuilder getStartDateOrBuilder();
+
+  /**
+   * <code>.sep3.g3.Date endDate = 7;</code>
+   * @return Whether the endDate field is set.
+   */
+  boolean hasEndDate();
+  /**
+   * <code>.sep3.g3.Date endDate = 7;</code>
+   * @return The endDate.
+   */
+  sep3.g3.rightoversjava.grpc.generated.Date getEndDate();
+  /**
+   * <code>.sep3.g3.Date endDate = 7;</code>
+   */
+  sep3.g3.rightoversjava.grpc.generated.DateOrBuilder getEndDateOrBuilder();
+
+  /**
+   * <code>.sep3.g3.Time startTime = 8;</code>
+   * @return Whether the startTime field is set.
+   */
+  boolean hasStartTime();
+  /**
+   * <code>.sep3.g3.Time startTime = 8;</code>
+   * @return The startTime.
+   */
+  sep3.g3.rightoversjava.grpc.generated.Time getStartTime();
+  /**
+   * <code>.sep3.g3.Time startTime = 8;</code>
+   */
+  sep3.g3.rightoversjava.grpc.generated.TimeOrBuilder getStartTimeOrBuilder();
+
+  /**
+   * <code>.sep3.g3.Time endTime = 9;</code>
+   * @return Whether the endTime field is set.
+   */
+  boolean hasEndTime();
+  /**
+   * <code>.sep3.g3.Time endTime = 9;</code>
+   * @return The endTime.
+   */
+  sep3.g3.rightoversjava.grpc.generated.Time getEndTime();
+  /**
+   * <code>.sep3.g3.Time endTime = 9;</code>
+   */
+  sep3.g3.rightoversjava.grpc.generated.TimeOrBuilder getEndTimeOrBuilder();
+
+  /**
+   * <code>string username = 10;</code>
+   * @return The username.
+   */
+  java.lang.String getUsername();
+  /**
+   * <code>string username = 10;</code>
+   * @return The bytes for username.
+   */
+  com.google.protobuf.ByteString
+      getUsernameBytes();
 }

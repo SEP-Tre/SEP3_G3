@@ -1,5 +1,8 @@
 package sep3.g3.rightoversjava.model;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class FoodPostCreationDTO {
 
     private String title;
@@ -7,13 +10,23 @@ public class FoodPostCreationDTO {
     private String description;
     private String pictureUrl;
     private int daysUntilExpired;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private String username;
 
-    public FoodPostCreationDTO(String title, String category, String description, String pictureUrl, int daysUntilExpired) {
+    public FoodPostCreationDTO(String title, String category_, String description, String pictureUrl, int daysUntilExpired, LocalDate startDate, LocalDate endDate, LocalTime startTime, LocalTime endTime, String username) {
         this.title = title;
-        this.category_ = category;
+        this.category_ = category_;
         this.description = description;
         this.pictureUrl = pictureUrl;
         this.daysUntilExpired = daysUntilExpired;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.username = username;
     }
 
     public String getTitle() {
@@ -34,6 +47,26 @@ public class FoodPostCreationDTO {
 
     public int getDaysUntilExpired() {
         return daysUntilExpired;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     @Override

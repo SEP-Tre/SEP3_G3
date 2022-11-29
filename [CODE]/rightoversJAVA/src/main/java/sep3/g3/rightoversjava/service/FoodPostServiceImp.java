@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.User;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
+import sep3.g3.rightoversjava.repository.UserRepository;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -15,15 +19,37 @@ public class FoodPostServiceImp implements FoodPostService
 {
 
     private final FoodPostRepository fpRepository;
+    private final UserRepository userRepository;
 
-    public FoodPostServiceImp(FoodPostRepository fpRepository)
+    public FoodPostServiceImp(FoodPostRepository fpRepository, UserRepository userRepository)
     {
         this.fpRepository = fpRepository;
+        this.userRepository = userRepository;
     }
 
-    public FoodPost create(FoodPostCreationDTO dto)
-    {
-        FoodPost fpObj = new FoodPost(dto.getTitle(), dto.getCategory_(), dto.getDescription(), dto.getPictureUrl(), dto.getDaysUntilExpired());
+    public FoodPost create(FoodPostCreationDTO dto) throws Exception {
+        Optional<User> desiredUser = userRepository.findById(dto.getUsername());
+        if (desiredUser.isEmpty()) {
+            throw new Exception("This user does not exist.");
+        }
+        User user = desiredUser.get();
+        Timestamp timestamp = Timestamp.valueOf(LocalDateTime.now());
+
+        FoodPost fpObj = new FoodPost(
+                0, //placeholder hopefully?
+                dto.getTitle(),
+                dto.getCategory_(),
+                dto.getDescription(),
+                dto.getPictureUrl(),
+                dto.getDaysUntilExpired(),
+                "posted",
+                timestamp,
+                dto.getStartDate(),
+                dto.getEndDate(),
+                dto.getStartTime(),
+                dto.getEndTime(),
+                user
+                );
         return fpRepository.save(fpObj);
     }
 
