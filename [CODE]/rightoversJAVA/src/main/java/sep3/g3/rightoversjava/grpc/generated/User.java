@@ -51,15 +51,15 @@ public final class User {
       "\n\016AddressMessage\022\022\n\naddress_id\030\001 \001(\005\022\016\n\006" +
       "street\030\002 \001(\t\022\025\n\rstreet_number\030\003 \001(\t\022\021\n\tp" +
       "ost_code\030\004 \001(\005\022\014\n\004city\030\005 \001(\t\022\021\n\tlongitud" +
-      "e\030\006 \001(\001\022\020\n\010latitude\030\007 \001(\001\"n\n\013UserMessage" +
+      "e\030\006 \001(\001\022\020\n\010latitude\030\007 \001(\001\"~\n\013UserMessage" +
       "\022\020\n\010username\030\001 \001(\t\022\021\n\tfirstname\030\002 \001(\t\022\020\n" +
       "\010password\030\003 \001(\t\022(\n\007address\030\004 \001(\0132\027.sep3." +
-      "g3.AddressMessage2\207\001\n\013UserService\022>\n\010reg" +
-      "ister\022\034.sep3.g3.UserCreationRequest\032\024.se" +
-      "p3.g3.UserMessage\0228\n\005login\022\031.sep3.g3.Use" +
-      "rLoginRequest\032\024.sep3.g3.UserMessageB)\n%s" +
-      "ep3.g3.rightoversjava.grpc.generatedP\001b\006" +
-      "proto3"
+      "g3.AddressMessage\022\016\n\006userId\030\005 \001(\0052\207\001\n\013Us" +
+      "erService\022>\n\010register\022\034.sep3.g3.UserCrea" +
+      "tionRequest\032\024.sep3.g3.UserMessage\0228\n\005log" +
+      "in\022\031.sep3.g3.UserLoginRequest\032\024.sep3.g3." +
+      "UserMessageB)\n%sep3.g3.rightoversjava.gr" +
+      "pc.generatedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -88,7 +88,7 @@ public final class User {
     internal_static_sep3_g3_UserMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserMessage_descriptor,
-        new java.lang.String[] { "Username", "Firstname", "Password", "Address", });
+        new java.lang.String[] { "Username", "Firstname", "Password", "Address", "UserId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

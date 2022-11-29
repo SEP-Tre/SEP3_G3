@@ -1,6 +1,8 @@
 ﻿@page "/Login"
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
+@using BlazorWASM.Pages.UIComponents
+@using Domain.Classes
 @inject IUserService userService
 @inject NavigationManager navMgr
 
@@ -31,11 +33,15 @@
                 <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Register()) Text="Register" ButtonStyle="ButtonStyle.Dark"/>
             </div>
         </div>
+
     </NotAuthorized>
     <Authorized>
-        <div class="card">
-            <h3>Hello, @context.User.Identity!.Name</h3>
-        </div>
+        <Modal ShowModal="showModal">
+            <div class="d-flex flex-column justify-content-start align-items-center">
+            <p class = m-auto>@msg</p>
+            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+            </div>
+        </Modal>
     </Authorized>
 </AuthorizeView>
 
@@ -43,11 +49,9 @@
     private string userName;
     private string password;
     private string errorLabel;
+    private string msg;
+    private bool showModal;
 
-    protected override void OnInitialized()
-    {
-        StateHasChanged();
-    }
 
     private async Task LoginAsync()
     {
@@ -60,7 +64,8 @@
             }
             UserLoginDto dto = new UserLoginDto(userName, password);
             await userService.LoginAsync(dto);
-            navMgr.NavigateTo("/");
+            msg = $"Great! {dto.UserName}, you have been successfully logged in!";
+            showModal = true;
         }
         catch (Exception e)
         {
@@ -72,6 +77,12 @@
     private void Register()
     {
         navMgr.NavigateTo("/Register");
+    }
+
+
+    private void Proceed()
+    {
+        navMgr.NavigateTo("/");
     }
 
 }

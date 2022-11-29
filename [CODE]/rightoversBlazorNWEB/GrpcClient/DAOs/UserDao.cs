@@ -14,53 +14,45 @@ public class UserDao : IUserDao
         UnsafeUseInsecureChannelCallCredentials = true
     });
 
-    
+    private IUserConverter converter;
     private static UserService.UserServiceClient client = new(channel);
 
-    //private readonly IFoodPostConverter converter;
-    /*
-    public FoodPostDao(IFoodPostConverter converter)
+    public UserDao(IUserConverter converter)
     {
         this.converter = converter;
     }
-    */
-    public Task<User> LoginAsync(UserLoginDto dto)
+
+    public async Task<User> LoginAsync(UserLoginDto dto)
     {
-        //TODO change those two methods.
-        throw new NotImplementedException();
+        try
+        {
+            UserLoginRequest request = converter.GetUserLoginRequestFromDto(dto);
+            UserMessage userMessage = await client.loginAsync(request);
+            User user = converter.GetUserFromUserMessage(userMessage);
+            return user;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("GRPC CLIENT: " + e);
+            throw;
+        }
     }
 
 
     public async Task<User> RegisterAsync(UserCreationDto dto)
     {
-        
-        AddressCreationDto addressDto = dto.AddressCreationDto;
-        UserMessage userMessage = await client.registerAsync(new UserCreationRequest
+        try
         {
-            Firstname = dto.FirstName,
-            Password = dto.Password,
-            Username = dto.UserName,
-            Address = new AddressMessage
-            {
-                AddressId = addressDto.AddressId,
-                City = addressDto.City,
-                Latitude = addressDto.Latitude,
-                Longitude = addressDto.Longitude,
-                PostCode = addressDto.PostCode,
-                Street = addressDto.Street,
-                StreetNumber = addressDto.StreetNumber
-            }
-        });
-        AddressMessage addressMessage = userMessage.Address;
-        User user = new User
+            UserCreationRequest request = converter.GetUserCreationRequestFromDto(dto);
+            UserMessage userMessage = await client.registerAsync(request);
+            User user = converter.GetUserFromUserMessage(userMessage);
+
+            return user;
+        }
+        catch (Exception e)
         {
-            //Todo user ID is missing.
-            Id = 0,
-            FirstName = userMessage.Firstname,
-            UserName = userMessage.Username,
-            Password = userMessage.Password,
-            Address = new Address(addressMessage.AddressId,  addressMessage.StreetNumber, addressMessage.Street, addressMessage.PostCode, addressMessage.City, addressMessage.Longitude, addressMessage.Latitude)
-        };
-        return user;
+            Console.WriteLine("GRPC CLIENT: " + e);
+            throw;
+        }
     }
 }
