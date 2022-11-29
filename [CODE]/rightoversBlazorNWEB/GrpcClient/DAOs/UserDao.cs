@@ -41,6 +41,7 @@ public class UserDao : IUserDao
     public Task<User> RegisterAsync(UserCreationDto dto)
     {
         User user = new User();
+        user.FirstName = dto.FirstName;
         user.UserName = dto.UserName;
         user.Password = dto.Password;
         user.Address = new Address(0,

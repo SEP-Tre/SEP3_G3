@@ -17,8 +17,9 @@ public class AddressServiceHttpClient : IAddressService
         this.client = client;
     }
 
-    public async Task<AddressCreationDto> CreateAsync(AddressCreationDto addressDto)
+    public async Task<AddressCreationDto> CreateAsync(AddressCreationDto? addressDto)
     {
+        Console.WriteLine("Address service: "+ addressDto.toString());
         // Set the coordinates for the new address
         string address =
             addressDto.Street + "+" +

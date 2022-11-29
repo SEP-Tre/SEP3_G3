@@ -11,7 +11,8 @@ public class AddressCreationDto
     public double Longitude { get; set; }
     public double Latitude { get; set; }
 
-    public AddressCreationDto(int addressId, string streetNumber, string street, int postCode, string city, double longitude, double latitude)
+    public AddressCreationDto(int addressId, string streetNumber, string street, int postCode, string city,
+        double longitude, double latitude)
     {
         AddressId = addressId;
         StreetNumber = streetNumber;
@@ -32,6 +33,14 @@ public class AddressCreationDto
 
     public AddressCreationDto()
     {
+        AddressId = 0;
+        Longitude = 0;
+        Latitude = 0;
+    }
 
+    public string toString()
+    {
+        return $"ID: {AddressId}, Street: {Street}, StreetNumber: {StreetNumber}, \n" +
+               $"PostCode: {PostCode}, City: {City}, Long: {Longitude}, Lati: {Latitude}";
     }
 }
