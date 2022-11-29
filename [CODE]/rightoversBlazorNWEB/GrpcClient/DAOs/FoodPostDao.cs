@@ -86,10 +86,8 @@ public class FoodPostDao : IFoodPostDao
         ReservationResponse response = await client.reserveAsync(new FoodPostReservation
         {
             FoodpostId = dto.FoodPostId,
-            UserId = dto.UserId
+            Username = dto.Username
         });
         // Response is unused because it is filler
     }
-
-
 }

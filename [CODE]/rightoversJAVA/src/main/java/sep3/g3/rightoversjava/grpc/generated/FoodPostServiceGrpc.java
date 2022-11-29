@@ -108,28 +108,28 @@ public final class FoodPostServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FoodPostReservation,
-      sep3.g3.rightoversjava.grpc.generated.Empty> getReserveMethod;
+      sep3.g3.rightoversjava.grpc.generated.ReservationResponse> getReserveMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "reserve",
       requestType = sep3.g3.rightoversjava.grpc.generated.FoodPostReservation.class,
-      responseType = sep3.g3.rightoversjava.grpc.generated.Empty.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.ReservationResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FoodPostReservation,
-      sep3.g3.rightoversjava.grpc.generated.Empty> getReserveMethod() {
-    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FoodPostReservation, sep3.g3.rightoversjava.grpc.generated.Empty> getReserveMethod;
+      sep3.g3.rightoversjava.grpc.generated.ReservationResponse> getReserveMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FoodPostReservation, sep3.g3.rightoversjava.grpc.generated.ReservationResponse> getReserveMethod;
     if ((getReserveMethod = FoodPostServiceGrpc.getReserveMethod) == null) {
       synchronized (FoodPostServiceGrpc.class) {
         if ((getReserveMethod = FoodPostServiceGrpc.getReserveMethod) == null) {
           FoodPostServiceGrpc.getReserveMethod = getReserveMethod =
-              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.FoodPostReservation, sep3.g3.rightoversjava.grpc.generated.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.FoodPostReservation, sep3.g3.rightoversjava.grpc.generated.ReservationResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "reserve"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   sep3.g3.rightoversjava.grpc.generated.FoodPostReservation.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  sep3.g3.rightoversjava.grpc.generated.Empty.getDefaultInstance()))
+                  sep3.g3.rightoversjava.grpc.generated.ReservationResponse.getDefaultInstance()))
               .setSchemaDescriptor(new FoodPostServiceMethodDescriptorSupplier("reserve"))
               .build();
         }
@@ -210,7 +210,7 @@ public final class FoodPostServiceGrpc {
     /**
      */
     public void reserve(sep3.g3.rightoversjava.grpc.generated.FoodPostReservation request,
-        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReserveMethod(), responseObserver);
     }
 
@@ -242,7 +242,7 @@ public final class FoodPostServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 sep3.g3.rightoversjava.grpc.generated.FoodPostReservation,
-                sep3.g3.rightoversjava.grpc.generated.Empty>(
+                sep3.g3.rightoversjava.grpc.generated.ReservationResponse>(
                   this, METHODID_RESERVE)))
           .build();
     }
@@ -289,7 +289,7 @@ public final class FoodPostServiceGrpc {
     /**
      */
     public void reserve(sep3.g3.rightoversjava.grpc.generated.FoodPostReservation request,
-        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getReserveMethod(), getCallOptions()), request, responseObserver);
     }
@@ -333,7 +333,7 @@ public final class FoodPostServiceGrpc {
 
     /**
      */
-    public sep3.g3.rightoversjava.grpc.generated.Empty reserve(sep3.g3.rightoversjava.grpc.generated.FoodPostReservation request) {
+    public sep3.g3.rightoversjava.grpc.generated.ReservationResponse reserve(sep3.g3.rightoversjava.grpc.generated.FoodPostReservation request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getReserveMethod(), getCallOptions(), request);
     }
@@ -371,7 +371,7 @@ public final class FoodPostServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.Empty> reserve(
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.ReservationResponse> reserve(
         sep3.g3.rightoversjava.grpc.generated.FoodPostReservation request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getReserveMethod(), getCallOptions()), request);
@@ -414,7 +414,7 @@ public final class FoodPostServiceGrpc {
           break;
         case METHODID_RESERVE:
           serviceImpl.reserve((sep3.g3.rightoversjava.grpc.generated.FoodPostReservation) request,
-              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();

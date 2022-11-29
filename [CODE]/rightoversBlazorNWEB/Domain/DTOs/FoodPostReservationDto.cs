@@ -2,16 +2,16 @@
 
 public class FoodPostReservationDto
 {
-    public int UserId { get; set; }
+    public string Username { get; set; }
     public int FoodPostId { get; set; }
 
     public FoodPostReservationDto()
     {
     }
 
-    public FoodPostReservationDto(int userId, int foodPostId)
+    public FoodPostReservationDto(string username, int foodPostId)
     {
-        UserId = userId;
+        Username = username;
         FoodPostId = foodPostId;
     }
 }

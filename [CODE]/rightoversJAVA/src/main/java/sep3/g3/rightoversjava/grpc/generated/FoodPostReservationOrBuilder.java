@@ -8,10 +8,16 @@ public interface FoodPostReservationOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 user_id = 1;</code>
-   * @return The userId.
+   * <code>string username = 1;</code>
+   * @return The username.
    */
-  int getUserId();
+  java.lang.String getUsername();
+  /**
+   * <code>string username = 1;</code>
+   * @return The bytes for username.
+   */
+  com.google.protobuf.ByteString
+      getUsernameBytes();
 
   /**
    * <code>int32 foodpost_id = 2;</code>

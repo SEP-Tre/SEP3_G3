@@ -1,10 +1,10 @@
 package sep3.g3.rightoversjava.service;
 
 import org.springframework.stereotype.Service;
-import sep3.g3.rightoversjava.model.FoodPost;
-import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
-import sep3.g3.rightoversjava.model.FoodPostReservationDto;
+import sep3.g3.rightoversjava.model.*;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
+import sep3.g3.rightoversjava.repository.ReservationRepository;
+import sep3.g3.rightoversjava.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -15,10 +15,13 @@ public class FoodPostServiceImp implements FoodPostService
 {
 
     private final FoodPostRepository fpRepository;
+    private final UserRepository userRepository;
+    private final ReservationRepository reservationRepository;
 
-    public FoodPostServiceImp(FoodPostRepository fpRepository)
-    {
+    public FoodPostServiceImp(FoodPostRepository fpRepository, UserRepository userRepository, ReservationRepository reservationRepository) {
         this.fpRepository = fpRepository;
+        this.userRepository = userRepository;
+        this.reservationRepository = reservationRepository;
     }
 
     public FoodPost create(FoodPostCreationDTO dto)
@@ -47,11 +50,16 @@ public class FoodPostServiceImp implements FoodPostService
     // Should this return something? - CF
     // TODO: Add user
     @Override
-    public void reserve(FoodPostReservationDto dto) {
-        // Simplify with custom query
-        // TODO: save the user in the join table
-        FoodPost selected = fpRepository.findById(dto.getFoodPostId()).get();
-        selected.setPostState("reserved");
-        fpRepository.save(selected);
+    public void reserve(ReservationCreationDto dto) {
+        // Change the state of the post
+        FoodPost foodPost = fpRepository.findById(dto.getFoodPostId()).get();
+        foodPost.setPostState("reserved");
+        // Because of the matching id, this should update instead of add a new tuple
+        fpRepository.save(foodPost);
+
+        // Save the reservation to the table
+        User user = userRepository.findById(dto.getUsername()).get();
+        Reservation reservation = new Reservation(foodPost, user);
+        reservationRepository.save(reservation);
     }
 }

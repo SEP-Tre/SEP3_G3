@@ -32,16 +32,16 @@ namespace GrpcCL {
             "CRITCgtkZXNjcmlwdGlvbhgEIAEoCRISCgpwaWN0dXJlVXJsGAUgASgJEhgK",
             "EGRheXNVbnRpbEV4cGlyZWQYBiABKAUSEAoIZnBfc3RhdGUYByABKAkiHwoN",
             "R2V0QWxsUmVxdWVzdBIOCgZmaWxsZXIYASABKAgiGAoKRm9vZFBvc3RJRBIK",
-            "CgJpZBgBIAEoBSI7ChNGb29kUG9zdFJlc2VydmF0aW9uEg8KB3VzZXJfaWQY",
-            "ASABKAUSEwoLZm9vZHBvc3RfaWQYAiABKAUiJQoTUmVzZXJ2YXRpb25SZXNw",
-            "b25zZRIOCgZmaWxsZXIYASABKAgyogIKD0Zvb2RQb3N0U2VydmljZRI7CgRw",
-            "b3N0Ehguc2VwMy5nMy5Gb29kUG9zdFJlcXVlc3QaGS5zZXAzLmczLkZvb2RQ",
-            "b3N0UmVzcG9uc2USRgoPZ2V0QWxsRm9vZFBvc3RzEhYuc2VwMy5nMy5HZXRB",
-            "bGxSZXF1ZXN0Ghkuc2VwMy5nMy5Gb29kUG9zdFJlc3BvbnNlMAESQwoRZ2V0",
-            "U2luZ2xlRm9vZFBvc3QSEy5zZXAzLmczLkZvb2RQb3N0SUQaGS5zZXAzLmcz",
-            "LkZvb2RQb3N0UmVzcG9uc2USRQoHcmVzZXJ2ZRIcLnNlcDMuZzMuRm9vZFBv",
-            "c3RSZXNlcnZhdGlvbhocLnNlcDMuZzMuUmVzZXJ2YXRpb25SZXNwb25zZUIJ",
-            "qgIGR3JwY0NMYgZwcm90bzM="));
+            "CgJpZBgBIAEoBSI8ChNGb29kUG9zdFJlc2VydmF0aW9uEhAKCHVzZXJuYW1l",
+            "GAEgASgJEhMKC2Zvb2Rwb3N0X2lkGAIgASgFIiUKE1Jlc2VydmF0aW9uUmVz",
+            "cG9uc2USDgoGZmlsbGVyGAEgASgIMqICCg9Gb29kUG9zdFNlcnZpY2USOwoE",
+            "cG9zdBIYLnNlcDMuZzMuRm9vZFBvc3RSZXF1ZXN0Ghkuc2VwMy5nMy5Gb29k",
+            "UG9zdFJlc3BvbnNlEkYKD2dldEFsbEZvb2RQb3N0cxIWLnNlcDMuZzMuR2V0",
+            "QWxsUmVxdWVzdBoZLnNlcDMuZzMuRm9vZFBvc3RSZXNwb25zZTABEkMKEWdl",
+            "dFNpbmdsZUZvb2RQb3N0EhMuc2VwMy5nMy5Gb29kUG9zdElEGhkuc2VwMy5n",
+            "My5Gb29kUG9zdFJlc3BvbnNlEkUKB3Jlc2VydmUSHC5zZXAzLmczLkZvb2RQ",
+            "b3N0UmVzZXJ2YXRpb24aHC5zZXAzLmczLlJlc2VydmF0aW9uUmVzcG9uc2VC",
+            "CaoCBkdycGNDTGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -49,7 +49,7 @@ namespace GrpcCL {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.FoodPostResponse), global::GrpcCL.FoodPostResponse.Parser, new[]{ "FpId", "Title", "Category", "Description", "PictureUrl", "DaysUntilExpired", "FpState" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.GetAllRequest), global::GrpcCL.GetAllRequest.Parser, new[]{ "Filler" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.FoodPostID), global::GrpcCL.FoodPostID.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.FoodPostReservation), global::GrpcCL.FoodPostReservation.Parser, new[]{ "UserId", "FoodpostId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.FoodPostReservation), global::GrpcCL.FoodPostReservation.Parser, new[]{ "Username", "FoodpostId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.ReservationResponse), global::GrpcCL.ReservationResponse.Parser, new[]{ "Filler" }, null, null, null, null)
           }));
     }
@@ -1217,7 +1217,7 @@ namespace GrpcCL {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public FoodPostReservation(FoodPostReservation other) : this() {
-      userId_ = other.userId_;
+      username_ = other.username_;
       foodpostId_ = other.foodpostId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1228,15 +1228,15 @@ namespace GrpcCL {
       return new FoodPostReservation(this);
     }
 
-    /// <summary>Field number for the "user_id" field.</summary>
-    public const int UserIdFieldNumber = 1;
-    private int userId_;
+    /// <summary>Field number for the "username" field.</summary>
+    public const int UsernameFieldNumber = 1;
+    private string username_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int UserId {
-      get { return userId_; }
+    public string Username {
+      get { return username_; }
       set {
-        userId_ = value;
+        username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1267,7 +1267,7 @@ namespace GrpcCL {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (UserId != other.UserId) return false;
+      if (Username != other.Username) return false;
       if (FoodpostId != other.FoodpostId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1276,7 +1276,7 @@ namespace GrpcCL {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (UserId != 0) hash ^= UserId.GetHashCode();
+      if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (FoodpostId != 0) hash ^= FoodpostId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1296,9 +1296,9 @@ namespace GrpcCL {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (UserId != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(UserId);
+      if (Username.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Username);
       }
       if (FoodpostId != 0) {
         output.WriteRawTag(16);
@@ -1314,9 +1314,9 @@ namespace GrpcCL {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (UserId != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(UserId);
+      if (Username.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Username);
       }
       if (FoodpostId != 0) {
         output.WriteRawTag(16);
@@ -1332,8 +1332,8 @@ namespace GrpcCL {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (UserId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(UserId);
+      if (Username.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
       }
       if (FoodpostId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(FoodpostId);
@@ -1350,8 +1350,8 @@ namespace GrpcCL {
       if (other == null) {
         return;
       }
-      if (other.UserId != 0) {
-        UserId = other.UserId;
+      if (other.Username.Length != 0) {
+        Username = other.Username;
       }
       if (other.FoodpostId != 0) {
         FoodpostId = other.FoodpostId;
@@ -1371,8 +1371,8 @@ namespace GrpcCL {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            UserId = input.ReadInt32();
+          case 10: {
+            Username = input.ReadString();
             break;
           }
           case 16: {
@@ -1394,8 +1394,8 @@ namespace GrpcCL {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            UserId = input.ReadInt32();
+          case 10: {
+            Username = input.ReadString();
             break;
           }
           case 16: {

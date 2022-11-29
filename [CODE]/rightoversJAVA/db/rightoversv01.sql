@@ -31,22 +31,28 @@ CREATE TABLE address
 DROP TABLE IF EXISTS user_;
 CREATE TABLE user_
 (
-    username varchar(50) primary key,
-    firstname varchar(50),
-    password_ varchar(100),
-    address_id int references address(address_id),
+    username   varchar(50) primary key,
+    firstname  varchar(50),
+    password_  varchar(100),
+    address_id int references address (address_id),
     isBusiness bool
 );
 
+DROP TABLE IF EXISTS reservation;
+CREATE TABLE reservation
+(
+    reservation_id SERIAL PRIMARY KEY,
+    post_id int REFERENCES food_post(post_id),
+    username varchar(50) REFERENCES user_(username)
+);
 
-INSERT INTO address(street, street_number, post_code, city, longitude, latitude)
-VALUES ('Haldsvej', '1', 8700, 'Horsens', 9.835904241121996, 55.87746972455174),
-       ('Banegårdsgade', '2', 8700, 'Horsens',9.837638462738413, 55.86358739147706),
-       ('Torvet', '9', 8700, 'Horsens', 9.851752734511157, 55.86216308465828);
+
+INSERT INTO address(street, street_number, post_code, city, latitude, longitude)
+VALUES ('Haldsvej', '1', 8700, 'Horsens', 55.87746972455174, 9.835904241121996),
+       ('Banegårdsgade', '2', 8700, 'Horsens', 55.86358739147706, 9.837638462738413),
+       ('Torvet', '9', 8700, 'Horsens', 55.86216308465828, 9.851752734511157);
 
 UPDATE food_post
 SET post_state = 'posted'
 WHERE post_id = 1;
-
-
 

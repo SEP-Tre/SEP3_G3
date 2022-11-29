@@ -30,7 +30,7 @@ message FoodPostID
 
 message FoodPostReservation
 {
-  int32 user_id = 1;
+  string username = 1;
   int32 foodpost_id = 2;
 }
 

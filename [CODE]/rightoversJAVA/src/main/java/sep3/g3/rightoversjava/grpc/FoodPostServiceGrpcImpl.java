@@ -7,7 +7,7 @@ import sep3.g3.rightoversjava.grpc.converter.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
-import sep3.g3.rightoversjava.model.FoodPostReservationDto;
+import sep3.g3.rightoversjava.model.ReservationCreationDto;
 import sep3.g3.rightoversjava.service.FoodPostService;
 
 import java.util.ArrayList;
@@ -64,14 +64,14 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
     }
 
     @Override
-    public void reserve(FoodPostReservation request, StreamObserver<Empty> responseObserver) {
+    public void reserve(FoodPostReservation request, StreamObserver<ReservationResponse> responseObserver) {
         try {
-            // TODO: add user
-            FoodPostReservationDto dto = new FoodPostReservationDto(
-                    1, // Place holder for user
-                    request.getFoodpostId()
-            );
-            service.reserve(dto);
+            service.reserve(new ReservationCreationDto(
+                    request.getFoodpostId(),
+                    request.getUsername()
+                    ));
+            ReservationResponse response = ReservationResponse.newBuilder().setFiller(true).build();
+            responseObserver.onNext(response);
             responseObserver.onCompleted();
         } catch (NoSuchElementException e) {
             e.printStackTrace();
