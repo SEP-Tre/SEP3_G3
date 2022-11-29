@@ -54,5 +54,5 @@ VALUES ('Haldsvej', '1', 8700, 'Horsens', 55.87746972455174, 9.835904241121996),
 
 UPDATE food_post
 SET post_state = 'posted'
-WHERE post_id = 1;
+WHERE post_id = 2;
 
