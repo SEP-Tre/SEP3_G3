@@ -14,11 +14,15 @@ public class FoodPost
         PostState = postState;
     }
 
-    public int PostId { get; }
-    public string Title { get; }
-    public string Category { get; }
-    public string Description { get; }
-    public string PictureUrl { get; }
-    public int DaysUntilExpired { get; }
-    public string PostState { get; }
+    public FoodPost()
+    {
+    }
+
+    public int PostId { get; set; }
+    public string Title  { get; set; }
+    public string Category  { get; set; }
+    public string Description  { get; set; }
+    public string PictureUrl  { get; set; }
+    public int DaysUntilExpired  { get; set; }
+    public string PostState  { get; set; }
 }

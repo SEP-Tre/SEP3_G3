@@ -18,5 +18,12 @@ public class UserCreationDto
 
     public UserCreationDto()
     {
+        AddressCreationDto = new AddressCreationDto();
+    }
+
+    public string toString()
+    {
+        return
+            $"First name: {FirstName}, User name: {UserName}, Password: {Password}, Address: {AddressCreationDto.toString()}";
     }
 }
