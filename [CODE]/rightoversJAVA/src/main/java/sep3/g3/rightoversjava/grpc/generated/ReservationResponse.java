@@ -4,25 +4,25 @@
 package sep3.g3.rightoversjava.grpc.generated;
 
 /**
- * Protobuf type {@code sep3.g3.Empty}
+ * Protobuf type {@code sep3.g3.ReservationResponse}
  */
-public final class Empty extends
+public final class ReservationResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:sep3.g3.Empty)
-    EmptyOrBuilder {
+    // @@protoc_insertion_point(message_implements:sep3.g3.ReservationResponse)
+    ReservationResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use Empty.newBuilder() to construct.
-  private Empty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ReservationResponse.newBuilder() to construct.
+  private ReservationResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private Empty() {
+  private ReservationResponse() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new Empty();
+    return new ReservationResponse();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Empty(
+  private ReservationResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -48,6 +48,11 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
+          case 8: {
+
+            filler_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -71,15 +76,26 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_Empty_descriptor;
+    return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_ReservationResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_Empty_fieldAccessorTable
+    return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_ReservationResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            sep3.g3.rightoversjava.grpc.generated.Empty.class, sep3.g3.rightoversjava.grpc.generated.Empty.Builder.class);
+            sep3.g3.rightoversjava.grpc.generated.ReservationResponse.class, sep3.g3.rightoversjava.grpc.generated.ReservationResponse.Builder.class);
+  }
+
+  public static final int FILLER_FIELD_NUMBER = 1;
+  private boolean filler_;
+  /**
+   * <code>bool filler = 1;</code>
+   * @return The filler.
+   */
+  @java.lang.Override
+  public boolean getFiller() {
+    return filler_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -96,6 +112,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (filler_ != false) {
+      output.writeBool(1, filler_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -105,6 +124,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (filler_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(1, filler_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -115,11 +138,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof sep3.g3.rightoversjava.grpc.generated.Empty)) {
+    if (!(obj instanceof sep3.g3.rightoversjava.grpc.generated.ReservationResponse)) {
       return super.equals(obj);
     }
-    sep3.g3.rightoversjava.grpc.generated.Empty other = (sep3.g3.rightoversjava.grpc.generated.Empty) obj;
+    sep3.g3.rightoversjava.grpc.generated.ReservationResponse other = (sep3.g3.rightoversjava.grpc.generated.ReservationResponse) obj;
 
+    if (getFiller()
+        != other.getFiller()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -131,74 +156,77 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + FILLER_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getFiller());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(byte[] data)
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(java.io.InputStream input)
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseDelimitedFrom(java.io.InputStream input)
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseDelimitedFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.Empty parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -211,7 +239,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(sep3.g3.rightoversjava.grpc.generated.Empty prototype) {
+  public static Builder newBuilder(sep3.g3.rightoversjava.grpc.generated.ReservationResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -227,26 +255,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code sep3.g3.Empty}
+   * Protobuf type {@code sep3.g3.ReservationResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:sep3.g3.Empty)
-      sep3.g3.rightoversjava.grpc.generated.EmptyOrBuilder {
+      // @@protoc_insertion_point(builder_implements:sep3.g3.ReservationResponse)
+      sep3.g3.rightoversjava.grpc.generated.ReservationResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_Empty_descriptor;
+      return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_ReservationResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_Empty_fieldAccessorTable
+      return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_ReservationResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              sep3.g3.rightoversjava.grpc.generated.Empty.class, sep3.g3.rightoversjava.grpc.generated.Empty.Builder.class);
+              sep3.g3.rightoversjava.grpc.generated.ReservationResponse.class, sep3.g3.rightoversjava.grpc.generated.ReservationResponse.Builder.class);
     }
 
-    // Construct using sep3.g3.rightoversjava.grpc.generated.Empty.newBuilder()
+    // Construct using sep3.g3.rightoversjava.grpc.generated.ReservationResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -264,23 +292,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      filler_ = false;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_Empty_descriptor;
+      return sep3.g3.rightoversjava.grpc.generated.FoodPost.internal_static_sep3_g3_ReservationResponse_descriptor;
     }
 
     @java.lang.Override
-    public sep3.g3.rightoversjava.grpc.generated.Empty getDefaultInstanceForType() {
-      return sep3.g3.rightoversjava.grpc.generated.Empty.getDefaultInstance();
+    public sep3.g3.rightoversjava.grpc.generated.ReservationResponse getDefaultInstanceForType() {
+      return sep3.g3.rightoversjava.grpc.generated.ReservationResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public sep3.g3.rightoversjava.grpc.generated.Empty build() {
-      sep3.g3.rightoversjava.grpc.generated.Empty result = buildPartial();
+    public sep3.g3.rightoversjava.grpc.generated.ReservationResponse build() {
+      sep3.g3.rightoversjava.grpc.generated.ReservationResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -288,8 +318,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public sep3.g3.rightoversjava.grpc.generated.Empty buildPartial() {
-      sep3.g3.rightoversjava.grpc.generated.Empty result = new sep3.g3.rightoversjava.grpc.generated.Empty(this);
+    public sep3.g3.rightoversjava.grpc.generated.ReservationResponse buildPartial() {
+      sep3.g3.rightoversjava.grpc.generated.ReservationResponse result = new sep3.g3.rightoversjava.grpc.generated.ReservationResponse(this);
+      result.filler_ = filler_;
       onBuilt();
       return result;
     }
@@ -328,16 +359,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof sep3.g3.rightoversjava.grpc.generated.Empty) {
-        return mergeFrom((sep3.g3.rightoversjava.grpc.generated.Empty)other);
+      if (other instanceof sep3.g3.rightoversjava.grpc.generated.ReservationResponse) {
+        return mergeFrom((sep3.g3.rightoversjava.grpc.generated.ReservationResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(sep3.g3.rightoversjava.grpc.generated.Empty other) {
-      if (other == sep3.g3.rightoversjava.grpc.generated.Empty.getDefaultInstance()) return this;
+    public Builder mergeFrom(sep3.g3.rightoversjava.grpc.generated.ReservationResponse other) {
+      if (other == sep3.g3.rightoversjava.grpc.generated.ReservationResponse.getDefaultInstance()) return this;
+      if (other.getFiller() != false) {
+        setFiller(other.getFiller());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -353,17 +387,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      sep3.g3.rightoversjava.grpc.generated.Empty parsedMessage = null;
+      sep3.g3.rightoversjava.grpc.generated.ReservationResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (sep3.g3.rightoversjava.grpc.generated.Empty) e.getUnfinishedMessage();
+        parsedMessage = (sep3.g3.rightoversjava.grpc.generated.ReservationResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
           mergeFrom(parsedMessage);
         }
       }
+      return this;
+    }
+
+    private boolean filler_ ;
+    /**
+     * <code>bool filler = 1;</code>
+     * @return The filler.
+     */
+    @java.lang.Override
+    public boolean getFiller() {
+      return filler_;
+    }
+    /**
+     * <code>bool filler = 1;</code>
+     * @param value The filler to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFiller(boolean value) {
+      
+      filler_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool filler = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFiller() {
+      
+      filler_ = false;
+      onChanged();
       return this;
     }
     @java.lang.Override
@@ -379,41 +444,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:sep3.g3.Empty)
+    // @@protoc_insertion_point(builder_scope:sep3.g3.ReservationResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:sep3.g3.Empty)
-  private static final sep3.g3.rightoversjava.grpc.generated.Empty DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:sep3.g3.ReservationResponse)
+  private static final sep3.g3.rightoversjava.grpc.generated.ReservationResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new sep3.g3.rightoversjava.grpc.generated.Empty();
+    DEFAULT_INSTANCE = new sep3.g3.rightoversjava.grpc.generated.ReservationResponse();
   }
 
-  public static sep3.g3.rightoversjava.grpc.generated.Empty getDefaultInstance() {
+  public static sep3.g3.rightoversjava.grpc.generated.ReservationResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<Empty>
-      PARSER = new com.google.protobuf.AbstractParser<Empty>() {
+  private static final com.google.protobuf.Parser<ReservationResponse>
+      PARSER = new com.google.protobuf.AbstractParser<ReservationResponse>() {
     @java.lang.Override
-    public Empty parsePartialFrom(
+    public ReservationResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Empty(input, extensionRegistry);
+      return new ReservationResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<Empty> parser() {
+  public static com.google.protobuf.Parser<ReservationResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<Empty> getParserForType() {
+  public com.google.protobuf.Parser<ReservationResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public sep3.g3.rightoversjava.grpc.generated.Empty getDefaultInstanceForType() {
+  public sep3.g3.rightoversjava.grpc.generated.ReservationResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
