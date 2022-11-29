@@ -14,7 +14,13 @@ CREATE TABLE food_post
     description        varchar(1000),
     picture_url        varchar(1000),
     days_until_expired int,
-    post_state         post_state
+    post_state         post_state,
+    timestamp_posted timestamp,
+    pickup_start_date date,
+    pickup_end_date date,
+    pickup_start_time time,
+    pickup_end_time time,
+    username varchar(50) references user_(username)
 );
 
 CREATE TABLE address
