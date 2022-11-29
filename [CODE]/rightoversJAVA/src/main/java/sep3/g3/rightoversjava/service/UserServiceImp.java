@@ -1,7 +1,6 @@
 package sep3.g3.rightoversjava.service;
 
 import org.springframework.stereotype.Service;
-import sep3.g3.rightoversjava.model.Address;
 import sep3.g3.rightoversjava.model.User;
 import sep3.g3.rightoversjava.model.UserCreationDTO;
 import sep3.g3.rightoversjava.model.UserLoginDTO;
@@ -15,6 +14,11 @@ public class UserServiceImp implements UserService {
 
     private UserRepository userRepository;
     private AddressRepository addressRepository;
+
+    public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository) {
+        this.userRepository = userRepository;
+        this.addressRepository = addressRepository;
+    }
 
     @Override
     public User registerUser(UserCreationDTO dto) {
@@ -35,10 +39,5 @@ public class UserServiceImp implements UserService {
         }
 
         return user.get();
-    }
-
-    public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository) {
-        this.userRepository = userRepository;
-        this.addressRepository = addressRepository;
     }
 }

@@ -69,7 +69,7 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
             service.reserve(new ReservationCreationDto(
                     request.getFoodpostId(),
                     request.getUsername()
-                    ));
+            ));
             ReservationResponse response = ReservationResponse.newBuilder().setFiller(true).build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();

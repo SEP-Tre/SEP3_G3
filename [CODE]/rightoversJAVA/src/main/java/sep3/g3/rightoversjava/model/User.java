@@ -7,9 +7,9 @@ import javax.persistence.*;
 public class User {
     @Id
     public String username;
-    @Column(name="firstname")
+    @Column(name = "firstname")
     public String firstName;
-    @Column(name="password_")
+    @Column(name = "password_")
     public String password;
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id")

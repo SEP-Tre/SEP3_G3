@@ -1,6 +1,5 @@
 package sep3.g3.rightoversjava.grpc;
 
-import io.grpc.Metadata;
 import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Configurable;
 import sep3.g3.rightoversjava.grpc.generated.*;
@@ -71,12 +70,11 @@ public class UserServiceGrpcImpl
             UserMessage userMessage = getUserMessageFromUser(user);
             responseObserver.onNext(userMessage);
             responseObserver.onCompleted();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             responseObserver.onError(
                     io.grpc.Status.INVALID_ARGUMENT
                             .withDescription(e.getMessage())
-                    .asRuntimeException());
+                            .asRuntimeException());
         }
     }
 }

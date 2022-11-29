@@ -4,6 +4,6 @@
 package sep3.g3.rightoversjava.grpc.generated;
 
 public interface EmptyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:sep3.g3.Empty)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:sep3.g3.Empty)
+        com.google.protobuf.MessageOrBuilder {
 }

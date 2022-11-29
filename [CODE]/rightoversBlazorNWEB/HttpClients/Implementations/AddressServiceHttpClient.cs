@@ -19,7 +19,7 @@ public class AddressServiceHttpClient : IAddressService
 
     public async Task<AddressCreationDto> CreateAsync(AddressCreationDto? addressDto)
     {
-        Console.WriteLine("Address service: "+ addressDto.toString());
+        Console.WriteLine("Address service: " + addressDto.toString());
         // Set the coordinates for the new address
         string address =
             addressDto.Street + "+" +
@@ -61,7 +61,7 @@ public class AddressServiceHttpClient : IAddressService
             addressDto.Latitude = Convert.ToDouble(location["lat"]);
             addressDto.Longitude = Convert.ToDouble(location["lng"]);
         }
-        
+
         // Persist the address
         var response2 = await client.PostAsJsonAsync("/Address", addressDto);
         var result = await response2.Content.ReadAsStringAsync();

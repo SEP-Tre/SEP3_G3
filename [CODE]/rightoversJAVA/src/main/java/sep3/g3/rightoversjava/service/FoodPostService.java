@@ -10,7 +10,9 @@ import java.util.NoSuchElementException;
 
 public interface FoodPostService {
     FoodPost create(FoodPostCreationDTO dto);
+
     ArrayList<FoodPost> getAllFoodPosts();
+
     FoodPost getSingleFoodPost(int id) throws NoSuchElementException;
 
     // Should this return something? - CF

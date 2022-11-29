@@ -22,7 +22,7 @@ public class FoodPostLogic : IFoodPostLogic
         {
             throw new Exception("The url is not valid.");
         }
-        
+
         return fpDao.Create(dto);
     }
 
@@ -30,7 +30,7 @@ public class FoodPostLogic : IFoodPostLogic
     {
         IEnumerable<OverSimpleFoodPostDto> allPosts = await fpDao.GetAsync();
         Console.WriteLine(allPosts.ToString());
-        
+
         foreach (OverSimpleFoodPostDto post in allPosts)
         {
             Console.WriteLine(post.DaysUntilExpired);

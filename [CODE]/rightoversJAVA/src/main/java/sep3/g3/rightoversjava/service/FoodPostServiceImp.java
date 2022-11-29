@@ -11,8 +11,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
-public class FoodPostServiceImp implements FoodPostService
-{
+public class FoodPostServiceImp implements FoodPostService {
 
     private final FoodPostRepository fpRepository;
     private final UserRepository userRepository;
@@ -24,24 +23,20 @@ public class FoodPostServiceImp implements FoodPostService
         this.reservationRepository = reservationRepository;
     }
 
-    public FoodPost create(FoodPostCreationDTO dto)
-    {
+    public FoodPost create(FoodPostCreationDTO dto) {
         FoodPost fpObj = new FoodPost(dto.getTitle(), dto.getCategory_(), dto.getDescription(), dto.getPictureUrl(), dto.getDaysUntilExpired());
         return fpRepository.save(fpObj);
     }
 
     @Override
-    public ArrayList<FoodPost> getAllFoodPosts()
-    {
+    public ArrayList<FoodPost> getAllFoodPosts() {
         return (ArrayList<FoodPost>) fpRepository.findAll();
     }
 
     @Override
-    public FoodPost getSingleFoodPost(int id) throws NoSuchElementException
-    {
+    public FoodPost getSingleFoodPost(int id) throws NoSuchElementException {
         Optional<FoodPost> foodPostOptional = fpRepository.findById(id);
-        if (foodPostOptional.isEmpty())
-        {
+        if (foodPostOptional.isEmpty()) {
             throw new NoSuchElementException("Food post with such ID does not exist.");
         }
         return foodPostOptional.get();

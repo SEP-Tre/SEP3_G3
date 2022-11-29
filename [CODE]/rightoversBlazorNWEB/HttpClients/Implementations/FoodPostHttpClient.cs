@@ -58,14 +58,15 @@ public class FoodPostHttpClient : IFoodPostService
         var response = await client.GetAsync($"/FoodPosts/Single?id={id}");
         // Console.Write("API: " + response);
         var content = await response.Content.ReadAsStringAsync();
+
         // Console.Write("Content: " + content);
         if (!response.IsSuccessStatusCode) throw new Exception(content);
 
         var foodPost =
-            JsonSerializer.Deserialize<FoodPost>(content, new JsonSerializerOptions
-            {
+            JsonSerializer.Deserialize<FoodPost>(content, new JsonSerializerOptions{
                 PropertyNameCaseInsensitive = true
             })!;
+
         return foodPost;
     }
 
@@ -74,12 +75,13 @@ public class FoodPostHttpClient : IFoodPostService
         string dtoAsJson = JsonSerializer.Serialize(dto);
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
         Console.Write(body);
-        
+
         HttpResponseMessage response = await client.PatchAsync($"/FoodPosts/", body);
         Console.Write(response);
         if (!response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();
+
             throw new Exception(content);
         }
     }

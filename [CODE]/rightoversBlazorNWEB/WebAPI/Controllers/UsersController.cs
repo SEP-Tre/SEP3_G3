@@ -57,8 +57,7 @@ public class UsersController : ControllerBase
 
     private List<Claim> GenerateClaims(User user)
     {
-        var claims = new[]
-        {
+        var claims = new[]{
             new Claim(JwtRegisteredClaimNames.Sub, config["Jwt:Subject"]),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
@@ -74,6 +73,7 @@ public class UsersController : ControllerBase
             new Claim("Latitude", user.Address.Latitude.ToString())
             //@context.User.Longitude <- This is a string.
         };
+
         return claims.ToList();
     }
 
@@ -96,6 +96,7 @@ public class UsersController : ControllerBase
         JwtSecurityToken token = new JwtSecurityToken(header, payload);
 
         string serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
+
         return serializedToken;
     }
 }

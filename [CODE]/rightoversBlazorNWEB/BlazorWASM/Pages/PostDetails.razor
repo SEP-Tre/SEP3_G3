@@ -41,7 +41,7 @@
 </div>
 <div>
     <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
-    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(1, "Kamilooo111")) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id, "Kamilooo111")) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
 </div>
 <div>
     <h3>
@@ -79,7 +79,7 @@
     {
         FoodPostReservationDto dto = new FoodPostReservationDto(username, foodPostId);
         await foodPostService.ReserveAsync(dto);
-        msg = "Post " + dto.FoodPostId + " is reserved";
+        msg = foodPost.Title + " is reserved";
     }
 
 }

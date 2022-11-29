@@ -42,8 +42,8 @@ DROP TABLE IF EXISTS reservation;
 CREATE TABLE reservation
 (
     reservation_id SERIAL PRIMARY KEY,
-    post_id int REFERENCES food_post(post_id),
-    username varchar(50) REFERENCES user_(username)
+    post_id        int REFERENCES food_post (post_id),
+    username       varchar(50) REFERENCES user_ (username)
 );
 
 

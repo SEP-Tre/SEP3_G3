@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BlazorWASM.Auth;
 
-public class CustomAuthProvider: AuthenticationStateProvider
+public class CustomAuthProvider : AuthenticationStateProvider
 {
     private readonly IUserService userService;
 
@@ -13,14 +13,14 @@ public class CustomAuthProvider: AuthenticationStateProvider
         this.userService = userService;
         userService.OnAuthStateChanged += AuthStateChanged;
     }
-    
+
     public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
         ClaimsPrincipal principal = await userService.GetAuthAsync();
-        
+
         return new AuthenticationState(principal);
     }
-    
+
     private void AuthStateChanged(ClaimsPrincipal principal)
     {
         NotifyAuthenticationStateChanged(

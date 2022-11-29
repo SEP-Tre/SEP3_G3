@@ -101,11 +101,13 @@ public class FoodPostsController : ControllerBase
         try
         {
             await fpLogic.ReserveAsync(dto);
+
             return Ok();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
+
             return StatusCode(500, e.Message);
         }
     }

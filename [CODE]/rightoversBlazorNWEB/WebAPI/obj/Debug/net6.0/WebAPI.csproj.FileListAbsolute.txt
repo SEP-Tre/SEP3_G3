@@ -114,3 +114,13 @@ O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\Debug\ne
 O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\WebAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

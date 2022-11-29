@@ -10,15 +10,15 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reservationId;
 
-    @JoinColumn(name="post_id")
+    @JoinColumn(name = "post_id")
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     private FoodPost foodPost;
 
-    @JoinColumn(name="username")
+    @JoinColumn(name = "username")
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     private User user;
 
-    public Reservation(){
+    public Reservation() {
 
     }
 
