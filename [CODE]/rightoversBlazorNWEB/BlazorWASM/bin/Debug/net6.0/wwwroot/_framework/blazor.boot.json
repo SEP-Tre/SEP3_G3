@@ -198,26 +198,32 @@
       "mscorlib.dll": "sha256-cx\/3nJhFns3tZhQNQOyiRyKJESKxOjLVufzWnri6KSA=",
       "netstandard.dll": "sha256-yWufW5W4SSfjocBcWTEDqnFwTd\/VYtLMc2Y9mPmlggc=",
       "System.Private.CoreLib.dll": "sha256-H009wzPwRoDZlwvpN4KLCsUwN7Y1AmjKB3PIEHA7ObQ=",
-      "Domain.dll": "sha256-30EtZ54Os\/HP6LgYZK6EgTZy+V2YSOaktjGPkLWdkA8=",
-      "HttpClients.dll": "sha256-OwPs0qEw\/KOH26PGO4iTMDMZVLo+9VEHN3hVigj8LaM=",
-      "BlazorWASM.dll": "sha256-\/YXmcEGF1Ycog7t98zOrQ78TbIY45GiDE27is98c+RI="
+      "Domain.dll": "sha256-Y6J7fSWmZMfcJiO3bggN6Z6uCYB1NMWzVCLJSSGdEwU=",
+      "HttpClients.dll": "sha256-P5U4PKlNxbVYxvVc4pR3xuucopvOlHRLLPhH7FjiQZ8=",
+      "BlazorWASM.dll": "sha256-a7iKi2E\/31eV7\/5tJcCRoRsnqHacOdDAypuobzri19U="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Domain.pdb": "sha256-PhEpNyT+9aaythxOUdcljRrSCbddCU3fW5OzTi3K+ok=",
-      "HttpClients.pdb": "sha256-c0njGKG\/HH3p1MXDtGbldkNyZXPkF978ps+1cYxqTlI=",
-      "BlazorWASM.pdb": "sha256-YTLZKk++NcaK7hpwzIx8dVpIyA8tQKNEm08Nt8CBODw="
+      "Domain.pdb": "sha256-fpDi5xe5W6BmOK7rCjQdMxx4cadZKi5G8QR+OyD9baU=",
+      "HttpClients.pdb": "sha256-mCl1k1Qvb9MgtEce4Aztc2AlPNp2M4yNDQEB2Jzc7kw=",
+      "BlazorWASM.pdb": "sha256-PZc4JcdlNzCdgzVUOj1wXDmmKu\/f\/ktaJn1bG2trAB8="
     },
     "runtime": {
-      "dotnet.6.0.11.si0h4dfp2u.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",
+      "dotnet.6.0.11.i5zby3mec6.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",
       "dotnet.timezones.blat": "sha256-Lv3h5dH3BV8JIZagipVCG0N\/oBjQF6jXUUWR6shkvws=",
       "dotnet.wasm": "sha256-uv9ggGYjOv1l7PZUHHHlIba88MjDiFYvp8OqO2qQGxY=",
       "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",
       "icudt_CJK.dat": "sha256-WPyI4hWDPnOw62Nr27FkzGjdbucZnQD+Ph+GOPhAedw=",
       "icudt_EFIGS.dat": "sha256-4RwaPx87Z4dvn77ie\/ro3\/QzyS+\/gGmO3Y\/0CSAXw4k=",
       "icudt_no_CJK.dat": "sha256-OxylFgLJlFqixsj+nLxYVsv5iZLvfIKMpLf9hrWaChA="
+    },
+    "runtimeAssets": {
+      "dotnet.wasm": {
+        "behavior": "dotnetwasm",
+        "hash": "sha256-uv9ggGYjOv1l7PZUHHHlIba88MjDiFYvp8OqO2qQGxY="
+      }
     },
     "satelliteResources": null
   }

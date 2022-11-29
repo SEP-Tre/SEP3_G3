@@ -51,10 +51,10 @@
     {
         try
         {
-    //FoodPost foodPost = await foodPostService.GetSingleAsync(id);
+            foodPost = await foodPostService.GetSingleAsync(id);
     //title = foodPost.Title;
-            foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
-                "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
+    // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
+    //    "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
         }
         catch (Exception e)
         {
