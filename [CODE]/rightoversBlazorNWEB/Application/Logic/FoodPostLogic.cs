@@ -16,6 +16,13 @@ public class FoodPostLogic : IFoodPostLogic
 
     public Task<FoodPost> CreateAsync(FoodPostCreationDto dto)
     {
+        String url = dto.PictureUrl;
+
+        if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
+        {
+            throw new Exception("The url is not valid.");
+        }
+        
         return fpDao.Create(dto);
     }
 

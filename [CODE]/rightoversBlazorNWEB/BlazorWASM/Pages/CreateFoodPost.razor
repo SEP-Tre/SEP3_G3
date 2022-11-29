@@ -29,9 +29,8 @@
 
     </div>
     <div class="form-group field">
-        <label>Upload image:</label>
-        <br/>
-        <InputFile></InputFile>
+        <label>Image url:</label>
+        <input id="imageUrl" type="url"/>
         @if (!string.IsNullOrEmpty(resultMsg))
         {
             <label style="color: @color">@resultMsg</label>
