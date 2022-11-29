@@ -39,7 +39,7 @@ public class FoodPostHttpClient : IFoodPostService
         // Console.Write("Content: " + content);
         if (!response.IsSuccessStatusCode) throw new Exception(content);
 
-        var foodPostDtos =
+        var foodPosts =
             JsonSerializer.Deserialize<ICollection<OverSimpleFoodPostDto>>(content, new JsonSerializerOptions{
                 PropertyNameCaseInsensitive = true
             })!;
@@ -50,7 +50,7 @@ public class FoodPostHttpClient : IFoodPostService
         }
         */
 
-        return foodPostDtos;
+        return foodPosts;
     }
 
     public async Task<FoodPost> GetSingleAsync(int id)

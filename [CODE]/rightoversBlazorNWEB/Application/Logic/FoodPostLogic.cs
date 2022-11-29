@@ -30,6 +30,11 @@ public class FoodPostLogic : IFoodPostLogic
     {
         IEnumerable<OverSimpleFoodPostDto> allPosts = await fpDao.GetAsync();
         Console.WriteLine(allPosts.ToString());
+        
+        foreach (OverSimpleFoodPostDto post in allPosts)
+        {
+            Console.WriteLine(post.DaysUntilExpired);
+        }
 
         return allPosts;
     }

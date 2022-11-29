@@ -60,7 +60,8 @@ public class FoodPostDao : IFoodPostDao
                 {
                     id = message.FpId,
                     Title = message.Title,
-                    Category = message.Category
+                    Category = message.Category,
+                    DaysUntilExpired = message.DaysUntilExpired
                 };
                 listHolder.Add(simpleFoodPostDto);
                 Console.WriteLine("I found a post: " + simpleFoodPostDto.Title + " : " + simpleFoodPostDto.Category);
