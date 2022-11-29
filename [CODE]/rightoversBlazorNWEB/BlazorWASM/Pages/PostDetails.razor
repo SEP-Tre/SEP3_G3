@@ -1,5 +1,6 @@
 ﻿@page "/PostDetails/{id:int}"
 @using Domain.Classes
+@using Domain.DTOs
 @using HttpClients.ClientInterfaces
 @inject IFoodPostService foodPostService
 
@@ -39,7 +40,13 @@
     </div>
 </div>
 <div>
-    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(foodPost.PostId)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+    <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
+    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(1, "Kamilooo111")) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+</div>
+<div>
+    <h3>
+        @msg
+    </h3>
 </div>
 
 
@@ -49,6 +56,7 @@
     public int id { get; set; }
 
     public FoodPost foodPost;
+    public string msg;
 
     protected override async Task OnInitializedAsync()
     {
@@ -67,9 +75,11 @@
     }
 
     // TODO: Use context to add current user
-    public async Task Reserve(int id)
+    public async Task Reserve(int foodPostId, String username)
     {
-        await foodPostService.ReserveAsync(id);
+        FoodPostReservationDto dto = new FoodPostReservationDto(username, foodPostId);
+        await foodPostService.ReserveAsync(dto);
+        msg = "Post " + dto.FoodPostId + " is reserved";
     }
 
 }

@@ -69,12 +69,14 @@ public class FoodPostHttpClient : IFoodPostService
         return foodPost;
     }
 
-    public async Task ReserveAsync(int id)
+    public async Task ReserveAsync(FoodPostReservationDto dto)
     {
-        string idAsJson = JsonSerializer.Serialize(id);
-        StringContent body = new StringContent(idAsJson, Encoding.UTF8, "application/json");
+        string dtoAsJson = JsonSerializer.Serialize(dto);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        Console.Write(body);
         
-        HttpResponseMessage response = await client.PatchAsync($"/FoodPosts/{id}", body);
+        HttpResponseMessage response = await client.PatchAsync($"/FoodPosts/", body);
+        Console.Write(response);
         if (!response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();
