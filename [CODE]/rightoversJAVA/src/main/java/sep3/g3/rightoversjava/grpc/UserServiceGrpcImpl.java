@@ -26,10 +26,13 @@ public class UserServiceGrpcImpl
                 request.getFirstname(),
                 request.getUsername(),
                 request.getPassword(),
-                request.getStreetName(),
-                request.getStreetNumber(),
-                request.getPostalCode(),
-                request.getCityName()
+                request.getAddress().getAddressId(),
+                request.getAddress().getStreet(),
+                request.getAddress().getStreetNumber(),
+                request.getAddress().getPostCode(),
+                request.getAddress().getCity(),
+                request.getAddress().getLongitude(),
+                request.getAddress().getLatitude()
         ));
         UserMessage userMessage = getUserMessageFromUser(user);
         responseObserver.onNext(userMessage);

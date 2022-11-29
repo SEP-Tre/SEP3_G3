@@ -1,35 +1,45 @@
 package sep3.g3.rightoversjava.model;
 
-public class UserCreationDTO {
+public class UserCreationDTO
+{
     private String firstName;
     private String username;
     private String password;
     private AddressCreationDTO addressCreationDTO;
 
     public UserCreationDTO(String firstName, String userName,
-                           String password, String streetName,
+                           String password, int addressId, String streetName,
                            String streetNumber,
-                           int postalCode, String cityName) {
+                           int postalCode, String cityName, double longitude, double latitude)
+    {
         this.firstName = firstName;
         this.username = userName;
         this.password = password;
-        this.addressCreationDTO = new AddressCreationDTO(
-                streetNumber, streetName, cityName, postalCode);
+        this.addressCreationDTO = new AddressCreationDTO(addressId,
+                streetNumber, streetName, cityName, postalCode, longitude, latitude);
     }
 
-    public String getFirstName() {
+    public UserCreationDTO()
+    {
+    }
+
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 
-    public AddressCreationDTO getAddressCreationDTO() {
+    public AddressCreationDTO getAddressCreationDTO()
+    {
         return addressCreationDTO;
     }
 }

@@ -14,11 +14,11 @@ public class UserDao : IUserDao
         UnsafeUseInsecureChannelCallCredentials = true
     });
 
+    
+    private static UserService.UserServiceClient client = new(channel);
+
+    //private readonly IFoodPostConverter converter;
     /*
-    private static FoodPostService.FoodPostServiceClient client = new(channel);
-
-    private readonly IFoodPostConverter converter;
-
     public FoodPostDao(IFoodPostConverter converter)
     {
         this.converter = converter;
@@ -27,29 +27,40 @@ public class UserDao : IUserDao
     public Task<User> LoginAsync(UserLoginDto dto)
     {
         //TODO change those two methods.
-        User user = new User();
-        user.Id = 0;
-        user.UserName = dto.UserName;
-        user.Password = dto.Password;
-        user.FirstName = "KamiloTest";
-        user.Address = new Address(0, "The great street",
-            "16B/1", 8700, "Horsens", 0, 0);
-        return Task.FromResult(user);
+        throw new NotImplementedException();
     }
 
 
-    public Task<User> RegisterAsync(UserCreationDto dto)
+    public async Task<User> RegisterAsync(UserCreationDto dto)
     {
-        User user = new User();
-        user.FirstName = dto.FirstName;
-        user.UserName = dto.UserName;
-        user.Password = dto.Password;
-        user.Address = new Address(0,
-            dto.AddressCreationDto.StreetNumber,
-            dto.AddressCreationDto.Street,
-            dto.AddressCreationDto.PostCode,
-            dto.AddressCreationDto.City,
-            0, 0);
-        return Task.FromResult(user);
+        
+        AddressCreationDto addressDto = dto.AddressCreationDto;
+        UserMessage userMessage = await client.registerAsync(new UserCreationRequest
+        {
+            Firstname = dto.FirstName,
+            Password = dto.Password,
+            Username = dto.UserName,
+            Address = new AddressMessage
+            {
+                AddressId = addressDto.AddressId,
+                City = addressDto.City,
+                Latitude = addressDto.Latitude,
+                Longitude = addressDto.Longitude,
+                PostCode = addressDto.PostCode,
+                Street = addressDto.Street,
+                StreetNumber = addressDto.StreetNumber
+            }
+        });
+        AddressMessage addressMessage = userMessage.Address;
+        User user = new User
+        {
+            //Todo user ID is missing.
+            Id = 0,
+            FirstName = userMessage.Firstname,
+            UserName = userMessage.Username,
+            Password = userMessage.Password,
+            Address = new Address(addressMessage.AddressId,  addressMessage.StreetNumber, addressMessage.Street, addressMessage.PostCode, addressMessage.City, addressMessage.Longitude, addressMessage.Latitude)
+        };
+        return user;
     }
 }
