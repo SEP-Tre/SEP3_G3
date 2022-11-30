@@ -1,4 +1,6 @@
-﻿using Application.LogicInterfaces;
+﻿using System.Text.Json;
+using Application.LogicInterfaces;
+using AspNetCoreDateAndTimeOnly.Json;
 using Domain.Classes;
 using Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -19,37 +21,11 @@ public class FoodPostsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<FoodPost>> CreateAsync(FoodPostCreationDto dto)
     {
-        if (string.IsNullOrEmpty(dto.Title))
-        {
-            throw new Exception("Title should not be empty.");
-        }
-
-        if (string.IsNullOrEmpty(dto.Category))
-        {
-            throw new Exception("Category should not be empty.");
-        }
-
-        if (string.IsNullOrEmpty(dto.Description))
-        {
-            throw new Exception("Description should not be empty.");
-        }
-
-        if (string.IsNullOrEmpty(dto.PictureUrl))
-        {
-            throw new Exception("Picture Url should not be empty.");
-        }
-
-        if (dto.DaysUntilExpired == 0)
-        {
-            throw new Exception("Days Until Expiration should not be empty.");
-        }
-
-
         try
         {
             FoodPost foodPost = await fpLogic.CreateAsync(dto);
 
-            return Created($"/foodposts/{foodPost.PostId}", foodPost);
+            return Created($"/FoodPosts/{foodPost.PostId}", foodPost);
         }
         catch (Exception e)
         {

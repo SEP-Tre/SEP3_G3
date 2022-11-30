@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AspNetCoreDateAndTimeOnly.Json/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/AspNetCoreDateAndTimeOnly.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/AspNetCoreDateAndTimeOnly.Json.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/6.0.11": {
         "type": "package",
         "dependencies": {
@@ -120,6 +129,21 @@
     }
   },
   "libraries": {
+    "AspNetCoreDateAndTimeOnly.Json/1.0.1": {
+      "sha512": "fajwehCfA4QyW//mWEDs9WCXuqdH6IGPbtB3sZOmFKKez8t/SI8e8fev6FmMH1UFHdNuiRm90IXzmj1oYzbieA==",
+      "type": "package",
+      "path": "aspnetcoredateandtimeonly.json/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "aspnetcoredateandtimeonly.json.1.0.1.nupkg.sha512",
+        "aspnetcoredateandtimeonly.json.nuspec",
+        "lib/net6.0/AspNetCoreDateAndTimeOnly.Json.dll",
+        "lib/net7.0/AspNetCoreDateAndTimeOnly.Json.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Authorization/6.0.11": {
       "sha512": "giOl79lYqcUy9TShXTwA0nzucUAeiXgIKenaMX67H/20tnB+BXR3dx56cFJVKKIgGY+mcr1HFuEVigR+juDfSg==",
       "type": "package",
@@ -309,6 +333,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AspNetCoreDateAndTimeOnly.Json >= 1.0.1",
       "Microsoft.AspNetCore.Authorization >= 6.0.11"
     ]
   },
@@ -349,6 +374,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AspNetCoreDateAndTimeOnly.Json": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
           "Microsoft.AspNetCore.Authorization": {
             "target": "Package",
             "version": "[6.0.11, )"

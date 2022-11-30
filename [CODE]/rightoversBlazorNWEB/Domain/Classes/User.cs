@@ -22,6 +22,11 @@ public class User
         Address = address;
     }
 
+    public User(string userName)
+    {
+        UserName = userName;
+    }
+
     public User()
     {
     }

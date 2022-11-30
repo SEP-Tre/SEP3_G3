@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using System.Text.Json;
+using AspNetCoreDateAndTimeOnly.Json;
 using Domain.Classes;
 using Domain.DTOs;
 using HttpClients.ClientInterfaces;
@@ -17,12 +18,20 @@ public class FoodPostHttpClient : IFoodPostService
 
     public async Task<FoodPost> Create(FoodPostCreationDto dto)
     {
+        /*
+        var jso = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+        jso.Converters.Add(new DateOnlyJsonConverter());
+        jso.Converters.Add(new TimeOnlyJsonConverter());
+        */
+        //TODO the problem is likely here.
+        Console.WriteLine(dto);
         var response = await client.PostAsJsonAsync("/FoodPosts", dto);
         var result = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode) throw new Exception(result);
-
-        var fp = JsonSerializer.Deserialize<FoodPost>(result, new JsonSerializerOptions{
+        
+        var fp = JsonSerializer.Deserialize<FoodPost>(result, new JsonSerializerOptions
+        {
             PropertyNameCaseInsensitive = true
         })!;
 

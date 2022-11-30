@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HTnG59EtNTX+7NEzBx4OHdAPwx3anYSRUcZRlexYDttaGPvkHC+5EMLBDCUV1Zfesxi1kRI9+9sbAvnmEGe4bg==",
+  "dgSpecHash": "8tdd5CxDCWSAgi0maowKSlQ9mBJeSUC3C62FxcOx8vhZcFtjH6cZ42cYGB/hKNwZpkW7bkcbnTbEAkrGkGnWuw==",
   "success": true,
   "projectFilePath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\laura\\.nuget\\packages\\aspnetcoredateandtimeonly.json\\1.0.1\\aspnetcoredateandtimeonly.json.1.0.1.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\grpc.core.api\\2.49.0\\grpc.core.api.2.49.0.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\grpc.net.client\\2.49.0\\grpc.net.client.2.49.0.nupkg.sha512",

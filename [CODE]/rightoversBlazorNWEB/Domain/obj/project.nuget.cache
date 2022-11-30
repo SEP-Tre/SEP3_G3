@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ZDJedzqWmGIWGxHZBkuy+lfi/rBXR/T1hJsxp+70qgTDkjmX68ro4OgAb1GelItfPEk4FQuJ0+od7efl5g8AcQ==",
+  "dgSpecHash": "U5TY+kIXCwkY7lyB8IJ4UPYfFDuvmoWhdahh+xenj03Y1UItGTvdyfko+b7SGhYqOo7YB3/57jdo+OtcG23YVQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\laura\\.nuget\\packages\\aspnetcoredateandtimeonly.json\\1.0.1\\aspnetcoredateandtimeonly.json.1.0.1.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.11\\microsoft.aspnetcore.authorization.6.0.11.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.11\\microsoft.aspnetcore.metadata.6.0.11.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",

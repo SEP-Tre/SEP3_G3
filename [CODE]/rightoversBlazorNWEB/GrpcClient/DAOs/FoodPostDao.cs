@@ -1,4 +1,6 @@
-﻿using Application.DAOInterfaces;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using Application.DAOInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
 using Grpc.Core;
@@ -33,12 +35,33 @@ public class FoodPostDao : IFoodPostDao
             DaysUntilExpired = dto.DaysUntilExpired,
             Description = dto.Description,
             PictureUrl = dto.PictureUrl,
-            Title = dto.Title
+            Title = dto.Title,
+            StartDate = new Date
+            {
+                Day = dto.StartDate.Day,
+                Month = dto.StartDate.Month,
+                Year = dto.StartDate.Year
+            },
+            EndDate = new Date
+            {
+            Day = dto.EndDate.Day,
+            Month = dto.EndDate.Month,
+            Year = dto.EndDate.Year 
+            },
+            StartTime = new Time
+            {
+                Hour = dto.StartTime.Hour,
+                Minutes = dto.StartTime.Minutes
+            },
+            EndTime = new Time
+            {
+                Hour = dto.EndTime.Hour,
+                Minutes = dto.EndTime.Minutes
+            },
+            Username = dto.Username
         });
 
-        FoodPost fp = new FoodPost(response.FpId, response.Title, response.Category, response.Category,
-            response.PictureUrl, response.DaysUntilExpired, response.FpState);
-
+        FoodPost fp = converter.getFoodPost(response);
         return fp;
     }
 
