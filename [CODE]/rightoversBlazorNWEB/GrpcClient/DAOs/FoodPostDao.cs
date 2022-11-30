@@ -57,7 +57,8 @@ public class FoodPostDao : IFoodPostDao
                     id = message.FpId,
                     Title = message.Title,
                     Category = message.Category,
-                    DaysUntilExpired = message.DaysUntilExpired
+                    DaysUntilExpired = message.DaysUntilExpired,
+                    PostState = message.FpState
                 };
                 listHolder.Add(simpleFoodPostDto);
                 Console.WriteLine("I found a post: " + simpleFoodPostDto.Title + " : " + simpleFoodPostDto.Category);
@@ -80,10 +81,20 @@ public class FoodPostDao : IFoodPostDao
 
     public async Task Reserve(FoodPostReservationDto dto)
     {
-        ReservationResponse response = await client.reserveAsync(new FoodPostReservation{
-            FoodpostId = dto.FoodPostId,
-            Username = dto.Username
-        });
-        // Response is unused because it is filler
+        try
+        {
+
+            ReservationResponse response = await client.reserveAsync(new FoodPostReservation{
+                FoodpostId = dto.FoodPostId,
+                Username = dto.Username
+            });
+            // Response is unused because it is filler
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("GRPC CLIENT: " + e);
+
+            throw;
+        }
     }
 }

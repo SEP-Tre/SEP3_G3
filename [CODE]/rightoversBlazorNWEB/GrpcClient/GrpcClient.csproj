@@ -28,4 +28,8 @@
         <Protobuf Include="Protos\AddressGrpc.proto" GrpcServices="Client" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Protobuf Include="Protos\UserGrpc.proto" GrpcServices="Client" />
+    </ItemGroup>
+
 </Project>

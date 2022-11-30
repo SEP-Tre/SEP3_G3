@@ -22,6 +22,7 @@ public class Address {
     }
 
     public Address(AddressCreationDTO dto) {
+        addressId=dto.getAddressId();
         street = dto.getStreet();
         streetNumber = dto.getStreetNumber();
         city = dto.getCity();

@@ -22,6 +22,7 @@ public class AddressServiceGrpcImpl extends AddressServiceGrpc.AddressServiceImp
 
     public void createAddress(AddressRequest request, StreamObserver<AddressResponse> responseObserver) {
         Address address = addressService.create(new AddressCreationDTO(
+                0,
                 request.getStreetNumber(),
                 request.getStreet(),
                 request.getCity(),
