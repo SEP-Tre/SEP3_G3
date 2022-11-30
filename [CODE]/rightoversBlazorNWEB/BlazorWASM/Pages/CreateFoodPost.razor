@@ -7,67 +7,72 @@
 @inject NavigationManager navMgr
 @inject IFoodPostService fpService;
 
-<div class="card">
-    <h3>Create Food Post</h3>
-    <div class="form-group field">
-        <label>Title:</label>
-        <br/>
-        <input type="text" @bind="title" @bind:event="oninput"/>
-    </div>
-    <div class="form-group field">
-        <label>Description:</label>
-        <br/>
-        <input type="text" @bind="description" @bind:event="oninput"/>
-    </div>
-    <div class="form-group field">
-        <label>Category:</label>
-        <br/>
-        <input type="text" @bind="category" @bind:event="oninput"/>
-    </div>
-    <div class="form-group field">
-        <label>Days left to consume: </label>
-        <input type="text" @bind="daysLeftToEat" @bind:event="oninput"/>
+<AuthorizeView>
+    <Authorized>
+        <div class="card">
+            <h3>Create Food Post</h3>
+            <div class="form-group field">
+                <label>Title:</label>
+                <br/>
+                <input type="text" @bind="title" @bind:event="oninput"/>
+            </div>
+            <div class="form-group field">
+                <label>Description:</label>
+                <br/>
+                <input type="text" @bind="description" @bind:event="oninput"/>
+            </div>
+            <div class="form-group field">
+                <label>Category:</label>
+                <br/>
+                <input type="text" @bind="category" @bind:event="oninput"/>
+            </div>
+            <div class="form-group field">
+                <label>Days left to consume: </label>
+                <input type="text" @bind="daysLeftToEat" @bind:event="oninput"/>
 
-    </div>
-    <div class="form-group field">
-        <label>Image url:</label>
-        <input id="imageUrl" type="url" @bind="@pictureUrl"/>
-        @if (!string.IsNullOrEmpty(resultMsg))
-        {
-            <label style="color: @color">@resultMsg</label>
-        }
-    </div>
-    <div class="form-group field">
-        <label>Start Date for Pickup</label>
-        <input id="start_date" type="date" @bind="@startDate"/>
-    </div>
-    
-    <div class="form-group field">
-        <label>End Date for Pickup</label>
-        <input id="end_date" type="date" @bind="@endDate"/>
-    </div>
+            </div>
+            <div class="form-group field">
+                <label>Image url:</label>
+                <input id="imageUrl" type="url" @bind="@pictureUrl"/>
+                @if (!string.IsNullOrEmpty(resultMsg))
+                {
+                    <label style="color: @color">@resultMsg</label>
+                }
+            </div>
+            <div class="form-group field">
+                <label>Start Date for Pickup</label>
+                <input id="start_date" type="date" @bind="@startDate"/>
+            </div>
 
-    <div class="form-group field">
-        <label>Start Time for Pickup</label>
-        <input id="start_time" type="time" @bind="@startTime"/>
-    </div>
-    
-    <div class="form-group field">
-        <label>End Time for Pickup</label>
-        <input id="end_time" type="time" @bind="@endTime"/>
-    </div>
-    <div class="button-row">
-            <button @onclick="@CWfields" class="acceptbtn">See Fields</button>
+            <div class="form-group field">
+                <label>End Date for Pickup</label>
+                <input id="end_date" type="date" @bind="@endDate"/>
+            </div>
+
+            <div class="form-group field">
+                <label>Start Time for Pickup</label>
+                <input id="start_time" type="time" @bind="@startTime"/>
+            </div>
+
+            <div class="form-group field">
+                <label>End Time for Pickup</label>
+                <input id="end_time" type="time" @bind="@endTime"/>
+            </div>
+            <div class="button-row">
+                <button @onclick="@CWfields" class="acceptbtn">See Fields</button>
+            </div>
+
+            <div class="button-row">
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => CreateAsync()) MouseEnter=@(args => SetUsername(creatorUsername = @context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Create" ButtonStyle="ButtonStyle.Dark"/>
+            </div>
+            <Modal ShowModal="showModal">
+                <p>@createdDtoString</p>
+                <button @onclick="@Proceed">Wonderful</button>
+            </Modal>
         </div>
+    </Authorized>
 
-    <div class="button-row">
-        <button @onclick="CreateAsync" class="acceptbtn">Create</button>
-    </div>
-    <Modal ShowModal="showModal">
-        <p>@createdDtoString</p>
-        <button @onclick="@Proceed">Wonderful</button>
-    </Modal>
-</div>
+</AuthorizeView>
 
 @code {
     private string title;
@@ -80,7 +85,7 @@
     private TimeOnly startTime;
     private TimeOnly endTime;
     private string creatorUsername;
-    
+
     private string color = "red";
     private bool showModal;
     private string createdDtoString;
@@ -89,8 +94,8 @@
 
     protected override void OnInitialized()
     {
-        //TODO createdUser = get user from auth? :)
-        creatorUsername = "Kamil";
+    //TODO createdUser = get user from auth? :)
+        creatorUsername = "KamilHardCoded";
         initDates();
     }
 
@@ -104,7 +109,6 @@
 
     private void initDates()
     {
-        
         startDate = DateOnly.FromDateTime(DateTime.Now);
         endDate = DateOnly.FromDateTime(DateTime.Now);
         startTime = TimeOnly.MinValue;
@@ -130,14 +134,14 @@
     {
         try
         {
+            Console.WriteLine(creatorUsername);
             var howManyDays = IntegerType.FromString(daysLeftToEat);
             MyDate myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
             MyDate myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
             MyTime myStartTime = new MyTime(startTime.Hour, startTime.Minute);
             MyTime myEndTime = new MyTime(endTime.Hour, endTime.Minute);
-            
-            
-            
+
+
             var newFoodPost = await fpService.Create(
                 new FoodPostCreationDto(
                     title,
@@ -154,7 +158,7 @@
             clear();
             resultMsg = "Food Post successfully created";
             color = "green";
-            // createdDtoString = "Your Food Post <" + newFoodPost.Title + "> was created.";
+    // createdDtoString = "Your Food Post <" + newFoodPost.Title + "> was created.";
             showModal = true;
         }
         catch (Exception e)
@@ -169,5 +173,11 @@
         showModal = false;
         navMgr.NavigateTo("/");
     }
+
+    private void SetUsername(string? username)
+    {
+        this.creatorUsername = username;
+    }
+
 
 }
