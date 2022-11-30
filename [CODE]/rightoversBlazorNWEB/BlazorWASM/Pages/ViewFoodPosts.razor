@@ -39,6 +39,7 @@
                 <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.id)"></RadzenButton>
             </Template>
         </RadzenDataGridColumn>
+        
 
     </Columns>
 </RadzenDataGrid>
@@ -74,4 +75,11 @@
         }
     }
 
+    /*async Task OpenOrder(int id)
+    {
+        await DialogService.OpenAsync<DialogCardPage>($"Order {orderId}",
+            new Dictionary<string, object>() { { "OrderID", orderId } },
+            new DialogOptions() { Width = "700px", Height = "520px" });
+    }
+*/
 }

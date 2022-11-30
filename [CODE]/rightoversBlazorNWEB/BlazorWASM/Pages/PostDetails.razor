@@ -29,7 +29,7 @@
 
             <h5 class="sm-text my-2">DESCRIPTION</h5>
 
-            <h5 class="bg-text">@foodPost.Description</h5>
+            <h5 class="description-text">@foodPost.Description</h5>
         </div>
     </div>
     <div class="card-back mx-3">
@@ -52,9 +52,6 @@
         try
         {
             foodPost = await foodPostService.GetSingleAsync(id);
-    //title = foodPost.Title;
-    // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
-    //    "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
         }
         catch (Exception e)
         {
