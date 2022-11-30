@@ -1,6 +1,7 @@
 ﻿@using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @using Domain.Classes
+@using BlazorWASM.Pages.UIComponents
 @inject IUserService userService
 @inject NavigationManager navMgr
 @page "/Register"
@@ -23,21 +24,30 @@
 
             <RadzenTextBox Placeholder="Enter your street number with other information..." Change=@(args => addressDto.StreetNumber = args) Class="w-100 my-2"/>
 
-            <RadzenPassword Placeholder="Enter your post code..." Change=@(args => addressDto.PostCode = Convert.ToInt32(args)) Class="w-100 my-2"/>
+            <RadzenTextBox Placeholder="Enter your post code..." Change=@(args => addressDto.PostCode = Convert.ToInt32(args)) Class="w-100 my-2"/>
 
             <RadzenTextBox Placeholder="Enter your city..." Change=@(args => addressDto.City = args) Class="w-100 my-2"/>
 
         </div>
     </RadzenCard>
     <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => RegisterUser()) Text="Register" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
-
+    @if (!string.IsNullOrEmpty(errorMsg))
+    {
+        <RadzenText Text="@errorMsg"></RadzenText>
+    }
+    <Modal ShowModal="showModal">
+        <p>@msg</p>
+        <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+    </Modal>
 </div>
 
 
 @code {
     private UserCreationDto userDto;
     private AddressCreationDto addressDto;
+    private string msg;
     private string errorMsg;
+    private bool showModal;
 
     protected override Task OnInitializedAsync()
     {
@@ -55,13 +65,15 @@
                 userDto.AddressCreationDto = addressDto;
                 Console.WriteLine(userDto.toString());
                 User user = await userService.RegisterAsync(userDto);
-                Console.WriteLine($"User id: {user.Id}, City name {user.Address.City}");
+                msg = $"Great! {user.FirstName}, you have been successfully registered!";
+                showModal = true;
+                StateHasChanged();
             }
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
+            errorMsg = e.Message;
         }
     }
 
@@ -83,6 +95,11 @@
             return false;
         }
         return true;
+    }
+
+    private void Proceed()
+    {
+        navMgr.NavigateTo("/");
     }
 
 }

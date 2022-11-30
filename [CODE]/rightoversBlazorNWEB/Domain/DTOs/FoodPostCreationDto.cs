@@ -12,6 +12,10 @@ public class FoodPostCreationDto
         DaysUntilExpired = daysUntilExpired;
     }
 
+    public FoodPostCreationDto()
+    {
+    }
+
     public string Title { get; }
     public string Category { get; }
     public string Description { get; }

@@ -38,4 +38,8 @@ public class Address
         PostCode = postCode;
         City = city;
     }
+
+    public Address()
+    {
+    }
 }

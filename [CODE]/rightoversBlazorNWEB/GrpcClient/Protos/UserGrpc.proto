@@ -1,6 +1,5 @@
-syntax = "proto3";
-option java_multiple_files = true;
-option java_package = "sep3.g3.rightoversjava.grpc.generated";
+﻿syntax = "proto3";
+option csharp_namespace = "GrpcCL";
 package sep3.g3;
 
 message UserCreationRequest {
