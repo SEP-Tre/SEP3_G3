@@ -73,9 +73,12 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
             ReservationResponse response = ReservationResponse.newBuilder().setFiller(true).build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            responseObserver.onError(e);
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
         }
     }
 }
