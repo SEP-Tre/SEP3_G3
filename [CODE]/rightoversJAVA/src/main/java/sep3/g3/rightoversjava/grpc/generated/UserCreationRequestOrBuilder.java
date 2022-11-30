@@ -44,44 +44,17 @@ public interface UserCreationRequestOrBuilder extends
       getPasswordBytes();
 
   /**
-   * <code>string street_name = 4;</code>
-   * @return The streetName.
+   * <code>.sep3.g3.AddressMessage address = 4;</code>
+   * @return Whether the address field is set.
    */
-  java.lang.String getStreetName();
+  boolean hasAddress();
   /**
-   * <code>string street_name = 4;</code>
-   * @return The bytes for streetName.
+   * <code>.sep3.g3.AddressMessage address = 4;</code>
+   * @return The address.
    */
-  com.google.protobuf.ByteString
-      getStreetNameBytes();
-
+  sep3.g3.rightoversjava.grpc.generated.AddressMessage getAddress();
   /**
-   * <code>string street_number = 5;</code>
-   * @return The streetNumber.
+   * <code>.sep3.g3.AddressMessage address = 4;</code>
    */
-  java.lang.String getStreetNumber();
-  /**
-   * <code>string street_number = 5;</code>
-   * @return The bytes for streetNumber.
-   */
-  com.google.protobuf.ByteString
-      getStreetNumberBytes();
-
-  /**
-   * <code>int32 postal_code = 6;</code>
-   * @return The postalCode.
-   */
-  int getPostalCode();
-
-  /**
-   * <code>string city_name = 7;</code>
-   * @return The cityName.
-   */
-  java.lang.String getCityName();
-  /**
-   * <code>string city_name = 7;</code>
-   * @return The bytes for cityName.
-   */
-  com.google.protobuf.ByteString
-      getCityNameBytes();
+  sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder getAddressOrBuilder();
 }

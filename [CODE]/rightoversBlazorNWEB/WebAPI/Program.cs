@@ -23,6 +23,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFoodPostConverter, FoodPostConverter>();
+builder.Services.AddScoped<IUserConverter, UserConverter>();
 builder.Services.AddScoped<IFoodPostDao, FoodPostDao>();
 builder.Services.AddScoped<IAddressDao, AddressDao>();
 builder.Services.AddScoped<IFoodPostLogic, FoodPostLogic>();

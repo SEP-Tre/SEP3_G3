@@ -57,4 +57,10 @@ public interface UserMessageOrBuilder extends
    * <code>.sep3.g3.AddressMessage address = 4;</code>
    */
   sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder getAddressOrBuilder();
+
+  /**
+   * <code>int32 userId = 5;</code>
+   * @return The userId.
+   */
+  int getUserId();
 }

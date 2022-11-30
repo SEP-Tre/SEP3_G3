@@ -19,9 +19,6 @@ private static final long serialVersionUID = 0L;
     username_ = "";
     firstname_ = "";
     password_ = "";
-    streetName_ = "";
-    streetNumber_ = "";
-    cityName_ = "";
   }
 
   @java.lang.Override
@@ -73,26 +70,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
+            sep3.g3.rightoversjava.grpc.generated.AddressMessage.Builder subBuilder = null;
+            if (address_ != null) {
+              subBuilder = address_.toBuilder();
+            }
+            address_ = input.readMessage(sep3.g3.rightoversjava.grpc.generated.AddressMessage.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(address_);
+              address_ = subBuilder.buildPartial();
+            }
 
-            streetName_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            streetNumber_ = s;
-            break;
-          }
-          case 48: {
-
-            postalCode_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cityName_ = s;
             break;
           }
           default: {
@@ -243,129 +230,30 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int STREET_NAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object streetName_;
+  public static final int ADDRESS_FIELD_NUMBER = 4;
+  private sep3.g3.rightoversjava.grpc.generated.AddressMessage address_;
   /**
-   * <code>string street_name = 4;</code>
-   * @return The streetName.
+   * <code>.sep3.g3.AddressMessage address = 4;</code>
+   * @return Whether the address field is set.
    */
   @java.lang.Override
-  public java.lang.String getStreetName() {
-    java.lang.Object ref = streetName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      streetName_ = s;
-      return s;
-    }
+  public boolean hasAddress() {
+    return address_ != null;
   }
   /**
-   * <code>string street_name = 4;</code>
-   * @return The bytes for streetName.
+   * <code>.sep3.g3.AddressMessage address = 4;</code>
+   * @return The address.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getStreetNameBytes() {
-    java.lang.Object ref = streetName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      streetName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int STREET_NUMBER_FIELD_NUMBER = 5;
-  private volatile java.lang.Object streetNumber_;
-  /**
-   * <code>string street_number = 5;</code>
-   * @return The streetNumber.
-   */
-  @java.lang.Override
-  public java.lang.String getStreetNumber() {
-    java.lang.Object ref = streetNumber_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      streetNumber_ = s;
-      return s;
-    }
+  public sep3.g3.rightoversjava.grpc.generated.AddressMessage getAddress() {
+    return address_ == null ? sep3.g3.rightoversjava.grpc.generated.AddressMessage.getDefaultInstance() : address_;
   }
   /**
-   * <code>string street_number = 5;</code>
-   * @return The bytes for streetNumber.
+   * <code>.sep3.g3.AddressMessage address = 4;</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getStreetNumberBytes() {
-    java.lang.Object ref = streetNumber_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      streetNumber_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int POSTAL_CODE_FIELD_NUMBER = 6;
-  private int postalCode_;
-  /**
-   * <code>int32 postal_code = 6;</code>
-   * @return The postalCode.
-   */
-  @java.lang.Override
-  public int getPostalCode() {
-    return postalCode_;
-  }
-
-  public static final int CITY_NAME_FIELD_NUMBER = 7;
-  private volatile java.lang.Object cityName_;
-  /**
-   * <code>string city_name = 7;</code>
-   * @return The cityName.
-   */
-  @java.lang.Override
-  public java.lang.String getCityName() {
-    java.lang.Object ref = cityName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      cityName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string city_name = 7;</code>
-   * @return The bytes for cityName.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getCityNameBytes() {
-    java.lang.Object ref = cityName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      cityName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder getAddressOrBuilder() {
+    return getAddress();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -391,17 +279,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, password_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(streetName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, streetName_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(streetNumber_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, streetNumber_);
-    }
-    if (postalCode_ != 0) {
-      output.writeInt32(6, postalCode_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cityName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cityName_);
+    if (address_ != null) {
+      output.writeMessage(4, getAddress());
     }
     unknownFields.writeTo(output);
   }
@@ -421,18 +300,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, password_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(streetName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, streetName_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(streetNumber_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, streetNumber_);
-    }
-    if (postalCode_ != 0) {
+    if (address_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, postalCode_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cityName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, cityName_);
+        .computeMessageSize(4, getAddress());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -455,14 +325,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFirstname())) return false;
     if (!getPassword()
         .equals(other.getPassword())) return false;
-    if (!getStreetName()
-        .equals(other.getStreetName())) return false;
-    if (!getStreetNumber()
-        .equals(other.getStreetNumber())) return false;
-    if (getPostalCode()
-        != other.getPostalCode()) return false;
-    if (!getCityName()
-        .equals(other.getCityName())) return false;
+    if (hasAddress() != other.hasAddress()) return false;
+    if (hasAddress()) {
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -480,14 +347,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFirstname().hashCode();
     hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
     hash = (53 * hash) + getPassword().hashCode();
-    hash = (37 * hash) + STREET_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getStreetName().hashCode();
-    hash = (37 * hash) + STREET_NUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getStreetNumber().hashCode();
-    hash = (37 * hash) + POSTAL_CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getPostalCode();
-    hash = (37 * hash) + CITY_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getCityName().hashCode();
+    if (hasAddress()) {
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -627,14 +490,12 @@ private static final long serialVersionUID = 0L;
 
       password_ = "";
 
-      streetName_ = "";
-
-      streetNumber_ = "";
-
-      postalCode_ = 0;
-
-      cityName_ = "";
-
+      if (addressBuilder_ == null) {
+        address_ = null;
+      } else {
+        address_ = null;
+        addressBuilder_ = null;
+      }
       return this;
     }
 
@@ -664,10 +525,11 @@ private static final long serialVersionUID = 0L;
       result.username_ = username_;
       result.firstname_ = firstname_;
       result.password_ = password_;
-      result.streetName_ = streetName_;
-      result.streetNumber_ = streetNumber_;
-      result.postalCode_ = postalCode_;
-      result.cityName_ = cityName_;
+      if (addressBuilder_ == null) {
+        result.address_ = address_;
+      } else {
+        result.address_ = addressBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -728,20 +590,8 @@ private static final long serialVersionUID = 0L;
         password_ = other.password_;
         onChanged();
       }
-      if (!other.getStreetName().isEmpty()) {
-        streetName_ = other.streetName_;
-        onChanged();
-      }
-      if (!other.getStreetNumber().isEmpty()) {
-        streetNumber_ = other.streetNumber_;
-        onChanged();
-      }
-      if (other.getPostalCode() != 0) {
-        setPostalCode(other.getPostalCode());
-      }
-      if (!other.getCityName().isEmpty()) {
-        cityName_ = other.cityName_;
-        onChanged();
+      if (other.hasAddress()) {
+        mergeAddress(other.getAddress());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1000,263 +850,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object streetName_ = "";
+    private sep3.g3.rightoversjava.grpc.generated.AddressMessage address_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        sep3.g3.rightoversjava.grpc.generated.AddressMessage, sep3.g3.rightoversjava.grpc.generated.AddressMessage.Builder, sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder> addressBuilder_;
     /**
-     * <code>string street_name = 4;</code>
-     * @return The streetName.
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
+     * @return Whether the address field is set.
      */
-    public java.lang.String getStreetName() {
-      java.lang.Object ref = streetName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        streetName_ = s;
-        return s;
+    public boolean hasAddress() {
+      return addressBuilder_ != null || address_ != null;
+    }
+    /**
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
+     * @return The address.
+     */
+    public sep3.g3.rightoversjava.grpc.generated.AddressMessage getAddress() {
+      if (addressBuilder_ == null) {
+        return address_ == null ? sep3.g3.rightoversjava.grpc.generated.AddressMessage.getDefaultInstance() : address_;
       } else {
-        return (java.lang.String) ref;
+        return addressBuilder_.getMessage();
       }
     }
     /**
-     * <code>string street_name = 4;</code>
-     * @return The bytes for streetName.
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
      */
-    public com.google.protobuf.ByteString
-        getStreetNameBytes() {
-      java.lang.Object ref = streetName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        streetName_ = b;
-        return b;
+    public Builder setAddress(sep3.g3.rightoversjava.grpc.generated.AddressMessage value) {
+      if (addressBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        address_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        addressBuilder_.setMessage(value);
       }
-    }
-    /**
-     * <code>string street_name = 4;</code>
-     * @param value The streetName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStreetName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      streetName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string street_name = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearStreetName() {
-      
-      streetName_ = getDefaultInstance().getStreetName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string street_name = 4;</code>
-     * @param value The bytes for streetName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStreetNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      streetName_ = value;
-      onChanged();
-      return this;
-    }
 
-    private java.lang.Object streetNumber_ = "";
+      return this;
+    }
     /**
-     * <code>string street_number = 5;</code>
-     * @return The streetNumber.
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
      */
-    public java.lang.String getStreetNumber() {
-      java.lang.Object ref = streetNumber_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        streetNumber_ = s;
-        return s;
+    public Builder setAddress(
+        sep3.g3.rightoversjava.grpc.generated.AddressMessage.Builder builderForValue) {
+      if (addressBuilder_ == null) {
+        address_ = builderForValue.build();
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        addressBuilder_.setMessage(builderForValue.build());
       }
-    }
-    /**
-     * <code>string street_number = 5;</code>
-     * @return The bytes for streetNumber.
-     */
-    public com.google.protobuf.ByteString
-        getStreetNumberBytes() {
-      java.lang.Object ref = streetNumber_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        streetNumber_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string street_number = 5;</code>
-     * @param value The streetNumber to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStreetNumber(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      streetNumber_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string street_number = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearStreetNumber() {
-      
-      streetNumber_ = getDefaultInstance().getStreetNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string street_number = 5;</code>
-     * @param value The bytes for streetNumber to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStreetNumberBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      streetNumber_ = value;
-      onChanged();
-      return this;
-    }
 
-    private int postalCode_ ;
-    /**
-     * <code>int32 postal_code = 6;</code>
-     * @return The postalCode.
-     */
-    @java.lang.Override
-    public int getPostalCode() {
-      return postalCode_;
-    }
-    /**
-     * <code>int32 postal_code = 6;</code>
-     * @param value The postalCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPostalCode(int value) {
-      
-      postalCode_ = value;
-      onChanged();
       return this;
     }
     /**
-     * <code>int32 postal_code = 6;</code>
-     * @return This builder for chaining.
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
      */
-    public Builder clearPostalCode() {
-      
-      postalCode_ = 0;
-      onChanged();
-      return this;
-    }
+    public Builder mergeAddress(sep3.g3.rightoversjava.grpc.generated.AddressMessage value) {
+      if (addressBuilder_ == null) {
+        if (address_ != null) {
+          address_ =
+            sep3.g3.rightoversjava.grpc.generated.AddressMessage.newBuilder(address_).mergeFrom(value).buildPartial();
+        } else {
+          address_ = value;
+        }
+        onChanged();
+      } else {
+        addressBuilder_.mergeFrom(value);
+      }
 
-    private java.lang.Object cityName_ = "";
+      return this;
+    }
     /**
-     * <code>string city_name = 7;</code>
-     * @return The cityName.
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
      */
-    public java.lang.String getCityName() {
-      java.lang.Object ref = cityName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        cityName_ = s;
-        return s;
+    public Builder clearAddress() {
+      if (addressBuilder_ == null) {
+        address_ = null;
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        address_ = null;
+        addressBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
+     */
+    public sep3.g3.rightoversjava.grpc.generated.AddressMessage.Builder getAddressBuilder() {
+      
+      onChanged();
+      return getAddressFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
+     */
+    public sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder getAddressOrBuilder() {
+      if (addressBuilder_ != null) {
+        return addressBuilder_.getMessageOrBuilder();
+      } else {
+        return address_ == null ?
+            sep3.g3.rightoversjava.grpc.generated.AddressMessage.getDefaultInstance() : address_;
       }
     }
     /**
-     * <code>string city_name = 7;</code>
-     * @return The bytes for cityName.
+     * <code>.sep3.g3.AddressMessage address = 4;</code>
      */
-    public com.google.protobuf.ByteString
-        getCityNameBytes() {
-      java.lang.Object ref = cityName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cityName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        sep3.g3.rightoversjava.grpc.generated.AddressMessage, sep3.g3.rightoversjava.grpc.generated.AddressMessage.Builder, sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder> 
+        getAddressFieldBuilder() {
+      if (addressBuilder_ == null) {
+        addressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            sep3.g3.rightoversjava.grpc.generated.AddressMessage, sep3.g3.rightoversjava.grpc.generated.AddressMessage.Builder, sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder>(
+                getAddress(),
+                getParentForChildren(),
+                isClean());
+        address_ = null;
       }
-    }
-    /**
-     * <code>string city_name = 7;</code>
-     * @param value The cityName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCityName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      cityName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string city_name = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCityName() {
-      
-      cityName_ = getDefaultInstance().getCityName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string city_name = 7;</code>
-     * @param value The bytes for cityName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCityNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      cityName_ = value;
-      onChanged();
-      return this;
+      return addressBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

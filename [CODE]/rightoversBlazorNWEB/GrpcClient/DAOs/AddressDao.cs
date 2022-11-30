@@ -18,7 +18,7 @@ public class AddressDao : IAddressDao
 
     private static AddressService.AddressServiceClient client = new(channel);
 
-    public async Task<AddressCreationDto> Create(AddressCreationDto dto)
+    public Task<AddressCreationDto> Create(AddressCreationDto dto)
     {
         // Await here would be nice
         AddressResponse response = client.createAddress(new AddressRequest{
@@ -41,7 +41,7 @@ public class AddressDao : IAddressDao
             response.Longitude,
             response.Latitude);
 
-        return addressDto;
+        return Task.FromResult(addressDto);
     }
 
     public async Task<IEnumerable<AddressCreationDto>> GetAll()
