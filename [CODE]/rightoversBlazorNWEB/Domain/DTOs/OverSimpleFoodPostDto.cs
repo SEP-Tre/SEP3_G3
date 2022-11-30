@@ -6,7 +6,7 @@ public class OverSimpleFoodPostDto
     {
     }
 
-    public OverSimpleFoodPostDto(string title, string category, int id, int daysUntilExpired)
+    public OverSimpleFoodPostDto(string title, string category, int id,int daysUntilExpired, string postState)
     {
         this.id = id;
         Title = title;
@@ -19,5 +19,7 @@ public class OverSimpleFoodPostDto
     public string Title { get; set; }
     public string Category { get; set; }
     public int DaysUntilExpired { get; set; }
-
+    
+    public string PostState { get; set; }
+    
 }
