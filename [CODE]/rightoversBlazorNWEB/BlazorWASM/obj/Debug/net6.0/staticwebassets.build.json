@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TAcMTdXloH7/XCbwqv3aju0VWB7juICqjY6mziNNP24=",
+  "Hash": "hyEZ8JkMmCZYpsvhdTn/FU6SCQ70X9KeQjt77gHrq/k=",
   "Source": "BlazorWASM",
   "BasePath": "/",
   "Mode": "Root",
@@ -8311,6 +8311,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Logout.png"
+    },
+    {
+      "Identity": "C:\\Users\\fisch\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\yummysammy.jpg",
+      "SourceId": "BlazorWASM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\fisch\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "img/yummysammy.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\yummysammy.jpg"
     },
     {
       "Identity": "C:\\Users\\fisch\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\index.html",

@@ -3,6 +3,7 @@ package sep3.g3.rightoversjava.service;
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.*;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
+import sep3.g3.rightoversjava.repository.ReservationRepository;
 import sep3.g3.rightoversjava.repository.UserRepository;
 
 import java.sql.Timestamp;
@@ -16,7 +17,6 @@ public class FoodPostServiceImp implements FoodPostService
 {
 
     private final FoodPostRepository fpRepository;
-    private final UserRepository userRepository;
     private final UserRepository userRepository;
     private final ReservationRepository reservationRepository;
 
