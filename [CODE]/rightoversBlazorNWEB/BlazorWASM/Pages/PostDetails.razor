@@ -34,11 +34,11 @@
             <br/>
             <AuthorizeView>
                 <Authorized>
-                        <div>
-                            <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
-                            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id, "Kamilooo111")) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
-                        </div>
-                    </Authorized>
+                    <div>
+                        <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
+                        <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(@username = @context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                    </div>
+                </Authorized>
             </AuthorizeView>
         </div>
     </div>
@@ -75,6 +75,7 @@
     public int id { get; set; }
 
     public FoodPost foodPost;
+    public string? username;
     public string msg;
     public string errorMsg;
 
@@ -93,10 +94,18 @@
             throw;
         }
     }
-
-    // TODO: Use context to add current user
-    public async Task Reserve(int foodPostId, String username)
+    
+    private void SetUsername(string? username)
     {
+        this.username = username;
+    }
+    
+    public async Task Reserve(int foodPostId)
+    {
+        if (username == null)
+        {
+            msg = "Username is not set";
+        }
         try
         {
             FoodPostReservationDto dto = new FoodPostReservationDto(username, foodPostId);
