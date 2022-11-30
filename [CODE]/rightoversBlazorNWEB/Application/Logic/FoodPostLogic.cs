@@ -57,11 +57,21 @@ public class FoodPostLogic : IFoodPostLogic
         IEnumerable<OverSimpleFoodPostDto> allPosts = await fpDao.GetAsync();
         Console.WriteLine(allPosts.ToString());
 
+        foreach (OverSimpleFoodPostDto post in allPosts)
+        {
+            Console.WriteLine(post.DaysUntilExpired);
+        }
+
         return allPosts;
     }
 
     public Task<FoodPost> GetSingleAsync(int id)
     {
         return fpDao.GetSingleAsync(id);
+    }
+
+    public async Task ReserveAsync(FoodPostReservationDto dto)
+    {
+        await fpDao.Reserve(dto);
     }
 }

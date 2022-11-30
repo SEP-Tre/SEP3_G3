@@ -14,4 +14,12 @@ public interface FoodPostService {
     ArrayList<FoodPost> getAllFoodPosts();
 
     FoodPost getSingleFoodPost(int id) throws NoSuchElementException;
+
+    // Should this return something? - CF
+    // TODO: Add user
+
+
+    // Should this return something? - CF
+    // TODO: Add user
+    void reserve(ReservationCreationDto dto);
 }

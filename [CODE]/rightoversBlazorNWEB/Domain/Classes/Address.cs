@@ -10,7 +10,8 @@ public class Address
     public double Longitude { get; set; }
     public double Latitude { get; set; }
 
-    public Address(int addressId, string streetNumber, string street, int postCode, string city, double longitude, double latitude)
+    public Address(int addressId, string streetNumber, string street, int postCode, string city, double longitude,
+        double latitude)
     {
         AddressId = addressId;
         StreetNumber = streetNumber;

@@ -10,7 +10,9 @@
         <img class="icon" src="img/Login.png" @onclick="Login"/>
     </NotAuthorized>
 </AuthorizeView>
+
 @code {
+
     private void Login()
     {
         navMgr.NavigateTo("/Login");
@@ -21,4 +23,5 @@
         await userService.LogoutAsync();
         navMgr.NavigateTo("/");
     }
+
 }

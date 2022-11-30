@@ -104,6 +104,11 @@ public class FoodPost {
         return postState;
     }
 
+    // TODO: Change to enum for validation
+    public void setPostState(String postState) {
+        this.postState = postState;
+    }
+
     public Timestamp getTimestamp_posted() {
         return timestamp_posted;
     }

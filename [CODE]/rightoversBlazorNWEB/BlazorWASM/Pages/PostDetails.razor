@@ -1,5 +1,6 @@
 ﻿@page "/PostDetails/{id:int}"
 @using Domain.Classes
+@using Domain.DTOs
 @using HttpClients.ClientInterfaces
 @inject IFoodPostService foodPostService
 
@@ -21,51 +22,106 @@ else
             <div class="card d-flex align-items-start flex-column">
 
 
-                <h5 class="sm-text my-2">TITLE</h5>
+            <h5 class="sm-text my-2">TITLE</h5>
 
-                <h5 class="bg-text">@foodPost.Title</h5>
+            <h5 class="bg-text">@foodPost.Title</h5>
 
-                <h5 class="sm-text my-2">CATEGORY</h5>
+            <h5 class="sm-text my-2">CATEGORY</h5>
 
-                <h5 class="bg-text">@foodPost.Category</h5>
+            <h5 class="bg-text">@foodPost.Category</h5>
 
-                <h5 class="sm-text my-2">DAYS LEFT TO EAT</h5>
+            <h5 class="sm-text my-2">DAYS LEFT TO EAT</h5>
 
-                <h5 class="bg-text">@foodPost.DaysUntilExpired</h5>
+            <h5 class="bg-text">@foodPost.DaysUntilExpired</h5>
 
-                <h5 class="sm-text my-2">DESCRIPTION</h5>
+            <h5 class="sm-text my-2">DESCRIPTION</h5>
 
-                <h5 class="bg-text">@foodPost.Description</h5>
-            </div>
-        </div>
-        <div class="card-back mx-3">
-            <div class="card d-flex justify-content-center">
-                <h3 class=bg-text>PICTURE</h3>
-            </div>
+            <h5 class="bg-text">@foodPost.Description</h5>
+            <br/>
+            <AuthorizeView>
+                <Authorized>
+                    <div>
+                        <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
+                        <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(@username = @context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                    </div>
+                </Authorized>
+            </AuthorizeView>
         </div>
     </div>
-}
+    <div class="card-back mx-3">
+        <div class="card d-flex justify-content-center">
+            <h3 class=bg-text>PICTURE</h3>
+        </div>
+    </div>
+</div>
+<AuthorizeView>
+    <NotAuthorized>
+        <div>
+            <h3>
+                Please log in if you would like to reserve a post
+            </h3>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+<div>
+    <h2>
+        @errorMsg
+    </h2>
+</div>
+<div>
+    <h3>
+        @msg
+    </h3>
+</div>
+
 
 @code {
 
     [Parameter]
     public int id { get; set; }
 
-    public FoodPost foodPost = new FoodPost();
+    
+    public FoodPost foodPost=new FoodPost();
+    public string? username;
+    public string msg;
+    public string errorMsg;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-        foodPost = await foodPostService.GetSingleAsync(id);
-            //title = foodPost.Title;
-            // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
-            // "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
+            foodPost = await foodPostService.GetSingleAsync(id);
+    //title = foodPost.Title;
+    // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
+    //    "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
+        }
+    }
+    
+    private void SetUsername(string? username)
+    {
+        this.username = username;
+    }
+    
+    public async Task Reserve(int foodPostId)
+    {
+        if (username == null)
+        {
+            msg = "Username is not set";
+        }
+        try
+        {
+            FoodPostReservationDto dto = new FoodPostReservationDto(username, foodPostId);
+            await foodPostService.ReserveAsync(dto);
+            msg = foodPost.Title + " is reserved";
+        }
+        catch (Exception e)
+        {
+            errorMsg = "Error: " + e.Message;
         }
     }
 

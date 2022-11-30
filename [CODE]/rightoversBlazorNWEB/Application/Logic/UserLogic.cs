@@ -5,7 +5,7 @@ using Domain.DTOs;
 
 namespace Application.Logic;
 
-public class UserLogic: IUserLogic
+public class UserLogic : IUserLogic
 {
     private readonly IUserDao userDao;
 
@@ -13,9 +13,11 @@ public class UserLogic: IUserLogic
     {
         this.userDao = userDao;
     }
+
     public async Task<User> LoginAsync(UserLoginDto dto)
     {
         User user = await userDao.LoginAsync(dto);
+
         return user;
     }
 
@@ -23,18 +25,20 @@ public class UserLogic: IUserLogic
     {
         ValidateRegister(dto);
         User user = await userDao.RegisterAsync(dto);
+
         return user;
     }
 
-    
+
     private void ValidateRegister(UserCreationDto dto)
     {
-        if (dto.Password.ToLower().Contains(dto.UserName.ToLower()) || dto.Password.ToLower().Contains(dto.FirstName.ToLower()) )
+        if (dto.Password.ToLower().Contains(dto.UserName.ToLower()) ||
+            dto.Password.ToLower().Contains(dto.FirstName.ToLower()))
         {
             throw new Exception("Password cannot contain username or first name.");
         }
 
-        if (dto.Password.Length<6)
+        if (dto.Password.Length < 6)
         {
             throw new Exception("Password has to contain more than six characters.");
         }

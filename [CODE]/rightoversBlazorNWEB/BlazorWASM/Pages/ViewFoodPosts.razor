@@ -4,60 +4,56 @@
 @inject IFoodPostService foodPostWebService
 @inject NavigationManager navMgr
 
-<div class="d-flex justify-content-center">
-    <h3>Food Posts</h3>
-</div>
+
+<RadzenText TextStyle="TextStyle.H3" TagName="TagName.H1" Class="my-4">
+    Browse food posts
+</RadzenText>
+
+
+<RadzenText TextStyle="TextStyle.Body1" Class="my-4">
+    Choose the meal you would like to save from the list below:
+</RadzenText>
+
 @if (posts == null)
 {
     <p>Loading...</p>
 }
-else if (!posts.Any())
-{
-    <p>No Posts to display. Sorry :(</p>
-}
-else
-{
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Category</th>
-            <th>View details</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in posts)
-        {
-            <tr>
-                <td>@item.Title</td>
-                <td>@item.Category</td>
-                <td>
-                    <button class="btn btn-outline-success" @onclick=@(() => { ViewPost(item.id); })>Details</button>
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
-}
-@if (!string.IsNullOrEmpty(msg))
-{
-    <label style="color: red">@msg</label>
-}
 
+<RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="@posts" TItem="OverSimpleFoodPostDto" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+    <Columns>
+        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Property="id" Filterable="false" Title="ID" Frozen="true" Width="80px" TextAlign="TextAlign.Center"/>
+        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="150px" TextAlign="TextAlign.Center">
+            <Template Context="data">
+                <RadzenImage Path="img/yummysammy.jpg"class="rz-gravatar"/>
+
+            </Template>
+
+        </RadzenDataGridColumn>
+
+        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Property="Title" Title="Title" Frozen="true" Width="160px"/>
+        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Property="Category" Title="Category" Width="160px"/>
+        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Property="DaysUntilExpired" Title="Days Until Expiration" Width="170px"/>
+        <RadzenDataGridColumn Width="160px" TItem="OverSimpleFoodPostDto" Property="id" Title="Meal Details">
+            <Template Context="data">
+                <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.id)"></RadzenButton>
+            </Template>
+        </RadzenDataGridColumn>
+        
+
+    </Columns>
+</RadzenDataGrid>
 
 
 @code {
     private ICollection<OverSimpleFoodPostDto>? posts;
     private string msg = "";
 
-    //<!--<RadzenButton Shade="Shade.Lighter" @onclick=@(() => { ViewPost(item.id); }) Text="Details" ButtonStyle="ButtonStyle.Success"/>-->
-    //Doesnt work
     protected override async Task OnInitializedAsync()
     {
         try
         {
             posts = await foodPostWebService.GetAsync();
-            Console.Write("Posts: " + posts);
         }
         catch (Exception e)
         {
@@ -70,7 +66,6 @@ else
     {
         try
         {
-            Console.WriteLine($"Yo supp {postId}");
             navMgr.NavigateTo($"/PostDetails/{postId}");
         }
         catch (Exception e)
@@ -80,4 +75,11 @@ else
         }
     }
 
+    /*async Task OpenOrder(int id)
+    {
+        await DialogService.OpenAsync<DialogCardPage>($"Order {orderId}",
+            new Dictionary<string, object>() { { "OrderID", orderId } },
+            new DialogOptions() { Width = "700px", Height = "520px" });
+    }
+*/
 }

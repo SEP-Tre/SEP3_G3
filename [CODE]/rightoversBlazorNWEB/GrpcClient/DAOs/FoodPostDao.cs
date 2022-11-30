@@ -13,11 +13,10 @@ namespace GrpcClient.DAOs;
 
 public class FoodPostDao : IFoodPostDao
 {
-    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions
-    {
+    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
         UnsafeUseInsecureChannelCallCredentials = true
     });
-    
+
     private static FoodPostService.FoodPostServiceClient client = new(channel);
 
     private readonly IFoodPostConverter converter;
@@ -29,8 +28,7 @@ public class FoodPostDao : IFoodPostDao
 
     public async Task<FoodPost> Create(FoodPostCreationDto dto)
     {
-        FoodPostResponse response = await client.postAsync(new FoodPostRequest
-        {
+        FoodPostResponse response = await client.postAsync(new FoodPostRequest{
             Category = dto.Category,
             DaysUntilExpired = dto.DaysUntilExpired,
             Description = dto.Description,
@@ -69,8 +67,7 @@ public class FoodPostDao : IFoodPostDao
     {
         // Missing an await, but where?
         List<OverSimpleFoodPostDto> listHolder = new List<OverSimpleFoodPostDto>();
-        AsyncServerStreamingCall<FoodPostResponse> response = client.getAllFoodPosts(new GetAllRequest
-        {
+        AsyncServerStreamingCall<FoodPostResponse> response = client.getAllFoodPosts(new GetAllRequest{
             Filler = true
         });
         // Because it is a stream, lets make a Dto for the current one we are on
@@ -79,11 +76,12 @@ public class FoodPostDao : IFoodPostDao
             Console.WriteLine($"This is found id: {message.FpId}");
             if (message.Category != null && message.Title != null)
             {
-                OverSimpleFoodPostDto simpleFoodPostDto = new OverSimpleFoodPostDto
-                {
+                OverSimpleFoodPostDto simpleFoodPostDto = new OverSimpleFoodPostDto{
                     id = message.FpId,
                     Title = message.Title,
-                    Category = message.Category
+                    Category = message.Category,
+                    DaysUntilExpired = message.DaysUntilExpired,
+                    PostState = message.FpState
                 };
                 listHolder.Add(simpleFoodPostDto);
                 Console.WriteLine("I found a post: " + simpleFoodPostDto.Title + " : " + simpleFoodPostDto.Category);
@@ -95,14 +93,31 @@ public class FoodPostDao : IFoodPostDao
 
     public async Task<FoodPost> GetSingleAsync(int id)
     {
-        FoodPostResponse response = await client.getSingleFoodPostAsync(new FoodPostID
-        {
+        FoodPostResponse response = await client.getSingleFoodPostAsync(new FoodPostID{
             Id = id
         });
 
         FoodPost foodPost = converter.getFoodPost(response);
+
         return foodPost;
     }
 
+    public async Task Reserve(FoodPostReservationDto dto)
+    {
+        try
+        {
 
+            ReservationResponse response = await client.reserveAsync(new FoodPostReservation{
+                FoodpostId = dto.FoodPostId,
+                Username = dto.Username
+            });
+            // Response is unused because it is filler
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("GRPC CLIENT: " + e);
+
+            throw;
+        }
+    }
 }
