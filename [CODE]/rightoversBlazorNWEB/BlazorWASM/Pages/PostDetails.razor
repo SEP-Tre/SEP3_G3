@@ -1,5 +1,6 @@
 ﻿@page "/PostDetails/{id:int}"
 @using Domain.Classes
+@using Domain.DTOs
 @using HttpClients.ClientInterfaces
 @inject IFoodPostService foodPostService
 
@@ -38,6 +39,15 @@
         </div>
     </div>
 </div>
+<div>
+    <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
+    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id, "Kamilooo111")) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+</div>
+<div>
+    <h3>
+        @msg
+    </h3>
+</div>
 
 
 @code {
@@ -46,21 +56,30 @@
     public int id { get; set; }
 
     public FoodPost foodPost;
+    public string msg;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-    //FoodPost foodPost = await foodPostService.GetSingleAsync(id);
+            foodPost = await foodPostService.GetSingleAsync(id);
     //title = foodPost.Title;
-            foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
-                "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
+    // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
+    //    "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    // TODO: Use context to add current user
+    public async Task Reserve(int foodPostId, String username)
+    {
+        FoodPostReservationDto dto = new FoodPostReservationDto(username, foodPostId);
+        await foodPostService.ReserveAsync(dto);
+        msg = foodPost.Title + " is reserved";
     }
 
 }

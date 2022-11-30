@@ -4,14 +4,10 @@ import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import sep3.g3.rightoversjava.grpc.converter.FoodPostConverter;
-import sep3.g3.rightoversjava.grpc.converter.FoodPostConverterImpl;
 import sep3.g3.rightoversjava.grpc.generated.*;
-import sep3.g3.rightoversjava.grpc.generated.FoodPostRequest;
-import sep3.g3.rightoversjava.grpc.generated.FoodPostResponse;
-import sep3.g3.rightoversjava.grpc.generated.FoodPostServiceGrpc;
-import sep3.g3.rightoversjava.grpc.generated.GetAllRequest;
 import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.ReservationCreationDto;
 import sep3.g3.rightoversjava.service.FoodPostService;
 
 import java.util.ArrayList;
@@ -44,29 +40,41 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
                                 StreamObserver<FoodPostResponse> responseObserver) {
         ArrayList<FoodPost> allPosts = service.getAllFoodPosts();
         // System.out.println("All posts: " + allPosts.toString());
-        for (int i = 0; i < allPosts.size(); i++)
-        {
-            FoodPost foodPost =allPosts.get(i);
+        for (int i = 0; i < allPosts.size(); i++) {
+            FoodPost foodPost = allPosts.get(i);
             FoodPostResponse response = converter.getFoodPostResponse(foodPost);
 
             responseObserver.onNext(response);
-        };
+        }
+        ;
         responseObserver.onCompleted();
     }
 
     @Override
-    public void getSingleFoodPost(FoodPostID request, StreamObserver<FoodPostResponse> responseObserver)
-    {
-        try
-        {
+    public void getSingleFoodPost(FoodPostID request, StreamObserver<FoodPostResponse> responseObserver) {
+        try {
             FoodPost foodPost = service.getSingleFoodPost(request.getId());
             FoodPostResponse response = converter.getFoodPostResponse(foodPost);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
 
+        } catch (NoSuchElementException e) {
+            responseObserver.onError(e);
         }
-        catch (NoSuchElementException e)
-        {
+    }
+
+    @Override
+    public void reserve(FoodPostReservation request, StreamObserver<ReservationResponse> responseObserver) {
+        try {
+            service.reserve(new ReservationCreationDto(
+                    request.getFoodpostId(),
+                    request.getUsername()
+            ));
+            ReservationResponse response = ReservationResponse.newBuilder().setFiller(true).build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
             responseObserver.onError(e);
         }
     }

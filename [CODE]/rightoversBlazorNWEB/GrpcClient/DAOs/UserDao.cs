@@ -9,8 +9,7 @@ namespace GrpcClient.DAOs;
 
 public class UserDao : IUserDao
 {
-    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions
-    {
+    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
         UnsafeUseInsecureChannelCallCredentials = true
     });
 
@@ -34,6 +33,7 @@ public class UserDao : IUserDao
         user.FirstName = "KamiloTest";
         user.Address = new Address(0, "The great street",
             "16B/1", 8700, "Horsens", 0, 0);
+
         return Task.FromResult(user);
     }
 
@@ -49,6 +49,7 @@ public class UserDao : IUserDao
             dto.AddressCreationDto.PostCode,
             dto.AddressCreationDto.City,
             0, 0);
+
         return Task.FromResult(user);
     }
 }

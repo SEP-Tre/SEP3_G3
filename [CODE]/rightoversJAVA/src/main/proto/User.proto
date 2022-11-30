@@ -1,0 +1,43 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "sep3.g3.rightoversjava.grpc.generated";
+package sep3.g3;
+
+message UserCreationRequest {
+  string username = 1;
+  string firstname = 2;
+  string password = 3;
+  string street_name = 4;
+  string street_number = 5;
+  int32 postal_code = 6;
+  string city_name = 7;
+}
+
+message UserLoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message AddressMessage {
+  int32 address_id = 1;
+  string street = 2;
+  string street_number = 3;
+  int32 post_code = 4;
+  string city = 5;
+  double longitude = 6;
+  double latitude = 7;
+}
+
+message UserMessage {
+  string username = 1;
+  string firstname = 2;
+  string password = 3;
+  AddressMessage address = 4;
+}
+
+
+
+service UserService {
+  rpc register(UserCreationRequest) returns (UserMessage);
+  rpc login(UserLoginRequest) returns (UserMessage);
+}

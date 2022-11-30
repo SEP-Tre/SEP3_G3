@@ -53,6 +53,10 @@ namespace GrpcCL {
     static readonly grpc::Marshaller<global::GrpcCL.GetAllRequest> __Marshaller_sep3_g3_GetAllRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.GetAllRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcCL.FoodPostID> __Marshaller_sep3_g3_FoodPostID = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.FoodPostID.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.FoodPostReservation> __Marshaller_sep3_g3_FoodPostReservation = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.FoodPostReservation.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.ReservationResponse> __Marshaller_sep3_g3_ReservationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.ReservationResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcCL.FoodPostRequest, global::GrpcCL.FoodPostResponse> __Method_post = new grpc::Method<global::GrpcCL.FoodPostRequest, global::GrpcCL.FoodPostResponse>(
@@ -77,6 +81,14 @@ namespace GrpcCL {
         "getSingleFoodPost",
         __Marshaller_sep3_g3_FoodPostID,
         __Marshaller_sep3_g3_FoodPostResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.FoodPostReservation, global::GrpcCL.ReservationResponse> __Method_reserve = new grpc::Method<global::GrpcCL.FoodPostReservation, global::GrpcCL.ReservationResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "reserve",
+        __Marshaller_sep3_g3_FoodPostReservation,
+        __Marshaller_sep3_g3_ReservationResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -160,6 +172,26 @@ namespace GrpcCL {
       public virtual grpc::AsyncUnaryCall<global::GrpcCL.FoodPostResponse> getSingleFoodPostAsync(global::GrpcCL.FoodPostID request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_getSingleFoodPost, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.ReservationResponse reserve(global::GrpcCL.FoodPostReservation request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return reserve(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.ReservationResponse reserve(global::GrpcCL.FoodPostReservation request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_reserve, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.ReservationResponse> reserveAsync(global::GrpcCL.FoodPostReservation request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return reserveAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.ReservationResponse> reserveAsync(global::GrpcCL.FoodPostReservation request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_reserve, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
