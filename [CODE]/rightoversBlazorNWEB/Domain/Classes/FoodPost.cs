@@ -36,14 +36,9 @@ public class FoodPost
     public int DaysUntilExpired { get; set; }
     public string PostState { get; set; }
     public DateTime TimestampPosted { get; set; }
-
     public MyDate StartDate { get; set; }
-
     public MyDate EndDate { get; set; }
-
     public MyTime StartTime { get; set; }
-
     public MyTime EndTime { get; set; }
-
     public User User { get; set; }
 }

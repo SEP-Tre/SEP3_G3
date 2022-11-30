@@ -18,13 +18,6 @@ public class FoodPostHttpClient : IFoodPostService
 
     public async Task<FoodPost> Create(FoodPostCreationDto dto)
     {
-        /*
-        var jso = new JsonSerializerOptions(JsonSerializerDefaults.Web);
-        jso.Converters.Add(new DateOnlyJsonConverter());
-        jso.Converters.Add(new TimeOnlyJsonConverter());
-        */
-        //TODO the problem is likely here.
-        Console.WriteLine(dto);
         var response = await client.PostAsJsonAsync("/FoodPosts", dto);
         var result = await response.Content.ReadAsStringAsync();
 

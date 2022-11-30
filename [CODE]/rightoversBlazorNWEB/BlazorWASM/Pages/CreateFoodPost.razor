@@ -135,9 +135,7 @@
             MyDate myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
             MyTime myStartTime = new MyTime(startTime.Hour, startTime.Minute);
             MyTime myEndTime = new MyTime(endTime.Hour, endTime.Minute);
-            
-            
-            
+
             var newFoodPost = await fpService.Create(
                 new FoodPostCreationDto(
                     title,

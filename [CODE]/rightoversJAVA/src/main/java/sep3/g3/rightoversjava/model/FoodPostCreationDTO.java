@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class FoodPostCreationDTO {
-
     private String title;
     private String category_;
     private String description;

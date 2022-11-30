@@ -45,18 +45,21 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
         LocalDate endDate = LocalDate.of(ed.getYear(), ed.getMonth(), ed.getDay());
         LocalTime startTime = LocalTime.of(st.getHour(), st.getMinutes());
         LocalTime endTime = LocalTime.of(et.getHour(), et.getMinutes());
-        FoodPostCreationDTO dto = new FoodPostCreationDTO(request.getTitle(), request.getCategory(), request.getDescription(), request.getPictureUrl(), request.getDaysUntilExpired(), startDate, endDate, startTime, endTime, request.getUsername());
+
+        FoodPostCreationDTO dto = new FoodPostCreationDTO(
+                request.getTitle(), request.getCategory(),
+                request.getDescription(), request.getPictureUrl(),
+                request.getDaysUntilExpired(), startDate, endDate,
+                startTime, endTime, request.getUsername());
         try {
             FoodPost created = service.create(dto);
             FoodPostResponse response = converter.getFoodPostResponse(created);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
-
         }
         catch (Exception e) {
             responseObserver.onError(e);
         }
-
     }
 
 
