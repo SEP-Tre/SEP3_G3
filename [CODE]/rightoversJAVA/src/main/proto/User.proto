@@ -8,6 +8,7 @@ message UserCreationRequest {
   string firstname = 2;
   string password = 3;
   AddressMessage address=4;
+  bool isBusiness=5;
 }
 
 message UserLoginRequest {
@@ -33,8 +34,28 @@ message UserMessage {
 }
 
 
+message Time {
+  int32 hour = 1;
+  int32 minutes = 2;
+}
+message OpeningHours{
+  Time monday=1;
+  Time tuesday=2;
+  Time wednesday=3;
+  Time thursday=4;
+  Time friday=5;
+  Time saturday=6;
+  Time sunday=7;
+
+}
+
+message OpeningHoursRequest{
+  string username=1;
+  OpeningHours openingHours=2;
+}
 
 service UserService {
   rpc register(UserCreationRequest) returns (UserMessage);
+  rpc assignOpeningHours(OpeningHoursRequest) returns (UserMessage);
   rpc login(UserLoginRequest) returns (UserMessage);
 }

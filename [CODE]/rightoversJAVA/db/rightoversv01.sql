@@ -46,6 +46,20 @@ CREATE TABLE user_
     isBusiness bool
 );
 
+DROP TABLE IF EXISTS opening_hours;
+CREATE TABLE opening_hours
+(
+    id SERIAL PRIMARY KEY,
+    username varchar(50) references user_(username),
+    monday_opening_hours time,
+    tuesday_opening_hours time,
+    wednesday_opening_hours time,
+    thursday_opening_hours time,
+    friday_opening_hours time,
+    saturday_opening_hours time,
+    sunday_opening_hours time
+);
+
 DROP TABLE IF EXISTS reservation;
 CREATE TABLE reservation
 (

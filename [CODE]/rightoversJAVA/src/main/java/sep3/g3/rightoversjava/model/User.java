@@ -15,6 +15,8 @@ public class User {
     @JoinColumn(name = "address_id")
     public Address address;
 
+
+
     public User(UserCreationDTO dto) {
         this.username = dto.getUsername();
         this.firstName = dto.getFirstName();

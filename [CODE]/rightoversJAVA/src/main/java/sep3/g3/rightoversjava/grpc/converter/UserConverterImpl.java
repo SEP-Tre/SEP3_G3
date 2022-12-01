@@ -50,7 +50,9 @@ public class UserConverterImpl implements UserConverter
                 request.getAddress().getPostCode(),
                 request.getAddress().getCity(),
                 request.getAddress().getLongitude(),
-                request.getAddress().getLatitude()
+                request.getAddress().getLatitude(),
+                request.getIsBusiness()
+
         );
         return dto;
     }

@@ -57,4 +57,10 @@ public interface UserCreationRequestOrBuilder extends
    * <code>.sep3.g3.AddressMessage address = 4;</code>
    */
   sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder getAddressOrBuilder();
+
+  /**
+   * <code>bool isBusiness = 5;</code>
+   * @return The isBusiness.
+   */
+  boolean getIsBusiness();
 }

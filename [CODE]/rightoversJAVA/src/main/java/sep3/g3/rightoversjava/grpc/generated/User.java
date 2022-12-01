@@ -43,24 +43,23 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nUser.proto\022\007sep3.g3\"\240\001\n\023UserCreationRe" +
+      "\n\nUser.proto\022\007sep3.g3\"\212\001\n\023UserCreationRe" +
       "quest\022\020\n\010username\030\001 \001(\t\022\021\n\tfirstname\030\002 \001" +
-      "(\t\022\020\n\010password\030\003 \001(\t\022\023\n\013street_name\030\004 \001(" +
-      "\t\022\025\n\rstreet_number\030\005 \001(\t\022\023\n\013postal_code\030" +
-      "\006 \001(\005\022\021\n\tcity_name\030\007 \001(\t\"6\n\020UserLoginReq" +
-      "uest\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t" +
-      "\"\221\001\n\016AddressMessage\022\022\n\naddress_id\030\001 \001(\005\022" +
-      "\016\n\006street\030\002 \001(\t\022\025\n\rstreet_number\030\003 \001(\t\022\021" +
-      "\n\tpost_code\030\004 \001(\005\022\014\n\004city\030\005 \001(\t\022\021\n\tlongi" +
-      "tude\030\006 \001(\001\022\020\n\010latitude\030\007 \001(\001\"n\n\013UserMess" +
-      "age\022\020\n\010username\030\001 \001(\t\022\021\n\tfirstname\030\002 \001(\t" +
-      "\022\020\n\010password\030\003 \001(\t\022(\n\007address\030\004 \001(\0132\027.se" +
-      "p3.g3.AddressMessage2\207\001\n\013UserService\022>\n\010" +
-      "register\022\034.sep3.g3.UserCreationRequest\032\024" +
-      ".sep3.g3.UserMessage\0228\n\005login\022\031.sep3.g3." +
-      "UserLoginRequest\032\024.sep3.g3.UserMessageB)" +
-      "\n%sep3.g3.rightoversjava.grpc.generatedP" +
-      "\001b\006proto3"
+      "(\t\022\020\n\010password\030\003 \001(\t\022(\n\007address\030\004 \001(\0132\027." +
+      "sep3.g3.AddressMessage\022\022\n\nisBusiness\030\005 \001" +
+      "(\010\"6\n\020UserLoginRequest\022\020\n\010username\030\001 \001(\t" +
+      "\022\020\n\010password\030\002 \001(\t\"\221\001\n\016AddressMessage\022\022\n" +
+      "\naddress_id\030\001 \001(\005\022\016\n\006street\030\002 \001(\t\022\025\n\rstr" +
+      "eet_number\030\003 \001(\t\022\021\n\tpost_code\030\004 \001(\005\022\014\n\004c" +
+      "ity\030\005 \001(\t\022\021\n\tlongitude\030\006 \001(\001\022\020\n\010latitude" +
+      "\030\007 \001(\001\"n\n\013UserMessage\022\020\n\010username\030\001 \001(\t\022" +
+      "\021\n\tfirstname\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022(\n\007" +
+      "address\030\004 \001(\0132\027.sep3.g3.AddressMessage2\207" +
+      "\001\n\013UserService\022>\n\010register\022\034.sep3.g3.Use" +
+      "rCreationRequest\032\024.sep3.g3.UserMessage\0228" +
+      "\n\005login\022\031.sep3.g3.UserLoginRequest\032\024.sep" +
+      "3.g3.UserMessageB)\n%sep3.g3.rightoversja" +
+      "va.grpc.generatedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -71,7 +70,7 @@ public final class User {
     internal_static_sep3_g3_UserCreationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserCreationRequest_descriptor,
-        new java.lang.String[] { "Username", "Firstname", "Password", "StreetName", "StreetNumber", "PostalCode", "CityName", });
+        new java.lang.String[] { "Username", "Firstname", "Password", "Address", "IsBusiness", });
     internal_static_sep3_g3_UserLoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_sep3_g3_UserLoginRequest_fieldAccessorTable = new
