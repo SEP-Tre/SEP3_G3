@@ -21,8 +21,8 @@ public class FoodPostConverter : IFoodPostConverter
         TimeOnly startTime = new TimeOnly(st.Hour, st.Minutes);
         TimeOnly endTime = new TimeOnly(et.Hour, et.Minutes);
         */
-        MyDate startDate = new MyDate(sd.Year, sd.Month, sd.Day);
-        MyDate endDate = new MyDate(ed.Year, ed.Month, ed.Day);
+        MyDate startDate = new MyDate(sd.Day, sd.Month, sd.Year);
+        MyDate endDate = new MyDate(ed.Day, ed.Month, ed.Year);
         MyTime startTime = new MyTime(st.Hour, st.Minutes);
         MyTime endTime = new MyTime(et.Hour, et.Minutes);
         
