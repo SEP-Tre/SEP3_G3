@@ -6,17 +6,19 @@ public class UserCreationDTO
     private String username;
     private String password;
     private AddressCreationDTO addressCreationDTO;
+    private boolean isBusiness;
 
     public UserCreationDTO(String firstName, String userName,
                            String password, int addressId, String streetName,
                            String streetNumber,
-                           int postalCode, String cityName, double longitude, double latitude)
+                           int postalCode, String cityName, double longitude, double latitude, boolean isBusiness)
     {
         this.firstName = firstName;
         this.username = userName;
         this.password = password;
         this.addressCreationDTO = new AddressCreationDTO(addressId,
                 streetNumber, streetName, cityName, postalCode, longitude, latitude);
+        this.isBusiness = isBusiness;
     }
 
     public UserCreationDTO()
@@ -41,5 +43,9 @@ public class UserCreationDTO
     public AddressCreationDTO getAddressCreationDTO()
     {
         return addressCreationDTO;
+    }
+
+    public boolean isBusiness() {
+        return isBusiness;
     }
 }

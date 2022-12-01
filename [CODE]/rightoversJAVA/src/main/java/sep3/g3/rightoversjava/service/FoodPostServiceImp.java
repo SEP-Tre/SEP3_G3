@@ -78,12 +78,17 @@ public class FoodPostServiceImp implements FoodPostService
         if (!foodPost.getPostState().equals("posted")) {
             throw new IllegalArgumentException("This post is not available to reserve");
         }
-        foodPost.setPostState("reserved");
-        // Because of the matching id, this should update instead of add a new tuple
-        fpRepository.save(foodPost);
 
         // Save the reservation to the table
         User user = userRepository.findById(dto.getUsername()).get();
+        if (user.isBusiness())
+        {
+            throw new IllegalArgumentException("As a business, you cannot reserve food. " +
+                    "Please use a personal account");
+        }
+        foodPost.setPostState("reserved");
+        // Because of the matching id, this should update instead of add a new tuple
+        fpRepository.save(foodPost);
         Reservation reservation = new Reservation(foodPost, user);
         reservationRepository.save(reservation);
     }

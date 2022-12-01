@@ -14,12 +14,14 @@ public class User {
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id")
     public Address address;
+    public boolean isBusiness;
 
     public User(UserCreationDTO dto) {
         this.username = dto.getUsername();
         this.firstName = dto.getFirstName();
         this.password = dto.getPassword();
         this.address = new Address(dto.getAddressCreationDTO());
+        this.isBusiness = dto.isBusiness();
     }
 
     public User(String username) {
@@ -27,7 +29,6 @@ public class User {
     }
 
     public User() {
-
     }
 
     public String getUsername() {
@@ -60,5 +61,13 @@ public class User {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public boolean isBusiness() {
+        return isBusiness;
+    }
+
+    public void setBusiness(boolean business) {
+        isBusiness = business;
     }
 }
