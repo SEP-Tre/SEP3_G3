@@ -28,9 +28,12 @@
                     </div>
                 }
             </div>
-            <div class="d-flex justify-content-around my-4 ">
+            <div class="d-flex flex-column justify-content-around my-4 ">
                 <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => LoginAsync()) Text="Login" ButtonStyle="ButtonStyle.Dark"/>
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Register()) Text="Register" ButtonStyle="ButtonStyle.Dark"/>
+                <a id ="register_link" onclick="@Register">Register</a>
+                @*
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Register()) Text="Register" ButtonStyle="ButtonStyle.Dark"/> 
+                *@
             </div>
         </div>
 

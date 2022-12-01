@@ -1,0 +1,142 @@
+﻿@page "/UserProfile"
+@using Domain.Classes
+@using Domain.DTOs
+@using HttpClients.ClientInterfaces
+@inject IFoodPostService foodPostWebService
+
+
+<div id="profile_header" class="w-75 mx-auto mt-3">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="d-flex flex-row align-items-center">
+            <img class="pfp me-3" src="https://media.tenor.com/Mhc96kB5_vYAAAAC/tonton-friends.gif" alt="pfp"/>
+            <div class="d-flex flex-column">
+                <h2 class="firstname">FIRSTNAME</h2>
+                <h3 class="username">USERNAME</h3>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column justify-content-center ratings">
+            <div class="d-flex flex-row ">
+                <iconify-icon class="pt-1" icon="tabler:chef-hat" width="25" height="25"></iconify-icon>
+                <p> cook rating: </p><span class="d-inline" id="cook_rating"> X.X</span>
+            </div>
+            <div id="picker_rating" class="d-flex flex-row ">
+                <iconify-icon class="pt-1" icon="icon-park-solid:knife-fork" width="25" height="25" style="color: white;"></iconify-icon>
+                <p> picker rating: </p><span class="d-inline"> X.X</span>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<div id="profile_body">
+    <RadzenTabs TabPosition="@tabPosition" Class="w-75 my-5 mx-auto" RenderMode="TabRenderMode.Client">
+        <Tabs>
+            <RadzenTabsItem Text="Food Posts">
+                <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@foodPosts" TItem="OverSimpleFoodPostDto">
+                    <Template Context="foodPost">
+                        <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@("1.12 - 3.12") Class="me-1" IsPill="true"/>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@("13:00 - 16:00") Class="me-1" IsPill="true"/>
+                                    @* <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@(foodPost.Category)</RadzenText> *@
+                                </div>
+                                @*
+                                    <div class="col-md-4 text-end">
+                                        <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@("USERNAME") IsPill="true" />
+                                    </div>
+                                    *@
+                            </div>
+                            @*<hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;" />*@
+                            <div class="d-flex flex-row align-items-center">
+                                @* pfp and username *@
+                                <div class="d-flex flex-column me-3">
+                                    <RadzenImage Path="https://i.pinimg.com/564x/b7/f4/2d/b7f42d97e7559cd3a378a7262cbe6270.jpg" Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px;"/>
+                                    <RadzenBadge class="mt-2" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@("USERNAME") IsPill="true"/>
+                                </div>
+                                <div>
+                                    <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
+                                        <strong>@(foodPost.Title)</strong>
+                                    </RadzenText>
+                                    <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@foodPost.Category</RadzenText>
+                                    <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@("Expires in X days")</RadzenText>
+                                </div>
+                            </div>
+                        </RadzenCard>
+                    </Template>
+                </RadzenDataList>
+            </RadzenTabsItem>
+            @*
+                <RadzenTabsItem Text="Reservations">
+                    <RadzenDataGrid ColumnWidth="150px" AllowFiltering="true" AllowPaging="true" PageSize="5" AllowSorting="true" Data="@employees" TItem="Employee">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="Employee" Property="Photo" Title="Photo" Sortable="false" Filterable="false" Width="80px">
+                                <Template Context="data">
+                                    <RadzenImage Path="@data?.Photo" Style="width: 40px; height: 40px; border-radius: 8px;" />
+                                </Template>
+                            </RadzenDataGridColumn>
+                            <RadzenDataGridColumn TItem="Employee" Property="LastName" Title="Last Name" />
+                            <RadzenDataGridColumn TItem="Employee" Property="FirstName" Title="First Name" />
+                            <RadzenDataGridColumn TItem="Employee" Property="EmployeeID" Title="Employee ID" />
+                            <RadzenDataGridColumn TItem="Employee" Property="Title" Title="Title" />
+                            <RadzenDataGridColumn TItem="Employee" Property="BirthDate" Title="Birth Date">
+                                <Template Context="data">
+                                    @String.Format("{0:d}", data.BirthDate)
+                                </Template>
+                            </RadzenDataGridColumn>
+                            <RadzenDataGridColumn TItem="Employee" Property="HireDate" Title="Hire Date">
+                                <Template Context="data">
+                                    @String.Format("{0:d}", data.HireDate)
+                                </Template>
+                            </RadzenDataGridColumn>
+                            <RadzenDataGridColumn TItem="Employee" Property="Address" Title="Address" />
+                            <RadzenDataGridColumn TItem="Employee" Property="City" Title="City" />
+                            <RadzenDataGridColumn TItem="Employee" Property="Region" Title="Region" />
+                            <RadzenDataGridColumn TItem="Employee" Property="PostalCode" Title="Postal Code" />
+                            <RadzenDataGridColumn TItem="Employee" Property="Country" Title="Country" />
+                            <RadzenDataGridColumn TItem="Employee" Property="HomePhone" Title="Home Phone" />
+                            <RadzenDataGridColumn TItem="Employee" Property="Extension" Title="Extension" />
+                            <RadzenDataGridColumn TItem="Employee" Property="Notes" Title="Notes" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Ratings">
+                    <RadzenDataGrid ColumnWidth="150px" AllowFiltering="true" AllowPaging="true" PageSize="8" AllowSorting="true" Data="@customers" TItem="Customer">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="Customer" Property="CustomerID" Title="Customer ID" />
+                            <RadzenDataGridColumn TItem="Customer" Property="CompanyName" Title="Company Name" />
+                            <RadzenDataGridColumn TItem="Customer" Property="ContactName" Title="Contact Name" />
+                            <RadzenDataGridColumn TItem="Customer" Property="ContactTitle" Title="Contact Title" />
+                            <RadzenDataGridColumn TItem="Customer" Property="Address" Title="Address" />
+                            <RadzenDataGridColumn TItem="Customer" Property="City" Title="City" />
+                            <RadzenDataGridColumn TItem="Customer" Property="Region" Title="Region" />
+                            <RadzenDataGridColumn TItem="Customer" Property="PostalCode" Title="Postal Code" />
+                            <RadzenDataGridColumn TItem="Customer" Property="Country" Title="Country" />
+                            <RadzenDataGridColumn TItem="Customer" Property="Phone" Title="Phone" />
+                            <RadzenDataGridColumn TItem="Customer" Property="Fax" Title="Fax" />
+                        </Columns>
+                    </RadzenDataGrid>
+                    
+                </RadzenTabsItem>
+                *@
+        </Tabs>
+    </RadzenTabs>
+</div>
+
+@code {
+    IEnumerable<OverSimpleFoodPostDto> foodPosts;
+    // IEnumerable<Reservation> reservations;
+    // IEnumerable<Rating> ratings;
+
+    TabPosition tabPosition = TabPosition.Left;
+
+    protected async override Task OnInitializedAsync()
+    {
+        foodPosts = await foodPostWebService.GetAsync();
+    }
+
+}
