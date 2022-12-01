@@ -1,8 +1,10 @@
 ﻿@page "/PostDetails/{id:int}"
 @using Domain.Classes
 @using Domain.DTOs
+@using BlazorWASM.Pages.UIComponents
 @using HttpClients.ClientInterfaces
 @inject IFoodPostService foodPostService
+@inject NavigationManager navMgr
 
 @*
 <div class="card-back-title d-flex justify-content-center align-items-center">
@@ -73,16 +75,24 @@ else
             @msg
         </h3>
     </div>
+    
+    <Modal ShowModal="showModal">
+        <div class="d-flex flex-column justify-content-start align-items-center">
+            <p class = m-auto>@msg</p>
+            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+        </div>
+    </Modal>
 @code {
 
     [Parameter]
     public int id { get; set; }
 
 
-    public FoodPost foodPost = new FoodPost();
-    public string? username;
-    public string msg;
-    public string errorMsg;
+    private FoodPost foodPost = new FoodPost();
+    private string? username;
+    private string msg;
+    private string errorMsg;
+    private bool showModal;
 
     protected override async Task OnInitializedAsync()
     {
@@ -121,6 +131,12 @@ else
         {
             errorMsg = "Error: " + e.Message;
         }
+    }
+
+    public void Proceed()
+    {
+        // Change to move to the user's reservations once profile is ready
+        navMgr.NavigateTo("/ViewFoodPosts");
     }
 
 }}
