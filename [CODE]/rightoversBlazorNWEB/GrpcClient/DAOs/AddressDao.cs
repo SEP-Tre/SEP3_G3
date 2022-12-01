@@ -34,8 +34,8 @@ public class AddressDao : IAddressDao
 
         AddressCreationDto addressDto = new AddressCreationDto(
             response.AddressId,
-            response.Street,
             response.StreetNumber,
+            response.Street,
             response.PostCode,
             response.City,
             response.Longitude,
