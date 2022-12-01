@@ -10,4 +10,18 @@ public class MyTime
         Hour = hour;
         Minutes = minutes;
     }
+
+    public String toString()
+    {
+        String s = "";
+        s += Hour;
+        s += ":";
+        if (Minutes < 10)
+        {
+            s += "0";
+        }
+
+        s += Minutes;
+        return s;
+    }
 }

@@ -39,7 +39,7 @@ public class FoodPostHttpClient : IFoodPostService
         return fp;
     }
 
-    public async Task<ICollection<OverSimpleFoodPostDto>> GetAsync()
+    public async Task<ICollection<FoodPost>> GetAsync()
     {
         var response = await client.GetAsync("/FoodPosts");
         // Console.Write("API: " + response);
@@ -49,7 +49,7 @@ public class FoodPostHttpClient : IFoodPostService
         if (!response.IsSuccessStatusCode) throw new Exception(content);
 
         var foodPosts =
-            JsonSerializer.Deserialize<ICollection<OverSimpleFoodPostDto>>(content, new JsonSerializerOptions{
+            JsonSerializer.Deserialize<ICollection<FoodPost>>(content, new JsonSerializerOptions{
                 PropertyNameCaseInsensitive = true
             })!;
         /*

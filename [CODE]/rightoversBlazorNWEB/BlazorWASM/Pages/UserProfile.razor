@@ -34,15 +34,15 @@
     <RadzenTabs TabPosition="@tabPosition" Class="w-75 my-5 mx-auto" RenderMode="TabRenderMode.Client">
         <Tabs>
             <RadzenTabsItem Text="Food Posts">
-                <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@foodPosts" TItem="OverSimpleFoodPostDto">
+                <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@foodPosts" TItem="FoodPost">
                     <Template Context="foodPost">
                         <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@("1.12 - 3.12") Class="me-1" IsPill="true"/>
+                                    <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@(foodPost.StartDate.DayAndMonth() + "-" + foodPost.EndDate.DayAndMonth()) Class="me-1" IsPill="true"/>
                                 </div>
                                 <div class="col-md-6 text-end">
-                                    <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@("13:00 - 16:00") Class="me-1" IsPill="true"/>
+                                    <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@(foodPost.StartTime.toString() + " - " + foodPost.EndTime.toString()) Class="me-1" IsPill="true"/>
                                     @* <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@(foodPost.Category)</RadzenText> *@
                                 </div>
                                 @*
@@ -55,15 +55,15 @@
                             <div class="d-flex flex-row align-items-center">
                                 @* pfp and username *@
                                 <div class="d-flex flex-column me-3">
-                                    <RadzenImage Path="https://i.pinimg.com/564x/b7/f4/2d/b7f42d97e7559cd3a378a7262cbe6270.jpg" Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px;"/>
-                                    <RadzenBadge class="mt-2" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@("USERNAME") IsPill="true"/>
+                                    <RadzenImage Path=@foodPost.PictureUrl Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px;"/>
+                                    <RadzenBadge class="mt-2" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@(foodPost.User.UserName) IsPill="true"/>
                                 </div>
                                 <div>
                                     <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
                                         <strong>@(foodPost.Title)</strong>
                                     </RadzenText>
                                     <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@foodPost.Category</RadzenText>
-                                    <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@("Expires in X days")</RadzenText>
+                                    <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@($"Expires in {foodPost.DaysUntilExpired} days")</RadzenText>
                                 </div>
                             </div>
                         </RadzenCard>
@@ -128,7 +128,7 @@
 </div>
 
 @code {
-    IEnumerable<OverSimpleFoodPostDto> foodPosts;
+    IEnumerable<FoodPost> foodPosts;
     // IEnumerable<Reservation> reservations;
     // IEnumerable<Rating> ratings;
 

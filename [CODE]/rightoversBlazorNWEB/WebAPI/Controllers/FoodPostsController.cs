@@ -36,7 +36,7 @@ public class FoodPostsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<OverSimpleFoodPostDto>>> GetAsync()
+    public async Task<ActionResult<IEnumerable<FoodPost>>> GetAsync()
     {
         try
         {

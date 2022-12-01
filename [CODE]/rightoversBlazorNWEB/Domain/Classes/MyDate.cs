@@ -12,4 +12,9 @@ public class MyDate
         Month = month;
         Year = year;
     }
+
+    public String DayAndMonth()
+    {
+        return Day + "." + Month;
+    }
 }
