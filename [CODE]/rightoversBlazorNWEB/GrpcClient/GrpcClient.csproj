@@ -32,4 +32,8 @@
         <Protobuf Include="Protos\UserGrpc.proto" GrpcServices="Client" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Protobuf Include="Protos\RatingGrpc.proto" GrpcServices="Client" />
+    </ItemGroup>
+
 </Project>
