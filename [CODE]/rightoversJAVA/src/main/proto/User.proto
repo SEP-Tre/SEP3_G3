@@ -39,14 +39,20 @@ message Time {
   int32 minutes = 2;
 }
 message OpeningHours{
-  Time monday=1;
-  Time tuesday=2;
-  Time wednesday=3;
-  Time thursday=4;
-  Time friday=5;
-  Time saturday=6;
-  Time sunday=7;
-
+  Time mondayOpening=1;
+  Time mondayClosing=2;
+  Time tuesdayOpening=3;
+  Time tuesdayClosing=4;
+  Time wednesdayOpening=5;
+  Time wednesdayClosing=6;
+  Time thursdayOpening=7;
+  Time thursdayClosing=8;
+  Time fridayOpening=9;
+  Time fridayClosing=10;
+  Time saturdayOpening=11;
+  Time saturdayClosing=12;
+  Time sundayOpening=13;
+  Time sundayClosing=14;
 }
 
 message OpeningHoursRequest{

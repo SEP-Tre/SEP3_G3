@@ -11,9 +11,12 @@ public class User {
     public String firstName;
     @Column(name = "password_")
     public String password;
+    @Column (name="is_business")
+    public boolean isBusiness;
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id")
     public Address address;
+
 
 
 
@@ -62,5 +65,13 @@ public class User {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public boolean isBusiness() {
+        return isBusiness;
+    }
+
+    public void setBusiness(boolean business) {
+        isBusiness = business;
     }
 }

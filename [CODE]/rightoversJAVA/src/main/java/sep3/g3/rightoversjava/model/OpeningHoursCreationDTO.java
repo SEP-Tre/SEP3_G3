@@ -1,19 +1,30 @@
 package sep3.g3.rightoversjava.model;
 
 import net.bytebuddy.asm.Advice;
+import sep3.g3.rightoversjava.grpc.generated.Time;
 
 import java.time.LocalTime;
 
-public class OpeningHoursCreationDTO {
-    private LocalTime mondayOpeningHours;
-    private LocalTime tuesdayOpeningHours;
-    private LocalTime wednesdayOpeningHours;
-    private LocalTime thursdayOpeningHours;
-    private LocalTime fridayOpeningHours;
-    private LocalTime saturdayOpeningHours;
-    private LocalTime sundayOpeningHours;
 
-    public OpeningHoursCreationDTO(LocalTime mondayOpeningHours,LocalTime tuesdayOpeningHours, LocalTime wednesdayOpeningHours, LocalTime thursdayOpeningHours, LocalTime fridayOpeningHours, LocalTime saturdayOpeningHours, LocalTime sundayOpeningHours)
+public class OpeningHoursCreationDTO {
+
+    public String username;
+    private LocalTime mondayOpeningHours;
+    private LocalTime mondayClosingHours;
+    private LocalTime tuesdayOpeningHours;
+    private LocalTime tuesdayClosingHours;
+    private LocalTime wednesdayOpeningHours;
+    private LocalTime wednesdayClosingHours;
+    private LocalTime thursdayOpeningHours;
+    private LocalTime thursdayClosingHours;
+    private LocalTime fridayOpeningHours;
+    private LocalTime fridayClosingHours;
+    private LocalTime saturdayOpeningHours;
+    private LocalTime saturdayClosingHours;
+    private LocalTime sundayOpeningHours;
+    private LocalTime sundayClosingHours;
+
+    public OpeningHoursCreationDTO(String username, LocalTime mondayOpeningHours,LocalTime mondayClosingHours, LocalTime tuesdayOpeningHours, LocalTime tuesdayClosingHours, LocalTime wednesdayOpeningHours, LocalTime wednesdayClosingHours, LocalTime thursdayOpeningHours, LocalTime thursdayClosingHours, LocalTime fridayOpeningHours, LocalTime fridayClosingHours, LocalTime saturdayOpeningHours, LocalTime saturdayClosingHours, LocalTime sundayOpeningHours,LocalTime sundayClosingHours)
     {
         this.mondayOpeningHours=mondayOpeningHours;
         this.tuesdayOpeningHours=tuesdayOpeningHours;
@@ -22,6 +33,15 @@ public class OpeningHoursCreationDTO {
         this.fridayOpeningHours=fridayOpeningHours;
         this.saturdayOpeningHours=saturdayOpeningHours;
         this.sundayOpeningHours=sundayOpeningHours;
+        this.mondayClosingHours=mondayClosingHours;
+        this.tuesdayClosingHours=tuesdayClosingHours;
+        this.wednesdayClosingHours=wednesdayClosingHours;
+        this.thursdayClosingHours=thursdayClosingHours;
+        this.fridayClosingHours=fridayClosingHours;
+        this.saturdayClosingHours=saturdayClosingHours;
+        this.sundayClosingHours=sundayClosingHours;
+        this.username=username;
+
     }
 
     public LocalTime getMondayOpeningHours() {
@@ -51,6 +71,40 @@ public class OpeningHoursCreationDTO {
     public LocalTime getSundayOpeningHours() {
         return sundayOpeningHours;
     }
+
+    public LocalTime getMondayClosingHours() {
+        return mondayClosingHours;
+    }
+
+    public LocalTime getTuesdayClosingHours() {
+        return tuesdayClosingHours;
+    }
+
+    public LocalTime getWednesdayClosingHours() {
+        return wednesdayClosingHours;
+    }
+
+    public LocalTime getThursdayClosingHours() {
+        return thursdayClosingHours;
+    }
+
+    public LocalTime getFridayClosingHours() {
+        return fridayClosingHours;
+    }
+
+    public LocalTime getSaturdayClosingHours() {
+        return saturdayClosingHours;
+    }
+
+    public LocalTime getSundayClosingHours() {
+        return sundayClosingHours;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+
 
     @Override
     public String toString() {

@@ -51,4 +51,8 @@ public class UserCreationDTO
     public boolean isBusiness() {
         return isBusiness;
     }
+
+    public void setIsBusiness(boolean isBusiness){
+        this.isBusiness=isBusiness;
+    }
 }

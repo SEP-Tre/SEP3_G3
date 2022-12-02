@@ -6,25 +6,6 @@ SET SCHEMA 'rightovers';
 CREATE DOMAIN post_state VARCHAR(50)
     CHECK (VALUE IN ('posted', 'reserved', 'closed'));
 
-CREATE TABLE food_post
-(
-    post_id            serial primary key,
-    title              varchar(100),
-    category_          varchar(100),
-    description        varchar(1000),
-    picture_url        varchar(1000),
-    days_until_expired int,
-    post_state         post_state
-);
-ALTER TABLE food_post
-    ADD timestamp_posted timestamp,
-    ADD pickup_start_date date,
-    ADD pickup_end_date date,
-    ADD pickup_start_time time,
-    ADD pickup_end_time time,
-    ADD username varchar(50) references user_(username);
-
-
 CREATE TABLE address
 (
     address_id    serial primary key,
@@ -36,6 +17,17 @@ CREATE TABLE address
     latitude      numeric
 );
 
+CREATE TABLE food_post
+(
+    post_id            serial primary key,
+    title              varchar(100),
+    category_          varchar(100),
+    description        varchar(1000),
+    picture_url        varchar(1000),
+    days_until_expired int,
+    post_state         post_state
+);
+
 DROP TABLE IF EXISTS user_;
 CREATE TABLE user_
 (
@@ -43,8 +35,21 @@ CREATE TABLE user_
     firstname  varchar(50),
     password_  varchar(100),
     address_id int references address (address_id),
-    isBusiness bool
+    is_business bool
 );
+
+ALTER TABLE food_post
+    ADD timestamp_posted timestamp,
+    ADD pickup_start_date date,
+    ADD pickup_end_date date,
+    ADD pickup_start_time time,
+    ADD pickup_end_time time,
+    ADD username varchar(50) references user_(username);
+
+
+
+
+
 
 DROP TABLE IF EXISTS opening_hours;
 CREATE TABLE opening_hours
@@ -52,12 +57,19 @@ CREATE TABLE opening_hours
     id SERIAL PRIMARY KEY,
     username varchar(50) references user_(username),
     monday_opening_hours time,
+    monday_closing_hours time,
     tuesday_opening_hours time,
+    tuesday_closing_hours time,
     wednesday_opening_hours time,
+    wednesday_closing_hours time,
     thursday_opening_hours time,
+    thursday_closing_hours time,
     friday_opening_hours time,
+    friday_closing_hours time,
     saturday_opening_hours time,
-    sunday_opening_hours time
+    saturday_closing_hours time,
+    sunday_opening_hours time,
+    sunday_closing_hours time
 );
 
 DROP TABLE IF EXISTS reservation;

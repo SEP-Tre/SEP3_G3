@@ -7,10 +7,10 @@ import sep3.g3.rightoversjava.grpc.converter.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.converter.UserConverter;
 import sep3.g3.rightoversjava.grpc.converter.UserConverterImpl;
 import sep3.g3.rightoversjava.grpc.generated.*;
+import sep3.g3.rightoversjava.model.*;
 import sep3.g3.rightoversjava.model.Address;
+import sep3.g3.rightoversjava.model.OpeningHours;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
 import sep3.g3.rightoversjava.service.UserService;
 
 @Configurable
@@ -57,4 +57,30 @@ public class UserServiceGrpcImpl
                             .asRuntimeException());
         }
     }
+
+
+    @Override
+    public void assignOpeningHours(OpeningHoursRequest request, StreamObserver<UserMessage> responseObserver) {
+
+        OpeningHoursCreationDTO dto=converter.getOpeningHours(request);
+
+
+
+        try {
+            User user = userService.assignOpeningHours(dto);
+            UserMessage userMessage = converter.getUserMessageFromUser(user);
+            responseObserver.onNext(userMessage);
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
+        }
+
+    }
+
+
 }

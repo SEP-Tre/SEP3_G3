@@ -34,6 +34,21 @@ public final class User {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sep3_g3_UserMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_Time_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_Time_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_OpeningHours_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_OpeningHours_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_OpeningHoursRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_OpeningHoursRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -54,12 +69,31 @@ public final class User {
       "ity\030\005 \001(\t\022\021\n\tlongitude\030\006 \001(\001\022\020\n\010latitude" +
       "\030\007 \001(\001\"n\n\013UserMessage\022\020\n\010username\030\001 \001(\t\022" +
       "\021\n\tfirstname\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022(\n\007" +
-      "address\030\004 \001(\0132\027.sep3.g3.AddressMessage2\207" +
-      "\001\n\013UserService\022>\n\010register\022\034.sep3.g3.Use" +
-      "rCreationRequest\032\024.sep3.g3.UserMessage\0228" +
-      "\n\005login\022\031.sep3.g3.UserLoginRequest\032\024.sep" +
-      "3.g3.UserMessageB)\n%sep3.g3.rightoversja" +
-      "va.grpc.generatedP\001b\006proto3"
+      "address\030\004 \001(\0132\027.sep3.g3.AddressMessage\"%" +
+      "\n\004Time\022\014\n\004hour\030\001 \001(\005\022\017\n\007minutes\030\002 \001(\005\"\262\004" +
+      "\n\014OpeningHours\022$\n\rmondayOpening\030\001 \001(\0132\r." +
+      "sep3.g3.Time\022$\n\rmondayClosing\030\002 \001(\0132\r.se" +
+      "p3.g3.Time\022%\n\016tuesdayOpening\030\003 \001(\0132\r.sep" +
+      "3.g3.Time\022%\n\016tuesdayClosing\030\004 \001(\0132\r.sep3" +
+      ".g3.Time\022\'\n\020wednesdayOpening\030\005 \001(\0132\r.sep" +
+      "3.g3.Time\022\'\n\020wednesdayClosing\030\006 \001(\0132\r.se" +
+      "p3.g3.Time\022&\n\017thursdayOpening\030\007 \001(\0132\r.se" +
+      "p3.g3.Time\022&\n\017thursdayClosing\030\010 \001(\0132\r.se" +
+      "p3.g3.Time\022$\n\rfridayOpening\030\t \001(\0132\r.sep3" +
+      ".g3.Time\022$\n\rfridayClosing\030\n \001(\0132\r.sep3.g" +
+      "3.Time\022&\n\017saturdayOpening\030\013 \001(\0132\r.sep3.g" +
+      "3.Time\022&\n\017saturdayClosing\030\014 \001(\0132\r.sep3.g" +
+      "3.Time\022$\n\rsundayOpening\030\r \001(\0132\r.sep3.g3." +
+      "Time\022$\n\rsundayClosing\030\016 \001(\0132\r.sep3.g3.Ti" +
+      "me\"T\n\023OpeningHoursRequest\022\020\n\010username\030\001 " +
+      "\001(\t\022+\n\014openingHours\030\002 \001(\0132\025.sep3.g3.Open" +
+      "ingHours2\321\001\n\013UserService\022>\n\010register\022\034.s" +
+      "ep3.g3.UserCreationRequest\032\024.sep3.g3.Use" +
+      "rMessage\022H\n\022assignOpeningHours\022\034.sep3.g3" +
+      ".OpeningHoursRequest\032\024.sep3.g3.UserMessa" +
+      "ge\0228\n\005login\022\031.sep3.g3.UserLoginRequest\032\024" +
+      ".sep3.g3.UserMessageB)\n%sep3.g3.rightove" +
+      "rsjava.grpc.generatedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -89,6 +123,24 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserMessage_descriptor,
         new java.lang.String[] { "Username", "Firstname", "Password", "Address", });
+    internal_static_sep3_g3_Time_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_sep3_g3_Time_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_Time_descriptor,
+        new java.lang.String[] { "Hour", "Minutes", });
+    internal_static_sep3_g3_OpeningHours_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_sep3_g3_OpeningHours_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_OpeningHours_descriptor,
+        new java.lang.String[] { "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing", });
+    internal_static_sep3_g3_OpeningHoursRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_sep3_g3_OpeningHoursRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_OpeningHoursRequest_descriptor,
+        new java.lang.String[] { "Username", "OpeningHours", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
