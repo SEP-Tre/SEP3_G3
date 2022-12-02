@@ -1,4 +1,5 @@
-﻿using Application.DAOInterfaces;
+﻿using System.Collections;
+using Application.DAOInterfaces;
 using Application.LogicInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
@@ -27,6 +28,21 @@ public class UserLogic : IUserLogic
         User user = await userDao.RegisterAsync(dto);
 
         return user;
+    }
+
+    public Task<User> GetByUsername(string username)
+    {
+        return userDao.GetByUsername(username);
+    }
+
+    public Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username)
+    {
+        return userDao.GetAllReservationsByUser(username);
+    }
+
+    public Task<IEnumerable<Rating>> GetAllRatingsToUser(string username)
+    {
+        return userDao.GetAllRatingsToUser(username);
     }
 
 

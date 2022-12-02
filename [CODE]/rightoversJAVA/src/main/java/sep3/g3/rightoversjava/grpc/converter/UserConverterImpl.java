@@ -1,18 +1,17 @@
 package sep3.g3.rightoversjava.grpc.converter;
 
+import com.google.protobuf.Timestamp;
 import org.springframework.stereotype.Service;
-import sep3.g3.rightoversjava.grpc.generated.AddressMessage;
-import sep3.g3.rightoversjava.grpc.generated.UserCreationRequest;
-import sep3.g3.rightoversjava.grpc.generated.UserLoginRequest;
-import sep3.g3.rightoversjava.grpc.generated.UserMessage;
+import sep3.g3.rightoversjava.grpc.generated.*;
+import sep3.g3.rightoversjava.model.*;
 import sep3.g3.rightoversjava.model.Address;
+import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
+
+import java.time.Instant;
 
 @Service
-public class UserConverterImpl implements UserConverter
-{
+public class UserConverterImpl implements UserConverter {
     public UserMessage getUserMessageFromUser(User user) {
 
         Address address = user.getAddress();
@@ -38,9 +37,8 @@ public class UserConverterImpl implements UserConverter
     }
 
     @Override
-    public UserCreationDTO getUserCreationDtoFromRequest(UserCreationRequest request)
-    {
-        UserCreationDTO dto =new UserCreationDTO(
+    public UserCreationDTO getUserCreationDtoFromRequest(UserCreationRequest request) {
+        UserCreationDTO dto = new UserCreationDTO(
                 request.getFirstname(),
                 request.getUsername(),
                 request.getPassword(),
@@ -56,13 +54,10 @@ public class UserConverterImpl implements UserConverter
     }
 
     @Override
-    public UserLoginDTO getUserLoginDtoFromRequest(UserLoginRequest request)
-    {
+    public UserLoginDTO getUserLoginDtoFromRequest(UserLoginRequest request) {
         UserLoginDTO dto = new UserLoginDTO(
                 request.getUsername(),
                 request.getPassword());
         return dto;
     }
-
-
 }

@@ -3,6 +3,10 @@ option java_multiple_files = true;
 option java_package = "sep3.g3.rightoversjava.grpc.generated";
 package sep3.g3;
 
+message UserRequest {
+  string username = 1;
+}
+
 message UserCreationRequest {
   string username = 1;
   string firstname = 2;
@@ -32,9 +36,8 @@ message UserMessage {
   AddressMessage address = 4;
 }
 
-
-
 service UserService {
+  rpc getByUsername(UserRequest) returns (UserMessage);
   rpc register(UserCreationRequest) returns (UserMessage);
   rpc login(UserLoginRequest) returns (UserMessage);
 }

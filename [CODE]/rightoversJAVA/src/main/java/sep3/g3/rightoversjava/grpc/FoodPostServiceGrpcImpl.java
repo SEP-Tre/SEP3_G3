@@ -102,4 +102,21 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
                             .asRuntimeException());
         }
     }
+
+    @Override
+    public void getFoodPostsByUsername(FPByUsernameRequest request, StreamObserver<FoodPostResponse> responseObserver) {
+        String username = request.getUsername();
+        try {
+            ArrayList<FoodPost> allPosts = service.getAllFoodPostsByUsername(username);
+            for (int i = 0; i < allPosts.size(); i++) {
+                FoodPost foodPost = allPosts.get(i);
+                FoodPostResponse response = converter.getFoodPostResponse(foodPost);
+                responseObserver.onNext(response);
+            }
+            responseObserver.onCompleted();
+        }
+        catch (Exception e) {
+            responseObserver.onError(e);
+        }
+    }
 }

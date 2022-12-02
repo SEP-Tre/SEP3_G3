@@ -64,6 +64,11 @@ public class FoodPostLogic : IFoodPostLogic
     {
         return fpDao.GetSingleAsync(id);
     }
+    
+    public Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username)
+    {
+        return fpDao.GetAllFoodPostsByUser(username);
+    }
 
     public async Task ReserveAsync(FoodPostReservationDto dto)
     {

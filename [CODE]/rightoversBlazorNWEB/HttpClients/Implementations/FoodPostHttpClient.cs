@@ -94,4 +94,18 @@ public class FoodPostHttpClient : IFoodPostService
             throw new Exception(content);
         }
     }
+    public async Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username)
+    {
+        var response = await client.GetAsync($"/FoodPosts/ByUser?username={username}");
+        var content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode) throw new Exception(content);
+
+        var foodPosts =
+            JsonSerializer.Deserialize<IEnumerable<FoodPost>>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return foodPosts;
+    }
 }

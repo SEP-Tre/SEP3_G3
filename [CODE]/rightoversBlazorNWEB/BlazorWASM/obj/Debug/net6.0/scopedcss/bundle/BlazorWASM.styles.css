@@ -350,6 +350,12 @@
     font-size: 4rem;
 }
 
+.hover-underlined:hover[b-wiwjy8u4u7] {
+    text-decoration: underline;
+    background-color: black;
+    transition: 0.2s;
+}
+
 .username[b-wiwjy8u4u7] {
     line-height: 0.1em;
     font-size: 2em;

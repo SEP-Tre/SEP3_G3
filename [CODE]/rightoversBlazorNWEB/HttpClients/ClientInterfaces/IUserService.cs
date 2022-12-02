@@ -10,6 +10,9 @@ public interface IUserService
     Task<User> RegisterAsync(UserCreationDto dto);
 
     Task LogoutAsync();
+    Task<User> GetUserByUsername(String username);
+    Task<IEnumerable<Reservation>> GetAllReservationsByUser(String username);
+    Task<IEnumerable<Rating>> GetAllRatingsToUser(String username);
     public Task<ClaimsPrincipal> GetAuthAsync();
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }

@@ -87,4 +87,18 @@ public class FoodPostsController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    [HttpGet, Route( "ByUser")]
+    public async Task<ActionResult<IEnumerable<FoodPost>>> GetFoodPostsByUsername([FromQuery] String username)
+    {
+        try
+        {
+            IEnumerable<FoodPost> foodPosts = await fpLogic.GetAllFoodPostsByUser(username);
+            return Ok(foodPosts);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

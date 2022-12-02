@@ -23,6 +23,48 @@ public class UsersController : ControllerBase
         this.userLogic = userLogic;
     }
 
+    [HttpGet]
+    public async Task<ActionResult<User>> GetByUsername([FromQuery] String username)
+    {
+        try
+        {
+            User user = await userLogic.GetByUsername(username);
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpGet, Route( "Reservations")]
+    public async Task<ActionResult<IEnumerable<Reservation>>> GetReservationsByUsername([FromQuery] String username)
+    {
+        try
+        {
+            IEnumerable<Reservation> reservations = await userLogic.GetAllReservationsByUser(username);
+            return Ok(reservations);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
+    [HttpGet, Route( "Ratings")]
+    public async Task<ActionResult<IEnumerable<Rating>>> GetAllRatingsToUsername([FromQuery] String username)
+    {
+        try
+        {
+            IEnumerable<Rating> ratings = await userLogic.GetAllRatingsToUser(username);
+            return Ok(ratings);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
     [HttpPost, Route("login")]
     public async Task<ActionResult> LoginAsync(UserLoginDto dto)
     {
@@ -45,7 +87,6 @@ public class UsersController : ControllerBase
         try
         {
             User user = await userLogic.RegisterAsync(dto);
-
             return Ok(user);
         }
         catch (Exception e)

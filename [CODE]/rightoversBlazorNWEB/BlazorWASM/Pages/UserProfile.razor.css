@@ -23,6 +23,12 @@
     font-size: 4rem;
 }
 
+.hover-underlined:hover {
+    text-decoration: underline;
+    background-color: black;
+    transition: 0.2s;
+}
+
 .username {
     line-height: 0.1em;
     font-size: 2em;

@@ -46,11 +46,21 @@ namespace GrpcCL {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcCL.UserCreationRequest> __Marshaller_sep3_g3_UserCreationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.UserCreationRequest.Parser));
+    static readonly grpc::Marshaller<global::GrpcCL.UserRequest> __Marshaller_sep3_g3_UserRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.UserRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcCL.UserMessage> __Marshaller_sep3_g3_UserMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.UserMessage.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.UserCreationRequest> __Marshaller_sep3_g3_UserCreationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.UserCreationRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcCL.UserLoginRequest> __Marshaller_sep3_g3_UserLoginRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.UserLoginRequest.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.UserRequest, global::GrpcCL.UserMessage> __Method_getByUsername = new grpc::Method<global::GrpcCL.UserRequest, global::GrpcCL.UserMessage>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "getByUsername",
+        __Marshaller_sep3_g3_UserRequest,
+        __Marshaller_sep3_g3_UserMessage);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcCL.UserCreationRequest, global::GrpcCL.UserMessage> __Method_register = new grpc::Method<global::GrpcCL.UserCreationRequest, global::GrpcCL.UserMessage>(
@@ -101,6 +111,26 @@ namespace GrpcCL {
       {
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage getByUsername(global::GrpcCL.UserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return getByUsername(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage getByUsername(global::GrpcCL.UserRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_getByUsername, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> getByUsernameAsync(global::GrpcCL.UserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return getByUsernameAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> getByUsernameAsync(global::GrpcCL.UserRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_getByUsername, null, options, request);
+      }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::GrpcCL.UserMessage register(global::GrpcCL.UserCreationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {

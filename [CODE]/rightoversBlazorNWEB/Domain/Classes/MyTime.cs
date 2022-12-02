@@ -11,7 +11,7 @@ public class MyTime
         Minutes = minutes;
     }
 
-    public String toString()
+    public String ToString()
     {
         String s = "";
         s += Hour;

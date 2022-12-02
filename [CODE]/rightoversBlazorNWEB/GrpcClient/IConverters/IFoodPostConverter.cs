@@ -5,5 +5,5 @@ namespace GrpcClient.IConverters;
 
 public interface IFoodPostConverter
 {
-    FoodPost getFoodPost(FoodPostResponse response);
+    FoodPost GetFoodPost(FoodPostResponse response);
 }

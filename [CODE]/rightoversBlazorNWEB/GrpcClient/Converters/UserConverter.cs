@@ -7,6 +7,15 @@ namespace GrpcClient.Converters;
 
 public class UserConverter : IUserConverter
 {
+    public UserRequest GetUserRequestFromUsername(string username)
+    {
+        UserRequest userRequest = new UserRequest
+        {
+            Username = username
+        };
+        return userRequest;
+    }
+
     public UserCreationRequest GetUserCreationRequestFromDto(UserCreationDto dto)
     {
         AddressCreationDto addressDto = dto.AddressCreationDto;
@@ -52,4 +61,5 @@ public class UserConverter : IUserConverter
         };
         return request;
     }
+    
 }

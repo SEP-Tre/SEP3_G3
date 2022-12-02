@@ -59,6 +59,15 @@ public class FoodPostServiceImp implements FoodPostService
     }
 
     @Override
+    public ArrayList<FoodPost> getAllFoodPostsByUsername(String username) throws Exception {
+        Optional<User> existingUser = userRepository.findById(username);
+        if (existingUser == null) {
+            throw new Exception("User not found.");
+        }
+        return new ArrayList<>(fpRepository.getFoodPostsByUser(existingUser.get()));
+    }
+
+    @Override
     public FoodPost getSingleFoodPost(int id) throws NoSuchElementException
     {
         Optional<FoodPost> foodPostOptional = fpRepository.findById(id);

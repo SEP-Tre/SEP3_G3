@@ -9,4 +9,6 @@ public interface IFoodPostDao
     public Task<IEnumerable<FoodPost>> GetAsync();
     public Task<FoodPost> GetSingleAsync(int id);
     public Task Reserve(FoodPostReservationDto dto);
+    Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(String username);
+
 }

@@ -59,7 +59,7 @@ public class FoodPostDao : IFoodPostDao
             Username = dto.Username
         });
 
-        FoodPost fp = converter.getFoodPost(response);
+        FoodPost fp = converter.GetFoodPost(response);
         return fp;
     }
 
@@ -75,7 +75,7 @@ public class FoodPostDao : IFoodPostDao
         {
             if (message.Category != null && message.Title != null)
             {
-                FoodPost fp = converter.getFoodPost(message);
+                FoodPost fp = converter.GetFoodPost(message);
                 listHolder.Add(fp);
                 Console.WriteLine("I found a post: " + fp.Title + " : " + fp.Category);
             }
@@ -83,6 +83,30 @@ public class FoodPostDao : IFoodPostDao
 
         return listHolder;
     }
+    
+    public async Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username)
+    {
+        FPByUsernameRequest userRequest = new FPByUsernameRequest
+        {
+            Username = username
+        };
+        
+        // Missing an await, but where?
+        List<FoodPost> listHolder = new List<FoodPost>();
+        AsyncServerStreamingCall<FoodPostResponse> response = client.getFoodPostsByUsername(userRequest);
+        // Because it is a stream, lets make a Dto for the current one we are on
+        await foreach (var message in response.ResponseStream.ReadAllAsync())
+        {
+            if (message.Category != null && message.Title != null)
+            {
+                FoodPost fp = converter.GetFoodPost(message);
+                listHolder.Add(fp);
+                Console.WriteLine("I found a post: " + fp.Title + " : " + fp.Category);
+            }
+        }
+        return listHolder;
+    }
+   
 
     public async Task<FoodPost> GetSingleAsync(int id)
     {
@@ -90,7 +114,7 @@ public class FoodPostDao : IFoodPostDao
             Id = id
         });
 
-        FoodPost foodPost = converter.getFoodPost(response);
+        FoodPost foodPost = converter.GetFoodPost(response);
 
         return foodPost;
     }

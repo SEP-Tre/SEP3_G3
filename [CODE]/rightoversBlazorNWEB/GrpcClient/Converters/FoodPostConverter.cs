@@ -7,7 +7,7 @@ namespace GrpcClient.Converters;
 
 public class FoodPostConverter : IFoodPostConverter
 {
-    public FoodPost getFoodPost(FoodPostResponse response)
+    public FoodPost GetFoodPost(FoodPostResponse response)
     {
         DateTime timestampPosted = response.TimestampPosted.ToDateTime();
         Date sd = response.StartDate;

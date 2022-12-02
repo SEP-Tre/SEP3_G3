@@ -15,6 +15,37 @@ public final class UserServiceGrpc {
   public static final String SERVICE_NAME = "sep3.g3.UserService";
 
   // Static method descriptors that strictly reflect the proto.
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getGetByUsernameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getByUsername",
+      requestType = sep3.g3.rightoversjava.grpc.generated.UserRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.UserMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getGetByUsernameMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage> getGetByUsernameMethod;
+    if ((getGetByUsernameMethod = UserServiceGrpc.getGetByUsernameMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetByUsernameMethod = UserServiceGrpc.getGetByUsernameMethod) == null) {
+          UserServiceGrpc.getGetByUsernameMethod = getGetByUsernameMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getByUsername"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getByUsername"))
+              .build();
+        }
+      }
+    }
+    return getGetByUsernameMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserCreationRequest,
       sep3.g3.rightoversjava.grpc.generated.UserMessage> getRegisterMethod;
 
@@ -127,6 +158,13 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void getByUsername(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetByUsernameMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void register(sep3.g3.rightoversjava.grpc.generated.UserCreationRequest request,
         io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRegisterMethod(), responseObserver);
@@ -141,6 +179,13 @@ public final class UserServiceGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+          .addMethod(
+            getGetByUsernameMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.UserRequest,
+                sep3.g3.rightoversjava.grpc.generated.UserMessage>(
+                  this, METHODID_GET_BY_USERNAME)))
           .addMethod(
             getRegisterMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -171,6 +216,14 @@ public final class UserServiceGrpc {
     protected UserServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new UserServiceStub(channel, callOptions);
+    }
+
+    /**
+     */
+    public void getByUsername(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetByUsernameMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -206,6 +259,13 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public sep3.g3.rightoversjava.grpc.generated.UserMessage getByUsername(sep3.g3.rightoversjava.grpc.generated.UserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetByUsernameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public sep3.g3.rightoversjava.grpc.generated.UserMessage register(sep3.g3.rightoversjava.grpc.generated.UserCreationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRegisterMethod(), getCallOptions(), request);
@@ -235,6 +295,14 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.UserMessage> getByUsername(
+        sep3.g3.rightoversjava.grpc.generated.UserRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetByUsernameMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.UserMessage> register(
         sep3.g3.rightoversjava.grpc.generated.UserCreationRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -250,8 +318,9 @@ public final class UserServiceGrpc {
     }
   }
 
-  private static final int METHODID_REGISTER = 0;
-  private static final int METHODID_LOGIN = 1;
+  private static final int METHODID_GET_BY_USERNAME = 0;
+  private static final int METHODID_REGISTER = 1;
+  private static final int METHODID_LOGIN = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -270,6 +339,10 @@ public final class UserServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_GET_BY_USERNAME:
+          serviceImpl.getByUsername((sep3.g3.rightoversjava.grpc.generated.UserRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage>) responseObserver);
+          break;
         case METHODID_REGISTER:
           serviceImpl.register((sep3.g3.rightoversjava.grpc.generated.UserCreationRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage>) responseObserver);
@@ -339,6 +412,7 @@ public final class UserServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
+              .addMethod(getGetByUsernameMethod())
               .addMethod(getRegisterMethod())
               .addMethod(getLoginMethod())
               .build();

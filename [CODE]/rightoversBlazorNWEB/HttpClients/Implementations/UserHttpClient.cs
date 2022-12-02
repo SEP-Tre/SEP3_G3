@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Collections;
+using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Text.Json;
 using Domain.Classes;
@@ -61,6 +62,33 @@ public class UserHttpClient : IUserService
         OnAuthStateChanged.Invoke(principal);
 
         return Task.CompletedTask;
+    }
+
+    public async Task<User> GetUserByUsername(string username)
+    {
+        var response = await client.GetAsync($"/Users?username={username}");
+        var content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode) throw new Exception(content);
+
+        var user =
+            JsonSerializer.Deserialize<User>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return user;
+    }
+
+    
+
+    public Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Rating>> GetAllRatingsToUser(string username)
+    {
+        throw new NotImplementedException();
     }
 
     public Task<ClaimsPrincipal> GetAuthAsync()
