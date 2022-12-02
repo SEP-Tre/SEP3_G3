@@ -7,8 +7,8 @@ import sep3.g3.rightoversjava.grpc.generated.AddressResponse;
 import sep3.g3.rightoversjava.grpc.generated.AddressServiceGrpc;
 import sep3.g3.rightoversjava.grpc.generated.GetAllRequest;
 import sep3.g3.rightoversjava.model.Address;
-import sep3.g3.rightoversjava.model.AddressCreationDTO;
-import sep3.g3.rightoversjava.service.AddressService;
+import sep3.g3.rightoversjava.model.dto.AddressCreationDTO;
+import sep3.g3.rightoversjava.service.interaces.AddressService;
 
 import java.util.ArrayList;
 

@@ -1,17 +1,14 @@
 package sep3.g3.rightoversjava.grpc;
 
-import io.grpc.Metadata;
 import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Configurable;
-import sep3.g3.rightoversjava.grpc.converter.FoodPostConverter;
-import sep3.g3.rightoversjava.grpc.converter.UserConverter;
+import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
 import sep3.g3.rightoversjava.grpc.converter.UserConverterImpl;
 import sep3.g3.rightoversjava.grpc.generated.*;
-import sep3.g3.rightoversjava.model.Address;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
-import sep3.g3.rightoversjava.service.UserService;
+import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
+import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
+import sep3.g3.rightoversjava.service.interaces.UserService;
 
 @Configurable
 public class UserServiceGrpcImpl

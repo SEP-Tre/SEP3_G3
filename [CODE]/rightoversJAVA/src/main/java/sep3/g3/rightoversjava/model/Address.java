@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import sep3.g3.rightoversjava.model.dto.AddressCreationDTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

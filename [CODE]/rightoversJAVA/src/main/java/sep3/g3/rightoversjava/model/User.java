@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,7 +13,7 @@ public class User {
     public String firstName;
     @Column(name = "password_")
     public String password;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "address_id")
     public Address address;
 

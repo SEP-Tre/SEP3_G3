@@ -1,14 +1,15 @@
 package sep3.g3.rightoversjava.grpc.converter;
 
 import org.springframework.stereotype.Service;
+import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
 import sep3.g3.rightoversjava.grpc.generated.AddressMessage;
 import sep3.g3.rightoversjava.grpc.generated.UserCreationRequest;
 import sep3.g3.rightoversjava.grpc.generated.UserLoginRequest;
 import sep3.g3.rightoversjava.grpc.generated.UserMessage;
 import sep3.g3.rightoversjava.model.Address;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
+import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
+import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
 
 @Service
 public class UserConverterImpl implements UserConverter

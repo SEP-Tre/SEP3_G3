@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import sep3.g3.rightoversjava.grpc.AddressServiceGrpcImpl;
 import sep3.g3.rightoversjava.grpc.FoodPostServiceGrpcImpl;
+import sep3.g3.rightoversjava.grpc.RatingServiceGrpcImpl;
 import sep3.g3.rightoversjava.grpc.UserServiceGrpcImpl;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ RightoversJavaApplication {
                 .addService(new FoodPostServiceGrpcImpl())
                 .addService(new AddressServiceGrpcImpl())
                 .addService(new UserServiceGrpcImpl())
+                .addService(new RatingServiceGrpcImpl())
                 .build();
         server.start();
         server.awaitTermination();

@@ -1,0 +1,29 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "sep3.g3.rightoversjava.grpc.generated";
+package sep3.g3;
+
+message UsernameRequest
+{
+  string username=1;
+}
+
+message RatingMessage
+{
+  int32 value =1;
+  string comment=2;
+  string ratingType=3;
+  string usernameRating=4;
+  string usernameRated=5;
+}
+
+message RatingMessageList
+{
+  repeated RatingMessage ratings=1;
+}
+service RatingService
+{
+  rpc addRating(RatingMessage) returns (RatingMessage);
+  rpc getAllByUserRated(UsernameRequest) returns(RatingMessageList);
+  rpc getAllByUserRating(UsernameRequest) returns(RatingMessageList);
+}

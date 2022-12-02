@@ -1,16 +1,18 @@
-package sep3.g3.rightoversjava.service;
+package sep3.g3.rightoversjava.service.impl;
 
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
+import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
+import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
 import sep3.g3.rightoversjava.repository.AddressRepository;
 import sep3.g3.rightoversjava.repository.UserRepository;
+import sep3.g3.rightoversjava.service.interaces.UserService;
 
 import java.util.Optional;
 
 @Service
-public class UserServiceImp implements UserService {
+public class UserServiceImp implements UserService
+{
 
     private UserRepository userRepository;
     private AddressRepository addressRepository;

@@ -83,14 +83,19 @@ public final class FoodPost {
       ".sep3.g3.Date\022 \n\tstartTime\030\013 \001(\0132\r.sep3." +
       "g3.Time\022\036\n\007endTime\030\014 \001(\0132\r.sep3.g3.Time\022" +
       "\020\n\010username\030\r \001(\t\"\037\n\rGetAllRequest\022\016\n\006fi" +
-      "ller\030\001 \001(\010\"\030\n\nFoodPostID\022\n\n\002id\030\001 \001(\0052\333\001\n" +
-      "\017FoodPostService\022;\n\004post\022\030.sep3.g3.FoodP" +
-      "ostRequest\032\031.sep3.g3.FoodPostResponse\022F\n" +
-      "\017getAllFoodPosts\022\026.sep3.g3.GetAllRequest" +
-      "\032\031.sep3.g3.FoodPostResponse0\001\022C\n\021getSing" +
-      "leFoodPost\022\023.sep3.g3.FoodPostID\032\031.sep3.g" +
-      "3.FoodPostResponseB)\n%sep3.g3.rightovers" +
-      "java.grpc.generatedP\001b\006proto3"
+      "ller\030\001 \001(\010\"\030\n\nFoodPostID\022\n\n\002id\030\001 \001(\005\"<\n\023" +
+      "FoodPostReservation\022\020\n\010username\030\001 \001(\t\022\023\n" +
+      "\013foodpost_id\030\002 \001(\005\"%\n\023ReservationRespons" +
+      "e\022\016\n\006filler\030\001 \001(\0102\242\002\n\017FoodPostService\022;\n" +
+      "\004post\022\030.sep3.g3.FoodPostRequest\032\031.sep3.g" +
+      "3.FoodPostResponse\022F\n\017getAllFoodPosts\022\026." +
+      "sep3.g3.GetAllRequest\032\031.sep3.g3.FoodPost" +
+      "Response0\001\022C\n\021getSingleFoodPost\022\023.sep3.g" +
+      "3.FoodPostID\032\031.sep3.g3.FoodPostResponse\022" +
+      "E\n\007reserve\022\034.sep3.g3.FoodPostReservation" +
+      "\032\034.sep3.g3.ReservationResponseB)\n%sep3.g" +
+      "3.rightoversjava.grpc.generatedP\001b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -133,19 +138,19 @@ public final class FoodPost {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_FoodPostID_descriptor,
         new java.lang.String[] { "Id", });
-    com.google.protobuf.TimestampProto.getDescriptor();
     internal_static_sep3_g3_FoodPostReservation_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_sep3_g3_FoodPostReservation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_FoodPostReservation_descriptor,
         new java.lang.String[] { "Username", "FoodpostId", });
     internal_static_sep3_g3_ReservationResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_sep3_g3_ReservationResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_ReservationResponse_descriptor,
         new java.lang.String[] { "Filler", });
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,11 +1,11 @@
-package sep3.g3.rightoversjava.grpc.converter;
+package sep3.g3.rightoversjava.grpc.converter.interaces;
 
 import sep3.g3.rightoversjava.grpc.generated.UserCreationRequest;
 import sep3.g3.rightoversjava.grpc.generated.UserLoginRequest;
 import sep3.g3.rightoversjava.grpc.generated.UserMessage;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
+import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
+import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
 
 public interface UserConverter
 {

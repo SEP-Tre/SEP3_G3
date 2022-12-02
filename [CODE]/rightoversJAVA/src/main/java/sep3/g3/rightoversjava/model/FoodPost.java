@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDate;

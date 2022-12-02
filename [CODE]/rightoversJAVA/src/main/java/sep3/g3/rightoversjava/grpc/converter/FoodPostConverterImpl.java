@@ -1,8 +1,8 @@
 package sep3.g3.rightoversjava.grpc.converter;
 
 import com.google.protobuf.Timestamp;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.generated.Date;
 import sep3.g3.rightoversjava.grpc.generated.FoodPostResponse;
 import sep3.g3.rightoversjava.grpc.generated.Time;

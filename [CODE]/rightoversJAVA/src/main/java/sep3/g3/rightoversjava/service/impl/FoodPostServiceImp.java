@@ -1,10 +1,13 @@
-package sep3.g3.rightoversjava.service;
+package sep3.g3.rightoversjava.service.impl;
 
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.*;
+import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.dto.ReservationCreationDto;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
 import sep3.g3.rightoversjava.repository.ReservationRepository;
 import sep3.g3.rightoversjava.repository.UserRepository;
+import sep3.g3.rightoversjava.service.interaces.FoodPostService;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
