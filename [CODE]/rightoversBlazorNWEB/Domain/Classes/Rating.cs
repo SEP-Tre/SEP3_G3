@@ -16,4 +16,10 @@ public class Rating
         this.Comment = comment;
         this.TypeOfRating = typeOfRating;
     }
+
+    public string ToString()
+    {
+        return
+            $"Value: {Value}, Comment: {Comment}, Type of rating: {TypeOfRating}, Username making rating: {UsernameMakingRating}, Username being rated: {UsernameBeingRated}";
+    }
 }

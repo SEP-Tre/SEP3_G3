@@ -1,12 +1,10 @@
 ﻿using Domain.Classes;
-using Domain.DTOs;
 
-namespace Application.DAOInterfaces;
+namespace Application.LogicInterfaces;
 
-public interface IRatingDao
+public interface IRatingLogic
 {
     Task<Rating> AddRating(Rating rating);
     Task<List<Rating>> GetAllByUserRated(string username);
     Task<List<Rating>> GetAllByUserRating(string username);
-    
 }
