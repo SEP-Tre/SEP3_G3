@@ -43,3 +43,18 @@ C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Htt
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\refint\HttpClients.dll
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.pdb
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\ref\HttpClients.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\bin\Debug\net6.0\HttpClients.deps.json
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\bin\Debug\net6.0\HttpClients.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\bin\Debug\net6.0\HttpClients.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\bin\Debug\net6.0\Domain.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\bin\Debug\net6.0\Domain.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.csproj.AssemblyReference.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.GeneratedMSBuildEditorConfig.editorconfig
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.AssemblyInfoInputs.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.AssemblyInfo.cs
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.csproj.CoreCompileInputs.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.csproj.CopyComplete
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\refint\HttpClients.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\HttpClients.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\HttpClients\obj\Debug\net6.0\ref\HttpClients.dll

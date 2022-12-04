@@ -41,6 +41,7 @@ message FoodPostResponse {
   Time startTime = 11;
   Time endTime = 12;
   string username = 13;
+  
 }
 
 message GetAllRequest {

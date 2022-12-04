@@ -9,4 +9,6 @@ public interface IUserConverter
     UserCreationRequest GetUserCreationRequestFromDto(UserCreationDto dto);
     User GetUserFromUserMessage(UserMessage userMessage);
     UserLoginRequest GetUserLoginRequestFromDto(UserLoginDto dto);
+
+    MyTime TimeConverter(OCTime time);
 }

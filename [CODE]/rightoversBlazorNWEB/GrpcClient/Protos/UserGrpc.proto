@@ -7,6 +7,7 @@ message UserCreationRequest {
   string firstname = 2;
   string password = 3;
   AddressMessage address=4;
+  bool isBusiness=5;
 }
 
 message UserLoginRequest {
@@ -31,9 +32,41 @@ message UserMessage {
   AddressMessage address = 4;
 }
 
+message OCTime{
+  int32 hour=1;
+  int32 minutes=2;
+}
+
+message OpeningHoursResponse{
+  OCTime mondayOpening=1;
+  OCTime mondayClosing=2;
+  OCTime tuesdayOpening=3;
+  OCTime tuesdayClosing=4;
+  OCTime wednesdayOpening=5;
+  OCTime wednesdayClosing=6;
+  OCTime thursdayOpening=7;
+  OCTime thursdayClosing=8;
+  OCTime fridayOpening=9;
+  OCTime fridayClosing=10;
+  OCTime saturdayOpening=11;
+  OCTime saturdayClosing=12;
+  OCTime sundayOpening=13;
+  OCTime sundayClosing=14;
+}
+
+message OpeningHoursRequest{
+  string username=1;
+  OpeningHoursResponse openingHours=2;
+}
+
+message UserName{
+  string username=1;
+}
 
 
 service UserService {
   rpc register(UserCreationRequest) returns (UserMessage);
   rpc login(UserLoginRequest) returns (UserMessage);
+  rpc assignOpeningHours(OpeningHoursRequest) returns (UserMessage);
+  rpc GetOpeningHours(UserName) returns (OpeningHoursResponse);
 }

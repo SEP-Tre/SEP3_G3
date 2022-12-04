@@ -51,6 +51,12 @@ namespace GrpcCL {
     static readonly grpc::Marshaller<global::GrpcCL.UserMessage> __Marshaller_sep3_g3_UserMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.UserMessage.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcCL.UserLoginRequest> __Marshaller_sep3_g3_UserLoginRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.UserLoginRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.OpeningHoursRequest> __Marshaller_sep3_g3_OpeningHoursRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.OpeningHoursRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.UserName> __Marshaller_sep3_g3_UserName = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.UserName.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.OpeningHoursResponse> __Marshaller_sep3_g3_OpeningHoursResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.OpeningHoursResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcCL.UserCreationRequest, global::GrpcCL.UserMessage> __Method_register = new grpc::Method<global::GrpcCL.UserCreationRequest, global::GrpcCL.UserMessage>(
@@ -67,6 +73,22 @@ namespace GrpcCL {
         "login",
         __Marshaller_sep3_g3_UserLoginRequest,
         __Marshaller_sep3_g3_UserMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.OpeningHoursRequest, global::GrpcCL.UserMessage> __Method_assignOpeningHours = new grpc::Method<global::GrpcCL.OpeningHoursRequest, global::GrpcCL.UserMessage>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "assignOpeningHours",
+        __Marshaller_sep3_g3_OpeningHoursRequest,
+        __Marshaller_sep3_g3_UserMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.UserName, global::GrpcCL.OpeningHoursResponse> __Method_GetOpeningHours = new grpc::Method<global::GrpcCL.UserName, global::GrpcCL.OpeningHoursResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetOpeningHours",
+        __Marshaller_sep3_g3_UserName,
+        __Marshaller_sep3_g3_OpeningHoursResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -140,6 +162,46 @@ namespace GrpcCL {
       public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> loginAsync(global::GrpcCL.UserLoginRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_login, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage assignOpeningHours(global::GrpcCL.OpeningHoursRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return assignOpeningHours(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage assignOpeningHours(global::GrpcCL.OpeningHoursRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_assignOpeningHours, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> assignOpeningHoursAsync(global::GrpcCL.OpeningHoursRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return assignOpeningHoursAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> assignOpeningHoursAsync(global::GrpcCL.OpeningHoursRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_assignOpeningHours, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.OpeningHoursResponse GetOpeningHours(global::GrpcCL.UserName request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetOpeningHours(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.OpeningHoursResponse GetOpeningHours(global::GrpcCL.UserName request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetOpeningHours, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.OpeningHoursResponse> GetOpeningHoursAsync(global::GrpcCL.UserName request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetOpeningHoursAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.OpeningHoursResponse> GetOpeningHoursAsync(global::GrpcCL.UserName request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetOpeningHours, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

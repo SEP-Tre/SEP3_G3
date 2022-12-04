@@ -24,27 +24,52 @@ namespace GrpcCL {
     static UserGrpcReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVQcm90b3MvVXNlckdycGMucHJvdG8SB3NlcDMuZzMidgoTVXNlckNyZWF0",
-            "aW9uUmVxdWVzdBIQCgh1c2VybmFtZRgBIAEoCRIRCglmaXJzdG5hbWUYAiAB",
-            "KAkSEAoIcGFzc3dvcmQYAyABKAkSKAoHYWRkcmVzcxgEIAEoCzIXLnNlcDMu",
-            "ZzMuQWRkcmVzc01lc3NhZ2UiNgoQVXNlckxvZ2luUmVxdWVzdBIQCgh1c2Vy",
-            "bmFtZRgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSKRAQoOQWRkcmVzc01lc3Nh",
-            "Z2USEgoKYWRkcmVzc19pZBgBIAEoBRIOCgZzdHJlZXQYAiABKAkSFQoNc3Ry",
-            "ZWV0X251bWJlchgDIAEoCRIRCglwb3N0X2NvZGUYBCABKAUSDAoEY2l0eRgF",
-            "IAEoCRIRCglsb25naXR1ZGUYBiABKAESEAoIbGF0aXR1ZGUYByABKAEibgoL",
-            "VXNlck1lc3NhZ2USEAoIdXNlcm5hbWUYASABKAkSEQoJZmlyc3RuYW1lGAIg",
+            "ChVQcm90b3MvVXNlckdycGMucHJvdG8SB3NlcDMuZzMiigEKE1VzZXJDcmVh",
+            "dGlvblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEQoJZmlyc3RuYW1lGAIg",
             "ASgJEhAKCHBhc3N3b3JkGAMgASgJEigKB2FkZHJlc3MYBCABKAsyFy5zZXAz",
-            "LmczLkFkZHJlc3NNZXNzYWdlMocBCgtVc2VyU2VydmljZRI+CghyZWdpc3Rl",
-            "chIcLnNlcDMuZzMuVXNlckNyZWF0aW9uUmVxdWVzdBoULnNlcDMuZzMuVXNl",
-            "ck1lc3NhZ2USOAoFbG9naW4SGS5zZXAzLmczLlVzZXJMb2dpblJlcXVlc3Qa",
-            "FC5zZXAzLmczLlVzZXJNZXNzYWdlQgmqAgZHcnBjQ0xiBnByb3RvMw=="));
+            "LmczLkFkZHJlc3NNZXNzYWdlEhIKCmlzQnVzaW5lc3MYBSABKAgiNgoQVXNl",
+            "ckxvZ2luUmVxdWVzdBIQCgh1c2VybmFtZRgBIAEoCRIQCghwYXNzd29yZBgC",
+            "IAEoCSKRAQoOQWRkcmVzc01lc3NhZ2USEgoKYWRkcmVzc19pZBgBIAEoBRIO",
+            "CgZzdHJlZXQYAiABKAkSFQoNc3RyZWV0X251bWJlchgDIAEoCRIRCglwb3N0",
+            "X2NvZGUYBCABKAUSDAoEY2l0eRgFIAEoCRIRCglsb25naXR1ZGUYBiABKAES",
+            "EAoIbGF0aXR1ZGUYByABKAEibgoLVXNlck1lc3NhZ2USEAoIdXNlcm5hbWUY",
+            "ASABKAkSEQoJZmlyc3RuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEigK",
+            "B2FkZHJlc3MYBCABKAsyFy5zZXAzLmczLkFkZHJlc3NNZXNzYWdlIicKBk9D",
+            "VGltZRIMCgRob3VyGAEgASgFEg8KB21pbnV0ZXMYAiABKAUi1gQKFE9wZW5p",
+            "bmdIb3Vyc1Jlc3BvbnNlEiYKDW1vbmRheU9wZW5pbmcYASABKAsyDy5zZXAz",
+            "LmczLk9DVGltZRImCg1tb25kYXlDbG9zaW5nGAIgASgLMg8uc2VwMy5nMy5P",
+            "Q1RpbWUSJwoOdHVlc2RheU9wZW5pbmcYAyABKAsyDy5zZXAzLmczLk9DVGlt",
+            "ZRInCg50dWVzZGF5Q2xvc2luZxgEIAEoCzIPLnNlcDMuZzMuT0NUaW1lEikK",
+            "EHdlZG5lc2RheU9wZW5pbmcYBSABKAsyDy5zZXAzLmczLk9DVGltZRIpChB3",
+            "ZWRuZXNkYXlDbG9zaW5nGAYgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPdGh1",
+            "cnNkYXlPcGVuaW5nGAcgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPdGh1cnNk",
+            "YXlDbG9zaW5nGAggASgLMg8uc2VwMy5nMy5PQ1RpbWUSJgoNZnJpZGF5T3Bl",
+            "bmluZxgJIAEoCzIPLnNlcDMuZzMuT0NUaW1lEiYKDWZyaWRheUNsb3NpbmcY",
+            "CiABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9zYXR1cmRheU9wZW5pbmcYCyAB",
+            "KAsyDy5zZXAzLmczLk9DVGltZRIoCg9zYXR1cmRheUNsb3NpbmcYDCABKAsy",
+            "Dy5zZXAzLmczLk9DVGltZRImCg1zdW5kYXlPcGVuaW5nGA0gASgLMg8uc2Vw",
+            "My5nMy5PQ1RpbWUSJgoNc3VuZGF5Q2xvc2luZxgOIAEoCzIPLnNlcDMuZzMu",
+            "T0NUaW1lIlwKE09wZW5pbmdIb3Vyc1JlcXVlc3QSEAoIdXNlcm5hbWUYASAB",
+            "KAkSMwoMb3BlbmluZ0hvdXJzGAIgASgLMh0uc2VwMy5nMy5PcGVuaW5nSG91",
+            "cnNSZXNwb25zZSIcCghVc2VyTmFtZRIQCgh1c2VybmFtZRgBIAEoCTKWAgoL",
+            "VXNlclNlcnZpY2USPgoIcmVnaXN0ZXISHC5zZXAzLmczLlVzZXJDcmVhdGlv",
+            "blJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEjgKBWxvZ2luEhkuc2Vw",
+            "My5nMy5Vc2VyTG9naW5SZXF1ZXN0GhQuc2VwMy5nMy5Vc2VyTWVzc2FnZRJI",
+            "ChJhc3NpZ25PcGVuaW5nSG91cnMSHC5zZXAzLmczLk9wZW5pbmdIb3Vyc1Jl",
+            "cXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkMKD0dldE9wZW5pbmdIb3Vy",
+            "cxIRLnNlcDMuZzMuVXNlck5hbWUaHS5zZXAzLmczLk9wZW5pbmdIb3Vyc1Jl",
+            "c3BvbnNlQgmqAgZHcnBjQ0xiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserCreationRequest), global::GrpcCL.UserCreationRequest.Parser, new[]{ "Username", "Firstname", "Password", "Address" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserCreationRequest), global::GrpcCL.UserCreationRequest.Parser, new[]{ "Username", "Firstname", "Password", "Address", "IsBusiness" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserLoginRequest), global::GrpcCL.UserLoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.AddressMessage), global::GrpcCL.AddressMessage.Parser, new[]{ "AddressId", "Street", "StreetNumber", "PostCode", "City", "Longitude", "Latitude" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserMessage), global::GrpcCL.UserMessage.Parser, new[]{ "Username", "Firstname", "Password", "Address" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserMessage), global::GrpcCL.UserMessage.Parser, new[]{ "Username", "Firstname", "Password", "Address" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OCTime), global::GrpcCL.OCTime.Parser, new[]{ "Hour", "Minutes" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursResponse), global::GrpcCL.OpeningHoursResponse.Parser, new[]{ "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursRequest), global::GrpcCL.OpeningHoursRequest.Parser, new[]{ "Username", "OpeningHours" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserName), global::GrpcCL.UserName.Parser, new[]{ "Username" }, null, null, null, null)
           }));
     }
     #endregion
@@ -89,6 +114,7 @@ namespace GrpcCL {
       firstname_ = other.firstname_;
       password_ = other.password_;
       address_ = other.address_ != null ? other.address_.Clone() : null;
+      isBusiness_ = other.isBusiness_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -146,6 +172,18 @@ namespace GrpcCL {
       }
     }
 
+    /// <summary>Field number for the "isBusiness" field.</summary>
+    public const int IsBusinessFieldNumber = 5;
+    private bool isBusiness_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsBusiness {
+      get { return isBusiness_; }
+      set {
+        isBusiness_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -165,6 +203,7 @@ namespace GrpcCL {
       if (Firstname != other.Firstname) return false;
       if (Password != other.Password) return false;
       if (!object.Equals(Address, other.Address)) return false;
+      if (IsBusiness != other.IsBusiness) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -176,6 +215,7 @@ namespace GrpcCL {
       if (Firstname.Length != 0) hash ^= Firstname.GetHashCode();
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (address_ != null) hash ^= Address.GetHashCode();
+      if (IsBusiness != false) hash ^= IsBusiness.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -210,6 +250,10 @@ namespace GrpcCL {
         output.WriteRawTag(34);
         output.WriteMessage(Address);
       }
+      if (IsBusiness != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsBusiness);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -236,6 +280,10 @@ namespace GrpcCL {
         output.WriteRawTag(34);
         output.WriteMessage(Address);
       }
+      if (IsBusiness != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsBusiness);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -257,6 +305,9 @@ namespace GrpcCL {
       }
       if (address_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Address);
+      }
+      if (IsBusiness != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -284,6 +335,9 @@ namespace GrpcCL {
           Address = new global::GrpcCL.AddressMessage();
         }
         Address.MergeFrom(other.Address);
+      }
+      if (other.IsBusiness != false) {
+        IsBusiness = other.IsBusiness;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -319,6 +373,10 @@ namespace GrpcCL {
             input.ReadMessage(Address);
             break;
           }
+          case 40: {
+            IsBusiness = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -351,6 +409,10 @@ namespace GrpcCL {
               Address = new global::GrpcCL.AddressMessage();
             }
             input.ReadMessage(Address);
+            break;
+          }
+          case 40: {
+            IsBusiness = input.ReadBool();
             break;
           }
         }
@@ -1297,6 +1359,1452 @@ namespace GrpcCL {
               Address = new global::GrpcCL.AddressMessage();
             }
             input.ReadMessage(Address);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class OCTime : pb::IMessage<OCTime>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<OCTime> _parser = new pb::MessageParser<OCTime>(() => new OCTime());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<OCTime> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcCL.UserGrpcReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OCTime() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OCTime(OCTime other) : this() {
+      hour_ = other.hour_;
+      minutes_ = other.minutes_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OCTime Clone() {
+      return new OCTime(this);
+    }
+
+    /// <summary>Field number for the "hour" field.</summary>
+    public const int HourFieldNumber = 1;
+    private int hour_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Hour {
+      get { return hour_; }
+      set {
+        hour_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "minutes" field.</summary>
+    public const int MinutesFieldNumber = 2;
+    private int minutes_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Minutes {
+      get { return minutes_; }
+      set {
+        minutes_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as OCTime);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(OCTime other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Hour != other.Hour) return false;
+      if (Minutes != other.Minutes) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Hour != 0) hash ^= Hour.GetHashCode();
+      if (Minutes != 0) hash ^= Minutes.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Hour != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Hour);
+      }
+      if (Minutes != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Minutes);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Hour != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Hour);
+      }
+      if (Minutes != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Minutes);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Hour != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Hour);
+      }
+      if (Minutes != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Minutes);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(OCTime other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Hour != 0) {
+        Hour = other.Hour;
+      }
+      if (other.Minutes != 0) {
+        Minutes = other.Minutes;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Hour = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Minutes = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Hour = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Minutes = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class OpeningHoursResponse : pb::IMessage<OpeningHoursResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<OpeningHoursResponse> _parser = new pb::MessageParser<OpeningHoursResponse>(() => new OpeningHoursResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<OpeningHoursResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcCL.UserGrpcReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OpeningHoursResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OpeningHoursResponse(OpeningHoursResponse other) : this() {
+      mondayOpening_ = other.mondayOpening_ != null ? other.mondayOpening_.Clone() : null;
+      mondayClosing_ = other.mondayClosing_ != null ? other.mondayClosing_.Clone() : null;
+      tuesdayOpening_ = other.tuesdayOpening_ != null ? other.tuesdayOpening_.Clone() : null;
+      tuesdayClosing_ = other.tuesdayClosing_ != null ? other.tuesdayClosing_.Clone() : null;
+      wednesdayOpening_ = other.wednesdayOpening_ != null ? other.wednesdayOpening_.Clone() : null;
+      wednesdayClosing_ = other.wednesdayClosing_ != null ? other.wednesdayClosing_.Clone() : null;
+      thursdayOpening_ = other.thursdayOpening_ != null ? other.thursdayOpening_.Clone() : null;
+      thursdayClosing_ = other.thursdayClosing_ != null ? other.thursdayClosing_.Clone() : null;
+      fridayOpening_ = other.fridayOpening_ != null ? other.fridayOpening_.Clone() : null;
+      fridayClosing_ = other.fridayClosing_ != null ? other.fridayClosing_.Clone() : null;
+      saturdayOpening_ = other.saturdayOpening_ != null ? other.saturdayOpening_.Clone() : null;
+      saturdayClosing_ = other.saturdayClosing_ != null ? other.saturdayClosing_.Clone() : null;
+      sundayOpening_ = other.sundayOpening_ != null ? other.sundayOpening_.Clone() : null;
+      sundayClosing_ = other.sundayClosing_ != null ? other.sundayClosing_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OpeningHoursResponse Clone() {
+      return new OpeningHoursResponse(this);
+    }
+
+    /// <summary>Field number for the "mondayOpening" field.</summary>
+    public const int MondayOpeningFieldNumber = 1;
+    private global::GrpcCL.OCTime mondayOpening_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime MondayOpening {
+      get { return mondayOpening_; }
+      set {
+        mondayOpening_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "mondayClosing" field.</summary>
+    public const int MondayClosingFieldNumber = 2;
+    private global::GrpcCL.OCTime mondayClosing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime MondayClosing {
+      get { return mondayClosing_; }
+      set {
+        mondayClosing_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "tuesdayOpening" field.</summary>
+    public const int TuesdayOpeningFieldNumber = 3;
+    private global::GrpcCL.OCTime tuesdayOpening_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime TuesdayOpening {
+      get { return tuesdayOpening_; }
+      set {
+        tuesdayOpening_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "tuesdayClosing" field.</summary>
+    public const int TuesdayClosingFieldNumber = 4;
+    private global::GrpcCL.OCTime tuesdayClosing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime TuesdayClosing {
+      get { return tuesdayClosing_; }
+      set {
+        tuesdayClosing_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "wednesdayOpening" field.</summary>
+    public const int WednesdayOpeningFieldNumber = 5;
+    private global::GrpcCL.OCTime wednesdayOpening_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime WednesdayOpening {
+      get { return wednesdayOpening_; }
+      set {
+        wednesdayOpening_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "wednesdayClosing" field.</summary>
+    public const int WednesdayClosingFieldNumber = 6;
+    private global::GrpcCL.OCTime wednesdayClosing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime WednesdayClosing {
+      get { return wednesdayClosing_; }
+      set {
+        wednesdayClosing_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "thursdayOpening" field.</summary>
+    public const int ThursdayOpeningFieldNumber = 7;
+    private global::GrpcCL.OCTime thursdayOpening_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime ThursdayOpening {
+      get { return thursdayOpening_; }
+      set {
+        thursdayOpening_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "thursdayClosing" field.</summary>
+    public const int ThursdayClosingFieldNumber = 8;
+    private global::GrpcCL.OCTime thursdayClosing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime ThursdayClosing {
+      get { return thursdayClosing_; }
+      set {
+        thursdayClosing_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "fridayOpening" field.</summary>
+    public const int FridayOpeningFieldNumber = 9;
+    private global::GrpcCL.OCTime fridayOpening_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime FridayOpening {
+      get { return fridayOpening_; }
+      set {
+        fridayOpening_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "fridayClosing" field.</summary>
+    public const int FridayClosingFieldNumber = 10;
+    private global::GrpcCL.OCTime fridayClosing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime FridayClosing {
+      get { return fridayClosing_; }
+      set {
+        fridayClosing_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "saturdayOpening" field.</summary>
+    public const int SaturdayOpeningFieldNumber = 11;
+    private global::GrpcCL.OCTime saturdayOpening_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime SaturdayOpening {
+      get { return saturdayOpening_; }
+      set {
+        saturdayOpening_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "saturdayClosing" field.</summary>
+    public const int SaturdayClosingFieldNumber = 12;
+    private global::GrpcCL.OCTime saturdayClosing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime SaturdayClosing {
+      get { return saturdayClosing_; }
+      set {
+        saturdayClosing_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sundayOpening" field.</summary>
+    public const int SundayOpeningFieldNumber = 13;
+    private global::GrpcCL.OCTime sundayOpening_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime SundayOpening {
+      get { return sundayOpening_; }
+      set {
+        sundayOpening_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sundayClosing" field.</summary>
+    public const int SundayClosingFieldNumber = 14;
+    private global::GrpcCL.OCTime sundayClosing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OCTime SundayClosing {
+      get { return sundayClosing_; }
+      set {
+        sundayClosing_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as OpeningHoursResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(OpeningHoursResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(MondayOpening, other.MondayOpening)) return false;
+      if (!object.Equals(MondayClosing, other.MondayClosing)) return false;
+      if (!object.Equals(TuesdayOpening, other.TuesdayOpening)) return false;
+      if (!object.Equals(TuesdayClosing, other.TuesdayClosing)) return false;
+      if (!object.Equals(WednesdayOpening, other.WednesdayOpening)) return false;
+      if (!object.Equals(WednesdayClosing, other.WednesdayClosing)) return false;
+      if (!object.Equals(ThursdayOpening, other.ThursdayOpening)) return false;
+      if (!object.Equals(ThursdayClosing, other.ThursdayClosing)) return false;
+      if (!object.Equals(FridayOpening, other.FridayOpening)) return false;
+      if (!object.Equals(FridayClosing, other.FridayClosing)) return false;
+      if (!object.Equals(SaturdayOpening, other.SaturdayOpening)) return false;
+      if (!object.Equals(SaturdayClosing, other.SaturdayClosing)) return false;
+      if (!object.Equals(SundayOpening, other.SundayOpening)) return false;
+      if (!object.Equals(SundayClosing, other.SundayClosing)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (mondayOpening_ != null) hash ^= MondayOpening.GetHashCode();
+      if (mondayClosing_ != null) hash ^= MondayClosing.GetHashCode();
+      if (tuesdayOpening_ != null) hash ^= TuesdayOpening.GetHashCode();
+      if (tuesdayClosing_ != null) hash ^= TuesdayClosing.GetHashCode();
+      if (wednesdayOpening_ != null) hash ^= WednesdayOpening.GetHashCode();
+      if (wednesdayClosing_ != null) hash ^= WednesdayClosing.GetHashCode();
+      if (thursdayOpening_ != null) hash ^= ThursdayOpening.GetHashCode();
+      if (thursdayClosing_ != null) hash ^= ThursdayClosing.GetHashCode();
+      if (fridayOpening_ != null) hash ^= FridayOpening.GetHashCode();
+      if (fridayClosing_ != null) hash ^= FridayClosing.GetHashCode();
+      if (saturdayOpening_ != null) hash ^= SaturdayOpening.GetHashCode();
+      if (saturdayClosing_ != null) hash ^= SaturdayClosing.GetHashCode();
+      if (sundayOpening_ != null) hash ^= SundayOpening.GetHashCode();
+      if (sundayClosing_ != null) hash ^= SundayClosing.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (mondayOpening_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(MondayOpening);
+      }
+      if (mondayClosing_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(MondayClosing);
+      }
+      if (tuesdayOpening_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(TuesdayOpening);
+      }
+      if (tuesdayClosing_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(TuesdayClosing);
+      }
+      if (wednesdayOpening_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(WednesdayOpening);
+      }
+      if (wednesdayClosing_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(WednesdayClosing);
+      }
+      if (thursdayOpening_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(ThursdayOpening);
+      }
+      if (thursdayClosing_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(ThursdayClosing);
+      }
+      if (fridayOpening_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(FridayOpening);
+      }
+      if (fridayClosing_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(FridayClosing);
+      }
+      if (saturdayOpening_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(SaturdayOpening);
+      }
+      if (saturdayClosing_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(SaturdayClosing);
+      }
+      if (sundayOpening_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(SundayOpening);
+      }
+      if (sundayClosing_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(SundayClosing);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (mondayOpening_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(MondayOpening);
+      }
+      if (mondayClosing_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(MondayClosing);
+      }
+      if (tuesdayOpening_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(TuesdayOpening);
+      }
+      if (tuesdayClosing_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(TuesdayClosing);
+      }
+      if (wednesdayOpening_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(WednesdayOpening);
+      }
+      if (wednesdayClosing_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(WednesdayClosing);
+      }
+      if (thursdayOpening_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(ThursdayOpening);
+      }
+      if (thursdayClosing_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(ThursdayClosing);
+      }
+      if (fridayOpening_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(FridayOpening);
+      }
+      if (fridayClosing_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(FridayClosing);
+      }
+      if (saturdayOpening_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(SaturdayOpening);
+      }
+      if (saturdayClosing_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(SaturdayClosing);
+      }
+      if (sundayOpening_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(SundayOpening);
+      }
+      if (sundayClosing_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(SundayClosing);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (mondayOpening_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MondayOpening);
+      }
+      if (mondayClosing_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MondayClosing);
+      }
+      if (tuesdayOpening_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TuesdayOpening);
+      }
+      if (tuesdayClosing_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TuesdayClosing);
+      }
+      if (wednesdayOpening_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(WednesdayOpening);
+      }
+      if (wednesdayClosing_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(WednesdayClosing);
+      }
+      if (thursdayOpening_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ThursdayOpening);
+      }
+      if (thursdayClosing_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ThursdayClosing);
+      }
+      if (fridayOpening_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FridayOpening);
+      }
+      if (fridayClosing_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FridayClosing);
+      }
+      if (saturdayOpening_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SaturdayOpening);
+      }
+      if (saturdayClosing_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SaturdayClosing);
+      }
+      if (sundayOpening_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SundayOpening);
+      }
+      if (sundayClosing_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SundayClosing);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(OpeningHoursResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.mondayOpening_ != null) {
+        if (mondayOpening_ == null) {
+          MondayOpening = new global::GrpcCL.OCTime();
+        }
+        MondayOpening.MergeFrom(other.MondayOpening);
+      }
+      if (other.mondayClosing_ != null) {
+        if (mondayClosing_ == null) {
+          MondayClosing = new global::GrpcCL.OCTime();
+        }
+        MondayClosing.MergeFrom(other.MondayClosing);
+      }
+      if (other.tuesdayOpening_ != null) {
+        if (tuesdayOpening_ == null) {
+          TuesdayOpening = new global::GrpcCL.OCTime();
+        }
+        TuesdayOpening.MergeFrom(other.TuesdayOpening);
+      }
+      if (other.tuesdayClosing_ != null) {
+        if (tuesdayClosing_ == null) {
+          TuesdayClosing = new global::GrpcCL.OCTime();
+        }
+        TuesdayClosing.MergeFrom(other.TuesdayClosing);
+      }
+      if (other.wednesdayOpening_ != null) {
+        if (wednesdayOpening_ == null) {
+          WednesdayOpening = new global::GrpcCL.OCTime();
+        }
+        WednesdayOpening.MergeFrom(other.WednesdayOpening);
+      }
+      if (other.wednesdayClosing_ != null) {
+        if (wednesdayClosing_ == null) {
+          WednesdayClosing = new global::GrpcCL.OCTime();
+        }
+        WednesdayClosing.MergeFrom(other.WednesdayClosing);
+      }
+      if (other.thursdayOpening_ != null) {
+        if (thursdayOpening_ == null) {
+          ThursdayOpening = new global::GrpcCL.OCTime();
+        }
+        ThursdayOpening.MergeFrom(other.ThursdayOpening);
+      }
+      if (other.thursdayClosing_ != null) {
+        if (thursdayClosing_ == null) {
+          ThursdayClosing = new global::GrpcCL.OCTime();
+        }
+        ThursdayClosing.MergeFrom(other.ThursdayClosing);
+      }
+      if (other.fridayOpening_ != null) {
+        if (fridayOpening_ == null) {
+          FridayOpening = new global::GrpcCL.OCTime();
+        }
+        FridayOpening.MergeFrom(other.FridayOpening);
+      }
+      if (other.fridayClosing_ != null) {
+        if (fridayClosing_ == null) {
+          FridayClosing = new global::GrpcCL.OCTime();
+        }
+        FridayClosing.MergeFrom(other.FridayClosing);
+      }
+      if (other.saturdayOpening_ != null) {
+        if (saturdayOpening_ == null) {
+          SaturdayOpening = new global::GrpcCL.OCTime();
+        }
+        SaturdayOpening.MergeFrom(other.SaturdayOpening);
+      }
+      if (other.saturdayClosing_ != null) {
+        if (saturdayClosing_ == null) {
+          SaturdayClosing = new global::GrpcCL.OCTime();
+        }
+        SaturdayClosing.MergeFrom(other.SaturdayClosing);
+      }
+      if (other.sundayOpening_ != null) {
+        if (sundayOpening_ == null) {
+          SundayOpening = new global::GrpcCL.OCTime();
+        }
+        SundayOpening.MergeFrom(other.SundayOpening);
+      }
+      if (other.sundayClosing_ != null) {
+        if (sundayClosing_ == null) {
+          SundayClosing = new global::GrpcCL.OCTime();
+        }
+        SundayClosing.MergeFrom(other.SundayClosing);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (mondayOpening_ == null) {
+              MondayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(MondayOpening);
+            break;
+          }
+          case 18: {
+            if (mondayClosing_ == null) {
+              MondayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(MondayClosing);
+            break;
+          }
+          case 26: {
+            if (tuesdayOpening_ == null) {
+              TuesdayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(TuesdayOpening);
+            break;
+          }
+          case 34: {
+            if (tuesdayClosing_ == null) {
+              TuesdayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(TuesdayClosing);
+            break;
+          }
+          case 42: {
+            if (wednesdayOpening_ == null) {
+              WednesdayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(WednesdayOpening);
+            break;
+          }
+          case 50: {
+            if (wednesdayClosing_ == null) {
+              WednesdayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(WednesdayClosing);
+            break;
+          }
+          case 58: {
+            if (thursdayOpening_ == null) {
+              ThursdayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(ThursdayOpening);
+            break;
+          }
+          case 66: {
+            if (thursdayClosing_ == null) {
+              ThursdayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(ThursdayClosing);
+            break;
+          }
+          case 74: {
+            if (fridayOpening_ == null) {
+              FridayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(FridayOpening);
+            break;
+          }
+          case 82: {
+            if (fridayClosing_ == null) {
+              FridayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(FridayClosing);
+            break;
+          }
+          case 90: {
+            if (saturdayOpening_ == null) {
+              SaturdayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(SaturdayOpening);
+            break;
+          }
+          case 98: {
+            if (saturdayClosing_ == null) {
+              SaturdayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(SaturdayClosing);
+            break;
+          }
+          case 106: {
+            if (sundayOpening_ == null) {
+              SundayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(SundayOpening);
+            break;
+          }
+          case 114: {
+            if (sundayClosing_ == null) {
+              SundayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(SundayClosing);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (mondayOpening_ == null) {
+              MondayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(MondayOpening);
+            break;
+          }
+          case 18: {
+            if (mondayClosing_ == null) {
+              MondayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(MondayClosing);
+            break;
+          }
+          case 26: {
+            if (tuesdayOpening_ == null) {
+              TuesdayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(TuesdayOpening);
+            break;
+          }
+          case 34: {
+            if (tuesdayClosing_ == null) {
+              TuesdayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(TuesdayClosing);
+            break;
+          }
+          case 42: {
+            if (wednesdayOpening_ == null) {
+              WednesdayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(WednesdayOpening);
+            break;
+          }
+          case 50: {
+            if (wednesdayClosing_ == null) {
+              WednesdayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(WednesdayClosing);
+            break;
+          }
+          case 58: {
+            if (thursdayOpening_ == null) {
+              ThursdayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(ThursdayOpening);
+            break;
+          }
+          case 66: {
+            if (thursdayClosing_ == null) {
+              ThursdayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(ThursdayClosing);
+            break;
+          }
+          case 74: {
+            if (fridayOpening_ == null) {
+              FridayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(FridayOpening);
+            break;
+          }
+          case 82: {
+            if (fridayClosing_ == null) {
+              FridayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(FridayClosing);
+            break;
+          }
+          case 90: {
+            if (saturdayOpening_ == null) {
+              SaturdayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(SaturdayOpening);
+            break;
+          }
+          case 98: {
+            if (saturdayClosing_ == null) {
+              SaturdayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(SaturdayClosing);
+            break;
+          }
+          case 106: {
+            if (sundayOpening_ == null) {
+              SundayOpening = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(SundayOpening);
+            break;
+          }
+          case 114: {
+            if (sundayClosing_ == null) {
+              SundayClosing = new global::GrpcCL.OCTime();
+            }
+            input.ReadMessage(SundayClosing);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class OpeningHoursRequest : pb::IMessage<OpeningHoursRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<OpeningHoursRequest> _parser = new pb::MessageParser<OpeningHoursRequest>(() => new OpeningHoursRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<OpeningHoursRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcCL.UserGrpcReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OpeningHoursRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OpeningHoursRequest(OpeningHoursRequest other) : this() {
+      username_ = other.username_;
+      openingHours_ = other.openingHours_ != null ? other.openingHours_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OpeningHoursRequest Clone() {
+      return new OpeningHoursRequest(this);
+    }
+
+    /// <summary>Field number for the "username" field.</summary>
+    public const int UsernameFieldNumber = 1;
+    private string username_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Username {
+      get { return username_; }
+      set {
+        username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "openingHours" field.</summary>
+    public const int OpeningHoursFieldNumber = 2;
+    private global::GrpcCL.OpeningHoursResponse openingHours_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.OpeningHoursResponse OpeningHours {
+      get { return openingHours_; }
+      set {
+        openingHours_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as OpeningHoursRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(OpeningHoursRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Username != other.Username) return false;
+      if (!object.Equals(OpeningHours, other.OpeningHours)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Username.Length != 0) hash ^= Username.GetHashCode();
+      if (openingHours_ != null) hash ^= OpeningHours.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Username.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Username);
+      }
+      if (openingHours_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(OpeningHours);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Username.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Username);
+      }
+      if (openingHours_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(OpeningHours);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Username.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
+      }
+      if (openingHours_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OpeningHours);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(OpeningHoursRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Username.Length != 0) {
+        Username = other.Username;
+      }
+      if (other.openingHours_ != null) {
+        if (openingHours_ == null) {
+          OpeningHours = new global::GrpcCL.OpeningHoursResponse();
+        }
+        OpeningHours.MergeFrom(other.OpeningHours);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Username = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (openingHours_ == null) {
+              OpeningHours = new global::GrpcCL.OpeningHoursResponse();
+            }
+            input.ReadMessage(OpeningHours);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Username = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (openingHours_ == null) {
+              OpeningHours = new global::GrpcCL.OpeningHoursResponse();
+            }
+            input.ReadMessage(OpeningHours);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class UserName : pb::IMessage<UserName>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UserName> _parser = new pb::MessageParser<UserName>(() => new UserName());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UserName> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcCL.UserGrpcReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UserName() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UserName(UserName other) : this() {
+      username_ = other.username_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UserName Clone() {
+      return new UserName(this);
+    }
+
+    /// <summary>Field number for the "username" field.</summary>
+    public const int UsernameFieldNumber = 1;
+    private string username_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Username {
+      get { return username_; }
+      set {
+        username_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UserName);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UserName other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Username != other.Username) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Username.Length != 0) hash ^= Username.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Username.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Username);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Username.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Username);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Username.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UserName other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Username.Length != 0) {
+        Username = other.Username;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Username = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Username = input.ReadString();
             break;
           }
         }

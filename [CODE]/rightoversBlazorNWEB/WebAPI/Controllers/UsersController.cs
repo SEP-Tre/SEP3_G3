@@ -16,11 +16,44 @@ public class UsersController : ControllerBase
 {
     private readonly IUserLogic userLogic;
     private readonly IConfiguration config;
+    
+    
 
     public UsersController(IConfiguration config, IUserLogic userLogic)
     {
         this.config = config;
         this.userLogic = userLogic;
+    }
+
+    [HttpPost, Route("hours")]
+    public async Task<ActionResult> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
+    {
+        try
+        {
+            User user = await userLogic.AssignOpeningHoursAsync(dto);
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    [HttpGet, Route("hours")]
+
+    public async Task<ActionResult> GetOpeningHoursAsync(string username)
+    {
+        try
+        {
+            OpeningHours openingHours = await userLogic.GetOpeningHoursAsync(username);
+            return Ok(openingHours);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     [HttpPost, Route("login")]
