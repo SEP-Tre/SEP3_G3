@@ -7,6 +7,7 @@ namespace GrpcClient.Converters;
 
 public class UserConverter : IUserConverter
 {
+    private FoodPostConverter foodPostConverter = new FoodPostConverter();
     public UserRequest GetUserRequestFromUsername(string username)
     {
         var userRequest = new UserRequest{
@@ -36,6 +37,17 @@ public class UserConverter : IUserConverter
         };
 
         return userCreationRequest;
+    }
+
+    public Reservation GetReservationFromReservationMessage(ReservationMessage message)
+    {
+        Reservation reservation = new Reservation
+        {
+            FoodPost = foodPostConverter.GetFoodPost(message.FoodPost),
+            ReservationId = message.ReservationId,
+            User = GetUserFromUserMessage(message.User)
+        };
+        return reservation;
     }
 
     public MyTime TimeConverter(OCTime time)

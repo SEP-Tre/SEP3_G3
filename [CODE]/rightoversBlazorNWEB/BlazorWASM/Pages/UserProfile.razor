@@ -174,21 +174,10 @@ else
         user = await userService.GetUserByUsername(username);
         foodPosts = await foodPostService.GetAllFoodPostsByUser(username);
         ratings = await ratingService.GetAllByUserRated(username);
+        reservations = await userService.GetAllReservationsByUser(username);
 
         avgCookerRating = GetAvgCookerRating();
         avgPickerRating = GetAvgPickerRating();
-
-    //placeholder reservation
-        var reservation1 = new Reservation(1, foodPosts.First(), user);
-        reservations = new List<Reservation>{
-            reservation1
-        };
-
-    /*
-        reservations = await userService.GetAllReservationsByUser(username);
-        ratings = await userService.GetAllRatingsToUser(username);
-
-        */
     }
 
     protected void NavigateToProfile(string username)

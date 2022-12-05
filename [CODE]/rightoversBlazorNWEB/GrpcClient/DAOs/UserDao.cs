@@ -1,6 +1,7 @@
 ﻿using Application.DAOInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
+using Grpc.Core;
 using Grpc.Net.Client;
 using GrpcCL;
 using GrpcClient.IConverters;
@@ -162,10 +163,20 @@ public class UserDao : IUserDao
         return user;
     }
 
-    public Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username)
+    public async Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username)
     {
-        //TODO GRPC FOR GETTING ALL RESERVATIONS BY ONE USER
-        throw new NotImplementedException();
+        var userRequest = converter.GetUserRequestFromUsername(username);
+        var listHolder = new List<Reservation>();
+        AsyncServerStreamingCall<ReservationMessage> response = client.getReservationsByUsername(userRequest);
+        
+        await foreach (var message in response.ResponseStream.ReadAllAsync())
+            if (message.User != null && message.FoodPost != null)
+            {
+                var reservation = converter.GetReservationFromReservationMessage(message);
+                listHolder.Add(reservation);
+            }
+
+        return listHolder;
     }
 
     public Task<IEnumerable<Rating>> GetAllRatingsToUser(string username)

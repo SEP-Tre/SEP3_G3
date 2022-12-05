@@ -10,6 +10,11 @@ public class Reservation
         User = user;
     }
 
+    public Reservation()
+    {
+        
+    }
+
     public int ReservationId { get; set; }
     public FoodPost FoodPost { get; set; }
     public User User { get; set; }

@@ -125,9 +125,23 @@ public class UserHttpClient : IUserService
     }
 
 
-    public Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username)
+    public async Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username)
     {
-        throw new NotImplementedException();
+        
+        var response = await client.GetAsync($"/Users/Reservations?username={username}");
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var reservations =
+            JsonSerializer.Deserialize<IEnumerable<Reservation>>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return reservations;
     }
 
     public Task<IEnumerable<Rating>> GetAllRatingsToUser(string username)
