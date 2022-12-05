@@ -87,3 +87,13 @@ UPDATE food_post
 SET post_state = 'posted'
 WHERE post_id = 2;
 
+DROP TABLE IF EXISTS user_;
+CREATE TABLE user_
+(
+    username   varchar(50) primary key,
+    firstname  varchar(50),
+    password_  varchar(100),
+    address_id int references address (address_id),
+    is_business bool
+);
+
