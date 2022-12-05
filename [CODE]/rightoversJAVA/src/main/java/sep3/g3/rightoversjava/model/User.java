@@ -18,6 +18,7 @@ public class User {
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "address_id")
     public Address address;
+    public boolean isBusiness;
 
 
     public User(UserCreationDTO dto) {
@@ -25,6 +26,7 @@ public class User {
         this.firstName = dto.getFirstName();
         this.password = dto.getPassword();
         this.address = new Address(dto.getAddressCreationDTO());
+        this.isBusiness = dto.isBusiness();
     }
 
     public User(String username) {
@@ -32,7 +34,6 @@ public class User {
     }
 
     public User() {
-
     }
 
     public String getUsername() {

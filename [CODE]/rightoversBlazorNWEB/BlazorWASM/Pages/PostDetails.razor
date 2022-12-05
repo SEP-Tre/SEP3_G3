@@ -1,9 +1,11 @@
 ﻿@page "/PostDetails/{id:int}"
 @using Domain.Classes
 @using Domain.DTOs
+@using BlazorWASM.Pages.UIComponents
 @using HttpClients.ClientInterfaces
 @using System.Collections
 @inject IFoodPostService foodPostService
+@inject NavigationManager navMgr
 
 @*
 <div class="card-back-title d-flex justify-content-center align-items-center">
@@ -18,16 +20,7 @@
 }
 else
 {
-    <AuthorizeView>
-        <NotAuthorized>
-            <div class="d-flex flex-row justify-content-center">
-                <h3>
-                    Please log in if you would like to reserve a post.
-                </h3>
-            </div>
-        </NotAuthorized>
-    </AuthorizeView>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center my-1">
         <div class="card-back mx-3">
             <div class="card d-flex align-items-start flex-column">
 
@@ -113,6 +106,15 @@ else
             </div>
         </div>
     </div>
+    <AuthorizeView>
+        <NotAuthorized>
+            <div>
+                <h3>
+                    Please log in if you would like to reserve a post
+                </h3>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
     <div>
         <h2>
             @errorMsg
@@ -123,6 +125,13 @@ else
             @msg
         </h3>
     </div>
+    
+    <Modal ShowModal="showModal">
+        <div class="d-flex flex-column justify-content-start align-items-center">
+            <p class = m-auto>@msg</p>
+            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+        </div>
+    </Modal>
 @code {
 
     [Parameter]
@@ -137,6 +146,7 @@ else
     public string pickupDetailsTime;
     public string creationDate;
     public List<string> openingHours;
+    private bool showModal;
 
     protected override async Task OnInitializedAsync()
     {
@@ -203,6 +213,12 @@ else
         {
             errorMsg = "Error: " + e.Message;
         }
+    }
+
+    public void Proceed()
+    {
+        // Change to move to the user's reservations once profile is ready
+        navMgr.NavigateTo("/ViewFoodPosts");
     }
 
 }}
