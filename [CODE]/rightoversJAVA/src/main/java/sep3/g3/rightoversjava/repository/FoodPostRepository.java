@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface FoodPostRepository extends CrudRepository<FoodPost, Integer> {
-    public List<FoodPost> getFoodPostsByUser(User user);
+    List<FoodPost> getFoodPostsByUser(User user);
 }

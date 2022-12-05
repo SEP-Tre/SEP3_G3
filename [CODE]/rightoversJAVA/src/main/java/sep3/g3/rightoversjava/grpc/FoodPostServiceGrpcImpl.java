@@ -45,8 +45,7 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
             responseObserver.onNext(response);
             responseObserver.onCompleted();
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             responseObserver.onError(e);
         }
 
@@ -64,7 +63,6 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
 
             responseObserver.onNext(response);
         }
-        ;
         responseObserver.onCompleted();
     }
 
@@ -111,8 +109,7 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
                 responseObserver.onNext(response);
             }
             responseObserver.onCompleted();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             responseObserver.onError(e);
         }
     }

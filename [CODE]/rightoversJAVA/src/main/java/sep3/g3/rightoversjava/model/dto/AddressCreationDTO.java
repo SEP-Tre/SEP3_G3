@@ -23,8 +23,8 @@ public class AddressCreationDTO {
         // I did find a good way to initialize the other attributes - CF
     }
 
-    public AddressCreationDTO(int addressId,String streetNumber, String street, String city, int postCode, double longitude, double latitude) {
-        this.addressId=addressId;
+    public AddressCreationDTO(int addressId, String streetNumber, String street, String city, int postCode, double longitude, double latitude) {
+        this.addressId = addressId;
         this.streetNumber = streetNumber;
         this.street = street;
         this.city = city;

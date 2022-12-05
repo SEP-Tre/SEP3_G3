@@ -1,64 +1,62 @@
 package sep3.g3.rightoversjava.model;
 
-import sep3.g3.rightoversjava.grpc.generated.Time;
-
 import javax.persistence.*;
 import java.time.LocalTime;
 
 @Entity
-@Table(name="opening_hours")
+@Table(name = "opening_hours")
 public class OpeningHours {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="monday_opening_hours", columnDefinition="TIME")
+    @Column(name = "monday_opening_hours", columnDefinition = "TIME")
     private LocalTime mondayOpeningHours;
 
-    @Column(name="monday_closing_hours",columnDefinition="Time")
+    @Column(name = "monday_closing_hours", columnDefinition = "Time")
     private LocalTime mondayClosingHours;
 
-    @Column(name="tuesday_opening_hours", columnDefinition="TIME")
+    @Column(name = "tuesday_opening_hours", columnDefinition = "TIME")
     private LocalTime tuesdayOpeningHours;
 
-    @Column(name="tuesday_closing_hours", columnDefinition="TIME")
+    @Column(name = "tuesday_closing_hours", columnDefinition = "TIME")
     private LocalTime tuesdayClosingHours;
 
 
-    @Column(name="wednesday_opening_hours", columnDefinition="TIME")
+    @Column(name = "wednesday_opening_hours", columnDefinition = "TIME")
     private LocalTime wednesdayOpeningHours;
 
-    @Column(name="wednesday_closing_hours", columnDefinition="TIME")
+    @Column(name = "wednesday_closing_hours", columnDefinition = "TIME")
     private LocalTime wednesdayClosingHours;
 
-    @Column(name="thursday_opening_hours", columnDefinition="TIME")
+    @Column(name = "thursday_opening_hours", columnDefinition = "TIME")
     private LocalTime thursdayOpeningHours;
 
-    @Column(name="thursday_closing_hours", columnDefinition="TIME")
+    @Column(name = "thursday_closing_hours", columnDefinition = "TIME")
     private LocalTime thursdayClosingHours;
 
-    @Column(name="friday_opening_hours", columnDefinition="TIME")
+    @Column(name = "friday_opening_hours", columnDefinition = "TIME")
     private LocalTime fridayOpeningHours;
 
-    @Column(name="friday_closing_hours", columnDefinition="TIME")
+    @Column(name = "friday_closing_hours", columnDefinition = "TIME")
     private LocalTime fridayClosingHours;
 
-    @Column(name="saturday_opening_hours", columnDefinition="TIME")
+    @Column(name = "saturday_opening_hours", columnDefinition = "TIME")
     private LocalTime saturdayOpeningHours;
 
-    @Column(name="saturday_closing_hours", columnDefinition="TIME")
+    @Column(name = "saturday_closing_hours", columnDefinition = "TIME")
     private LocalTime saturdayClosingHours;
 
-    @Column(name="sunday_opening_hours", columnDefinition="TIME")
+    @Column(name = "sunday_opening_hours", columnDefinition = "TIME")
     private LocalTime sundayOpeningHours;
 
-    @Column(name="sunday_closing_hours", columnDefinition="TIME")
+    @Column(name = "sunday_closing_hours", columnDefinition = "TIME")
     private LocalTime sundayClosingHours;
 
 
     @OneToOne
-    @JoinColumn(name="username")
+    @JoinColumn(name = "username")
     private User user;
 
     public OpeningHours() {
@@ -67,29 +65,21 @@ public class OpeningHours {
 
     public OpeningHours(OpeningHoursCreationDTO dto, User user) {
 
-        this.user=user;
-        this.mondayOpeningHours=dto.getMondayOpeningHours();
-        this.tuesdayOpeningHours=dto.getTuesdayOpeningHours();
-        this.wednesdayOpeningHours=dto.getWednesdayOpeningHours();
-        this.thursdayOpeningHours=dto.getThursdayOpeningHours();
-        this.fridayOpeningHours=dto.getFridayOpeningHours();
-        this.saturdayOpeningHours=dto.getSaturdayOpeningHours();
-        this.sundayOpeningHours=dto.getSundayOpeningHours();
-        this.mondayClosingHours=dto.getMondayClosingHours();
-        this.tuesdayClosingHours=dto.getTuesdayClosingHours();
-        this.wednesdayClosingHours=dto.getWednesdayClosingHours();
-        this.thursdayClosingHours=dto.getThursdayClosingHours();
-        this.fridayClosingHours=dto.getFridayClosingHours();
-        this.saturdayClosingHours=dto.getSaturdayClosingHours();
-        this.sundayClosingHours=dto.getSundayClosingHours();
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
         this.user = user;
+        this.mondayOpeningHours = dto.getMondayOpeningHours();
+        this.tuesdayOpeningHours = dto.getTuesdayOpeningHours();
+        this.wednesdayOpeningHours = dto.getWednesdayOpeningHours();
+        this.thursdayOpeningHours = dto.getThursdayOpeningHours();
+        this.fridayOpeningHours = dto.getFridayOpeningHours();
+        this.saturdayOpeningHours = dto.getSaturdayOpeningHours();
+        this.sundayOpeningHours = dto.getSundayOpeningHours();
+        this.mondayClosingHours = dto.getMondayClosingHours();
+        this.tuesdayClosingHours = dto.getTuesdayClosingHours();
+        this.wednesdayClosingHours = dto.getWednesdayClosingHours();
+        this.thursdayClosingHours = dto.getThursdayClosingHours();
+        this.fridayClosingHours = dto.getFridayClosingHours();
+        this.saturdayClosingHours = dto.getSaturdayClosingHours();
+        this.sundayClosingHours = dto.getSundayClosingHours();
     }
 
     public OpeningHours(int id, LocalTime mondayOpeningHours, LocalTime mondayClosingHours, LocalTime tuesdayOpeningHours, LocalTime tuesdayClosingHours, LocalTime wednesdayOpeningHours, LocalTime wednesdayClosingHours, LocalTime thursdayOpeningHours, LocalTime thursdayClosingHours, LocalTime fridayOpeningHours, LocalTime fridayClosingHours, LocalTime saturdayOpeningHours, LocalTime saturdayClosingHours, LocalTime sundayOpeningHours, LocalTime sundayClosingHours) {
@@ -108,6 +98,14 @@ public class OpeningHours {
         this.saturdayClosingHours = saturdayClosingHours;
         this.sundayOpeningHours = sundayOpeningHours;
         this.sundayClosingHours = sundayClosingHours;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getId() {

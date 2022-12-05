@@ -10,11 +10,9 @@ import sep3.g3.rightoversjava.model.dto.RatingCreationDto;
 import java.util.ArrayList;
 
 @Service
-public class RatingConverterImpl implements RatingConverter
-{
+public class RatingConverterImpl implements RatingConverter {
     @Override
-    public RatingCreationDto getRatingDtoFromRatingRequest(RatingMessage ratingMessage)
-    {
+    public RatingCreationDto getRatingDtoFromRatingRequest(RatingMessage ratingMessage) {
         RatingCreationDto rating = new RatingCreationDto(
                 ratingMessage.getValue(),
                 ratingMessage.getComment(),
@@ -26,8 +24,7 @@ public class RatingConverterImpl implements RatingConverter
     }
 
     @Override
-    public RatingMessage getRatingMessageFromRating(Rating rating)
-    {
+    public RatingMessage getRatingMessageFromRating(Rating rating) {
         RatingMessage ratingMessage = RatingMessage.newBuilder()
                 .setValue(rating.getValue())
                 .setComment(rating.getComment())
@@ -39,8 +36,7 @@ public class RatingConverterImpl implements RatingConverter
     }
 
     @Override
-    public RatingMessageList getRatingMessageListFromRating(ArrayList<Rating> ratings)
-    {
+    public RatingMessageList getRatingMessageListFromRating(ArrayList<Rating> ratings) {
         ArrayList<RatingMessage> ratingMessages = new ArrayList<>();
         ratings.forEach(rating -> {
             ratingMessages.add(getRatingMessageFromRating(rating));
