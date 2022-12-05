@@ -2,7 +2,7 @@ package sep3.g3.rightoversjava.service.impl;
 
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.OpeningHours;
-import sep3.g3.rightoversjava.model.OpeningHoursCreationDTO;
+import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
 import sep3.g3.rightoversjava.model.dto.UserCreationDTO;

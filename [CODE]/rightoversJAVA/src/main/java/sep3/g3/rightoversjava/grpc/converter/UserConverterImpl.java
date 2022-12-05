@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.Address;
-import sep3.g3.rightoversjava.model.OpeningHoursCreationDTO;
+import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.User;
 import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
 import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
