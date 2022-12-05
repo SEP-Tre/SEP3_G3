@@ -13,13 +13,10 @@ import java.util.ArrayList;
 public class AddressServiceImp implements AddressService {
     @Autowired
     AddressRepository addressRepository;
-
-
     @Override
     public Address create(AddressCreationDTO dto) {
         return addressRepository.save(new Address(dto));
     }
-
     @Override
     public ArrayList<Address> getAllAddresses() {
         return (ArrayList<Address>) addressRepository.findAll();

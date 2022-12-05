@@ -5,6 +5,7 @@
 @inject IUserService userService
 @inject IRatingService ratingService
 @inject NavigationManager navMgr
+@inject DialogService DialogService
 
 @if (foodPosts == null)
 {
@@ -25,6 +26,8 @@ else
                     <h3 class="username">@user.UserName</h3>
                 </div>
             </div>
+            
+            <RadzenButton ButtonStyle="ButtonStyle.Dark" Click="ShowRateDialog">Rate</RadzenButton>
 
             <div class="d-flex flex-column justify-content-center ratings">
                 <div class="d-flex flex-row ">
@@ -121,7 +124,7 @@ else
                         <Template Context="rating">
                             <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
                                 <div class="row">
-                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value />
+                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value></RadzenRating>
                                 </div>
                                 <div class="row">
                                     <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
@@ -171,13 +174,16 @@ else
     private readonly string cookThreeStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-stuck-out-tongue.png";
     private readonly string cookFourStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-savouring-delicious-food.png";
     private readonly string cookFiveStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/star-struck.png";
-    
+
     private readonly string pickerOneStarPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/skull-and-crossbones.png";
     private readonly string pickerTwoStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grimacing-face.png";
     private readonly string pickerThreeStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/upside-down-face.png";
     private readonly string pickerFourStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grinning-face-with-smiling-eyes.png";
     private readonly string pickerFiveStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/smiling-face-with-halo.png";
-    
+
+    private int ratingType = 1;
+    private String ratingComment = "";
+    private int ratingValue = 1;
 
     private Dictionary<int, string> cookUrls { get; set; }
     private Dictionary<int, string> pickerUrls { get; set; }
@@ -213,10 +219,8 @@ else
             [5] = cookFiveStarsPicUrl
         };
     }
-    
-    protected
 
-    void InitPickerPicUrls()
+    protected void InitPickerPicUrls()
     {
         pickerUrls = new Dictionary<int, string>
         {
@@ -258,6 +262,33 @@ else
         }
         double avg = total / Convert.ToDouble(pickerRatings.Count());
         return avg;
+    }
+
+    async Task ShowRateDialog()
+    {
+        var result = await DialogService.OpenAsync("Simple Dialog", ds =>
+            @<div class="d-flex flex-column">
+                <div class="d-flex flex-row">
+                    <p class="mb-4">Rating <b>@username</b>.</p>
+                </div>
+                <div class="d-flex flex-row">
+                    <RadzenRadioButtonList @bind-Value=@ratingType TValue="int">
+                        <Items>
+                            <RadzenRadioButtonListItem Text="Cook" Value="1"/>
+                            <RadzenRadioButtonListItem Text="Picker" Value="2"/>
+                        </Items>
+                    </RadzenRadioButtonList>
+                </div>
+                <div class="d-flex flex-row">
+                    <RadzenRating bind-Value=@ratingValue></RadzenRating>
+                </div>
+                <div class="d-flex flex-column">
+                    <p>Leave a comment?</p>
+                    <RadzenTextArea @bind-Value=@ratingComment></RadzenTextArea>
+                </div>
+                <RadzenButton Text="Ok" Click="() => ds.Close(true)" Class="me-1" Style="width: 80px;"/>
+                <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1"/>
+            </div>);
     }
 
 
