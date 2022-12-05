@@ -24,46 +24,51 @@ namespace GrpcCL {
     static UserGrpcReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVQcm90b3MvVXNlckdycGMucHJvdG8SB3NlcDMuZzMaH2dvb2dsZS9wcm90",
-            "b2J1Zi90aW1lc3RhbXAucHJvdG8iHwoLVXNlclJlcXVlc3QSEAoIdXNlcm5h",
-            "bWUYASABKAkiigEKE1VzZXJDcmVhdGlvblJlcXVlc3QSEAoIdXNlcm5hbWUY",
-            "ASABKAkSEQoJZmlyc3RuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEigK",
-            "B2FkZHJlc3MYBCABKAsyFy5zZXAzLmczLkFkZHJlc3NNZXNzYWdlEhIKCmlz",
-            "QnVzaW5lc3MYBSABKAgiNgoQVXNlckxvZ2luUmVxdWVzdBIQCgh1c2VybmFt",
-            "ZRgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSKRAQoOQWRkcmVzc01lc3NhZ2US",
-            "EgoKYWRkcmVzc19pZBgBIAEoBRIOCgZzdHJlZXQYAiABKAkSFQoNc3RyZWV0",
-            "X251bWJlchgDIAEoCRIRCglwb3N0X2NvZGUYBCABKAUSDAoEY2l0eRgFIAEo",
-            "CRIRCglsb25naXR1ZGUYBiABKAESEAoIbGF0aXR1ZGUYByABKAEibgoLVXNl",
-            "ck1lc3NhZ2USEAoIdXNlcm5hbWUYASABKAkSEQoJZmlyc3RuYW1lGAIgASgJ",
-            "EhAKCHBhc3N3b3JkGAMgASgJEigKB2FkZHJlc3MYBCABKAsyFy5zZXAzLmcz",
-            "LkFkZHJlc3NNZXNzYWdlIicKBk9DVGltZRIMCgRob3VyGAEgASgFEg8KB21p",
-            "bnV0ZXMYAiABKAUi1gQKFE9wZW5pbmdIb3Vyc1Jlc3BvbnNlEiYKDW1vbmRh",
-            "eU9wZW5pbmcYASABKAsyDy5zZXAzLmczLk9DVGltZRImCg1tb25kYXlDbG9z",
-            "aW5nGAIgASgLMg8uc2VwMy5nMy5PQ1RpbWUSJwoOdHVlc2RheU9wZW5pbmcY",
-            "AyABKAsyDy5zZXAzLmczLk9DVGltZRInCg50dWVzZGF5Q2xvc2luZxgEIAEo",
-            "CzIPLnNlcDMuZzMuT0NUaW1lEikKEHdlZG5lc2RheU9wZW5pbmcYBSABKAsy",
-            "Dy5zZXAzLmczLk9DVGltZRIpChB3ZWRuZXNkYXlDbG9zaW5nGAYgASgLMg8u",
-            "c2VwMy5nMy5PQ1RpbWUSKAoPdGh1cnNkYXlPcGVuaW5nGAcgASgLMg8uc2Vw",
-            "My5nMy5PQ1RpbWUSKAoPdGh1cnNkYXlDbG9zaW5nGAggASgLMg8uc2VwMy5n",
-            "My5PQ1RpbWUSJgoNZnJpZGF5T3BlbmluZxgJIAEoCzIPLnNlcDMuZzMuT0NU",
-            "aW1lEiYKDWZyaWRheUNsb3NpbmcYCiABKAsyDy5zZXAzLmczLk9DVGltZRIo",
-            "Cg9zYXR1cmRheU9wZW5pbmcYCyABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9z",
-            "YXR1cmRheUNsb3NpbmcYDCABKAsyDy5zZXAzLmczLk9DVGltZRImCg1zdW5k",
-            "YXlPcGVuaW5nGA0gASgLMg8uc2VwMy5nMy5PQ1RpbWUSJgoNc3VuZGF5Q2xv",
-            "c2luZxgOIAEoCzIPLnNlcDMuZzMuT0NUaW1lIlwKE09wZW5pbmdIb3Vyc1Jl",
-            "cXVlc3QSEAoIdXNlcm5hbWUYASABKAkSMwoMb3BlbmluZ0hvdXJzGAIgASgL",
-            "Mh0uc2VwMy5nMy5PcGVuaW5nSG91cnNSZXNwb25zZSIcCghVc2VyTmFtZRIQ",
-            "Cgh1c2VybmFtZRgBIAEoCTLTAgoLVXNlclNlcnZpY2USOwoNZ2V0QnlVc2Vy",
-            "bmFtZRIULnNlcDMuZzMuVXNlclJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNz",
-            "YWdlEj4KCHJlZ2lzdGVyEhwuc2VwMy5nMy5Vc2VyQ3JlYXRpb25SZXF1ZXN0",
-            "GhQuc2VwMy5nMy5Vc2VyTWVzc2FnZRI4CgVsb2dpbhIZLnNlcDMuZzMuVXNl",
-            "ckxvZ2luUmVxdWVzdBoULnNlcDMuZzMuVXNlck1lc3NhZ2USSAoSYXNzaWdu",
-            "T3BlbmluZ0hvdXJzEhwuc2VwMy5nMy5PcGVuaW5nSG91cnNSZXF1ZXN0GhQu",
-            "c2VwMy5nMy5Vc2VyTWVzc2FnZRJDCg9HZXRPcGVuaW5nSG91cnMSES5zZXAz",
-            "LmczLlVzZXJOYW1lGh0uc2VwMy5nMy5PcGVuaW5nSG91cnNSZXNwb25zZUIJ",
-            "qgIGR3JwY0NMYgZwcm90bzM="));
+            "ChVQcm90b3MvVXNlckdycGMucHJvdG8SB3NlcDMuZzMaGVByb3Rvcy9Gb29k",
+            "UG9zdEdycGMucHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJv",
+            "dG8iHwoLVXNlclJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkiigEKE1VzZXJD",
+            "cmVhdGlvblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEQoJZmlyc3RuYW1l",
+            "GAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEigKB2FkZHJlc3MYBCABKAsyFy5z",
+            "ZXAzLmczLkFkZHJlc3NNZXNzYWdlEhIKCmlzQnVzaW5lc3MYBSABKAgiNgoQ",
+            "VXNlckxvZ2luUmVxdWVzdBIQCgh1c2VybmFtZRgBIAEoCRIQCghwYXNzd29y",
+            "ZBgCIAEoCSKRAQoOQWRkcmVzc01lc3NhZ2USEgoKYWRkcmVzc19pZBgBIAEo",
+            "BRIOCgZzdHJlZXQYAiABKAkSFQoNc3RyZWV0X251bWJlchgDIAEoCRIRCglw",
+            "b3N0X2NvZGUYBCABKAUSDAoEY2l0eRgFIAEoCRIRCglsb25naXR1ZGUYBiAB",
+            "KAESEAoIbGF0aXR1ZGUYByABKAEibgoLVXNlck1lc3NhZ2USEAoIdXNlcm5h",
+            "bWUYASABKAkSEQoJZmlyc3RuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJ",
+            "EigKB2FkZHJlc3MYBCABKAsyFy5zZXAzLmczLkFkZHJlc3NNZXNzYWdlIicK",
+            "Bk9DVGltZRIMCgRob3VyGAEgASgFEg8KB21pbnV0ZXMYAiABKAUi1gQKFE9w",
+            "ZW5pbmdIb3Vyc1Jlc3BvbnNlEiYKDW1vbmRheU9wZW5pbmcYASABKAsyDy5z",
+            "ZXAzLmczLk9DVGltZRImCg1tb25kYXlDbG9zaW5nGAIgASgLMg8uc2VwMy5n",
+            "My5PQ1RpbWUSJwoOdHVlc2RheU9wZW5pbmcYAyABKAsyDy5zZXAzLmczLk9D",
+            "VGltZRInCg50dWVzZGF5Q2xvc2luZxgEIAEoCzIPLnNlcDMuZzMuT0NUaW1l",
+            "EikKEHdlZG5lc2RheU9wZW5pbmcYBSABKAsyDy5zZXAzLmczLk9DVGltZRIp",
+            "ChB3ZWRuZXNkYXlDbG9zaW5nGAYgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoP",
+            "dGh1cnNkYXlPcGVuaW5nGAcgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPdGh1",
+            "cnNkYXlDbG9zaW5nGAggASgLMg8uc2VwMy5nMy5PQ1RpbWUSJgoNZnJpZGF5",
+            "T3BlbmluZxgJIAEoCzIPLnNlcDMuZzMuT0NUaW1lEiYKDWZyaWRheUNsb3Np",
+            "bmcYCiABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9zYXR1cmRheU9wZW5pbmcY",
+            "CyABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9zYXR1cmRheUNsb3NpbmcYDCAB",
+            "KAsyDy5zZXAzLmczLk9DVGltZRImCg1zdW5kYXlPcGVuaW5nGA0gASgLMg8u",
+            "c2VwMy5nMy5PQ1RpbWUSJgoNc3VuZGF5Q2xvc2luZxgOIAEoCzIPLnNlcDMu",
+            "ZzMuT0NUaW1lIlwKE09wZW5pbmdIb3Vyc1JlcXVlc3QSEAoIdXNlcm5hbWUY",
+            "ASABKAkSMwoMb3BlbmluZ0hvdXJzGAIgASgLMh0uc2VwMy5nMy5PcGVuaW5n",
+            "SG91cnNSZXNwb25zZSIcCghVc2VyTmFtZRIQCgh1c2VybmFtZRgBIAEoCSJ+",
+            "ChJSZXNlcnZhdGlvbk1lc3NhZ2USFgoOcmVzZXJ2YXRpb25faWQYASABKAUS",
+            "LAoJZm9vZF9wb3N0GAIgASgLMhkuc2VwMy5nMy5Gb29kUG9zdFJlc3BvbnNl",
+            "EiIKBHVzZXIYAyABKAsyFC5zZXAzLmczLlVzZXJNZXNzYWdlMqUDCgtVc2Vy",
+            "U2VydmljZRI7Cg1nZXRCeVVzZXJuYW1lEhQuc2VwMy5nMy5Vc2VyUmVxdWVz",
+            "dBoULnNlcDMuZzMuVXNlck1lc3NhZ2USPgoIcmVnaXN0ZXISHC5zZXAzLmcz",
+            "LlVzZXJDcmVhdGlvblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEjgK",
+            "BWxvZ2luEhkuc2VwMy5nMy5Vc2VyTG9naW5SZXF1ZXN0GhQuc2VwMy5nMy5V",
+            "c2VyTWVzc2FnZRJIChJhc3NpZ25PcGVuaW5nSG91cnMSHC5zZXAzLmczLk9w",
+            "ZW5pbmdIb3Vyc1JlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkMKD0dl",
+            "dE9wZW5pbmdIb3VycxIRLnNlcDMuZzMuVXNlck5hbWUaHS5zZXAzLmczLk9w",
+            "ZW5pbmdIb3Vyc1Jlc3BvbnNlElAKGWdldFJlc2VydmF0aW9uc0J5VXNlcm5h",
+            "bWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0Ghsuc2VwMy5nMy5SZXNlcnZhdGlv",
+            "bk1lc3NhZ2UwAUIJqgIGR3JwY0NMYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::GrpcCL.FoodPostGrpcReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserRequest), global::GrpcCL.UserRequest.Parser, new[]{ "Username" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserCreationRequest), global::GrpcCL.UserCreationRequest.Parser, new[]{ "Username", "Firstname", "Password", "Address", "IsBusiness" }, null, null, null, null),
@@ -73,7 +78,8 @@ namespace GrpcCL {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OCTime), global::GrpcCL.OCTime.Parser, new[]{ "Hour", "Minutes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursResponse), global::GrpcCL.OpeningHoursResponse.Parser, new[]{ "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursRequest), global::GrpcCL.OpeningHoursRequest.Parser, new[]{ "Username", "OpeningHours" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserName), global::GrpcCL.UserName.Parser, new[]{ "Username" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserName), global::GrpcCL.UserName.Parser, new[]{ "Username" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.ReservationMessage), global::GrpcCL.ReservationMessage.Parser, new[]{ "ReservationId", "FoodPost", "User" }, null, null, null, null)
           }));
     }
     #endregion
@@ -2998,6 +3004,287 @@ namespace GrpcCL {
             break;
           case 10: {
             Username = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class ReservationMessage : pb::IMessage<ReservationMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ReservationMessage> _parser = new pb::MessageParser<ReservationMessage>(() => new ReservationMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ReservationMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcCL.UserGrpcReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ReservationMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ReservationMessage(ReservationMessage other) : this() {
+      reservationId_ = other.reservationId_;
+      foodPost_ = other.foodPost_ != null ? other.foodPost_.Clone() : null;
+      user_ = other.user_ != null ? other.user_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ReservationMessage Clone() {
+      return new ReservationMessage(this);
+    }
+
+    /// <summary>Field number for the "reservation_id" field.</summary>
+    public const int ReservationIdFieldNumber = 1;
+    private int reservationId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ReservationId {
+      get { return reservationId_; }
+      set {
+        reservationId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "food_post" field.</summary>
+    public const int FoodPostFieldNumber = 2;
+    private global::GrpcCL.FoodPostResponse foodPost_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.FoodPostResponse FoodPost {
+      get { return foodPost_; }
+      set {
+        foodPost_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "user" field.</summary>
+    public const int UserFieldNumber = 3;
+    private global::GrpcCL.UserMessage user_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::GrpcCL.UserMessage User {
+      get { return user_; }
+      set {
+        user_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ReservationMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ReservationMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ReservationId != other.ReservationId) return false;
+      if (!object.Equals(FoodPost, other.FoodPost)) return false;
+      if (!object.Equals(User, other.User)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ReservationId != 0) hash ^= ReservationId.GetHashCode();
+      if (foodPost_ != null) hash ^= FoodPost.GetHashCode();
+      if (user_ != null) hash ^= User.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ReservationId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ReservationId);
+      }
+      if (foodPost_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(FoodPost);
+      }
+      if (user_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(User);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ReservationId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ReservationId);
+      }
+      if (foodPost_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(FoodPost);
+      }
+      if (user_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(User);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ReservationId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReservationId);
+      }
+      if (foodPost_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(FoodPost);
+      }
+      if (user_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(User);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ReservationMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ReservationId != 0) {
+        ReservationId = other.ReservationId;
+      }
+      if (other.foodPost_ != null) {
+        if (foodPost_ == null) {
+          FoodPost = new global::GrpcCL.FoodPostResponse();
+        }
+        FoodPost.MergeFrom(other.FoodPost);
+      }
+      if (other.user_ != null) {
+        if (user_ == null) {
+          User = new global::GrpcCL.UserMessage();
+        }
+        User.MergeFrom(other.User);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ReservationId = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            if (foodPost_ == null) {
+              FoodPost = new global::GrpcCL.FoodPostResponse();
+            }
+            input.ReadMessage(FoodPost);
+            break;
+          }
+          case 26: {
+            if (user_ == null) {
+              User = new global::GrpcCL.UserMessage();
+            }
+            input.ReadMessage(User);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ReservationId = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            if (foodPost_ == null) {
+              FoodPost = new global::GrpcCL.FoodPostResponse();
+            }
+            input.ReadMessage(FoodPost);
+            break;
+          }
+          case 26: {
+            if (user_ == null) {
+              User = new global::GrpcCL.UserMessage();
+            }
+            input.ReadMessage(User);
             break;
           }
         }

@@ -10,6 +10,7 @@ public interface IUserConverter
     UserCreationRequest GetUserCreationRequestFromDto(UserCreationDto dto);
     User GetUserFromUserMessage(UserMessage userMessage);
     UserLoginRequest GetUserLoginRequestFromDto(UserLoginDto dto);
+    Reservation GetReservationFromReservationMessage(ReservationMessage message);
 
     MyTime TimeConverter(OCTime time);
 }
