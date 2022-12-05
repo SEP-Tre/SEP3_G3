@@ -13,6 +13,7 @@ public interface FoodPostService {
     FoodPost create(FoodPostCreationDTO dto) throws Exception;
 
     ArrayList<FoodPost> getAllFoodPosts();
+
     ArrayList<FoodPost> getAllFoodPostsByUsername(String username) throws Exception;
 
     FoodPost getSingleFoodPost(int id) throws NoSuchElementException;

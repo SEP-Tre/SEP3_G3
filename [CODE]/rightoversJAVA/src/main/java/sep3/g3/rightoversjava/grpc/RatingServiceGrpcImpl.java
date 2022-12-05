@@ -12,25 +12,21 @@ import sep3.g3.rightoversjava.model.Rating;
 import sep3.g3.rightoversjava.model.dto.RatingCreationDto;
 import sep3.g3.rightoversjava.service.interaces.RatingService;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 @Configurable
-public class RatingServiceGrpcImpl extends RatingServiceGrpc.RatingServiceImplBase
-{
+public class RatingServiceGrpcImpl extends RatingServiceGrpc.RatingServiceImplBase {
 
-    private RatingService ratingService;
-    private RatingConverter converter;
+    private final RatingService ratingService;
+    private final RatingConverter converter;
 
-    public RatingServiceGrpcImpl()
-    {
+    public RatingServiceGrpcImpl() {
         ratingService = SpringContext.getBean(RatingService.class);
         converter = SpringContext.getBean(RatingConverterImpl.class);
     }
 
     @Override
-    public void addRating(RatingMessage request, StreamObserver<RatingMessage> responseObserver)
-    {
+    public void addRating(RatingMessage request, StreamObserver<RatingMessage> responseObserver) {
         RatingCreationDto dto = converter.getRatingDtoFromRatingRequest(request);
         Rating rating = ratingService.addRating(dto);
         RatingMessage ratingMessage = converter.getRatingMessageFromRating(rating);
@@ -39,8 +35,7 @@ public class RatingServiceGrpcImpl extends RatingServiceGrpc.RatingServiceImplBa
     }
 
     @Override
-    public void getAllByUserRated(UsernameRequest request, StreamObserver<RatingMessageList> responseObserver)
-    {
+    public void getAllByUserRated(UsernameRequest request, StreamObserver<RatingMessageList> responseObserver) {
         String usernameRated = request.getUsername();
         ArrayList<Rating> ratings = ratingService.getAllByUserRated(usernameRated);
         RatingMessageList list = converter.getRatingMessageListFromRating(ratings);
@@ -49,8 +44,7 @@ public class RatingServiceGrpcImpl extends RatingServiceGrpc.RatingServiceImplBa
     }
 
     @Override
-    public void getAllByUserRating(UsernameRequest request, StreamObserver<RatingMessageList> responseObserver)
-    {
+    public void getAllByUserRating(UsernameRequest request, StreamObserver<RatingMessageList> responseObserver) {
         String usernameRating = request.getUsername();
         ArrayList<Rating> ratings = ratingService.getAllByUserRating(usernameRating);
         RatingMessageList list = converter.getRatingMessageListFromRating(ratings);

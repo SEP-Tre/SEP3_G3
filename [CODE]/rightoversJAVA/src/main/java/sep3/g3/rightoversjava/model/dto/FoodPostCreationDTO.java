@@ -5,16 +5,16 @@ import java.time.LocalTime;
 
 public class FoodPostCreationDTO {
 
-    private String title;
-    private String category_;
-    private String description;
-    private String pictureUrl;
-    private int daysUntilExpired;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private LocalTime startTime;
-    private LocalTime endTime;
-    private String username;
+    private final String title;
+    private final String category_;
+    private final String description;
+    private final String pictureUrl;
+    private final int daysUntilExpired;
+    private final LocalDate startDate;
+    private final LocalDate endDate;
+    private final LocalTime startTime;
+    private final LocalTime endTime;
+    private final String username;
 
     public FoodPostCreationDTO(String title, String category_, String description, String pictureUrl, int daysUntilExpired, LocalDate startDate, LocalDate endDate, LocalTime startTime, LocalTime endTime, String username) {
         this.title = title;

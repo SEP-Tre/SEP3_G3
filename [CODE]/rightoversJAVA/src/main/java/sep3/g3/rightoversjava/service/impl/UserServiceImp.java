@@ -1,12 +1,14 @@
-package sep3.g3.rightoversjava.service;
+package sep3.g3.rightoversjava.service.impl;
 
 import org.springframework.stereotype.Service;
-import sep3.g3.rightoversjava.model.*;
-import sep3.g3.rightoversjava.repository.AddressRepository;
-import sep3.g3.rightoversjava.repository.FoodPostRepository;
-import sep3.g3.rightoversjava.repository.ReservationRepository;
-import sep3.g3.rightoversjava.repository.OpeningHoursRepository;
-import sep3.g3.rightoversjava.repository.UserRepository;
+import sep3.g3.rightoversjava.model.OpeningHours;
+import sep3.g3.rightoversjava.model.OpeningHoursCreationDTO;
+import sep3.g3.rightoversjava.model.Reservation;
+import sep3.g3.rightoversjava.model.User;
+import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
+import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
+import sep3.g3.rightoversjava.repository.*;
+import sep3.g3.rightoversjava.service.interaces.UserService;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -14,21 +16,21 @@ import java.util.Optional;
 @Service
 public class UserServiceImp implements UserService {
 
-    private UserRepository userRepository;
-    private AddressRepository addressRepository;
-    private FoodPostRepository foodPostRepository;
-    private ReservationRepository reservationRepository;
+    private final UserRepository userRepository;
+    private final AddressRepository addressRepository;
+    private final FoodPostRepository foodPostRepository;
+    private final ReservationRepository reservationRepository;
 
-    private OpeningHoursRepository openingHoursRepository;
+    private final OpeningHoursRepository openingHoursRepository;
 
     public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository,
                           FoodPostRepository foodPostRepository, OpeningHoursRepository openingHoursRepository,
-                ReservationRepository reservationRepository) {
+                          ReservationRepository reservationRepository) {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
         this.foodPostRepository = foodPostRepository;
         this.reservationRepository = reservationRepository;
-        this.openingHoursRepository=openingHoursRepository;
+        this.openingHoursRepository = openingHoursRepository;
     }
 
     @Override
@@ -55,17 +57,15 @@ public class UserServiceImp implements UserService {
 
     @Override
     public User assignOpeningHours(OpeningHoursCreationDTO dto) throws IllegalAccessException {
-        Optional<User> user=userRepository.findById(dto.username);
-        if (user.get().isBusiness()){
-            System.out.println("IS IT A BUSINESS???? "+user.get().isBusiness);
-            OpeningHours openingHours=new OpeningHours(dto,user.get());
+        Optional<User> user = userRepository.findById(dto.username);
+        if (user.get().isBusiness()) {
+            System.out.println("IS IT A BUSINESS???? " + user.get().isBusiness);
+            OpeningHours openingHours = new OpeningHours(dto, user.get());
             openingHoursRepository.save(openingHours);
             return user.get();
-        }
-        else throw new IllegalAccessException("Only businesses may have opening hours.");
+        } else throw new IllegalAccessException("Only businesses may have opening hours.");
 
     }
-
 
 
     @Override

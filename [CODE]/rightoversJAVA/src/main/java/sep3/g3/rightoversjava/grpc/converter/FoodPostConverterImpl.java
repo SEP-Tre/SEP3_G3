@@ -11,10 +11,8 @@ import sep3.g3.rightoversjava.model.FoodPost;
 import java.time.Instant;
 
 @Service
-public class FoodPostConverterImpl implements FoodPostConverter
-{
-    public FoodPostResponse getFoodPostResponse(FoodPost created)
-    {
+public class FoodPostConverterImpl implements FoodPostConverter {
+    public FoodPostResponse getFoodPostResponse(FoodPost created) {
         Instant instant =
                 created.getTimestamp_posted()
                         .toInstant();

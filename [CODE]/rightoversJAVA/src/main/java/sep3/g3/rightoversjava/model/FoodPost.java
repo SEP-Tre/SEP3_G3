@@ -35,14 +35,6 @@ public class FoodPost {
     @JoinColumn(name = "username")
     private User user;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public FoodPost(int post_id, String title, String category_, String description, String pictureUrl, int daysUntilExpired, String postState, Timestamp timestamp_posted, LocalDate startDate, LocalDate endDate, LocalTime startTime, LocalTime endTime, User user) {
         this.post_id = post_id;
         this.title = title;
@@ -76,6 +68,14 @@ public class FoodPost {
 
     public FoodPost() {
 
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getPost_id() {

@@ -10,8 +10,7 @@ import sep3.g3.rightoversjava.service.interaces.AddressService;
 import java.util.ArrayList;
 
 @Service
-public class AddressServiceImp implements AddressService
-{
+public class AddressServiceImp implements AddressService {
     @Autowired
     AddressRepository addressRepository;
 

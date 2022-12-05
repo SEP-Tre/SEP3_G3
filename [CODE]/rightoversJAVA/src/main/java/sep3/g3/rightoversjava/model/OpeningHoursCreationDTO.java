@@ -1,46 +1,42 @@
 package sep3.g3.rightoversjava.model;
 
-import net.bytebuddy.asm.Advice;
-import sep3.g3.rightoversjava.grpc.generated.Time;
-
 import java.time.LocalTime;
 
 
 public class OpeningHoursCreationDTO {
 
     public String username;
-    private LocalTime mondayOpeningHours;
-    private LocalTime mondayClosingHours;
-    private LocalTime tuesdayOpeningHours;
-    private LocalTime tuesdayClosingHours;
-    private LocalTime wednesdayOpeningHours;
-    private LocalTime wednesdayClosingHours;
-    private LocalTime thursdayOpeningHours;
-    private LocalTime thursdayClosingHours;
-    private LocalTime fridayOpeningHours;
-    private LocalTime fridayClosingHours;
-    private LocalTime saturdayOpeningHours;
-    private LocalTime saturdayClosingHours;
-    private LocalTime sundayOpeningHours;
-    private LocalTime sundayClosingHours;
+    private final LocalTime mondayOpeningHours;
+    private final LocalTime mondayClosingHours;
+    private final LocalTime tuesdayOpeningHours;
+    private final LocalTime tuesdayClosingHours;
+    private final LocalTime wednesdayOpeningHours;
+    private final LocalTime wednesdayClosingHours;
+    private final LocalTime thursdayOpeningHours;
+    private final LocalTime thursdayClosingHours;
+    private final LocalTime fridayOpeningHours;
+    private final LocalTime fridayClosingHours;
+    private final LocalTime saturdayOpeningHours;
+    private final LocalTime saturdayClosingHours;
+    private final LocalTime sundayOpeningHours;
+    private final LocalTime sundayClosingHours;
 
-    public OpeningHoursCreationDTO(String username, LocalTime mondayOpeningHours,LocalTime mondayClosingHours, LocalTime tuesdayOpeningHours, LocalTime tuesdayClosingHours, LocalTime wednesdayOpeningHours, LocalTime wednesdayClosingHours, LocalTime thursdayOpeningHours, LocalTime thursdayClosingHours, LocalTime fridayOpeningHours, LocalTime fridayClosingHours, LocalTime saturdayOpeningHours, LocalTime saturdayClosingHours, LocalTime sundayOpeningHours,LocalTime sundayClosingHours)
-    {
-        this.mondayOpeningHours=mondayOpeningHours;
-        this.tuesdayOpeningHours=tuesdayOpeningHours;
-        this.wednesdayOpeningHours=wednesdayOpeningHours;
-        this.thursdayOpeningHours=thursdayOpeningHours;
-        this.fridayOpeningHours=fridayOpeningHours;
-        this.saturdayOpeningHours=saturdayOpeningHours;
-        this.sundayOpeningHours=sundayOpeningHours;
-        this.mondayClosingHours=mondayClosingHours;
-        this.tuesdayClosingHours=tuesdayClosingHours;
-        this.wednesdayClosingHours=wednesdayClosingHours;
-        this.thursdayClosingHours=thursdayClosingHours;
-        this.fridayClosingHours=fridayClosingHours;
-        this.saturdayClosingHours=saturdayClosingHours;
-        this.sundayClosingHours=sundayClosingHours;
-        this.username=username;
+    public OpeningHoursCreationDTO(String username, LocalTime mondayOpeningHours, LocalTime mondayClosingHours, LocalTime tuesdayOpeningHours, LocalTime tuesdayClosingHours, LocalTime wednesdayOpeningHours, LocalTime wednesdayClosingHours, LocalTime thursdayOpeningHours, LocalTime thursdayClosingHours, LocalTime fridayOpeningHours, LocalTime fridayClosingHours, LocalTime saturdayOpeningHours, LocalTime saturdayClosingHours, LocalTime sundayOpeningHours, LocalTime sundayClosingHours) {
+        this.mondayOpeningHours = mondayOpeningHours;
+        this.tuesdayOpeningHours = tuesdayOpeningHours;
+        this.wednesdayOpeningHours = wednesdayOpeningHours;
+        this.thursdayOpeningHours = thursdayOpeningHours;
+        this.fridayOpeningHours = fridayOpeningHours;
+        this.saturdayOpeningHours = saturdayOpeningHours;
+        this.sundayOpeningHours = sundayOpeningHours;
+        this.mondayClosingHours = mondayClosingHours;
+        this.tuesdayClosingHours = tuesdayClosingHours;
+        this.wednesdayClosingHours = wednesdayClosingHours;
+        this.thursdayClosingHours = thursdayClosingHours;
+        this.fridayClosingHours = fridayClosingHours;
+        this.saturdayClosingHours = saturdayClosingHours;
+        this.sundayClosingHours = sundayClosingHours;
+        this.username = username;
 
     }
 
@@ -103,7 +99,6 @@ public class OpeningHoursCreationDTO {
     public String getUsername() {
         return username;
     }
-
 
 
     @Override

@@ -8,8 +8,8 @@ import sep3.g3.rightoversjava.model.User;
 import java.util.ArrayList;
 
 @Repository
-public interface RatingRepository extends CrudRepository<Rating, Integer>
-{
+public interface RatingRepository extends CrudRepository<Rating, Integer> {
     ArrayList<Rating> findAllByUserRated(User userRated);
+
     ArrayList<Rating> findAllByUserRating(User userRated);
 }

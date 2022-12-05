@@ -12,8 +12,8 @@ message UserCreationRequest {
   string username = 1;
   string firstname = 2;
   string password = 3;
-  AddressMessage address=4;
-  bool isBusiness=5;
+  AddressMessage address = 4;
+  bool isBusiness = 5;
 }
 
 message UserLoginRequest {
@@ -39,25 +39,25 @@ message UserMessage {
 }
 
 message OpeningHours{
-  Time mondayOpening=1;
-  Time mondayClosing=2;
-  Time tuesdayOpening=3;
-  Time tuesdayClosing=4;
-  Time wednesdayOpening=5;
-  Time wednesdayClosing=6;
-  Time thursdayOpening=7;
-  Time thursdayClosing=8;
-  Time fridayOpening=9;
-  Time fridayClosing=10;
-  Time saturdayOpening=11;
-  Time saturdayClosing=12;
-  Time sundayOpening=13;
-  Time sundayClosing=14;
+  Time mondayOpening = 1;
+  Time mondayClosing = 2;
+  Time tuesdayOpening = 3;
+  Time tuesdayClosing = 4;
+  Time wednesdayOpening = 5;
+  Time wednesdayClosing = 6;
+  Time thursdayOpening = 7;
+  Time thursdayClosing = 8;
+  Time fridayOpening = 9;
+  Time fridayClosing = 10;
+  Time saturdayOpening = 11;
+  Time saturdayClosing = 12;
+  Time sundayOpening = 13;
+  Time sundayClosing = 14;
 }
 
 message OpeningHoursRequest{
-  string username=1;
-  OpeningHours openingHours=2;
+  string username = 1;
+  OpeningHours openingHours = 2;
 }
 message ReservationMessage {
   int32 reservation_id = 1;

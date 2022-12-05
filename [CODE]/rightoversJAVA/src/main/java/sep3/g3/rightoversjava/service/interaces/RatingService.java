@@ -5,9 +5,10 @@ import sep3.g3.rightoversjava.model.dto.RatingCreationDto;
 
 import java.util.ArrayList;
 
-public interface RatingService
-{
+public interface RatingService {
     Rating addRating(RatingCreationDto rating);
+
     ArrayList<Rating> getAllByUserRated(String username);
+
     ArrayList<Rating> getAllByUserRating(String username);
 }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 @Configurable
 public class AddressServiceGrpcImpl extends AddressServiceGrpc.AddressServiceImplBase {
-    private AddressService addressService;
+    private final AddressService addressService;
 
     public AddressServiceGrpcImpl() {
         addressService = SpringContext.getBean(AddressService.class);

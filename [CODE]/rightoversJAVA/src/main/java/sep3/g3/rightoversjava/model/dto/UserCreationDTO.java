@@ -1,7 +1,6 @@
 package sep3.g3.rightoversjava.model.dto;
 
-public class UserCreationDTO
-{
+public class UserCreationDTO {
     private String firstName;
     private String username;
     private String password;
@@ -13,38 +12,32 @@ public class UserCreationDTO
     public UserCreationDTO(String firstName, String userName,
                            String password, int addressId, String streetName,
                            String streetNumber,
-                           int postalCode, String cityName, double longitude, double latitude, boolean isBusiness)
-    {
+                           int postalCode, String cityName, double longitude, double latitude, boolean isBusiness) {
         this.firstName = firstName;
         this.username = userName;
         this.password = password;
         this.addressCreationDTO = new AddressCreationDTO(addressId,
                 streetNumber, streetName, cityName, postalCode, longitude, latitude);
-        this.isBusiness=isBusiness;
+        this.isBusiness = isBusiness;
 
     }
 
-    public UserCreationDTO()
-    {
+    public UserCreationDTO() {
     }
 
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return firstName;
     }
 
-    public String getUsername()
-    {
+    public String getUsername() {
         return username;
     }
 
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
-    public AddressCreationDTO getAddressCreationDTO()
-    {
+    public AddressCreationDTO getAddressCreationDTO() {
         return addressCreationDTO;
     }
 
@@ -52,7 +45,7 @@ public class UserCreationDTO
         return isBusiness;
     }
 
-    public void setIsBusiness(boolean isBusiness){
-        this.isBusiness=isBusiness;
+    public void setIsBusiness(boolean isBusiness) {
+        this.isBusiness = isBusiness;
     }
 }
