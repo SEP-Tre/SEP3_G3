@@ -108,6 +108,37 @@ public final class UserServiceGrpc {
     return getLoginMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.ReservationMessage> getGetReservationsByUsernameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getReservationsByUsername",
+      requestType = sep3.g3.rightoversjava.grpc.generated.UserRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.ReservationMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.ReservationMessage> getGetReservationsByUsernameMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.ReservationMessage> getGetReservationsByUsernameMethod;
+    if ((getGetReservationsByUsernameMethod = UserServiceGrpc.getGetReservationsByUsernameMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetReservationsByUsernameMethod = UserServiceGrpc.getGetReservationsByUsernameMethod) == null) {
+          UserServiceGrpc.getGetReservationsByUsernameMethod = getGetReservationsByUsernameMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.ReservationMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getReservationsByUsername"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ReservationMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getReservationsByUsername"))
+              .build();
+        }
+      }
+    }
+    return getGetReservationsByUsernameMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -177,6 +208,13 @@ public final class UserServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getLoginMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getReservationsByUsername(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetReservationsByUsernameMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -200,6 +238,13 @@ public final class UserServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.UserLoginRequest,
                 sep3.g3.rightoversjava.grpc.generated.UserMessage>(
                   this, METHODID_LOGIN)))
+          .addMethod(
+            getGetReservationsByUsernameMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.UserRequest,
+                sep3.g3.rightoversjava.grpc.generated.ReservationMessage>(
+                  this, METHODID_GET_RESERVATIONS_BY_USERNAME)))
           .build();
     }
   }
@@ -241,6 +286,14 @@ public final class UserServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getLoginMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getReservationsByUsername(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getGetReservationsByUsernameMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -276,6 +329,14 @@ public final class UserServiceGrpc {
     public sep3.g3.rightoversjava.grpc.generated.UserMessage login(sep3.g3.rightoversjava.grpc.generated.UserLoginRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getLoginMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<sep3.g3.rightoversjava.grpc.generated.ReservationMessage> getReservationsByUsername(
+        sep3.g3.rightoversjava.grpc.generated.UserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getGetReservationsByUsernameMethod(), getCallOptions(), request);
     }
   }
 
@@ -321,6 +382,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_GET_BY_USERNAME = 0;
   private static final int METHODID_REGISTER = 1;
   private static final int METHODID_LOGIN = 2;
+  private static final int METHODID_GET_RESERVATIONS_BY_USERNAME = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -350,6 +412,10 @@ public final class UserServiceGrpc {
         case METHODID_LOGIN:
           serviceImpl.login((sep3.g3.rightoversjava.grpc.generated.UserLoginRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage>) responseObserver);
+          break;
+        case METHODID_GET_RESERVATIONS_BY_USERNAME:
+          serviceImpl.getReservationsByUsername((sep3.g3.rightoversjava.grpc.generated.UserRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationMessage>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -415,6 +481,7 @@ public final class UserServiceGrpc {
               .addMethod(getGetByUsernameMethod())
               .addMethod(getRegisterMethod())
               .addMethod(getLoginMethod())
+              .addMethod(getGetReservationsByUsernameMethod())
               .build();
         }
       }

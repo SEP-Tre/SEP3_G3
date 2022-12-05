@@ -39,6 +39,11 @@ public final class User {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sep3_g3_UserMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_ReservationMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_ReservationMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -48,29 +53,36 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nUser.proto\022\007sep3.g3\"\037\n\013UserRequest\022\020\n\010" +
-      "username\030\001 \001(\t\"v\n\023UserCreationRequest\022\020\n" +
-      "\010username\030\001 \001(\t\022\021\n\tfirstname\030\002 \001(\t\022\020\n\010pa" +
-      "ssword\030\003 \001(\t\022(\n\007address\030\004 \001(\0132\027.sep3.g3." +
-      "AddressMessage\"6\n\020UserLoginRequest\022\020\n\010us" +
-      "ername\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\221\001\n\016Addre" +
-      "ssMessage\022\022\n\naddress_id\030\001 \001(\005\022\016\n\006street\030" +
-      "\002 \001(\t\022\025\n\rstreet_number\030\003 \001(\t\022\021\n\tpost_cod" +
-      "e\030\004 \001(\005\022\014\n\004city\030\005 \001(\t\022\021\n\tlongitude\030\006 \001(\001" +
-      "\022\020\n\010latitude\030\007 \001(\001\"n\n\013UserMessage\022\020\n\010use" +
-      "rname\030\001 \001(\t\022\021\n\tfirstname\030\002 \001(\t\022\020\n\010passwo" +
-      "rd\030\003 \001(\t\022(\n\007address\030\004 \001(\0132\027.sep3.g3.Addr" +
-      "essMessage2\304\001\n\013UserService\022;\n\rgetByUsern" +
-      "ame\022\024.sep3.g3.UserRequest\032\024.sep3.g3.User" +
-      "Message\022>\n\010register\022\034.sep3.g3.UserCreati" +
-      "onRequest\032\024.sep3.g3.UserMessage\0228\n\005login" +
-      "\022\031.sep3.g3.UserLoginRequest\032\024.sep3.g3.Us" +
-      "erMessageB)\n%sep3.g3.rightoversjava.grpc" +
-      ".generatedP\001b\006proto3"
+      "\n\nUser.proto\022\007sep3.g3\032\016FoodPost.proto\"\037\n" +
+      "\013UserRequest\022\020\n\010username\030\001 \001(\t\"v\n\023UserCr" +
+      "eationRequest\022\020\n\010username\030\001 \001(\t\022\021\n\tfirst" +
+      "name\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022(\n\007address\030" +
+      "\004 \001(\0132\027.sep3.g3.AddressMessage\"6\n\020UserLo" +
+      "ginRequest\022\020\n\010username\030\001 \001(\t\022\020\n\010password" +
+      "\030\002 \001(\t\"\221\001\n\016AddressMessage\022\022\n\naddress_id\030" +
+      "\001 \001(\005\022\016\n\006street\030\002 \001(\t\022\025\n\rstreet_number\030\003" +
+      " \001(\t\022\021\n\tpost_code\030\004 \001(\005\022\014\n\004city\030\005 \001(\t\022\021\n" +
+      "\tlongitude\030\006 \001(\001\022\020\n\010latitude\030\007 \001(\001\"n\n\013Us" +
+      "erMessage\022\020\n\010username\030\001 \001(\t\022\021\n\tfirstname" +
+      "\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022(\n\007address\030\004 \001(" +
+      "\0132\027.sep3.g3.AddressMessage\"~\n\022Reservatio" +
+      "nMessage\022\026\n\016reservation_id\030\001 \001(\005\022,\n\tfood" +
+      "_post\030\002 \001(\0132\031.sep3.g3.FoodPostResponse\022\"" +
+      "\n\004user\030\003 \001(\0132\024.sep3.g3.UserMessage2\226\002\n\013U" +
+      "serService\022;\n\rgetByUsername\022\024.sep3.g3.Us" +
+      "erRequest\032\024.sep3.g3.UserMessage\022>\n\010regis" +
+      "ter\022\034.sep3.g3.UserCreationRequest\032\024.sep3" +
+      ".g3.UserMessage\0228\n\005login\022\031.sep3.g3.UserL" +
+      "oginRequest\032\024.sep3.g3.UserMessage\022P\n\031get" +
+      "ReservationsByUsername\022\024.sep3.g3.UserReq" +
+      "uest\032\033.sep3.g3.ReservationMessage0\001B)\n%s" +
+      "ep3.g3.rightoversjava.grpc.generatedP\001b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          sep3.g3.rightoversjava.grpc.generated.FoodPost.getDescriptor(),
         });
     internal_static_sep3_g3_UserRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -102,6 +114,13 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserMessage_descriptor,
         new java.lang.String[] { "Username", "Firstname", "Password", "Address", });
+    internal_static_sep3_g3_ReservationMessage_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_sep3_g3_ReservationMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_ReservationMessage_descriptor,
+        new java.lang.String[] { "ReservationId", "FoodPost", "User", });
+    sep3.g3.rightoversjava.grpc.generated.FoodPost.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

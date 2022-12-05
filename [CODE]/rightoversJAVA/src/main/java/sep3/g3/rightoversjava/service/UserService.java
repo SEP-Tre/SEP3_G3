@@ -9,4 +9,5 @@ public interface UserService {
 
     User login(UserLoginDTO dto) throws Exception;
     User getByUsername(String username) throws Exception;
+    ArrayList<Reservation> getReservationsByUsername(String username);
 }

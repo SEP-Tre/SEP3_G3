@@ -7,10 +7,9 @@ import sep3.g3.rightoversjava.grpc.converter.FoodPostConverterImpl;
 import sep3.g3.rightoversjava.grpc.converter.UserConverter;
 import sep3.g3.rightoversjava.grpc.converter.UserConverterImpl;
 import sep3.g3.rightoversjava.grpc.generated.*;
+import sep3.g3.rightoversjava.model.*;
 import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
 import sep3.g3.rightoversjava.service.UserService;
 
 import java.util.ArrayList;
@@ -21,11 +20,13 @@ public class UserServiceGrpcImpl
 {
     private UserService userService;
     private UserConverter userConverter;
+    private FoodPostConverter foodPostConverter;
 
     public UserServiceGrpcImpl()
     {
         userService = SpringContext.getBean(UserService.class);
         userConverter = SpringContext.getBean(UserConverterImpl.class);
+        foodPostConverter = SpringContext.getBean(FoodPostConverterImpl.class);
     }
 
     @Override
@@ -78,4 +79,37 @@ public class UserServiceGrpcImpl
         }
     }
 
+    @Override
+    public void getReservationsByUsername(UserRequest request, StreamObserver<ReservationMessage> responseObserver) {
+        // TODO: Move to converter
+        try {
+            ArrayList<Reservation> reservations =
+                    userService.getReservationsByUsername(request.getUsername());
+            ArrayList<ReservationMessage> reservationMessages = new ArrayList<>();
+            for (Reservation reservation:
+                 reservations) {
+                ReservationMessage reservationMessage = ReservationMessage.newBuilder()
+                        .setReservationId(reservation.getReservationId())
+                        .setFoodPost(foodPostConverter.getFoodPostResponse(
+                                reservation.getFoodPost()))
+                        .setUser(userConverter.getUserMessageFromUser(
+                                reservation.getUser()))
+                        .build();
+                reservationMessages.add(reservationMessage);
+            }
+            for (ReservationMessage reservationMessage:
+                 reservationMessages) {
+                responseObserver.onNext(reservationMessage);
+            }
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
+        }
+
+    }
 }

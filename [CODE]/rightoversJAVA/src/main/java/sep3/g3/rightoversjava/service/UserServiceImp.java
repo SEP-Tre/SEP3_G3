@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.*;
 import sep3.g3.rightoversjava.repository.AddressRepository;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
+import sep3.g3.rightoversjava.repository.ReservationRepository;
 import sep3.g3.rightoversjava.repository.UserRepository;
 
 import java.util.ArrayList;
@@ -15,11 +16,14 @@ public class UserServiceImp implements UserService {
     private UserRepository userRepository;
     private AddressRepository addressRepository;
     private FoodPostRepository foodPostRepository;
+    private ReservationRepository reservationRepository;
 
-    public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository, FoodPostRepository foodPostRepository) {
+    public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository,
+                          FoodPostRepository foodPostRepository, ReservationRepository reservationRepository) {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
         this.foodPostRepository = foodPostRepository;
+        this.reservationRepository = reservationRepository;
     }
 
     @Override
@@ -52,4 +56,13 @@ public class UserServiceImp implements UserService {
         User user = existingUser.get();
         return user;
     }
+
+    @Override
+    public ArrayList<Reservation> getReservationsByUsername(String username) {
+        User user = userRepository.findById(username).get();
+        ArrayList<Reservation> reservations = (ArrayList<Reservation>) reservationRepository.findAllByUser(user);
+        return reservations;
+    }
+
+
 }
