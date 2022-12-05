@@ -1,8 +1,8 @@
-package sep3.g3.rightoversjava.service;
+package sep3.g3.rightoversjava.service.interaces;
 
 import sep3.g3.rightoversjava.model.FoodPost;
-import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
-import sep3.g3.rightoversjava.model.ReservationCreationDto;
+import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.dto.ReservationCreationDto;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;

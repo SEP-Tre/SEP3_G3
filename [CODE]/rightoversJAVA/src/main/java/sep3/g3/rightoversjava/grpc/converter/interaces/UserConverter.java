@@ -1,4 +1,4 @@
-package sep3.g3.rightoversjava.grpc.converter;
+package sep3.g3.rightoversjava.grpc.converter.interaces;
 
 import sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest;
 import sep3.g3.rightoversjava.grpc.generated.UserCreationRequest;
@@ -8,8 +8,8 @@ import sep3.g3.rightoversjava.model.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
+import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
+import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
 
 public interface UserConverter
 {

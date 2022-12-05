@@ -2,6 +2,7 @@
 @using Domain.Classes
 @using Domain.DTOs
 @using HttpClients.ClientInterfaces
+@using System.Collections
 @inject IFoodPostService foodPostService
 
 @*
@@ -17,7 +18,16 @@
 }
 else
 {
-    <div class="d-flex justify-content-center my-1">
+    <AuthorizeView>
+        <NotAuthorized>
+            <div class="d-flex flex-row justify-content-center">
+                <h3>
+                    Please log in if you would like to reserve a post.
+                </h3>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+    <div class="d-flex justify-content-center">
         <div class="card-back mx-3">
             <div class="card d-flex align-items-start flex-column">
 
@@ -37,7 +47,48 @@ else
                 <h5 class="sm-text my-2">DESCRIPTION</h5>
 
                 <h5 class="bg-text">@foodPost.Description</h5>
-                <br/>
+
+
+                <h5 class="sm-text my-2">PICK UP DETAILS</h5>
+
+                <div class="d-flex align-items-start flex-column">
+                    <h5 class="bg-text">@pickupDetailsDates</h5>
+                    <h5 class="bg-text">@pickupDetailsTime</h5>
+                </div>
+
+
+                <div class="d-flex flex-row justify-content-between w-100 my-2 ">
+                    <div class="d-flex align-items-start flex-column ">
+                        <h5 class="sm-text">MONDAY</h5>
+                        <h5 class="xs-text-days">@openingHours[0]</h5>
+                    </div>
+                    <div class="d-flex align-items-start flex-column ">
+                        <h5 class="sm-text">TUESDAY</h5>
+                        <h5 class="xs-text-days">@openingHours[1]</h5>
+                    </div>
+                    <div class="d-flex align-items-start flex-column ">
+                        <h5 class="sm-text">WEDNESDAY</h5>
+                        <h5 class="xs-text-days">@openingHours[2]</h5>
+                    </div>
+                    <div class="d-flex align-items-start flex-column ">
+                        <h5 class="sm-text">THURSDAY</h5>
+                        <h5 class="xs-text-days">@openingHours[3]</h5>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between w-100 my-2">
+                    <div class="d-flex align-items-start flex-column ">
+                        <h5 class="sm-text">FRIDAY</h5>
+                        <h5 class="xs-text-days">@openingHours[4]</h5>
+                    </div>
+                    <div class="d-flex align-items-start flex-column ">
+                        <h5 class="sm-text">SATURDAY</h5>
+                        <h5 class="xs-text-days">@openingHours[5]</h5>
+                    </div>
+                    <div class="d-flex align-items-start flex-column ">
+                        <h5 class="sm-text">SUNDAY</h5>
+                        <h5 class="xs-text-days">@openingHours[6]</h5>
+                    </div>
+                </div>
                 <AuthorizeView>
                     <Authorized>
                         <div>
@@ -49,20 +100,19 @@ else
             </div>
         </div>
         <div class="card-back mx-3">
-            <div class="card d-flex justify-content-center">
-                <h3 class=bg-text>PICTURE</h3>
+            <div class="card d-flex align-items-start flex-column">
+                <RadzenImage Path="@foodPost.PictureUrl" Style="width: 100%;">
+                </RadzenImage>
+                <h5 class="sm-text my-2">CREATION DATE</h5>
+
+                <h5 class="bg-text">@creationDate</h5>
+
+                <h5 class="sm-text my-2">CREATOR</h5>
+
+                <h5 class="bg-text">@foodPost.User.UserName</h5>
             </div>
         </div>
     </div>
-    <AuthorizeView>
-        <NotAuthorized>
-            <div>
-                <h3>
-                    Please log in if you would like to reserve a post
-                </h3>
-            </div>
-        </NotAuthorized>
-    </AuthorizeView>
     <div>
         <h2>
             @errorMsg
@@ -83,12 +133,19 @@ else
     public string? username;
     public string msg;
     public string errorMsg;
+    public string pickupDetailsDates;
+    public string pickupDetailsTime;
+    public string creationDate;
+    public List<string> openingHours;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             foodPost = await foodPostService.GetSingleAsync(id);
+            DisplayInformation();
+            
+
     //title = foodPost.Title;
     // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
     //    "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
@@ -98,6 +155,31 @@ else
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private void DisplayInformation()
+    {
+        MyDate endDate = foodPost.EndDate;
+        MyDate startDate = foodPost.StartDate;
+        MyTime startTime = foodPost.StartTime;
+        MyTime endTime = foodPost.EndTime;
+        pickupDetailsDates = $"Dates: {startDate.Day}-{endDate.Day}/{endDate.Month}/{endDate.Year} ";
+        pickupDetailsTime = $"Timeframe: {startTime.Hour}:{startTime.Minutes}-{endTime.Hour}:{endTime.Minutes} ";
+
+        DateTime dateTime = foodPost.TimestampPosted;
+        creationDate = $"{dateTime.Day}/{dateTime.Month}/{dateTime.Year}";
+        
+        //Here would an if statement
+        //OpenningHours hours = await usersService.GetOpeningHoursAsync(username);
+        openingHours = new List<string>();
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
     }
 
     private void SetUsername(string? username)

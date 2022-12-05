@@ -17,5 +17,6 @@ builder.Services.AddScoped<IFoodPostService, FoodPostHttpClient>();
 builder.Services.AddScoped<IUserService, UserHttpClient>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 builder.Services.AddScoped<IAddressService, AddressServiceHttpClient>();
+builder.Services.AddScoped<IRatingService, RatingHttpClient>();
 
 await builder.Build().RunAsync();

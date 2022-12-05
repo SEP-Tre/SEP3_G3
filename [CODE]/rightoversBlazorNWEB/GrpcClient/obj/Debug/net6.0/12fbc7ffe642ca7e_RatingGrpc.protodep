@@ -1,0 +1,2 @@
+obj\Debug\net6.0\Protos/RatingGrpc.cs \
+obj\Debug\net6.0\Protos/RatingGrpcGrpc.cs: Protos/RatingGrpc.proto

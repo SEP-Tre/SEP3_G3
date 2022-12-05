@@ -1,4 +1,6 @@
-﻿public class Rating
+namespace Domain.Classes;
+
+public class Rating
 {
     public string UsernameMakingRating { get; set; }
     public string UsernameBeingRated { get; set; }
@@ -13,5 +15,11 @@
         this.Value = value;
         this.Comment = comment;
         this.TypeOfRating = typeOfRating;
+    }
+
+    public string ToString()
+    {
+        return
+            $"Value: {Value}, Comment: {Comment}, Type of rating: {TypeOfRating}, Username making rating: {UsernameMakingRating}, Username being rated: {UsernameBeingRated}";
     }
 }
