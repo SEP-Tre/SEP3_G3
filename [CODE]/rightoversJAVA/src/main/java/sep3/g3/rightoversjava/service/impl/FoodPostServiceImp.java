@@ -96,6 +96,10 @@ public class FoodPostServiceImp implements FoodPostService {
             throw new IllegalArgumentException("As a business, you cannot reserve food. " +
                     "Please use a personal account");
         }
+        if (user.getUsername().equals(foodPost.getUser().getUsername()))
+        {
+            throw new IllegalArgumentException("You can't reserve your own post. Just eat it.");
+        }
         foodPost.setPostState("reserved");
         // Because of the matching id, this should update instead of add a new tuple
         fpRepository.save(foodPost);
