@@ -18,8 +18,6 @@ public class User {
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "address_id")
     public Address address;
-    public boolean isBusiness;
-
 
     public User(UserCreationDTO dto) {
         this.username = dto.getUsername();

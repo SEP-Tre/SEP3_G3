@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vMO4XzADEEaWmwoZYG9jmFm4/yRvgvwqCKyBxu7A5Zk=",
+  "Hash": "gExDaDHn/08kD3NGUUzMdumvvrXQmDkRXwmFxTC99MU=",
   "Source": "BlazorWASM",
   "BasePath": "/",
   "Mode": "Root",
@@ -1527,7 +1527,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\thanks\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.3\\lib\\net6.0\\Microsoft.Extensions.Logging.Abstractions.dll"
+      "OriginalItemSpec": "C:\\Users\\thanks\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\lib\\net6.0\\Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
       "Identity": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.dll",
@@ -4539,23 +4539,6 @@
       "OriginalItemSpec": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Runtime.Numerics.dll"
     },
     {
-      "Identity": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\obj\\Debug\\net6.0\\build-gz\\+Y9LzQq3.gz",
-      "SourceId": "BlazorWASM",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.Extensions.Logging.Abstractions.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll"
-    },
-    {
       "Identity": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\obj\\Debug\\net6.0\\build-gz\\0nmBmoCb.gz",
       "SourceId": "BlazorWASM",
       "SourceType": "Computed",
@@ -6016,6 +5999,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.VisualBasic.dll"
+    },
+    {
+      "Identity": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\obj\\Debug\\net6.0\\build-gz\\jSEZROX7.gz",
+      "SourceId": "BlazorWASM",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Logging.Abstractions.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
       "Identity": "C:\\Users\\thanks\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\obj\\Debug\\net6.0\\build-gz\\K4T+NW5p.gz",
