@@ -10,4 +10,7 @@ public interface IUserDao
     Task<User> GetByUsername(String username);
     Task<IEnumerable<Reservation>> GetAllReservationsByUser(String username);
     Task<IEnumerable<Rating>> GetAllRatingsToUser(String username);
+
+    public Task<OpeningHours> GetOpeningHoursAsync(string username);
+    public Task<User> CreateOpeningHoursAsync(OpeningHoursCreationDto dto);
 }

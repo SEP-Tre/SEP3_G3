@@ -24,6 +24,7 @@ public class UserConverter : IUserConverter
             Firstname = dto.FirstName,
             Password = dto.Password,
             Username = dto.UserName,
+            IsBusiness = dto.IsBusiness,
             Address = new AddressMessage
             {
                 AddressId = addressDto.AddressId,
@@ -36,6 +37,12 @@ public class UserConverter : IUserConverter
             }
         };
         return userCreationRequest;
+    }
+
+    public MyTime TimeConverter(OCTime time)
+    {
+        MyTime converted = new MyTime(time.Hour,time.Minutes);
+        return converted;
     }
     
 

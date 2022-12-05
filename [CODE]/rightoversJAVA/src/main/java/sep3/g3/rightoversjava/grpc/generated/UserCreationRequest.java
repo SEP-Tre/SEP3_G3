@@ -82,6 +82,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 40: {
+
+            isBusiness_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -256,6 +261,17 @@ private static final long serialVersionUID = 0L;
     return getAddress();
   }
 
+  public static final int ISBUSINESS_FIELD_NUMBER = 5;
+  private boolean isBusiness_;
+  /**
+   * <code>bool isBusiness = 5;</code>
+   * @return The isBusiness.
+   */
+  @java.lang.Override
+  public boolean getIsBusiness() {
+    return isBusiness_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -282,6 +298,9 @@ private static final long serialVersionUID = 0L;
     if (address_ != null) {
       output.writeMessage(4, getAddress());
     }
+    if (isBusiness_ != false) {
+      output.writeBool(5, isBusiness_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -303,6 +322,10 @@ private static final long serialVersionUID = 0L;
     if (address_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getAddress());
+    }
+    if (isBusiness_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, isBusiness_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -330,6 +353,8 @@ private static final long serialVersionUID = 0L;
       if (!getAddress()
           .equals(other.getAddress())) return false;
     }
+    if (getIsBusiness()
+        != other.getIsBusiness()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -351,6 +376,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getAddress().hashCode();
     }
+    hash = (37 * hash) + ISBUSINESS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsBusiness());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -496,6 +524,8 @@ private static final long serialVersionUID = 0L;
         address_ = null;
         addressBuilder_ = null;
       }
+      isBusiness_ = false;
+
       return this;
     }
 
@@ -530,6 +560,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.address_ = addressBuilder_.build();
       }
+      result.isBusiness_ = isBusiness_;
       onBuilt();
       return result;
     }
@@ -592,6 +623,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasAddress()) {
         mergeAddress(other.getAddress());
+      }
+      if (other.getIsBusiness() != false) {
+        setIsBusiness(other.getIsBusiness());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -967,6 +1001,37 @@ private static final long serialVersionUID = 0L;
         address_ = null;
       }
       return addressBuilder_;
+    }
+
+    private boolean isBusiness_ ;
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @return The isBusiness.
+     */
+    @java.lang.Override
+    public boolean getIsBusiness() {
+      return isBusiness_;
+    }
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @param value The isBusiness to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsBusiness(boolean value) {
+      
+      isBusiness_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsBusiness() {
+      
+      isBusiness_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

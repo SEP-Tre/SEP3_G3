@@ -45,6 +45,18 @@ public class UserLogic : IUserLogic
         return userDao.GetAllRatingsToUser(username);
     }
 
+    public async Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
+    {
+        User user = await userDao.CreateOpeningHoursAsync(dto);
+        return user;
+    }
+
+    public async Task<OpeningHours> GetOpeningHoursAsync(string username)
+    {
+        OpeningHours openingHours = await userDao.GetOpeningHoursAsync(username);
+        return openingHours;
+    }
+
 
     private void ValidateRegister(UserCreationDto dto)
     {

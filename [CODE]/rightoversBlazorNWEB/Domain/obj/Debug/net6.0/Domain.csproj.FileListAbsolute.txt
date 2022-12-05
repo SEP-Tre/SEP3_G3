@@ -34,3 +34,15 @@ C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Dom
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\refint\Domain.dll
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\Domain.pdb
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\ref\Domain.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\bin\Debug\net6.0\Domain.deps.json
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\bin\Debug\net6.0\Domain.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\bin\Debug\net6.0\Domain.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\Domain.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\refint\Domain.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\Domain.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Domain\obj\Debug\net6.0\ref\Domain.dll

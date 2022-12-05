@@ -50,7 +50,7 @@ public class UsersController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    
+
     [HttpGet, Route( "Ratings")]
     public async Task<ActionResult<IEnumerable<Rating>>> GetAllRatingsToUsername([FromQuery] String username)
     {
@@ -62,6 +62,37 @@ public class UsersController : ControllerBase
         catch (Exception e)
         {
             return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPost, Route("hours")]
+    public async Task<ActionResult> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
+    {
+        try
+        {
+            User user = await userLogic.AssignOpeningHoursAsync(dto);
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    [HttpGet, Route("hours")]
+
+    public async Task<ActionResult> GetOpeningHoursAsync(string username)
+    {
+        try
+        {
+            OpeningHours openingHours = await userLogic.GetOpeningHoursAsync(username);
+            return Ok(openingHours);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
 
@@ -87,6 +118,7 @@ public class UsersController : ControllerBase
         try
         {
             User user = await userLogic.RegisterAsync(dto);
+
             return Ok(user);
         }
         catch (Exception e)

@@ -69,6 +69,14 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\Login.png",
+      "PackagePath": "staticwebassets\\img\\Login.png"
+    },
+    {
+      "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\Logout.png",
+      "PackagePath": "staticwebassets\\img\\Logout.png"
+    },
+    {
       "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },

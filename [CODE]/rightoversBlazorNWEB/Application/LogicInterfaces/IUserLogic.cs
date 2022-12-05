@@ -10,4 +10,6 @@ public interface IUserLogic
     Task<User> GetByUsername(String username);
     Task<IEnumerable<Reservation>> GetAllReservationsByUser(String username);
     Task<IEnumerable<Rating>> GetAllRatingsToUser(String username);
+    Task<OpeningHours> GetOpeningHoursAsync(string username);
+    Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto);
 }

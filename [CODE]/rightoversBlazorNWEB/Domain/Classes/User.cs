@@ -14,14 +14,17 @@ public class User
     public string Password { get; set; }
 
     public Address Address { get; set; }
+    
+    public bool IsBusiness { get; set; }
 
-    public User(int id, string firstName, string userName, string password, Address address)
+    public User(int id, string firstName, string userName, string password, Address address, bool isBusiness)
     {
         Id = id;
         FirstName = firstName;
         UserName = userName;
         Password = password;
         Address = address;
+        IsBusiness = isBusiness;
     }
 
     public User(string userName)

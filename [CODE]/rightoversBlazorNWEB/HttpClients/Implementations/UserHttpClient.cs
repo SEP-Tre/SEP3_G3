@@ -13,6 +13,10 @@ public class UserHttpClient : IUserService
     private readonly HttpClient client;
     private readonly IAddressService addressService;
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }
+   
+
+  
+
     private static string? Jwt { get; set; } = "";
 
     public UserHttpClient(HttpClient client, IAddressService addressService)
@@ -35,6 +39,33 @@ public class UserHttpClient : IUserService
         ClaimsPrincipal principal = CreateClaimsPrincipal();
 
         OnAuthStateChanged.Invoke(principal);
+    }
+    
+    public async Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
+    {
+        var response = await client.PostAsJsonAsync("/Users/hours", dto);
+        var content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode) throw new Exception(content);
+        User user = JsonSerializer.Deserialize<User>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return user;
+    }
+    
+    public async Task<OpeningHours> GetOpeningHoursAsync(string username)
+    {
+        var response = await client.PostAsJsonAsync("/Users/hours", username);
+        var content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode) throw new Exception(content);
+
+        OpeningHours openingHours = JsonSerializer.Deserialize<OpeningHours>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return openingHours;
     }
 
     public async Task<User> RegisterAsync(UserCreationDto dto)

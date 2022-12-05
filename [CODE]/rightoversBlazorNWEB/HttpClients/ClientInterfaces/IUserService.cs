@@ -16,4 +16,8 @@ public interface IUserService
     public Task<ClaimsPrincipal> GetAuthAsync();
 
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }
+
+    public Task<OpeningHours> GetOpeningHoursAsync(string username);
+
+    public Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto);
 }
