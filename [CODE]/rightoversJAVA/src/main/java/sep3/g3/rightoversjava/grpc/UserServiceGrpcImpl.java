@@ -116,17 +116,17 @@ public class UserServiceGrpcImpl
 
     }
 
-
+/*
     @Override
     public void assignOpeningHours(OpeningHoursRequest request, StreamObserver<UserMessage> responseObserver) {
 
-        OpeningHoursCreationDTO dto=converter.getOpeningHours(request);
+        OpeningHoursCreationDTO dto= userConverter.getOpeningHours(request);
 
 
 
         try {
             User user = userService.assignOpeningHours(dto);
-            UserMessage userMessage = converter.getUserMessageFromUser(user);
+            UserMessage userMessage = userConverter.getUserMessageFromUser(user);
             responseObserver.onNext(userMessage);
             responseObserver.onCompleted();
         }
@@ -139,6 +139,8 @@ public class UserServiceGrpcImpl
         }
 
     }
+
+ */
 
 
 }

@@ -77,6 +77,37 @@ public final class UserServiceGrpc {
     return getRegisterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getAssignOpeningHoursMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "assignOpeningHours",
+      requestType = sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.UserMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getAssignOpeningHoursMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage> getAssignOpeningHoursMethod;
+    if ((getAssignOpeningHoursMethod = UserServiceGrpc.getAssignOpeningHoursMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getAssignOpeningHoursMethod = UserServiceGrpc.getAssignOpeningHoursMethod) == null) {
+          UserServiceGrpc.getAssignOpeningHoursMethod = getAssignOpeningHoursMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "assignOpeningHours"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("assignOpeningHours"))
+              .build();
+        }
+      }
+    }
+    return getAssignOpeningHoursMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserLoginRequest,
       sep3.g3.rightoversjava.grpc.generated.UserMessage> getLoginMethod;
 
@@ -203,6 +234,13 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void assignOpeningHours(sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAssignOpeningHoursMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void login(sep3.g3.rightoversjava.grpc.generated.UserLoginRequest request,
         io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getLoginMethod(), responseObserver);
@@ -231,6 +269,13 @@ public final class UserServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.UserCreationRequest,
                 sep3.g3.rightoversjava.grpc.generated.UserMessage>(
                   this, METHODID_REGISTER)))
+          .addMethod(
+            getAssignOpeningHoursMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest,
+                sep3.g3.rightoversjava.grpc.generated.UserMessage>(
+                  this, METHODID_ASSIGN_OPENING_HOURS)))
           .addMethod(
             getLoginMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -281,6 +326,14 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void assignOpeningHours(sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getAssignOpeningHoursMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void login(sep3.g3.rightoversjava.grpc.generated.UserLoginRequest request,
         io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -322,6 +375,13 @@ public final class UserServiceGrpc {
     public sep3.g3.rightoversjava.grpc.generated.UserMessage register(sep3.g3.rightoversjava.grpc.generated.UserCreationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRegisterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public sep3.g3.rightoversjava.grpc.generated.UserMessage assignOpeningHours(sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getAssignOpeningHoursMethod(), getCallOptions(), request);
     }
 
     /**
@@ -372,6 +432,14 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.UserMessage> assignOpeningHours(
+        sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getAssignOpeningHoursMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.UserMessage> login(
         sep3.g3.rightoversjava.grpc.generated.UserLoginRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -381,8 +449,9 @@ public final class UserServiceGrpc {
 
   private static final int METHODID_GET_BY_USERNAME = 0;
   private static final int METHODID_REGISTER = 1;
-  private static final int METHODID_LOGIN = 2;
-  private static final int METHODID_GET_RESERVATIONS_BY_USERNAME = 3;
+  private static final int METHODID_ASSIGN_OPENING_HOURS = 2;
+  private static final int METHODID_LOGIN = 3;
+  private static final int METHODID_GET_RESERVATIONS_BY_USERNAME = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -407,6 +476,10 @@ public final class UserServiceGrpc {
           break;
         case METHODID_REGISTER:
           serviceImpl.register((sep3.g3.rightoversjava.grpc.generated.UserCreationRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage>) responseObserver);
+          break;
+        case METHODID_ASSIGN_OPENING_HOURS:
+          serviceImpl.assignOpeningHours((sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage>) responseObserver);
           break;
         case METHODID_LOGIN:
@@ -480,6 +553,7 @@ public final class UserServiceGrpc {
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
               .addMethod(getGetByUsernameMethod())
               .addMethod(getRegisterMethod())
+              .addMethod(getAssignOpeningHoursMethod())
               .addMethod(getLoginMethod())
               .addMethod(getGetReservationsByUsernameMethod())
               .build();

@@ -38,11 +38,6 @@ message UserMessage {
   AddressMessage address = 4;
 }
 
-
-message Time {
-  int32 hour = 1;
-  int32 minutes = 2;
-}
 message OpeningHours{
   Time mondayOpening=1;
   Time mondayClosing=2;

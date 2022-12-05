@@ -21,9 +21,9 @@ public class UserServiceImp implements UserService {
 
     private OpeningHoursRepository openingHoursRepository;
 
-    public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository, OpeningHoursRepository openingHoursRepository) {
     public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository,
-                          FoodPostRepository foodPostRepository, ReservationRepository reservationRepository) {
+                          FoodPostRepository foodPostRepository, OpeningHoursRepository openingHoursRepository,
+                ReservationRepository reservationRepository) {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
         this.foodPostRepository = foodPostRepository;
