@@ -1,4 +1,5 @@
 ﻿using Domain.Classes;
+using Domain.DTOs;
 using GrpcCL;
 using GrpcClient.IConverters;
 
@@ -39,5 +40,15 @@ public class FoodPostConverter : IFoodPostConverter
             startTime,
             endTime,
             new User(response.Username));
+    }
+
+    public PickUpRequest GetPickUpRequestFromDto(PickUpDto dto)
+    {
+        PickUpRequest request = new PickUpRequest
+        {
+            Id=dto.FoodPostId,
+            Username = dto.UsernamePicking
+        };
+        return request;
     }
 }

@@ -127,7 +127,10 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
             responseObserver.onCompleted();
         } catch (IllegalAccessException e)
         {
-           responseObserver.onError(e);
+            e.printStackTrace();
+           responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT
+                   .withDescription(e.getMessage())
+                   .asRuntimeException());
         }
     }
 }

@@ -102,4 +102,19 @@ public class FoodPostsController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpPost]
+    [Route("Pick")]
+    public async Task<ActionResult<FoodPost>> PickUpAsync(PickUpDto dto)
+    {
+        try
+        {
+            FoodPost fp = await fpLogic.PickUp(dto);
+            return Ok(fp);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

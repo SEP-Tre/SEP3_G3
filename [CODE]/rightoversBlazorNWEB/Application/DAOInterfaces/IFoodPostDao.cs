@@ -10,4 +10,6 @@ public interface IFoodPostDao
     public Task<FoodPost> GetSingleAsync(int id);
     public Task Reserve(FoodPostReservationDto dto);
     Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username);
+
+    Task<FoodPost> PickUp(PickUpDto dto);
 }
