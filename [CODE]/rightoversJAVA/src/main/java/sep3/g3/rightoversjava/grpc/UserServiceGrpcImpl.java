@@ -7,7 +7,7 @@ import sep3.g3.rightoversjava.grpc.converter.UserConverterImpl;
 import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
-import sep3.g3.rightoversjava.model.OpeningHoursCreationDTO;
+import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
 import sep3.g3.rightoversjava.model.dto.UserCreationDTO;

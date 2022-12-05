@@ -1,6 +1,7 @@
 ﻿syntax = "proto3";
 option csharp_namespace = "GrpcCL";
 package sep3.g3;
+import "Protos/FoodPostGrpc.proto";
 import "google/protobuf/timestamp.proto";
 
 message UserRequest {
@@ -68,10 +69,18 @@ message UserName{
   string username=1;
 }
 
+message ReservationMessage {
+  int32 reservation_id = 1;
+  FoodPostResponse food_post = 2;
+  UserMessage user = 3;
+}
+
 service UserService {
   rpc getByUsername(UserRequest) returns (UserMessage);
   rpc register(UserCreationRequest) returns (UserMessage);
   rpc login(UserLoginRequest) returns (UserMessage);
   rpc assignOpeningHours(OpeningHoursRequest) returns (UserMessage);
   rpc GetOpeningHours(UserName) returns (OpeningHoursResponse);
+  rpc getReservationsByUsername(UserRequest) returns (stream ReservationMessage);
+
 }

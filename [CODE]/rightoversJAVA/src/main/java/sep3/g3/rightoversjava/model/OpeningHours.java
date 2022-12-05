@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
+
 import javax.persistence.*;
 import java.time.LocalTime;
 
