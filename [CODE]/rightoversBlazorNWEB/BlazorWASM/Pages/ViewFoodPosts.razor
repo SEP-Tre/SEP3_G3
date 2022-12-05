@@ -22,10 +22,9 @@
 <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
                 Data="@posts" TItem="FoodPost" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
     <Columns>
-        <RadzenDataGridColumn TItem="FoodPost" Property="id" Filterable="false" Title="ID" Frozen="true" Width="80px" TextAlign="TextAlign.Center"/>
         <RadzenDataGridColumn TItem="FoodPost" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="150px" TextAlign="TextAlign.Center">
             <Template Context="data">
-                <RadzenImage Path="img/yummysammy.jpg"class="rz-gravatar"/>
+                <RadzenImage Path=@data.PictureUrl class="rz-gravatar"/>
 
             </Template>
 
