@@ -29,7 +29,7 @@ public class RatingLogic : IRatingLogic
 
     public async Task<List<Rating>> GetAllByUserRating(string username)
     {
-        var ratings = await ratingDao.GetAllByUserRated(username);
+        var ratings = await ratingDao.GetAllByUserRating(username);
 
         return ratings;
     }
