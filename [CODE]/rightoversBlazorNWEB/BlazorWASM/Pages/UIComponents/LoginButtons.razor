@@ -1,10 +1,18 @@
 ﻿@using HttpClients.ClientInterfaces
+@using BlazorWASM.Pages.UIComponents
 @inject NavigationManager navMgr
 @inject IUserService userService
 @namespace Login
 <AuthorizeView>
     <Authorized>
-        <img class="icon" src="img/Logout.png" @onclick="Logout"/>
+        <img class="icon" src="img/Logout.png" @onclick="showDialog"/>
+        <Modal ShowModal="showModal">
+            <p align="center">@msg</p>
+            <div class="w-100 d-flex flex-row justify-content-around">
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Logout()) Text="Yes, log out!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => CloseDialog()) Text="Oops, missclick!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
+            </div>
+        </Modal>
     </Authorized>
     <NotAuthorized>
         <img class="icon" src="img/Login.png" @onclick="Login"/>
@@ -13,9 +21,24 @@
 
 @code {
 
+    private bool showModal;
+    private string msg;
+
+
     private void Login()
     {
         navMgr.NavigateTo("/Login");
+    }
+
+    private void showDialog()
+    {
+        msg = "Are you sure you want to log out?";
+        showModal = true;
+    }
+
+    private void CloseDialog()
+    {
+        showModal = false;
     }
 
     private async Task Logout()
