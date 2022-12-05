@@ -59,6 +59,11 @@ public final class FoodPost {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sep3_g3_ReservationResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_PickUpRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_PickUpRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -92,18 +97,20 @@ public final class FoodPost {
       "iller\030\001 \001(\010\"\030\n\nFoodPostID\022\n\n\002id\030\001 \001(\005\"<\n" +
       "\023FoodPostReservation\022\020\n\010username\030\001 \001(\t\022\023" +
       "\n\013foodpost_id\030\002 \001(\005\"%\n\023ReservationRespon" +
-      "se\022\016\n\006filler\030\001 \001(\0102\367\002\n\017FoodPostService\022S" +
-      "\n\026getFoodPostsByUsername\022\034.sep3.g3.FPByU" +
-      "sernameRequest\032\031.sep3.g3.FoodPostRespons" +
-      "e0\001\022;\n\004post\022\030.sep3.g3.FoodPostRequest\032\031." +
-      "sep3.g3.FoodPostResponse\022F\n\017getAllFoodPo" +
-      "sts\022\026.sep3.g3.GetAllRequest\032\031.sep3.g3.Fo" +
-      "odPostResponse0\001\022C\n\021getSingleFoodPost\022\023." +
-      "sep3.g3.FoodPostID\032\031.sep3.g3.FoodPostRes" +
-      "ponse\022E\n\007reserve\022\034.sep3.g3.FoodPostReser" +
-      "vation\032\034.sep3.g3.ReservationResponseB)\n%" +
-      "sep3.g3.rightoversjava.grpc.generatedP\001b" +
-      "\006proto3"
+      "se\022\016\n\006filler\030\001 \001(\010\"-\n\rPickUpRequest\022\n\n\002i" +
+      "d\030\001 \001(\005\022\020\n\010username\030\002 \001(\t2\264\003\n\017FoodPostSe" +
+      "rvice\022S\n\026getFoodPostsByUsername\022\034.sep3.g" +
+      "3.FPByUsernameRequest\032\031.sep3.g3.FoodPost" +
+      "Response0\001\022;\n\004post\022\030.sep3.g3.FoodPostReq" +
+      "uest\032\031.sep3.g3.FoodPostResponse\022F\n\017getAl" +
+      "lFoodPosts\022\026.sep3.g3.GetAllRequest\032\031.sep" +
+      "3.g3.FoodPostResponse0\001\022C\n\021getSingleFood" +
+      "Post\022\023.sep3.g3.FoodPostID\032\031.sep3.g3.Food" +
+      "PostResponse\022E\n\007reserve\022\034.sep3.g3.FoodPo" +
+      "stReservation\032\034.sep3.g3.ReservationRespo" +
+      "nse\022;\n\006pickUp\022\026.sep3.g3.PickUpRequest\032\031." +
+      "sep3.g3.FoodPostResponseB)\n%sep3.g3.righ" +
+      "toversjava.grpc.generatedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -164,6 +171,12 @@ public final class FoodPost {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_ReservationResponse_descriptor,
         new java.lang.String[] { "Filler", });
+    internal_static_sep3_g3_PickUpRequest_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_sep3_g3_PickUpRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_PickUpRequest_descriptor,
+        new java.lang.String[] { "Id", "Username", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

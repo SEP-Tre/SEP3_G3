@@ -7,6 +7,7 @@ import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.dto.PickUpDto;
 import sep3.g3.rightoversjava.model.dto.ReservationCreationDto;
 import sep3.g3.rightoversjava.service.interaces.FoodPostService;
 
@@ -111,6 +112,22 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
             responseObserver.onCompleted();
         } catch (Exception e) {
             responseObserver.onError(e);
+        }
+    }
+
+    @Override
+    public void pickUp(PickUpRequest request, StreamObserver<FoodPostResponse> responseObserver)
+    {
+        //so I do the converter and service, let's start with service.
+        PickUpDto dto = converter.getPickUpDtoFromPickUpRequest(request);
+        try
+        {
+            FoodPost foodPost = service.pickUp(dto);
+            responseObserver.onNext(converter.getFoodPostResponse(foodPost));
+            responseObserver.onCompleted();
+        } catch (IllegalAccessException e)
+        {
+           responseObserver.onError(e);
         }
     }
 }

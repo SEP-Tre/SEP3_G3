@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.generated.Date;
 import sep3.g3.rightoversjava.grpc.generated.FoodPostResponse;
+import sep3.g3.rightoversjava.grpc.generated.PickUpRequest;
 import sep3.g3.rightoversjava.grpc.generated.Time;
 import sep3.g3.rightoversjava.model.FoodPost;
+import sep3.g3.rightoversjava.model.dto.PickUpDto;
 
 import java.time.Instant;
 
@@ -57,5 +59,11 @@ public class FoodPostConverterImpl implements FoodPostConverter {
                 .setStartTime(st)
                 .setEndTime(et)
                 .setUsername(created.getUser().username).build();
+    }
+
+    @Override
+    public PickUpDto getPickUpDtoFromPickUpRequest(PickUpRequest request)
+    {
+        return new PickUpDto(request.getId(), request.getUsername());
     }
 }

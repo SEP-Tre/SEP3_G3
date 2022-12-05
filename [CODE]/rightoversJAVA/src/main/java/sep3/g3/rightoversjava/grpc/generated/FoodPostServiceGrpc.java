@@ -170,6 +170,37 @@ public final class FoodPostServiceGrpc {
     return getReserveMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.PickUpRequest,
+      sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getPickUpMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "pickUp",
+      requestType = sep3.g3.rightoversjava.grpc.generated.PickUpRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.FoodPostResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.PickUpRequest,
+      sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getPickUpMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.PickUpRequest, sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getPickUpMethod;
+    if ((getPickUpMethod = FoodPostServiceGrpc.getPickUpMethod) == null) {
+      synchronized (FoodPostServiceGrpc.class) {
+        if ((getPickUpMethod = FoodPostServiceGrpc.getPickUpMethod) == null) {
+          FoodPostServiceGrpc.getPickUpMethod = getPickUpMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.PickUpRequest, sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "pickUp"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.PickUpRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.FoodPostResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FoodPostServiceMethodDescriptorSupplier("pickUp"))
+              .build();
+        }
+      }
+    }
+    return getPickUpMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -253,6 +284,13 @@ public final class FoodPostServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReserveMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void pickUp(sep3.g3.rightoversjava.grpc.generated.PickUpRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPickUpMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -290,6 +328,13 @@ public final class FoodPostServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.FoodPostReservation,
                 sep3.g3.rightoversjava.grpc.generated.ReservationResponse>(
                   this, METHODID_RESERVE)))
+          .addMethod(
+            getPickUpMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.PickUpRequest,
+                sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>(
+                  this, METHODID_PICK_UP)))
           .build();
     }
   }
@@ -347,6 +392,14 @@ public final class FoodPostServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getReserveMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void pickUp(sep3.g3.rightoversjava.grpc.generated.PickUpRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getPickUpMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -399,6 +452,13 @@ public final class FoodPostServiceGrpc {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getReserveMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public sep3.g3.rightoversjava.grpc.generated.FoodPostResponse pickUp(sep3.g3.rightoversjava.grpc.generated.PickUpRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getPickUpMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -438,6 +498,14 @@ public final class FoodPostServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getReserveMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> pickUp(
+        sep3.g3.rightoversjava.grpc.generated.PickUpRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getPickUpMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_FOOD_POSTS_BY_USERNAME = 0;
@@ -445,6 +513,7 @@ public final class FoodPostServiceGrpc {
   private static final int METHODID_GET_ALL_FOOD_POSTS = 2;
   private static final int METHODID_GET_SINGLE_FOOD_POST = 3;
   private static final int METHODID_RESERVE = 4;
+  private static final int METHODID_PICK_UP = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -482,6 +551,10 @@ public final class FoodPostServiceGrpc {
         case METHODID_RESERVE:
           serviceImpl.reserve((sep3.g3.rightoversjava.grpc.generated.FoodPostReservation) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationResponse>) responseObserver);
+          break;
+        case METHODID_PICK_UP:
+          serviceImpl.pickUp((sep3.g3.rightoversjava.grpc.generated.PickUpRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -549,6 +622,7 @@ public final class FoodPostServiceGrpc {
               .addMethod(getGetAllFoodPostsMethod())
               .addMethod(getGetSingleFoodPostMethod())
               .addMethod(getReserveMethod())
+              .addMethod(getPickUpMethod())
               .build();
         }
       }

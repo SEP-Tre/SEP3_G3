@@ -5,6 +5,7 @@ import sep3.g3.rightoversjava.model.FoodPost;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
 import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.dto.PickUpDto;
 import sep3.g3.rightoversjava.model.dto.ReservationCreationDto;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
 import sep3.g3.rightoversjava.repository.ReservationRepository;
@@ -105,5 +106,35 @@ public class FoodPostServiceImp implements FoodPostService {
         fpRepository.save(foodPost);
         Reservation reservation = new Reservation(foodPost, user);
         reservationRepository.save(reservation);
+    }
+
+    @Override
+    public FoodPost pickUp(PickUpDto dto) throws IllegalAccessException
+    {
+        Optional<FoodPost> foodPost = fpRepository.findById(dto.getId());
+        if (foodPost.isEmpty())
+        {
+            throw new NoSuchElementException("Food post not found.");
+        }
+        FoodPost fpToBeUpdated = foodPost.get();
+        if (fpToBeUpdated.getPostState().equals("closed"))
+        {
+            throw new IllegalAccessException("This food post is already picked up!");
+        }
+        if (fpToBeUpdated.getPostState().equals("posted"))
+        {
+            throw new IllegalAccessException("This food post is not reserved!");
+        }
+
+        Reservation reservation = reservationRepository.findByFoodPost(fpToBeUpdated);
+        if(!dto.getUsername().equals(reservation.getUser().getUsername()))
+        {
+            throw new IllegalAccessException("The user trying to pick up is not the one who reserved!");
+        }
+
+
+        fpToBeUpdated.setPostState("closed");
+        FoodPost udpatedFp = fpRepository.save(fpToBeUpdated);
+        return udpatedFp;
     }
 }
