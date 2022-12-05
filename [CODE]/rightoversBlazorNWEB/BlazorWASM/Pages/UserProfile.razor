@@ -3,6 +3,7 @@
 @using Domain.Classes
 @inject IFoodPostService foodPostService
 @inject IUserService userService
+@inject IRatingService ratingService
 @inject NavigationManager navMgr
 
 @if (foodPosts == null)
@@ -120,7 +121,7 @@ else
                         <Template Context="rating">
                             <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
                                 <div class="row">
-                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value/>
+                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value />
                                 </div>
                                 <div class="row">
                                     <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
@@ -172,21 +173,7 @@ else
         initCookPicUrls();
         user = await userService.GetUserByUsername(username);
         foodPosts = await foodPostService.GetAllFoodPostsByUser(username);
-
-    //PLACEHOLDER RATINGS
-        var rating1 = new Rating("pussyopeener", "soulie", 1, "She is a bitch", "cook");
-        var rating2 = new Rating("pussyopeener", "soulie", 2, "kinda ew", "cook");
-        var rating3 = new Rating("pussyopeener", "soulie", 3, "edible", "cook");
-        var rating4 = new Rating("pussyopeener", "soulie", 4, "good! but unhealthy", "cook");
-        var rating5 = new Rating("opener", "soulie", 5, "She is a cutie", "cook");
-
-        ratings = new List<Rating>{
-            rating1,
-            rating2,
-            rating3,
-            rating4,
-            rating5
-        };
+        ratings = await ratingService.GetAllByUserRated(username);
 
         avgCookerRating = GetAvgCookerRating();
         avgPickerRating = GetAvgPickerRating();
