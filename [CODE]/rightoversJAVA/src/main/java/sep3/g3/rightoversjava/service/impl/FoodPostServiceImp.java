@@ -1,10 +1,15 @@
-package sep3.g3.rightoversjava.service;
+package sep3.g3.rightoversjava.service.impl;
 
 import org.springframework.stereotype.Service;
-import sep3.g3.rightoversjava.model.*;
+import sep3.g3.rightoversjava.model.FoodPost;
+import sep3.g3.rightoversjava.model.Reservation;
+import sep3.g3.rightoversjava.model.User;
+import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.dto.ReservationCreationDto;
 import sep3.g3.rightoversjava.repository.FoodPostRepository;
 import sep3.g3.rightoversjava.repository.ReservationRepository;
 import sep3.g3.rightoversjava.repository.UserRepository;
+import sep3.g3.rightoversjava.service.interaces.FoodPostService;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -13,8 +18,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
-public class FoodPostServiceImp implements FoodPostService
-{
+public class FoodPostServiceImp implements FoodPostService {
 
     private final FoodPostRepository fpRepository;
     private final UserRepository userRepository;
@@ -48,22 +52,28 @@ public class FoodPostServiceImp implements FoodPostService
                 dto.getStartTime(),
                 dto.getEndTime(),
                 user
-                );
+        );
         return fpRepository.save(fpObj);
     }
 
     @Override
-    public ArrayList<FoodPost> getAllFoodPosts()
-    {
+    public ArrayList<FoodPost> getAllFoodPosts() {
         return (ArrayList<FoodPost>) fpRepository.findAll();
     }
 
     @Override
-    public FoodPost getSingleFoodPost(int id) throws NoSuchElementException
-    {
+    public ArrayList<FoodPost> getAllFoodPostsByUsername(String username) throws Exception {
+        Optional<User> existingUser = userRepository.findById(username);
+        if (existingUser == null) {
+            throw new Exception("User not found.");
+        }
+        return new ArrayList<>(fpRepository.getFoodPostsByUser(existingUser.get()));
+    }
+
+    @Override
+    public FoodPost getSingleFoodPost(int id) throws NoSuchElementException {
         Optional<FoodPost> foodPostOptional = fpRepository.findById(id);
-        if (foodPostOptional.isEmpty())
-        {
+        if (foodPostOptional.isEmpty()) {
             throw new NoSuchElementException("Food post with such ID does not exist.");
         }
         return foodPostOptional.get();
@@ -78,12 +88,17 @@ public class FoodPostServiceImp implements FoodPostService
         if (!foodPost.getPostState().equals("posted")) {
             throw new IllegalArgumentException("This post is not available to reserve");
         }
-        foodPost.setPostState("reserved");
-        // Because of the matching id, this should update instead of add a new tuple
-        fpRepository.save(foodPost);
 
         // Save the reservation to the table
         User user = userRepository.findById(dto.getUsername()).get();
+        if (user.isBusiness())
+        {
+            throw new IllegalArgumentException("As a business, you cannot reserve food. " +
+                    "Please use a personal account");
+        }
+        foodPost.setPostState("reserved");
+        // Because of the matching id, this should update instead of add a new tuple
+        fpRepository.save(foodPost);
         Reservation reservation = new Reservation(foodPost, user);
         reservationRepository.save(reservation);
     }

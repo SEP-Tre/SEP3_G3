@@ -1,8 +1,8 @@
 package sep3.g3.rightoversjava.grpc.converter;
 
 import com.google.protobuf.Timestamp;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.generated.Date;
 import sep3.g3.rightoversjava.grpc.generated.FoodPostResponse;
 import sep3.g3.rightoversjava.grpc.generated.Time;
@@ -11,10 +11,8 @@ import sep3.g3.rightoversjava.model.FoodPost;
 import java.time.Instant;
 
 @Service
-public class FoodPostConverterImpl implements FoodPostConverter
-{
-    public FoodPostResponse getFoodPostResponse(FoodPost created)
-    {
+public class FoodPostConverterImpl implements FoodPostConverter {
+    public FoodPostResponse getFoodPostResponse(FoodPost created) {
         Instant instant =
                 created.getTimestamp_posted()
                         .toInstant();

@@ -1,18 +1,18 @@
 package sep3.g3.rightoversjava.grpc.converter;
 
 import org.springframework.stereotype.Service;
-import sep3.g3.rightoversjava.grpc.generated.AddressMessage;
-import sep3.g3.rightoversjava.grpc.generated.UserCreationRequest;
-import sep3.g3.rightoversjava.grpc.generated.UserLoginRequest;
-import sep3.g3.rightoversjava.grpc.generated.UserMessage;
+import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
+import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.Address;
+import sep3.g3.rightoversjava.model.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.UserCreationDTO;
-import sep3.g3.rightoversjava.model.UserLoginDTO;
+import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
+import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
+
+import java.time.LocalTime;
 
 @Service
-public class UserConverterImpl implements UserConverter
-{
+public class UserConverterImpl implements UserConverter {
     public UserMessage getUserMessageFromUser(User user) {
 
         Address address = user.getAddress();
@@ -38,9 +38,8 @@ public class UserConverterImpl implements UserConverter
     }
 
     @Override
-    public UserCreationDTO getUserCreationDtoFromRequest(UserCreationRequest request)
-    {
-        UserCreationDTO dto =new UserCreationDTO(
+    public UserCreationDTO getUserCreationDtoFromRequest(UserCreationRequest request) {
+        UserCreationDTO dto = new UserCreationDTO(
                 request.getFirstname(),
                 request.getUsername(),
                 request.getPassword(),
@@ -50,17 +49,76 @@ public class UserConverterImpl implements UserConverter
                 request.getAddress().getPostCode(),
                 request.getAddress().getCity(),
                 request.getAddress().getLongitude(),
-                request.getAddress().getLatitude()
+                request.getAddress().getLatitude(),
+                request.getIsBusiness()
         );
         return dto;
     }
 
     @Override
-    public UserLoginDTO getUserLoginDtoFromRequest(UserLoginRequest request)
-    {
+    public UserLoginDTO getUserLoginDtoFromRequest(UserLoginRequest request) {
         UserLoginDTO dto = new UserLoginDTO(
                 request.getUsername(),
                 request.getPassword());
+        return dto;
+    }
+
+    @Override
+    public OpeningHoursCreationDTO getOpeningHours(OpeningHoursRequest request) {
+
+        Time mondayOpening = request.getOpeningHours().getMondayOpening();
+        Time mondayClosing = request.getOpeningHours().getMondayClosing();
+        Time tuesdayOpening = request.getOpeningHours().getTuesdayOpening();
+        Time tuesdayClosing = request.getOpeningHours().getTuesdayClosing();
+        Time wednesdayOpening = request.getOpeningHours().getWednesdayOpening();
+        Time wednesdayClosing = request.getOpeningHours().getWednesdayClosing();
+        Time thursdayOpening = request.getOpeningHours().getThursdayOpening();
+        Time thursdayClosing = request.getOpeningHours().getThursdayClosing();
+        Time fridayOpening = request.getOpeningHours().getFridayOpening();
+        Time fridayClosing = request.getOpeningHours().getFridayClosing();
+        Time saturdayOpening = request.getOpeningHours().getSaturdayOpening();
+        Time saturdayClosing = request.getOpeningHours().getSaturdayClosing();
+        Time sundayOpening = request.getOpeningHours().getSundayOpening();
+        Time sundayClosing = request.getOpeningHours().getSundayClosing();
+
+
+        LocalTime mondayOpeningTime = LocalTime.of(mondayOpening.getHour(), mondayOpening.getMinutes());
+        LocalTime mondayClosingTime = LocalTime.of(mondayClosing.getHour(), mondayClosing.getMinutes());
+        LocalTime tuesdayOpeningTime = LocalTime.of(tuesdayOpening.getHour(), tuesdayOpening.getMinutes());
+        LocalTime tuesdayClosingTime = LocalTime.of(tuesdayClosing.getHour(), tuesdayClosing.getMinutes());
+        LocalTime wednesdayOpeningTime = LocalTime.of(wednesdayOpening.getHour(), wednesdayOpening.getMinutes());
+        LocalTime wednesdayClosingTime = LocalTime.of(wednesdayClosing.getHour(), wednesdayClosing.getMinutes());
+        LocalTime thursdayOpeningTime = LocalTime.of(thursdayOpening.getHour(), thursdayOpening.getMinutes());
+        LocalTime thursdayClosingTime = LocalTime.of(thursdayClosing.getHour(), thursdayClosing.getMinutes());
+        LocalTime fridayOpeningTime = LocalTime.of(fridayOpening.getHour(), fridayOpening.getMinutes());
+        LocalTime fridayClosingTime = LocalTime.of(fridayClosing.getHour(), fridayClosing.getMinutes());
+        LocalTime saturdayOpeningTime = LocalTime.of(saturdayOpening.getHour(), saturdayOpening.getMinutes());
+        LocalTime saturdayClosingTime = LocalTime.of(saturdayClosing.getHour(), saturdayClosing.getMinutes());
+        LocalTime sundayOpeningTime = LocalTime.of(sundayOpening.getHour(), sundayOpening.getMinutes());
+        LocalTime sundayClosingTime = LocalTime.of(sundayClosing.getHour(), sundayClosing.getMinutes());
+
+
+        OpeningHoursCreationDTO dto = new OpeningHoursCreationDTO(
+
+
+                request.getUsername(),
+                mondayOpeningTime,
+                mondayClosingTime,
+                tuesdayOpeningTime,
+                tuesdayClosingTime,
+                wednesdayOpeningTime,
+                wednesdayClosingTime,
+                thursdayOpeningTime,
+                thursdayClosingTime,
+                fridayOpeningTime,
+                fridayClosingTime,
+                saturdayOpeningTime,
+                saturdayClosingTime,
+                sundayOpeningTime,
+                sundayClosingTime
+
+        );
+
         return dto;
     }
 

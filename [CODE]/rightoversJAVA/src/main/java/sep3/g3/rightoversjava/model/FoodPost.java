@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -32,14 +34,6 @@ public class FoodPost {
     @ManyToOne
     @JoinColumn(name = "username")
     private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public FoodPost(int post_id, String title, String category_, String description, String pictureUrl, int daysUntilExpired, String postState, Timestamp timestamp_posted, LocalDate startDate, LocalDate endDate, LocalTime startTime, LocalTime endTime, User user) {
         this.post_id = post_id;
@@ -74,6 +68,14 @@ public class FoodPost {
 
     public FoodPost() {
 
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getPost_id() {

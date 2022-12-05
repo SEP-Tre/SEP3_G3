@@ -15,6 +15,37 @@ public final class FoodPostServiceGrpc {
   public static final String SERVICE_NAME = "sep3.g3.FoodPostService";
 
   // Static method descriptors that strictly reflect the proto.
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest,
+      sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetFoodPostsByUsernameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getFoodPostsByUsername",
+      requestType = sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.FoodPostResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest,
+      sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetFoodPostsByUsernameMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest, sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetFoodPostsByUsernameMethod;
+    if ((getGetFoodPostsByUsernameMethod = FoodPostServiceGrpc.getGetFoodPostsByUsernameMethod) == null) {
+      synchronized (FoodPostServiceGrpc.class) {
+        if ((getGetFoodPostsByUsernameMethod = FoodPostServiceGrpc.getGetFoodPostsByUsernameMethod) == null) {
+          FoodPostServiceGrpc.getGetFoodPostsByUsernameMethod = getGetFoodPostsByUsernameMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest, sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getFoodPostsByUsername"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.FoodPostResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FoodPostServiceMethodDescriptorSupplier("getFoodPostsByUsername"))
+              .build();
+        }
+      }
+    }
+    return getGetFoodPostsByUsernameMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FoodPostRequest,
       sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getPostMethod;
 
@@ -189,6 +220,13 @@ public final class FoodPostServiceGrpc {
 
     /**
      */
+    public void getFoodPostsByUsername(sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFoodPostsByUsernameMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void post(sep3.g3.rightoversjava.grpc.generated.FoodPostRequest request,
         io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPostMethod(), responseObserver);
@@ -217,6 +255,13 @@ public final class FoodPostServiceGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+          .addMethod(
+            getGetFoodPostsByUsernameMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest,
+                sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>(
+                  this, METHODID_GET_FOOD_POSTS_BY_USERNAME)))
           .addMethod(
             getPostMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -265,6 +310,14 @@ public final class FoodPostServiceGrpc {
 
     /**
      */
+    public void getFoodPostsByUsername(sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getGetFoodPostsByUsernameMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void post(sep3.g3.rightoversjava.grpc.generated.FoodPostRequest request,
         io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -308,6 +361,14 @@ public final class FoodPostServiceGrpc {
     protected FoodPostServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new FoodPostServiceBlockingStub(channel, callOptions);
+    }
+
+    /**
+     */
+    public java.util.Iterator<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getFoodPostsByUsername(
+        sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getGetFoodPostsByUsernameMethod(), getCallOptions(), request);
     }
 
     /**
@@ -379,10 +440,11 @@ public final class FoodPostServiceGrpc {
     }
   }
 
-  private static final int METHODID_POST = 0;
-  private static final int METHODID_GET_ALL_FOOD_POSTS = 1;
-  private static final int METHODID_GET_SINGLE_FOOD_POST = 2;
-  private static final int METHODID_RESERVE = 3;
+  private static final int METHODID_GET_FOOD_POSTS_BY_USERNAME = 0;
+  private static final int METHODID_POST = 1;
+  private static final int METHODID_GET_ALL_FOOD_POSTS = 2;
+  private static final int METHODID_GET_SINGLE_FOOD_POST = 3;
+  private static final int METHODID_RESERVE = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -401,6 +463,10 @@ public final class FoodPostServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_GET_FOOD_POSTS_BY_USERNAME:
+          serviceImpl.getFoodPostsByUsername((sep3.g3.rightoversjava.grpc.generated.FPByUsernameRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>) responseObserver);
+          break;
         case METHODID_POST:
           serviceImpl.post((sep3.g3.rightoversjava.grpc.generated.FoodPostRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>) responseObserver);
@@ -478,6 +544,7 @@ public final class FoodPostServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new FoodPostServiceFileDescriptorSupplier())
+              .addMethod(getGetFoodPostsByUsernameMethod())
               .addMethod(getPostMethod())
               .addMethod(getGetAllFoodPostsMethod())
               .addMethod(getGetSingleFoodPostMethod())

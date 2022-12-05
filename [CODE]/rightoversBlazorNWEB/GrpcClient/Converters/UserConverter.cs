@@ -7,16 +7,24 @@ namespace GrpcClient.Converters;
 
 public class UserConverter : IUserConverter
 {
+    public UserRequest GetUserRequestFromUsername(string username)
+    {
+        var userRequest = new UserRequest{
+            Username = username
+        };
+
+        return userRequest;
+    }
+
     public UserCreationRequest GetUserCreationRequestFromDto(UserCreationDto dto)
     {
-        AddressCreationDto addressDto = dto.AddressCreationDto;
-        UserCreationRequest userCreationRequest = new UserCreationRequest
-        {
+        var addressDto = dto.AddressCreationDto;
+        var userCreationRequest = new UserCreationRequest{
             Firstname = dto.FirstName,
             Password = dto.Password,
             Username = dto.UserName,
-            Address = new AddressMessage
-            {
+            IsBusiness = dto.IsBusiness,
+            Address = new AddressMessage{
                 AddressId = addressDto.AddressId,
                 City = addressDto.City,
                 Latitude = addressDto.Latitude,
@@ -26,30 +34,39 @@ public class UserConverter : IUserConverter
                 StreetNumber = addressDto.StreetNumber
             }
         };
+
         return userCreationRequest;
     }
-    
+
+    public MyTime TimeConverter(OCTime time)
+    {
+        var converted = new MyTime(time.Hour, time.Minutes);
+
+        return converted;
+    }
+
 
     public User GetUserFromUserMessage(UserMessage userMessage)
     {
-        AddressMessage addressMessage = userMessage.Address;
-        User user = new User
-        {
+        var addressMessage = userMessage.Address;
+        var user = new User{
             FirstName = userMessage.Firstname,
             UserName = userMessage.Username,
             Password = userMessage.Password,
-            Address = new Address(addressMessage.AddressId,  addressMessage.StreetNumber, addressMessage.Street, addressMessage.PostCode, addressMessage.City, addressMessage.Longitude, addressMessage.Latitude)
+            Address = new Address(addressMessage.AddressId, addressMessage.StreetNumber, addressMessage.Street,
+                addressMessage.PostCode, addressMessage.City, addressMessage.Longitude, addressMessage.Latitude)
         };
+
         return user;
     }
 
     public UserLoginRequest GetUserLoginRequestFromDto(UserLoginDto dto)
     {
-        UserLoginRequest request = new UserLoginRequest
-        {
+        var request = new UserLoginRequest{
             Username = dto.UserName,
             Password = dto.Password
         };
+
         return request;
     }
 }

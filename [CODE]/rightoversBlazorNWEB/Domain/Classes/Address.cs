@@ -2,13 +2,6 @@
 
 public class Address
 {
-    public int AddressId { get; set; }
-    public string StreetNumber { get; set; }
-    public string Street { get; set; }
-    public int PostCode { get; set; }
-    public string City { get; set; }
-    public double Longitude { get; set; }
-    public double Latitude { get; set; }
 
     public Address(int addressId, string streetNumber, string street, int postCode, string city, double longitude,
         double latitude)
@@ -42,4 +35,12 @@ public class Address
     public Address()
     {
     }
+
+    public int AddressId { get; set; }
+    public string StreetNumber { get; set; }
+    public string Street { get; set; }
+    public int PostCode { get; set; }
+    public string City { get; set; }
+    public double Longitude { get; set; }
+    public double Latitude { get; set; }
 }

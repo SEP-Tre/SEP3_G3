@@ -1,0 +1,242 @@
+﻿@page "/UserProfile/{username}"
+@using HttpClients.ClientInterfaces
+@using Domain.Classes
+@inject IFoodPostService foodPostService
+@inject IUserService userService
+@inject IRatingService ratingService
+@inject NavigationManager navMgr
+
+@if (foodPosts == null)
+{
+    <p>Loading food posts...</p>
+}
+else if (user == null)
+{
+    <p>Loading user or user not found</p>
+}
+else
+{
+    <div id="profile_header" class="w-75 mx-auto mt-3">
+        <div class="d-flex flex-row justify-content-between align-items-center">
+            <div class="d-flex flex-row align-items-center">
+                <img class="pfp me-3" src="https://media.tenor.com/Mhc96kB5_vYAAAAC/tonton-friends.gif" alt="pfp"/>
+                <div class="d-flex flex-column">
+                    <h2 class="firstname">@user.FirstName</h2>
+                    <h3 class="username">@user.UserName</h3>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-content-center ratings">
+                <div class="d-flex flex-row ">
+                    <iconify-icon class="pt-1" icon="tabler:chef-hat" width="25" height="25"></iconify-icon>
+                    <p> cook rating: </p><span class="d-inline px-2" id="cook_rating">@avgCookerRating</span>
+                </div>
+                <div id="picker_rating" class="d-flex flex-row ">
+                    <iconify-icon class="pt-1" icon="icon-park-solid:knife-fork" width="25" height="25" style="color: white;"></iconify-icon>
+                    <p> picker rating: </p><span class="d-inline px-2"> @avgPickerRating</span>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div id="profile_body">
+        <RadzenTabs TabPosition="@tabPosition" Class="w-75 my-5 mx-auto" RenderMode="TabRenderMode.Client">
+            <Tabs>
+                <RadzenTabsItem Text="Food Posts">
+                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@foodPosts" TItem="FoodPost">
+                        <Template Context="foodPost">
+                            <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@(foodPost.StartDate.DayAndMonth() + "-" + foodPost.EndDate.DayAndMonth()) Class="me-1" IsPill="true"/>
+                                    </div>
+                                    <div class="col-md-6 text-end">
+                                        <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@(foodPost.StartTime.ToString() + " - " + foodPost.EndTime.ToString()) Class="me-1" IsPill="true"/>
+                                        @* <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@(foodPost.Category)</RadzenText> *@
+                                    </div>
+                                    @*
+                                    <div class="col-md-4 text-end">
+                                        <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@("USERNAME") IsPill="true" />
+                                    </div>
+                                    *@
+                                </div>
+                                @*<hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;" />*@
+                                <div class="d-flex flex-row align-items-center">
+                                    @* pfp and username *@
+                                    <div class="d-flex flex-column me-3">
+                                        <RadzenImage Path=@foodPost.PictureUrl Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px;"/>
+                                        <RadzenBadge class="mt-2" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@(foodPost.User.UserName) IsPill="true"/>
+                                    </div>
+                                    <div>
+                                        <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
+                                            <strong>@(foodPost.Title)</strong>
+                                        </RadzenText>
+                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@foodPost.Category</RadzenText>
+                                        <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@($"Expires in {foodPost.DaysUntilExpired} days")</RadzenText>
+                                    </div>
+                                </div>
+                            </RadzenCard>
+                        </Template>
+                    </RadzenDataList>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Reservations">
+                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@reservations" TItem="Reservation">
+                        <Template Context="reservation">
+                            <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
+                                <div class="d-flex d-table-row">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <RadzenImage Path="@reservation.FoodPost.PictureUrl" Class="rz-border-radius-10 float-start me-3" Style="width: 80px; height: 80px;"/>
+                                        <div>
+                                            <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
+                                                <strong>@reservation.FoodPost.Title</strong>
+                                            </RadzenText>
+                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.User.UserName </RadzenText>
+                                        </div>
+                                    </div>
+                                    <hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;"/>
+
+                                    <div class="d-flex flex-column align-items-center ms-5">
+                                        <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
+                                            <strong>When?</strong>
+                                        </RadzenText>
+                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.StartDate.DayAndMonth() - @reservation.FoodPost.EndDate.DayAndMonth()</RadzenText>
+                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.StartTime.ToString() - @reservation.FoodPost.EndTime.ToString()</RadzenText>
+
+                                        <div class="mt-3">
+                                            <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
+                                                <strong>Where?</strong>
+                                            </RadzenText>
+                                            <div>MAP HERE</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </RadzenCard>
+                        </Template>
+                    </RadzenDataList>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Ratings">
+                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@ratings" TItem="Rating">
+                        <Template Context="rating">
+                            <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
+                                <div class="row">
+                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value />
+                                </div>
+                                <div class="row">
+                                    <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
+                                        <strong>@username as a @rating.TypeOfRating</strong>
+                                    </RadzenText>
+                                </div>
+                                <div class="d-flex flex-row align-items-center">
+                                    <div class="d-flex flex-column me-3">
+                                        <RadzenImage Path=@cookUrls[rating.Value] Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px;"/>
+                                        <RadzenBadge class="mt-2" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@rating.UsernameMakingRating IsPill="true"/>
+                                    </div>
+                                    <div>
+                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@rating.Comment</RadzenText>
+                                    </div>
+                                </div>
+                            </RadzenCard>
+                        </Template>
+                    </RadzenDataList>
+                </RadzenTabsItem>
+            </Tabs>
+        </RadzenTabs>
+    </div>
+}
+
+@code {
+    private IEnumerable<FoodPost> foodPosts;
+    private IEnumerable<Reservation> reservations;
+    private List<Rating> ratings;
+
+    [Parameter]
+    public string username { get; set; }
+
+    private User user;
+    public double avgCookerRating { get; set; }
+    public double avgPickerRating { get; set; }
+
+    private readonly string cookOneStarPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-vomiting.png";
+    private readonly string cookTwoStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/nauseated-face.png";
+    private readonly string cookThreeStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-stuck-out-tongue.png";
+    private readonly string cookFourStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-savouring-delicious-food.png";
+    private readonly string cookFiveStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/star-struck.png";
+
+    private Dictionary<int, string> cookUrls { get; set; }
+
+    readonly TabPosition tabPosition = TabPosition.Left;
+
+    protected override async Task OnInitializedAsync()
+    {
+        initCookPicUrls();
+        user = await userService.GetUserByUsername(username);
+        foodPosts = await foodPostService.GetAllFoodPostsByUser(username);
+        ratings = await ratingService.GetAllByUserRated(username);
+
+        avgCookerRating = GetAvgCookerRating();
+        avgPickerRating = GetAvgPickerRating();
+
+    //placeholder reservation
+        var reservation1 = new Reservation(1, foodPosts.First(), user);
+        reservations = new List<Reservation>{
+            reservation1
+        };
+
+    /*
+        reservations = await userService.GetAllReservationsByUser(username);
+        ratings = await userService.GetAllRatingsToUser(username);
+
+        */
+    }
+
+    protected void NavigateToProfile(string username)
+    {
+        navMgr.NavigateTo($"/UserProfile/{username}");
+    }
+
+    protected void initCookPicUrls()
+    {
+        cookUrls = new Dictionary<int, string>();
+        cookUrls[1] = cookOneStarPicUrl;
+        cookUrls[2] = cookTwoStarsPicUrl;
+        cookUrls[3] = cookThreeStarsPicUrl;
+        cookUrls[4] = cookFourStarsPicUrl;
+        cookUrls[5] = cookFiveStarsPicUrl;
+    }
+
+    protected double GetAvgCookerRating()
+    {
+        int total = 0;
+        var cookerRatings = ratings.Where(r => r.TypeOfRating.Equals("cook"));
+        if (!cookerRatings.Any())
+        {
+            return 0;
+        }
+        foreach (var rating in cookerRatings)
+        {
+            total += rating.Value;
+        }
+        double avg = total / Convert.ToDouble(cookerRatings.Count());
+        return avg;
+    }
+
+    protected double GetAvgPickerRating()
+    {
+        int total = 0;
+        var pickerRatings = ratings.Where(r => r.TypeOfRating.Equals("picker"));
+        if (!pickerRatings.Any())
+        {
+            return 0;
+        }
+        foreach (var rating in pickerRatings)
+        {
+            total += rating.Value;
+        }
+        double avg = total / Convert.ToDouble(pickerRatings.Count());
+        return avg;
+    }
+
+
+}

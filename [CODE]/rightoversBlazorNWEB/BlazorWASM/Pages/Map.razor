@@ -1,13 +1,6 @@
 ﻿@page "/Map"
-@using Microsoft.JSInterop
-@using Radzen
-@using Radzen.Blazor
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
-@using System.Net
-@using System.Text
-@using System.Xml.Linq
-@using System.Data
 @using Microsoft.VisualBasic.CompilerServices
 @inject IAddressService addressService
 @inject NavigationManager navMgr
@@ -18,14 +11,14 @@
             <RadzenCard Class="mb-4">
                 @msg
             </RadzenCard>
-            <RadzenGoogleMap @ref=map style="height: 400px" Options=@(new Dictionary<string, object>{{"disableDoubleClickZoom", true}})
-                             Zoom=@zoom ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center=@(new GoogleMapPosition(){Lat = 55.863352, Lng = 9.838155}) MapClick=@OnMapClick MarkerClick=@OnMarkerClick>
+            <RadzenGoogleMap @ref="map" style="height: 400px" Options=@(new Dictionary<string, object>{{"disableDoubleClickZoom", true}})
+                             Zoom="@zoom" ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center="@(new GoogleMapPosition{Lat = 55.863352, Lng = 9.838155})" MapClick="@OnMapClick" MarkerClick="@OnMarkerClick">
                 <Markers>
                     @if (addressDtos != null)
                     {
                         @foreach (var item in addressDtos)
                         {
-                            <RadzenGoogleMapMarker Position=@(new GoogleMapPosition(){Lat = @item.Latitude, Lng = @item.Longitude})></RadzenGoogleMapMarker>
+                            <RadzenGoogleMapMarker Position=@(new GoogleMapPosition{Lat = item.Latitude, Lng = item.Longitude})></RadzenGoogleMapMarker>
                         }
                     }
                 </Markers>
@@ -104,7 +97,7 @@ else
 
 
 @code {
-    private int zoom = 12;
+    private readonly int zoom = 12;
     private bool showHorsensMarker;
     private RadzenGoogleMap map;
     private ICollection<AddressCreationDto>? addressDtos;
@@ -134,7 +127,7 @@ else
             {
                 if (addressDto.Longitude == 0)
                 {
-                    AddressCreationDto coordDto = await addressService.GetCoordsAsync(addressDto);
+                    var coordDto = await addressService.GetCoordsAsync(addressDto);
                     addressDto.Latitude = coordDto.Latitude;
                     addressDto.Longitude = coordDto.Longitude;
                 }
@@ -157,9 +150,9 @@ else
 
     async Task OnMarkerClick(RadzenGoogleMapMarker marker)
     {
-        var message = $"Custom information about <b>{marker.Title}</b>";
+        string message = $"Custom information about <b>{marker.Title}</b>";
 
-        var code = $@"
+        string code = $@"
 var map = Radzen['{map.UniqueID}'].instance;
 var marker = map.markers.find(m => m.title == '{marker.Title}');
 if(window.infoWindow) {{window.infoWindow.close();}}
@@ -181,8 +174,8 @@ setTimeout(() => window.infoWindow.open(map, marker), 200);
     {
         try
         {
-            var postCodeInt = IntegerType.FromString(this.postCode);
-            var newAddress = await addressService.CreateAsync(new AddressCreationDto(){
+            int postCodeInt = IntegerType.FromString(postCode);
+            var newAddress = await addressService.CreateAsync(new AddressCreationDto{
                 Street = street,
                 StreetNumber = streetNumber,
                 PostCode = postCodeInt,

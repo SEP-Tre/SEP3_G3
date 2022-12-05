@@ -1,23 +1,21 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using Application.DAOInterfaces;
+﻿using Application.DAOInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
 using Grpc.Core;
 using Grpc.Net.Client;
 using GrpcCL;
-using GrpcClient.Converters;
 using GrpcClient.IConverters;
 
 namespace GrpcClient.DAOs;
 
 public class FoodPostDao : IFoodPostDao
 {
-    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
+    private readonly static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
         UnsafeUseInsecureChannelCallCredentials = true
     });
 
-    private static FoodPostService.FoodPostServiceClient client = new(channel);
+    private readonly static FoodPostService.FoodPostServiceClient client =
+        new FoodPostService.FoodPostServiceClient(channel);
 
     private readonly IFoodPostConverter converter;
 
@@ -28,76 +26,86 @@ public class FoodPostDao : IFoodPostDao
 
     public async Task<FoodPost> Create(FoodPostCreationDto dto)
     {
-        FoodPostResponse response = await client.postAsync(new FoodPostRequest{
+        var response = await client.postAsync(new FoodPostRequest{
             Category = dto.Category,
             DaysUntilExpired = dto.DaysUntilExpired,
             Description = dto.Description,
             PictureUrl = dto.PictureUrl,
             Title = dto.Title,
-            StartDate = new Date
-            {
+            StartDate = new Date{
                 Day = dto.StartDate.Day,
                 Month = dto.StartDate.Month,
                 Year = dto.StartDate.Year
             },
-            EndDate = new Date
-            {
-            Day = dto.EndDate.Day,
-            Month = dto.EndDate.Month,
-            Year = dto.EndDate.Year 
+            EndDate = new Date{
+                Day = dto.EndDate.Day,
+                Month = dto.EndDate.Month,
+                Year = dto.EndDate.Year
             },
-            StartTime = new Time
-            {
+            StartTime = new Time{
                 Hour = dto.StartTime.Hour,
                 Minutes = dto.StartTime.Minutes
             },
-            EndTime = new Time
-            {
+            EndTime = new Time{
                 Hour = dto.EndTime.Hour,
                 Minutes = dto.EndTime.Minutes
             },
             Username = dto.Username
         });
 
-        FoodPost fp = converter.getFoodPost(response);
+        var fp = converter.GetFoodPost(response);
+
         return fp;
     }
 
-    public async Task<IEnumerable<OverSimpleFoodPostDto>> GetAsync()
+    public async Task<IEnumerable<FoodPost>> GetAsync()
     {
         // Missing an await, but where?
-        List<OverSimpleFoodPostDto> listHolder = new List<OverSimpleFoodPostDto>();
+        var listHolder = new List<FoodPost>();
         AsyncServerStreamingCall<FoodPostResponse> response = client.getAllFoodPosts(new GetAllRequest{
             Filler = true
         });
         // Because it is a stream, lets make a Dto for the current one we are on
         await foreach (var message in response.ResponseStream.ReadAllAsync())
-        {
-            Console.WriteLine($"This is found id: {message.FpId}");
             if (message.Category != null && message.Title != null)
             {
-                OverSimpleFoodPostDto simpleFoodPostDto = new OverSimpleFoodPostDto{
-                    id = message.FpId,
-                    Title = message.Title,
-                    Category = message.Category,
-                    DaysUntilExpired = message.DaysUntilExpired,
-                    PostState = message.FpState
-                };
-                listHolder.Add(simpleFoodPostDto);
-                Console.WriteLine("I found a post: " + simpleFoodPostDto.Title + " : " + simpleFoodPostDto.Category);
+                var fp = converter.GetFoodPost(message);
+                listHolder.Add(fp);
+                Console.WriteLine("I found a post: " + fp.Title + " : " + fp.Category);
             }
-        }
 
         return listHolder;
     }
 
+    public async Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username)
+    {
+        var userRequest = new FPByUsernameRequest{
+            Username = username
+        };
+
+        // Missing an await, but where?
+        var listHolder = new List<FoodPost>();
+        AsyncServerStreamingCall<FoodPostResponse> response = client.getFoodPostsByUsername(userRequest);
+        // Because it is a stream, lets make a Dto for the current one we are on
+        await foreach (var message in response.ResponseStream.ReadAllAsync())
+            if (message.Category != null && message.Title != null)
+            {
+                var fp = converter.GetFoodPost(message);
+                listHolder.Add(fp);
+                Console.WriteLine("I found a post: " + fp.Title + " : " + fp.Category);
+            }
+
+        return listHolder;
+    }
+
+
     public async Task<FoodPost> GetSingleAsync(int id)
     {
-        FoodPostResponse response = await client.getSingleFoodPostAsync(new FoodPostID{
+        var response = await client.getSingleFoodPostAsync(new FoodPostID{
             Id = id
         });
 
-        FoodPost foodPost = converter.getFoodPost(response);
+        var foodPost = converter.GetFoodPost(response);
 
         return foodPost;
     }
@@ -107,7 +115,7 @@ public class FoodPostDao : IFoodPostDao
         try
         {
 
-            ReservationResponse response = await client.reserveAsync(new FoodPostReservation{
+            var response = await client.reserveAsync(new FoodPostReservation{
                 FoodpostId = dto.FoodPostId,
                 Username = dto.Username
             });

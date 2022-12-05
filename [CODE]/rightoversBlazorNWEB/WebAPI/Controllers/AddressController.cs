@@ -1,7 +1,5 @@
-﻿using Application.DAOInterfaces;
-using Application.LogicInterfaces;
+﻿using Application.LogicInterfaces;
 using Domain.DTOs;
-using GrpcCL;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
@@ -23,7 +21,7 @@ public class AddressController : ControllerBase
 
         try
         {
-            AddressCreationDto savedAddressDto = await addressLogic.CreateAsync(addressDto);
+            var savedAddressDto = await addressLogic.CreateAsync(addressDto);
 
             return Created($"/addresses/{savedAddressDto.AddressId}", savedAddressDto);
         }

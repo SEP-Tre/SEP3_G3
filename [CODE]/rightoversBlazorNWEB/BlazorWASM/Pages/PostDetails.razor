@@ -1,8 +1,10 @@
 ﻿@page "/PostDetails/{id:int}"
+@using HttpClients.ClientInterfaces
 @using Domain.Classes
 @using Domain.DTOs
-@using HttpClients.ClientInterfaces
+@using BlazorWASM.Pages.UIComponents
 @inject IFoodPostService foodPostService
+@inject NavigationManager navMgr
 
 @*
 <div class="card-back-title d-flex justify-content-center align-items-center">
@@ -37,20 +39,96 @@ else
                 <h5 class="sm-text my-2">DESCRIPTION</h5>
 
                 <h5 class="bg-text">@foodPost.Description</h5>
-                <br/>
+
+
+                <h5 class="sm-text my-2">PICK UP DETAILS</h5>
+
+                <div class="d-flex align-items-start flex-column">
+                    <h5 class="bg-text">@pickupDetailsDates</h5>
+                    <h5 class="bg-text">@pickupDetailsTime</h5>
+                </div>
+
+                <table>
+                    <tr>
+                        <td>
+                            <h5 class="sm-text">MON</h5>
+                        </td>
+                        <td>
+                            <h5 class="xs-text-days px-5">@openingHours[0]</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="sm-text">TUE</h5>
+                        </td>
+                        <td>
+                            <h5 class="xs-text-days px-5">@openingHours[1]</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="sm-text">WED</h5>
+                        </td>
+                        <td>
+                            <h5 class="xs-text-days px-5">@openingHours[2]</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="sm-text">THU</h5>
+                        </td>
+                        <td>
+                            <h5 class="xs-text-days px-5">@openingHours[3]</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="sm-text">FRI</h5>
+                        </td>
+                        <td>
+                            <h5 class="xs-text-days px-5">@openingHours[4]</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="sm-text">SAT</h5>
+                        </td>
+                        <td>
+                            <h5 class="xs-text-days px-5">@openingHours[5]</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="sm-text">SUN</h5>
+                        </td>
+                        <td>
+                            <h5 class="xs-text-days px-5">@openingHours[6]</h5>
+                        </td>
+                    </tr>
+                </table>
+
+
                 <AuthorizeView>
                     <Authorized>
                         <div>
                             <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
-                            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(@username = @context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
                         </div>
                     </Authorized>
                 </AuthorizeView>
             </div>
         </div>
         <div class="card-back mx-3">
-            <div class="card d-flex justify-content-center">
-                <h3 class=bg-text>PICTURE</h3>
+            <div class="card d-flex align-items-start flex-column">
+                <RadzenImage Path="@foodPost.PictureUrl" Style="max-width: 250px; background-size: contain; height:auto">
+                </RadzenImage>
+                <h5 class="sm-text my-2">CREATION DATE</h5>
+
+                <h5 class="bg-text">@creationDate</h5>
+
+                <h5 class="sm-text my-2">CREATOR</h5>
+
+                <h5 class="bg-text">@foodPost.User.UserName</h5>
             </div>
         </div>
     </div>
@@ -73,6 +151,13 @@ else
             @msg
         </h3>
     </div>
+
+    <Modal ShowModal="showModal">
+        <div class="d-flex flex-column justify-content-start align-items-center">
+            <p class=m-auto>@msg</p>
+            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+        </div>
+    </Modal>
 @code {
 
     [Parameter]
@@ -83,12 +168,20 @@ else
     public string? username;
     public string msg;
     public string errorMsg;
+    public string pickupDetailsDates;
+    public string pickupDetailsTime;
+    public string creationDate;
+    public List<string> openingHours;
+    private bool showModal;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             foodPost = await foodPostService.GetSingleAsync(id);
+            DisplayInformation();
+
+
     //title = foodPost.Title;
     // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
     //    "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
@@ -98,6 +191,31 @@ else
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private void DisplayInformation()
+    {
+        var endDate = foodPost.EndDate;
+        var startDate = foodPost.StartDate;
+        var startTime = foodPost.StartTime;
+        var endTime = foodPost.EndTime;
+        pickupDetailsDates = $"Dates: {startDate.Day}-{endDate.Day}/{endDate.Month}/{endDate.Year} ";
+        pickupDetailsTime = $"Timeframe: {startTime.Hour}:{startTime.Minutes}-{endTime.Hour}:{endTime.Minutes} ";
+
+        var dateTime = foodPost.TimestampPosted;
+        creationDate = $"{dateTime.Day}/{dateTime.Month}/{dateTime.Year}";
+
+    //Here would an if statement
+    //OpenningHours hours = await usersService.GetOpeningHoursAsync(username);
+        openingHours = new List<string>();
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
     }
 
     private void SetUsername(string? username)
@@ -113,7 +231,7 @@ else
         }
         try
         {
-            FoodPostReservationDto dto = new FoodPostReservationDto(username, foodPostId);
+            var dto = new FoodPostReservationDto(username, foodPostId);
             await foodPostService.ReserveAsync(dto);
             msg = foodPost.Title + " is reserved";
         }
@@ -121,6 +239,12 @@ else
         {
             errorMsg = "Error: " + e.Message;
         }
+    }
+
+    public void Proceed()
+    {
+    // Change to move to the user's reservations once profile is ready
+        navMgr.NavigateTo("/ViewFoodPosts");
     }
 
 }}

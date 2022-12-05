@@ -1,5 +1,4 @@
-﻿using System.Security.Claims;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Domain.Auth;
 
@@ -21,9 +20,12 @@ public static class AuthorizationPolicies
             options.AddPolicy("SecurityLevel2OrAbove", a =>
                 a.RequireAuthenticatedUser().RequireAssertion(context =>
                 {
-                    Claim? levelClaim = context.User.FindFirst(claim => claim.Type.Equals("SecurityLevel"));
+                    var levelClaim = context.User.FindFirst(claim => claim.Type.Equals("SecurityLevel"));
 
-                    if (levelClaim == null) return false;
+                    if (levelClaim == null)
+                    {
+                        return false;
+                    }
 
                     return int.Parse(levelClaim.Value) >= 2;
                 }));

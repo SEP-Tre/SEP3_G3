@@ -1,6 +1,6 @@
 ﻿@page "/ViewFoodPosts"
 @using HttpClients.ClientInterfaces
-@using Domain.DTOs
+@using Domain.Classes
 @inject IFoodPostService foodPostWebService
 @inject NavigationManager navMgr
 
@@ -20,33 +20,32 @@
 }
 
 <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
-                Data="@posts" TItem="OverSimpleFoodPostDto" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+                Data="@posts" TItem="FoodPost" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
     <Columns>
-        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Property="id" Filterable="false" Title="ID" Frozen="true" Width="80px" TextAlign="TextAlign.Center"/>
-        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="150px" TextAlign="TextAlign.Center">
+        <RadzenDataGridColumn TItem="FoodPost" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="150px" TextAlign="TextAlign.Center">
             <Template Context="data">
-                <RadzenImage Path="img/yummysammy.jpg"class="rz-gravatar"/>
+                <RadzenImage Path=@data.PictureUrl class="rz-gravatar"/>
 
             </Template>
 
         </RadzenDataGridColumn>
 
-        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Property="Title" Title="Title" Frozen="true" Width="160px"/>
-        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Property="Category" Title="Category" Width="160px"/>
-        <RadzenDataGridColumn TItem="OverSimpleFoodPostDto" Property="DaysUntilExpired" Title="Days Until Expiration" Width="170px"/>
-        <RadzenDataGridColumn Width="160px" TItem="OverSimpleFoodPostDto" Property="id" Title="Meal Details">
+        <RadzenDataGridColumn TItem="FoodPost" Property="Title" Title="Title" Frozen="true" Width="160px"/>
+        <RadzenDataGridColumn TItem="FoodPost" Property="Category" Title="Category" Width="160px"/>
+        <RadzenDataGridColumn TItem="FoodPost" Property="DaysUntilExpired" Title="Days Until Expiration" Width="170px"/>
+        <RadzenDataGridColumn Width="160px" TItem="FoodPost" Property="id" Title="Meal Details">
             <Template Context="data">
-                <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.id)"></RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.PostId)"></RadzenButton>
             </Template>
         </RadzenDataGridColumn>
-        
+
 
     </Columns>
 </RadzenDataGrid>
 
 
 @code {
-    private ICollection<OverSimpleFoodPostDto>? posts;
+    private ICollection<FoodPost>? posts;
     private string msg = "";
 
     protected override async Task OnInitializedAsync()

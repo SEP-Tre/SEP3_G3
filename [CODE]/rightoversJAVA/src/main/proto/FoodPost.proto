@@ -4,6 +4,10 @@ option java_package = "sep3.g3.rightoversjava.grpc.generated";
 package sep3.g3;
 import "google/protobuf/timestamp.proto";
 
+message FPByUsernameRequest {
+  string username = 1;
+}
+
 message FoodPostRequest {
   string title = 1;
   string category_ = 2;
@@ -64,6 +68,7 @@ message ReservationResponse {
 
 
 service FoodPostService {
+  rpc getFoodPostsByUsername(FPByUsernameRequest) returns (stream FoodPostResponse);
   rpc post(FoodPostRequest) returns (FoodPostResponse);
   rpc getAllFoodPosts(GetAllRequest) returns (stream FoodPostResponse);
   rpc getSingleFoodPost(FoodPostID) returns (FoodPostResponse);

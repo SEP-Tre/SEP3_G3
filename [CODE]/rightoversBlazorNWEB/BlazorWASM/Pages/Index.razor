@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using System.Security.Claims
 
 <PageTitle>Index</PageTitle>
 
@@ -12,7 +11,7 @@
         Saving food made simple.
     </NotAuthorized>
     <Authorized>
-        Saving food made simple. Espescially for you 
+        Saving food made simple. Espescially for you
         @context.User.Claims.First(claim => claim.Type.Equals("FirstName")).Value!
     </Authorized>
 </AuthorizeView>

@@ -1,7 +1,4 @@
-﻿using System.Text.Json.Serialization;
-using AspNetCoreDateAndTimeOnly.Json;
-
-namespace Domain.Classes;
+﻿namespace Domain.Classes;
 
 public class FoodPost
 {
@@ -10,18 +7,18 @@ public class FoodPost
         MyTime startTime, MyTime endTime, User user)
     {
         PostId = postId;
-        Title = title;//1
-        Category = category;//2
+        Title = title; //1
+        Category = category; //2
         Description = description;
-        PictureUrl = pictureUrl;//3
+        PictureUrl = pictureUrl; //3
         DaysUntilExpired = daysUntilExpired;
         PostState = postState;
         TimestampPosted = timestampPosted;
         StartDate = startDate;
         EndDate = endDate;
-        StartTime = startTime;//4 togela
-        EndTime = endTime;//4 togela
-        User = user;//5 username
+        StartTime = startTime; //4 togela
+        EndTime = endTime; //4 togela
+        User = user; //5 username
     }
 
     public FoodPost()

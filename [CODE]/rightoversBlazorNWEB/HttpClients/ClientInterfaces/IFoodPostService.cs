@@ -6,7 +6,8 @@ namespace HttpClients.ClientInterfaces;
 public interface IFoodPostService
 {
     Task<FoodPost> Create(FoodPostCreationDto dto);
-    Task<ICollection<OverSimpleFoodPostDto>> GetAsync();
+    Task<ICollection<FoodPost>> GetAsync();
     Task<FoodPost> GetSingleAsync(int id);
     Task ReserveAsync(FoodPostReservationDto dto);
+    Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username);
 }

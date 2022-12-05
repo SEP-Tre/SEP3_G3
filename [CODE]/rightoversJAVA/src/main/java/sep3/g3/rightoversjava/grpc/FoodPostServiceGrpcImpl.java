@@ -1,20 +1,17 @@
 package sep3.g3.rightoversjava.grpc;
 
-import com.google.protobuf.Timestamp;
 import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import sep3.g3.rightoversjava.grpc.converter.FoodPostConverter;
+import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.FoodPost;
-import sep3.g3.rightoversjava.model.FoodPostCreationDTO;
-import sep3.g3.rightoversjava.model.ReservationCreationDto;
-import sep3.g3.rightoversjava.service.FoodPostService;
+import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
+import sep3.g3.rightoversjava.model.dto.ReservationCreationDto;
+import sep3.g3.rightoversjava.service.interaces.FoodPostService;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -48,8 +45,7 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
             responseObserver.onNext(response);
             responseObserver.onCompleted();
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             responseObserver.onError(e);
         }
 
@@ -67,7 +63,6 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
 
             responseObserver.onNext(response);
         }
-        ;
         responseObserver.onCompleted();
     }
 
@@ -100,6 +95,22 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
                     io.grpc.Status.INVALID_ARGUMENT
                             .withDescription(e.getMessage())
                             .asRuntimeException());
+        }
+    }
+
+    @Override
+    public void getFoodPostsByUsername(FPByUsernameRequest request, StreamObserver<FoodPostResponse> responseObserver) {
+        String username = request.getUsername();
+        try {
+            ArrayList<FoodPost> allPosts = service.getAllFoodPostsByUsername(username);
+            for (int i = 0; i < allPosts.size(); i++) {
+                FoodPost foodPost = allPosts.get(i);
+                FoodPostResponse response = converter.getFoodPostResponse(foodPost);
+                responseObserver.onNext(response);
+            }
+            responseObserver.onCompleted();
+        } catch (Exception e) {
+            responseObserver.onError(e);
         }
     }
 }

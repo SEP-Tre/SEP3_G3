@@ -3,6 +3,10 @@ option csharp_namespace = "GrpcCL";
 package sep3.g3;
 import "google/protobuf/timestamp.proto";
 
+message FPByUsernameRequest {
+  string username = 1;
+}
+
 message FoodPostRequest {
   string title = 1;
   string category_ = 2;
@@ -41,6 +45,7 @@ message FoodPostResponse {
   Time startTime = 11;
   Time endTime = 12;
   string username = 13;
+  
 }
 
 message GetAllRequest {
@@ -62,6 +67,7 @@ message ReservationResponse {
 }
 
 service FoodPostService {
+  rpc getFoodPostsByUsername(FPByUsernameRequest) returns (stream FoodPostResponse);
   rpc post(FoodPostRequest) returns (FoodPostResponse);
   rpc getAllFoodPosts(GetAllRequest) returns (stream FoodPostResponse);
   rpc getSingleFoodPost(FoodPostID) returns (FoodPostResponse);

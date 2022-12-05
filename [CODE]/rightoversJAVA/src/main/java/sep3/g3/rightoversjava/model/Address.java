@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import sep3.g3.rightoversjava.model.dto.AddressCreationDTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +24,7 @@ public class Address {
     }
 
     public Address(AddressCreationDTO dto) {
-        addressId=dto.getAddressId();
+        addressId = dto.getAddressId();
         street = dto.getStreet();
         streetNumber = dto.getStreetNumber();
         city = dto.getCity();

@@ -1,0 +1,37 @@
+.pfp[b-wiwjy8u4u7] {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+
+.ratings[b-wiwjy8u4u7] {
+    font-size: 1.5rem;
+    color: white;
+    background-color: darkslategray;
+    border-radius: 10px;
+    width: 250px;
+    height: 90px;
+    padding: 13px 10px 0 10px;
+}
+
+#picker_rating[b-wiwjy8u4u7] {
+    margin-top: -15px;
+}
+
+.firstname[b-wiwjy8u4u7] {
+    font-size: 4rem;
+}
+
+.hover-underlined:hover[b-wiwjy8u4u7] {
+    text-decoration: underline;
+    background-color: black;
+    transition: 0.2s;
+}
+
+.username[b-wiwjy8u4u7] {
+    line-height: 0.1em;
+    font-size: 2em;
+    margin-top: -15px;
+    color: dimgrey;
+}

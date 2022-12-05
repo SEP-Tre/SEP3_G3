@@ -15,6 +15,11 @@ public final class User {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_UserRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_UserRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sep3_g3_UserCreationRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -34,6 +39,21 @@ public final class User {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sep3_g3_UserMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_OpeningHours_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_OpeningHours_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_OpeningHoursRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_OpeningHoursRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_ReservationMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_ReservationMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -43,53 +63,104 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nUser.proto\022\007sep3.g3\"\240\001\n\023UserCreationRe" +
-      "quest\022\020\n\010username\030\001 \001(\t\022\021\n\tfirstname\030\002 \001" +
-      "(\t\022\020\n\010password\030\003 \001(\t\022\023\n\013street_name\030\004 \001(" +
-      "\t\022\025\n\rstreet_number\030\005 \001(\t\022\023\n\013postal_code\030" +
-      "\006 \001(\005\022\021\n\tcity_name\030\007 \001(\t\"6\n\020UserLoginReq" +
-      "uest\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t" +
-      "\"\221\001\n\016AddressMessage\022\022\n\naddress_id\030\001 \001(\005\022" +
-      "\016\n\006street\030\002 \001(\t\022\025\n\rstreet_number\030\003 \001(\t\022\021" +
-      "\n\tpost_code\030\004 \001(\005\022\014\n\004city\030\005 \001(\t\022\021\n\tlongi" +
-      "tude\030\006 \001(\001\022\020\n\010latitude\030\007 \001(\001\"n\n\013UserMess" +
-      "age\022\020\n\010username\030\001 \001(\t\022\021\n\tfirstname\030\002 \001(\t" +
-      "\022\020\n\010password\030\003 \001(\t\022(\n\007address\030\004 \001(\0132\027.se" +
-      "p3.g3.AddressMessage2\207\001\n\013UserService\022>\n\010" +
-      "register\022\034.sep3.g3.UserCreationRequest\032\024" +
-      ".sep3.g3.UserMessage\0228\n\005login\022\031.sep3.g3." +
-      "UserLoginRequest\032\024.sep3.g3.UserMessageB)" +
-      "\n%sep3.g3.rightoversjava.grpc.generatedP" +
-      "\001b\006proto3"
+      "\n\nUser.proto\022\007sep3.g3\032\016FoodPost.proto\"\037\n" +
+      "\013UserRequest\022\020\n\010username\030\001 \001(\t\"\212\001\n\023UserC" +
+      "reationRequest\022\020\n\010username\030\001 \001(\t\022\021\n\tfirs" +
+      "tname\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022(\n\007address" +
+      "\030\004 \001(\0132\027.sep3.g3.AddressMessage\022\022\n\nisBus" +
+      "iness\030\005 \001(\010\"6\n\020UserLoginRequest\022\020\n\010usern" +
+      "ame\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\221\001\n\016AddressM" +
+      "essage\022\022\n\naddress_id\030\001 \001(\005\022\016\n\006street\030\002 \001" +
+      "(\t\022\025\n\rstreet_number\030\003 \001(\t\022\021\n\tpost_code\030\004" +
+      " \001(\005\022\014\n\004city\030\005 \001(\t\022\021\n\tlongitude\030\006 \001(\001\022\020\n" +
+      "\010latitude\030\007 \001(\001\"n\n\013UserMessage\022\020\n\010userna" +
+      "me\030\001 \001(\t\022\021\n\tfirstname\030\002 \001(\t\022\020\n\010password\030" +
+      "\003 \001(\t\022(\n\007address\030\004 \001(\0132\027.sep3.g3.Address" +
+      "Message\"\262\004\n\014OpeningHours\022$\n\rmondayOpenin" +
+      "g\030\001 \001(\0132\r.sep3.g3.Time\022$\n\rmondayClosing\030" +
+      "\002 \001(\0132\r.sep3.g3.Time\022%\n\016tuesdayOpening\030\003" +
+      " \001(\0132\r.sep3.g3.Time\022%\n\016tuesdayClosing\030\004 " +
+      "\001(\0132\r.sep3.g3.Time\022\'\n\020wednesdayOpening\030\005" +
+      " \001(\0132\r.sep3.g3.Time\022\'\n\020wednesdayClosing\030" +
+      "\006 \001(\0132\r.sep3.g3.Time\022&\n\017thursdayOpening\030" +
+      "\007 \001(\0132\r.sep3.g3.Time\022&\n\017thursdayClosing\030" +
+      "\010 \001(\0132\r.sep3.g3.Time\022$\n\rfridayOpening\030\t " +
+      "\001(\0132\r.sep3.g3.Time\022$\n\rfridayClosing\030\n \001(" +
+      "\0132\r.sep3.g3.Time\022&\n\017saturdayOpening\030\013 \001(" +
+      "\0132\r.sep3.g3.Time\022&\n\017saturdayClosing\030\014 \001(" +
+      "\0132\r.sep3.g3.Time\022$\n\rsundayOpening\030\r \001(\0132" +
+      "\r.sep3.g3.Time\022$\n\rsundayClosing\030\016 \001(\0132\r." +
+      "sep3.g3.Time\"T\n\023OpeningHoursRequest\022\020\n\010u" +
+      "sername\030\001 \001(\t\022+\n\014openingHours\030\002 \001(\0132\025.se" +
+      "p3.g3.OpeningHours\"~\n\022ReservationMessage" +
+      "\022\026\n\016reservation_id\030\001 \001(\005\022,\n\tfood_post\030\002 " +
+      "\001(\0132\031.sep3.g3.FoodPostResponse\022\"\n\004user\030\003" +
+      " \001(\0132\024.sep3.g3.UserMessage2\340\002\n\013UserServi" +
+      "ce\022;\n\rgetByUsername\022\024.sep3.g3.UserReques" +
+      "t\032\024.sep3.g3.UserMessage\022>\n\010register\022\034.se" +
+      "p3.g3.UserCreationRequest\032\024.sep3.g3.User" +
+      "Message\022H\n\022assignOpeningHours\022\034.sep3.g3." +
+      "OpeningHoursRequest\032\024.sep3.g3.UserMessag" +
+      "e\0228\n\005login\022\031.sep3.g3.UserLoginRequest\032\024." +
+      "sep3.g3.UserMessage\022P\n\031getReservationsBy" +
+      "Username\022\024.sep3.g3.UserRequest\032\033.sep3.g3" +
+      ".ReservationMessage0\001B)\n%sep3.g3.rightov" +
+      "ersjava.grpc.generatedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          sep3.g3.rightoversjava.grpc.generated.FoodPost.getDescriptor(),
         });
-    internal_static_sep3_g3_UserCreationRequest_descriptor =
+    internal_static_sep3_g3_UserRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_sep3_g3_UserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_UserRequest_descriptor,
+        new java.lang.String[] { "Username", });
+    internal_static_sep3_g3_UserCreationRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_sep3_g3_UserCreationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserCreationRequest_descriptor,
-        new java.lang.String[] { "Username", "Firstname", "Password", "StreetName", "StreetNumber", "PostalCode", "CityName", });
+        new java.lang.String[] { "Username", "Firstname", "Password", "Address", "IsBusiness", });
     internal_static_sep3_g3_UserLoginRequest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_sep3_g3_UserLoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserLoginRequest_descriptor,
         new java.lang.String[] { "Username", "Password", });
     internal_static_sep3_g3_AddressMessage_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_sep3_g3_AddressMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_AddressMessage_descriptor,
         new java.lang.String[] { "AddressId", "Street", "StreetNumber", "PostCode", "City", "Longitude", "Latitude", });
     internal_static_sep3_g3_UserMessage_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_sep3_g3_UserMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserMessage_descriptor,
         new java.lang.String[] { "Username", "Firstname", "Password", "Address", });
+    internal_static_sep3_g3_OpeningHours_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_sep3_g3_OpeningHours_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_OpeningHours_descriptor,
+        new java.lang.String[] { "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing", });
+    internal_static_sep3_g3_OpeningHoursRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_sep3_g3_OpeningHoursRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_OpeningHoursRequest_descriptor,
+        new java.lang.String[] { "Username", "OpeningHours", });
+    internal_static_sep3_g3_ReservationMessage_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_sep3_g3_ReservationMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_ReservationMessage_descriptor,
+        new java.lang.String[] { "ReservationId", "FoodPost", "User", });
+    sep3.g3.rightoversjava.grpc.generated.FoodPost.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

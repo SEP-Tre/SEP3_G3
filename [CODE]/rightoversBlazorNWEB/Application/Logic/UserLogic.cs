@@ -16,7 +16,7 @@ public class UserLogic : IUserLogic
 
     public async Task<User> LoginAsync(UserLoginDto dto)
     {
-        User user = await userDao.LoginAsync(dto);
+        var user = await userDao.LoginAsync(dto);
 
         return user;
     }
@@ -24,9 +24,38 @@ public class UserLogic : IUserLogic
     public async Task<User> RegisterAsync(UserCreationDto dto)
     {
         ValidateRegister(dto);
-        User user = await userDao.RegisterAsync(dto);
+        var user = await userDao.RegisterAsync(dto);
 
         return user;
+    }
+
+    public Task<User> GetByUsername(string username)
+    {
+        return userDao.GetByUsername(username);
+    }
+
+    public Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username)
+    {
+        return userDao.GetAllReservationsByUser(username);
+    }
+
+    public Task<IEnumerable<Rating>> GetAllRatingsToUser(string username)
+    {
+        return userDao.GetAllRatingsToUser(username);
+    }
+
+    public async Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
+    {
+        var user = await userDao.CreateOpeningHoursAsync(dto);
+
+        return user;
+    }
+
+    public async Task<OpeningHours> GetOpeningHoursAsync(string username)
+    {
+        var openingHours = await userDao.GetOpeningHoursAsync(username);
+
+        return openingHours;
     }
 
 

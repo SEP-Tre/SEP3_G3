@@ -3,13 +3,6 @@
 //NOTE: Added long and lat
 public class AddressCreationDto
 {
-    public int AddressId { get; set; }
-    public string StreetNumber { get; set; }
-    public string Street { get; set; }
-    public int PostCode { get; set; }
-    public string City { get; set; }
-    public double Longitude { get; set; }
-    public double Latitude { get; set; }
 
     public AddressCreationDto(int addressId, string streetNumber, string street, int postCode, string city,
         double longitude, double latitude)
@@ -37,6 +30,14 @@ public class AddressCreationDto
         Longitude = 0;
         Latitude = 0;
     }
+
+    public int AddressId { get; set; }
+    public string StreetNumber { get; set; }
+    public string Street { get; set; }
+    public int PostCode { get; set; }
+    public string City { get; set; }
+    public double Longitude { get; set; }
+    public double Latitude { get; set; }
 
     public string toString()
     {
