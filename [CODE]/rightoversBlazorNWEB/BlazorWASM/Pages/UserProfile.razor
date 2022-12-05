@@ -1,7 +1,6 @@
 ﻿@page "/UserProfile/{username}"
-@using Domain.Classes
 @using HttpClients.ClientInterfaces
-@using System.Collections.ObjectModel
+@using Domain.Classes
 @inject IFoodPostService foodPostService
 @inject IUserService userService
 @inject NavigationManager navMgr
@@ -121,7 +120,7 @@ else
                         <Template Context="rating">
                             <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
                                 <div class="row">
-                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value />
+                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value/>
                                 </div>
                                 <div class="row">
                                     <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
@@ -158,31 +157,30 @@ else
     public double avgCookerRating { get; set; }
     public double avgPickerRating { get; set; }
 
-    private string cookOneStarPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-vomiting.png";
-    private string cookTwoStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/nauseated-face.png";
-    private string cookThreeStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-stuck-out-tongue.png";
-    private string cookFourStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-savouring-delicious-food.png";
-    private string cookFiveStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/star-struck.png";
+    private readonly string cookOneStarPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-vomiting.png";
+    private readonly string cookTwoStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/nauseated-face.png";
+    private readonly string cookThreeStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-stuck-out-tongue.png";
+    private readonly string cookFourStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-savouring-delicious-food.png";
+    private readonly string cookFiveStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/star-struck.png";
 
     private Dictionary<int, string> cookUrls { get; set; }
 
-    TabPosition tabPosition = TabPosition.Left;
+    readonly TabPosition tabPosition = TabPosition.Left;
 
-    protected async override Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         initCookPicUrls();
         user = await userService.GetUserByUsername(username);
         foodPosts = await foodPostService.GetAllFoodPostsByUser(username);
 
     //PLACEHOLDER RATINGS
-        Rating rating1 = new Rating("pussyopeener", "soulie", 1, "She is a bitch", "cook");
-        Rating rating2 = new Rating("pussyopeener", "soulie", 2, "kinda ew", "cook");
-        Rating rating3 = new Rating("pussyopeener", "soulie", 3, "edible", "cook");
-        Rating rating4 = new Rating("pussyopeener", "soulie", 4, "good! but unhealthy", "cook");
-        Rating rating5 = new Rating("opener", "soulie", 5, "She is a cutie", "cook");
+        var rating1 = new Rating("pussyopeener", "soulie", 1, "She is a bitch", "cook");
+        var rating2 = new Rating("pussyopeener", "soulie", 2, "kinda ew", "cook");
+        var rating3 = new Rating("pussyopeener", "soulie", 3, "edible", "cook");
+        var rating4 = new Rating("pussyopeener", "soulie", 4, "good! but unhealthy", "cook");
+        var rating5 = new Rating("opener", "soulie", 5, "She is a cutie", "cook");
 
-        ratings = new List<Rating>
-        {
+        ratings = new List<Rating>{
             rating1,
             rating2,
             rating3,
@@ -194,9 +192,8 @@ else
         avgPickerRating = GetAvgPickerRating();
 
     //placeholder reservation
-        Reservation reservation1 = new Reservation(1, foodPosts.First(), user);
-        reservations = new List<Reservation>
-        {
+        var reservation1 = new Reservation(1, foodPosts.First(), user);
+        reservations = new List<Reservation>{
             reservation1
         };
 
@@ -207,7 +204,7 @@ else
         */
     }
 
-    protected void NavigateToProfile(String username)
+    protected void NavigateToProfile(string username)
     {
         navMgr.NavigateTo($"/UserProfile/{username}");
     }
@@ -225,39 +222,33 @@ else
     protected double GetAvgCookerRating()
     {
         int total = 0;
-        IEnumerable<Rating> cookerRatings = ratings.Where(r => r.TypeOfRating.Equals("cook"));
+        var cookerRatings = ratings.Where(r => r.TypeOfRating.Equals("cook"));
         if (!cookerRatings.Any())
         {
             return 0;
         }
-        else
+        foreach (var rating in cookerRatings)
         {
-            foreach (var rating in cookerRatings)
-            {
-                total += rating.Value;
-            }
-            double avg = total / Convert.ToDouble(cookerRatings.Count());
-            return avg;
+            total += rating.Value;
         }
+        double avg = total / Convert.ToDouble(cookerRatings.Count());
+        return avg;
     }
 
     protected double GetAvgPickerRating()
     {
         int total = 0;
-        IEnumerable<Rating> pickerRatings = ratings.Where(r => r.TypeOfRating.Equals("picker"));
+        var pickerRatings = ratings.Where(r => r.TypeOfRating.Equals("picker"));
         if (!pickerRatings.Any())
         {
             return 0;
         }
-        else
+        foreach (var rating in pickerRatings)
         {
-            foreach (var rating in pickerRatings)
-            {
-                total += rating.Value;
-            }
-            double avg = total / Convert.ToDouble(pickerRatings.Count());
-            return avg;
+            total += rating.Value;
         }
+        double avg = total / Convert.ToDouble(pickerRatings.Count());
+        return avg;
     }
 
 

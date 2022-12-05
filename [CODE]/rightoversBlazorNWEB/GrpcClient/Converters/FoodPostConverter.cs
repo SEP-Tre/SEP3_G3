@@ -1,5 +1,4 @@
 ﻿using Domain.Classes;
-using Google.Protobuf.WellKnownTypes;
 using GrpcCL;
 using GrpcClient.IConverters;
 
@@ -9,11 +8,11 @@ public class FoodPostConverter : IFoodPostConverter
 {
     public FoodPost GetFoodPost(FoodPostResponse response)
     {
-        DateTime timestampPosted = response.TimestampPosted.ToDateTime();
-        Date sd = response.StartDate;
-        Date ed = response.EndDate;
-        Time st = response.StartTime;
-        Time et = response.EndTime;
+        var timestampPosted = response.TimestampPosted.ToDateTime();
+        var sd = response.StartDate;
+        var ed = response.EndDate;
+        var st = response.StartTime;
+        var et = response.EndTime;
 
         /*
         DateOnly startDate = new DateOnly(sd.Year, sd.Month, sd.Day);
@@ -21,12 +20,12 @@ public class FoodPostConverter : IFoodPostConverter
         TimeOnly startTime = new TimeOnly(st.Hour, st.Minutes);
         TimeOnly endTime = new TimeOnly(et.Hour, et.Minutes);
         */
-        MyDate startDate = new MyDate(sd.Day, sd.Month, sd.Year);
-        MyDate endDate = new MyDate(ed.Day, ed.Month, ed.Year);
-        MyTime startTime = new MyTime(st.Hour, st.Minutes);
-        MyTime endTime = new MyTime(et.Hour, et.Minutes);
-        
-        
+        var startDate = new MyDate(sd.Day, sd.Month, sd.Year);
+        var endDate = new MyDate(ed.Day, ed.Month, ed.Year);
+        var startTime = new MyTime(st.Hour, st.Minutes);
+        var endTime = new MyTime(et.Hour, et.Minutes);
+
+
         return new FoodPost(response.FpId,
             response.Title,
             response.Category,

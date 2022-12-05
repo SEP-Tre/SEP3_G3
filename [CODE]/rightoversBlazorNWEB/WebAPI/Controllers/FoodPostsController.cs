@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-using Application.LogicInterfaces;
-using AspNetCoreDateAndTimeOnly.Json;
+﻿using Application.LogicInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +21,7 @@ public class FoodPostsController : ControllerBase
     {
         try
         {
-            FoodPost foodPost = await fpLogic.CreateAsync(dto);
+            var foodPost = await fpLogic.CreateAsync(dto);
 
             return Created($"/FoodPosts/{foodPost.PostId}", foodPost);
         }
@@ -52,12 +50,13 @@ public class FoodPostsController : ControllerBase
         }
     }
 
-    [HttpGet, Route("Single")]
+    [HttpGet]
+    [Route("Single")]
     public async Task<ActionResult<FoodPost>> GetSingleAsync([FromQuery] int id)
     {
         try
         {
-            FoodPost foodPost = await fpLogic.GetSingleAsync(id);
+            var foodPost = await fpLogic.GetSingleAsync(id);
 
             return Ok(foodPost);
         }
@@ -87,13 +86,15 @@ public class FoodPostsController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
-    [HttpGet, Route( "ByUser")]
-    public async Task<ActionResult<IEnumerable<FoodPost>>> GetFoodPostsByUsername([FromQuery] String username)
+
+    [HttpGet]
+    [Route("ByUser")]
+    public async Task<ActionResult<IEnumerable<FoodPost>>> GetFoodPostsByUsername([FromQuery] string username)
     {
         try
         {
-            IEnumerable<FoodPost> foodPosts = await fpLogic.GetAllFoodPostsByUser(username);
+            var foodPosts = await fpLogic.GetAllFoodPostsByUser(username);
+
             return Ok(foodPosts);
         }
         catch (Exception e)

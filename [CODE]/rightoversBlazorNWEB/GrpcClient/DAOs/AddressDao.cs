@@ -1,27 +1,25 @@
 ﻿using AddressGrpcCl;
 using Application.DAOInterfaces;
-using Domain.Classes;
 using Domain.DTOs;
 using Grpc.Core;
 using Grpc.Net.Client;
-using GrpcCL;
-using GetAllRequest = AddressGrpcCl.GetAllRequest;
 
 namespace GrpcClient.DAOs;
 
 public class AddressDao : IAddressDao
 
 {
-    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
+    private readonly static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
         UnsafeUseInsecureChannelCallCredentials = true
     });
 
-    private static AddressService.AddressServiceClient client = new(channel);
+    private readonly static AddressService.AddressServiceClient client =
+        new AddressService.AddressServiceClient(channel);
 
     public Task<AddressCreationDto> Create(AddressCreationDto dto)
     {
         // Await here would be nice
-        AddressResponse response = client.createAddress(new AddressRequest{
+        var response = client.createAddress(new AddressRequest{
             Street = dto.Street,
             StreetNumber = dto.StreetNumber,
             PostCode = dto.PostCode,
@@ -32,7 +30,7 @@ public class AddressDao : IAddressDao
         Console.WriteLine(dto);
         Console.WriteLine(response);
 
-        AddressCreationDto addressDto = new AddressCreationDto(
+        var addressDto = new AddressCreationDto(
             response.AddressId,
             response.StreetNumber,
             response.Street,
@@ -46,16 +44,15 @@ public class AddressDao : IAddressDao
 
     public async Task<IEnumerable<AddressCreationDto>> GetAll()
     {
-        List<AddressCreationDto> listHolder = new List<AddressCreationDto>();
+        var listHolder = new List<AddressCreationDto>();
         AsyncServerStreamingCall<AddressResponse> response = client.getAllAddresses(
             new GetAllRequest{
                 Filler = true
             });
         await foreach (var message in response.ResponseStream.ReadAllAsync())
-        {
             if (message.StreetNumber != null)
             {
-                AddressCreationDto addressDto = new AddressCreationDto{
+                var addressDto = new AddressCreationDto{
                     AddressId = message.AddressId,
                     Street = message.Street,
                     StreetNumber = message.StreetNumber,
@@ -66,7 +63,6 @@ public class AddressDao : IAddressDao
                 };
                 listHolder.Add(addressDto);
             }
-        }
 
         return listHolder;
     }

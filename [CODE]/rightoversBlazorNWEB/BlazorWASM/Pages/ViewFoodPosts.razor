@@ -1,6 +1,5 @@
 ﻿@page "/ViewFoodPosts"
 @using HttpClients.ClientInterfaces
-@using Domain.DTOs
 @using Domain.Classes
 @inject IFoodPostService foodPostWebService
 @inject NavigationManager navMgr
@@ -40,7 +39,7 @@
                 <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.PostId)"></RadzenButton>
             </Template>
         </RadzenDataGridColumn>
-        
+
 
     </Columns>
 </RadzenDataGrid>

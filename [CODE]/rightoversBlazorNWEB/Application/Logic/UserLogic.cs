@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Application.DAOInterfaces;
+﻿using Application.DAOInterfaces;
 using Application.LogicInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
@@ -17,7 +16,7 @@ public class UserLogic : IUserLogic
 
     public async Task<User> LoginAsync(UserLoginDto dto)
     {
-        User user = await userDao.LoginAsync(dto);
+        var user = await userDao.LoginAsync(dto);
 
         return user;
     }
@@ -25,7 +24,7 @@ public class UserLogic : IUserLogic
     public async Task<User> RegisterAsync(UserCreationDto dto)
     {
         ValidateRegister(dto);
-        User user = await userDao.RegisterAsync(dto);
+        var user = await userDao.RegisterAsync(dto);
 
         return user;
     }
@@ -47,13 +46,15 @@ public class UserLogic : IUserLogic
 
     public async Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
     {
-        User user = await userDao.CreateOpeningHoursAsync(dto);
+        var user = await userDao.CreateOpeningHoursAsync(dto);
+
         return user;
     }
 
     public async Task<OpeningHours> GetOpeningHoursAsync(string username)
     {
-        OpeningHours openingHours = await userDao.GetOpeningHoursAsync(username);
+        var openingHours = await userDao.GetOpeningHoursAsync(username);
+
         return openingHours;
     }
 

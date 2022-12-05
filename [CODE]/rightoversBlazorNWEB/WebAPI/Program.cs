@@ -1,17 +1,13 @@
 using System.Text;
-using System.Text.Json;
 using Application.DAOInterfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
-using AspNetCoreDateAndTimeOnly.Json;
 using Domain.Auth;
 using GrpcClient.Converters;
 using GrpcClient.DAOs;
 using GrpcClient.IConverters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http.Json;
 using Microsoft.IdentityModel.Tokens;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +35,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 {
     options.RequireHttpsMetadata = false;
     options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters(){
+    options.TokenValidationParameters = new TokenValidationParameters{
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidAudience = builder.Configuration["Jwt:Audience"],

@@ -20,7 +20,8 @@ public class RatingsController : ControllerBase
     {
         try
         {
-            Rating savedRating = await ratingLogic.AddRating(rating);
+            var savedRating = await ratingLogic.AddRating(rating);
+
             return Ok(savedRating);
         }
         catch (Exception e)
@@ -35,7 +36,8 @@ public class RatingsController : ControllerBase
     {
         try
         {
-            List<Rating> ratings = await ratingLogic.GetAllByUserRated(username);
+            var ratings = await ratingLogic.GetAllByUserRated(username);
+
             return Ok(ratings);
         }
         catch (Exception e)
@@ -43,13 +45,15 @@ public class RatingsController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
     [HttpGet]
     [Route("/MakingRating/{username}")]
     public async Task<ActionResult<List<Rating>>> GetAllByUserRating([FromRoute] string username)
     {
         try
         {
-            List<Rating> ratings = await ratingLogic.GetAllByUserRating(username);
+            var ratings = await ratingLogic.GetAllByUserRating(username);
+
             return Ok(ratings);
         }
         catch (Exception e)

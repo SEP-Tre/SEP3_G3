@@ -9,5 +9,5 @@ public interface IFoodPostService
     Task<ICollection<FoodPost>> GetAsync();
     Task<FoodPost> GetSingleAsync(int id);
     Task ReserveAsync(FoodPostReservationDto dto);
-    Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(String username);
+    Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username);
 }

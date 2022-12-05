@@ -17,7 +17,7 @@ public class FoodPostLogic : IFoodPostLogic
     public Task<FoodPost> CreateAsync(FoodPostCreationDto dto)
     {
         Console.WriteLine("Received in application: " + dto);
-        
+
         if (string.IsNullOrEmpty(dto.Title))
         {
             throw new Exception("Title should not be empty.");
@@ -42,7 +42,8 @@ public class FoodPostLogic : IFoodPostLogic
         {
             throw new Exception("Days Until Expiration should not be empty.");
         }
-        String url = dto.PictureUrl;
+
+        string url = dto.PictureUrl;
 
         if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
         {
@@ -54,7 +55,7 @@ public class FoodPostLogic : IFoodPostLogic
 
     public async Task<IEnumerable<FoodPost>> GetAsync()
     {
-        IEnumerable<FoodPost> allPosts = await fpDao.GetAsync();
+        var allPosts = await fpDao.GetAsync();
         Console.WriteLine(allPosts.ToString());
 
         return allPosts;
@@ -64,7 +65,7 @@ public class FoodPostLogic : IFoodPostLogic
     {
         return fpDao.GetSingleAsync(id);
     }
-    
+
     public Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username)
     {
         return fpDao.GetAllFoodPostsByUser(username);

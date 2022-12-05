@@ -2,9 +2,6 @@
 
 public class MyDate
 {
-    public int Day { get; set; }
-    public int Month { get; set; }
-    public int Year { get; set; }
 
     public MyDate(int day, int month, int year)
     {
@@ -13,7 +10,11 @@ public class MyDate
         Year = year;
     }
 
-    public String DayAndMonth()
+    public int Day { get; set; }
+    public int Month { get; set; }
+    public int Year { get; set; }
+
+    public string DayAndMonth()
     {
         return Day + "." + Month;
     }

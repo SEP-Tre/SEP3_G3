@@ -9,8 +9,8 @@
         <Modal ShowModal="showModal">
             <p align="center">@msg</p>
             <div class="w-100 d-flex flex-row justify-content-around">
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Logout()) Text="Yes, log out!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => CloseDialog()) Text="Oops, missclick!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Logout())" Text="Yes, log out!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => CloseDialog())" Text="Oops, missclick!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
             </div>
         </Modal>
     </Authorized>

@@ -1,5 +1,4 @@
-﻿using Domain.Classes;
-using Domain.DTOs;
+﻿using Domain.DTOs;
 
 namespace Application.LogicInterfaces;
 

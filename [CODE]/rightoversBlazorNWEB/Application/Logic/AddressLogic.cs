@@ -1,6 +1,5 @@
 ﻿using Application.DAOInterfaces;
 using Application.LogicInterfaces;
-using Domain.Classes;
 using Domain.DTOs;
 
 namespace Application.Logic;

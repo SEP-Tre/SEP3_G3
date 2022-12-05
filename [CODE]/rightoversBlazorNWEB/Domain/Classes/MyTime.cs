@@ -2,8 +2,6 @@
 
 public class MyTime
 {
-    public int Hour { get; set; }
-    public int Minutes { get; set; }
 
     public MyTime(int hour, int minutes)
     {
@@ -11,9 +9,12 @@ public class MyTime
         Minutes = minutes;
     }
 
-    public String ToString()
+    public int Hour { get; set; }
+    public int Minutes { get; set; }
+
+    public string ToString()
     {
-        String s = "";
+        string s = "";
         s += Hour;
         s += ":";
         if (Minutes < 10)
@@ -22,6 +23,7 @@ public class MyTime
         }
 
         s += Minutes;
+
         return s;
     }
 }

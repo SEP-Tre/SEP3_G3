@@ -4,21 +4,6 @@ namespace Domain.DTOs;
 
 public class OpeningHoursCreationDto
 {
-    public MyTime MondayOpeningHours { get; set; }
-    public MyTime MondayClosingHours { get; set; }
-    public MyTime TuesdayOpeningHours { get; set; }
-    public MyTime TuesdayClosingHours { get; set; }
-    public MyTime WednesdayOpeningHours { get; set; }
-    public MyTime WednesdayClosingHours { get; set; }
-    public MyTime ThursdayOpeningHours { get; set; }
-    public MyTime ThursdayClosingHours { get; set; }
-    public MyTime FridayOpeningHours { get; set; }
-    public MyTime FridayClosingHours { get; set; }
-    public MyTime SaturdayOpeningHours { get; set; }
-    public MyTime SaturdayClosingHours { get; set; }
-    public MyTime SundayOpeningHours { get; set; }
-    public MyTime SundayClosingHours { get; set; }
-    public string Username { get; set; }
 
 
     public OpeningHoursCreationDto(string username, MyTime mondayOpeningHours, MyTime mondayClosingHours,
@@ -46,6 +31,22 @@ public class OpeningHoursCreationDto
 
     public OpeningHoursCreationDto()
     {
-        
+
     }
+
+    public MyTime MondayOpeningHours { get; set; }
+    public MyTime MondayClosingHours { get; set; }
+    public MyTime TuesdayOpeningHours { get; set; }
+    public MyTime TuesdayClosingHours { get; set; }
+    public MyTime WednesdayOpeningHours { get; set; }
+    public MyTime WednesdayClosingHours { get; set; }
+    public MyTime ThursdayOpeningHours { get; set; }
+    public MyTime ThursdayClosingHours { get; set; }
+    public MyTime FridayOpeningHours { get; set; }
+    public MyTime FridayClosingHours { get; set; }
+    public MyTime SaturdayOpeningHours { get; set; }
+    public MyTime SaturdayClosingHours { get; set; }
+    public MyTime SundayOpeningHours { get; set; }
+    public MyTime SundayClosingHours { get; set; }
+    public string Username { get; set; }
 }

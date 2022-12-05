@@ -1,9 +1,9 @@
 ﻿@page "/CreateFoodPost"
 @using HttpClients.ClientInterfaces
 @using Microsoft.VisualBasic.CompilerServices
+@using Domain.Classes
 @using Domain.DTOs
 @using BlazorWASM.Pages.UIComponents
-@using Domain.Classes
 @inject NavigationManager navMgr
 @inject IFoodPostService fpService;
 
@@ -63,7 +63,7 @@
             </div>
 
             <div class="button-row">
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => CreateAsync()) MouseEnter=@(args => SetUsername(creatorUsername = @context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Create" ButtonStyle="ButtonStyle.Dark"/>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => CreateAsync())" MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Create" ButtonStyle="ButtonStyle.Dark"/>
             </div>
             <Modal ShowModal="showModal">
                 <p>@createdDtoString</p>
@@ -135,11 +135,11 @@
         try
         {
             Console.WriteLine(creatorUsername);
-            var howManyDays = IntegerType.FromString(daysLeftToEat);
-            MyDate myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
-            MyDate myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
-            MyTime myStartTime = new MyTime(startTime.Hour, startTime.Minute);
-            MyTime myEndTime = new MyTime(endTime.Hour, endTime.Minute);
+            int howManyDays = IntegerType.FromString(daysLeftToEat);
+            var myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
+            var myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
+            var myStartTime = new MyTime(startTime.Hour, startTime.Minute);
+            var myEndTime = new MyTime(endTime.Hour, endTime.Minute);
 
 
             var newFoodPost = await fpService.Create(
@@ -176,7 +176,7 @@
 
     private void SetUsername(string? username)
     {
-        this.creatorUsername = username;
+        creatorUsername = username;
     }
 
 

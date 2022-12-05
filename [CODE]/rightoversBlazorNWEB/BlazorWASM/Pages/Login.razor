@@ -2,7 +2,6 @@
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @using BlazorWASM.Pages.UIComponents
-@using Domain.Classes
 @inject IUserService userService
 @inject NavigationManager navMgr
 
@@ -29,8 +28,8 @@
                 }
             </div>
             <div class="d-flex flex-column justify-content-around my-4 ">
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => LoginAsync()) Text="Login" ButtonStyle="ButtonStyle.Dark"/>
-                <a id ="register_link" onclick="@Register">Register</a>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => LoginAsync())" Text="Login" ButtonStyle="ButtonStyle.Dark"/>
+                <a id="register_link" onclick="@Register">Register</a>
                 @*
                 <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Register()) Text="Register" ButtonStyle="ButtonStyle.Dark"/> 
                 *@
@@ -41,8 +40,8 @@
     <Authorized>
         <Modal ShowModal="showModal">
             <div class="d-flex flex-column justify-content-start align-items-center">
-            <p class = m-auto>@msg</p>
-            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+                <p class="m-auto">@msg</p>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
             </div>
         </Modal>
     </Authorized>
@@ -65,7 +64,7 @@
             {
                 errorLabel = "Fields cannot be empty!";
             }
-            UserLoginDto dto = new UserLoginDto(userName, password);
+            var dto = new UserLoginDto(userName, password);
             await userService.LoginAsync(dto);
             msg = $"Great! {dto.UserName}, you have been successfully logged in!";
             showModal = true;

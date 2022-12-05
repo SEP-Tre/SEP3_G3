@@ -2,9 +2,6 @@
 
 public class Reservation
 {
-    public int ReservationId { get; set; }
-    public FoodPost FoodPost { get; set; }
-    public User User { get; set; }
 
     public Reservation(int reservationId, FoodPost foodPost, User user)
     {
@@ -12,4 +9,8 @@ public class Reservation
         FoodPost = foodPost;
         User = user;
     }
+
+    public int ReservationId { get; set; }
+    public FoodPost FoodPost { get; set; }
+    public User User { get; set; }
 }

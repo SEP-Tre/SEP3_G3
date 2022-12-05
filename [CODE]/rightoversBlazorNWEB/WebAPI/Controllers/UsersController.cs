@@ -14,8 +14,8 @@ namespace WebAPI.Controllers;
 [Route("[controller]")]
 public class UsersController : ControllerBase
 {
-    private readonly IUserLogic userLogic;
     private readonly IConfiguration config;
+    private readonly IUserLogic userLogic;
 
     public UsersController(IConfiguration config, IUserLogic userLogic)
     {
@@ -24,11 +24,12 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<User>> GetByUsername([FromQuery] String username)
+    public async Task<ActionResult<User>> GetByUsername([FromQuery] string username)
     {
         try
         {
-            User user = await userLogic.GetByUsername(username);
+            var user = await userLogic.GetByUsername(username);
+
             return Ok(user);
         }
         catch (Exception e)
@@ -37,12 +38,14 @@ public class UsersController : ControllerBase
         }
     }
 
-    [HttpGet, Route( "Reservations")]
-    public async Task<ActionResult<IEnumerable<Reservation>>> GetReservationsByUsername([FromQuery] String username)
+    [HttpGet]
+    [Route("Reservations")]
+    public async Task<ActionResult<IEnumerable<Reservation>>> GetReservationsByUsername([FromQuery] string username)
     {
         try
         {
-            IEnumerable<Reservation> reservations = await userLogic.GetAllReservationsByUser(username);
+            var reservations = await userLogic.GetAllReservationsByUser(username);
+
             return Ok(reservations);
         }
         catch (Exception e)
@@ -51,12 +54,14 @@ public class UsersController : ControllerBase
         }
     }
 
-    [HttpGet, Route( "Ratings")]
-    public async Task<ActionResult<IEnumerable<Rating>>> GetAllRatingsToUsername([FromQuery] String username)
+    [HttpGet]
+    [Route("Ratings")]
+    public async Task<ActionResult<IEnumerable<Rating>>> GetAllRatingsToUsername([FromQuery] string username)
     {
         try
         {
-            IEnumerable<Rating> ratings = await userLogic.GetAllRatingsToUser(username);
+            var ratings = await userLogic.GetAllRatingsToUser(username);
+
             return Ok(ratings);
         }
         catch (Exception e)
@@ -65,43 +70,49 @@ public class UsersController : ControllerBase
         }
     }
 
-    [HttpPost, Route("hours")]
+    [HttpPost]
+    [Route("hours")]
     public async Task<ActionResult> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
     {
         try
         {
-            User user = await userLogic.AssignOpeningHoursAsync(dto);
+            var user = await userLogic.AssignOpeningHoursAsync(dto);
+
             return Ok(user);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
+
             throw;
         }
     }
 
-    [HttpGet, Route("hours")]
-
+    [HttpGet]
+    [Route("hours")]
     public async Task<ActionResult> GetOpeningHoursAsync(string username)
     {
         try
         {
-            OpeningHours openingHours = await userLogic.GetOpeningHoursAsync(username);
+            var openingHours = await userLogic.GetOpeningHoursAsync(username);
+
             return Ok(openingHours);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
+
             throw;
         }
     }
 
-    [HttpPost, Route("login")]
+    [HttpPost]
+    [Route("login")]
     public async Task<ActionResult> LoginAsync(UserLoginDto dto)
     {
         try
         {
-            User user = await userLogic.LoginAsync(dto);
+            var user = await userLogic.LoginAsync(dto);
             string token = GenerateJwt(user);
 
             return Ok(token);
@@ -112,12 +123,13 @@ public class UsersController : ControllerBase
         }
     }
 
-    [HttpPost, Route("register")]
+    [HttpPost]
+    [Route("register")]
     public async Task<ActionResult> RegisterAsync(UserCreationDto dto)
     {
         try
         {
-            User user = await userLogic.RegisterAsync(dto);
+            var user = await userLogic.RegisterAsync(dto);
 
             return Ok(user);
         }
@@ -151,21 +163,21 @@ public class UsersController : ControllerBase
 
     private string GenerateJwt(User user)
     {
-        List<Claim> claims = GenerateClaims(user);
+        var claims = GenerateClaims(user);
 
-        SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
-        SigningCredentials signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
+        var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 
-        JwtHeader header = new JwtHeader(signIn);
+        var header = new JwtHeader(signIn);
 
-        JwtPayload payload = new JwtPayload(
+        var payload = new JwtPayload(
             config["Jwt:Issuer"],
             config["Jwt:Audience"],
             claims,
             null,
             DateTime.UtcNow.AddMinutes(60));
 
-        JwtSecurityToken token = new JwtSecurityToken(header, payload);
+        var token = new JwtSecurityToken(header, payload);
 
         string serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
 

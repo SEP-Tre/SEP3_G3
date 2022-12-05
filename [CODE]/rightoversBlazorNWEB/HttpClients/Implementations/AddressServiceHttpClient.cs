@@ -9,7 +9,7 @@ namespace HttpClients.Implementations;
 
 public class AddressServiceHttpClient : IAddressService
 {
-    private static string GEOCODE_API_KEY = "AIzaSyAMkLL4uLLazJ6gBWIAZrj4a2EFZ2SwQBI";
+    private readonly static string GEOCODE_API_KEY = "AIzaSyAMkLL4uLLazJ6gBWIAZrj4a2EFZ2SwQBI";
     private readonly HttpClient client;
 
     public AddressServiceHttpClient(HttpClient client)
@@ -31,28 +31,28 @@ public class AddressServiceHttpClient : IAddressService
                 Uri.EscapeDataString(address), GEOCODE_API_KEY);
 
         var response = await client.GetStreamAsync(requestUri);
-        Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+        var encode = Encoding.GetEncoding("utf-8");
 
-        StreamReader readstream = new StreamReader(response, encode);
+        var readstream = new StreamReader(response, encode);
 
-        DataSet dsResult = new DataSet();
+        var dsResult = new DataSet();
 
         dsResult.ReadXml(readstream);
 
         response.Close();
         readstream.Close();
 
-        Tuple<double, double> output = new Tuple<double, double>(0, 0);
+        var output = new Tuple<double, double>(0, 0);
 
-        DataTable dt = new DataTable();
+        var dt = new DataTable();
 
         foreach (DataRow row in dsResult.Tables["result"].Rows)
         {
             string geometry_id =
-                dsResult.Tables["geometry"].Select("result_id = " + row["result_id"].ToString())[0]["geometry_id"]
+                dsResult.Tables["geometry"].Select("result_id = " + row["result_id"])[0]["geometry_id"]
                     .ToString();
 
-            DataRow location = dsResult.Tables["location"].Select("geometry_id=" + geometry_id)[0];
+            var location = dsResult.Tables["location"].Select("geometry_id=" + geometry_id)[0];
 
             output = Tuple.Create(Convert.ToDouble(location["lat"]), Convert.ToDouble(location["lng"]));
 
@@ -64,9 +64,12 @@ public class AddressServiceHttpClient : IAddressService
 
         // Persist the address
         var response2 = await client.PostAsJsonAsync("/Address", addressDto);
-        var result = await response2.Content.ReadAsStringAsync();
+        string result = await response2.Content.ReadAsStringAsync();
 
-        if (!response2.IsSuccessStatusCode) throw new Exception(result);
+        if (!response2.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
 
         var address2 = JsonSerializer.Deserialize<AddressCreationDto>(result, new JsonSerializerOptions{
             PropertyNameCaseInsensitive = true
@@ -78,9 +81,12 @@ public class AddressServiceHttpClient : IAddressService
     public async Task<ICollection<AddressCreationDto>> GetAsync()
     {
         var response = await client.GetAsync("/Address");
-        var content = await response.Content.ReadAsStringAsync();
+        string content = await response.Content.ReadAsStringAsync();
 
-        if (!response.IsSuccessStatusCode) throw new Exception(content);
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
 
         var addressDtos =
             JsonSerializer.Deserialize<ICollection<AddressCreationDto>>(content, new JsonSerializerOptions{
@@ -102,28 +108,28 @@ public class AddressServiceHttpClient : IAddressService
                 Uri.EscapeDataString(address), GEOCODE_API_KEY);
 
         var response = await client.GetStreamAsync(requestUri);
-        Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+        var encode = Encoding.GetEncoding("utf-8");
 
-        StreamReader readstream = new StreamReader(response, encode);
+        var readstream = new StreamReader(response, encode);
 
-        DataSet dsResult = new DataSet();
+        var dsResult = new DataSet();
 
         dsResult.ReadXml(readstream);
 
         response.Close();
         readstream.Close();
 
-        Tuple<double, double> output = new Tuple<double, double>(0, 0);
+        var output = new Tuple<double, double>(0, 0);
 
-        DataTable dt = new DataTable();
+        var dt = new DataTable();
 
         foreach (DataRow row in dsResult.Tables["result"].Rows)
         {
             string geometry_id =
-                dsResult.Tables["geometry"].Select("result_id = " + row["result_id"].ToString())[0]["geometry_id"]
+                dsResult.Tables["geometry"].Select("result_id = " + row["result_id"])[0]["geometry_id"]
                     .ToString();
 
-            DataRow location = dsResult.Tables["location"].Select("geometry_id=" + geometry_id)[0];
+            var location = dsResult.Tables["location"].Select("geometry_id=" + geometry_id)[0];
 
             output = Tuple.Create(Convert.ToDouble(location["lat"]), Convert.ToDouble(location["lng"]));
 

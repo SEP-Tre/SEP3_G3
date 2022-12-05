@@ -17,10 +17,14 @@ public class RatingHttpClient : IRatingService
     public async Task<Rating> AddRating(Rating rating)
     {
         var response = await client.PostAsJsonAsync("/Ratings", rating);
-        var content = await response.Content.ReadAsStringAsync();
+        string content = await response.Content.ReadAsStringAsync();
 
-        if (!response.IsSuccessStatusCode) throw new Exception(content);
-        Rating savedRating =
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var savedRating =
             JsonSerializer.Deserialize<Rating>(content, new JsonSerializerOptions{
                 PropertyNameCaseInsensitive = true
             })!;
@@ -31,10 +35,14 @@ public class RatingHttpClient : IRatingService
     public async Task<List<Rating>> GetAllByUserRated(string username)
     {
         var response = await client.GetAsync($"BeingRated/{username}");
-        var content = await response.Content.ReadAsStringAsync();
+        string content = await response.Content.ReadAsStringAsync();
 
-        if (!response.IsSuccessStatusCode) throw new Exception(content);
-        List<Rating> ratings =
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var ratings =
             JsonSerializer.Deserialize<List<Rating>>(content, new JsonSerializerOptions{
                 PropertyNameCaseInsensitive = true
             })!;
@@ -45,10 +53,14 @@ public class RatingHttpClient : IRatingService
     public async Task<List<Rating>> GetAllByUserRating(string username)
     {
         var response = await client.GetAsync($"MakingRating/{username}");
-        var content = await response.Content.ReadAsStringAsync();
+        string content = await response.Content.ReadAsStringAsync();
 
-        if (!response.IsSuccessStatusCode) throw new Exception(content);
-        List<Rating> ratings =
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var ratings =
             JsonSerializer.Deserialize<List<Rating>>(content, new JsonSerializerOptions{
                 PropertyNameCaseInsensitive = true
             })!;

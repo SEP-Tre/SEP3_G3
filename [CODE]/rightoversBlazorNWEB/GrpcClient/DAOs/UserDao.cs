@@ -1,7 +1,6 @@
 ﻿using Application.DAOInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
-using Grpc.Core;
 using Grpc.Net.Client;
 using GrpcCL;
 using GrpcClient.IConverters;
@@ -10,13 +9,13 @@ namespace GrpcClient.DAOs;
 
 public class UserDao : IUserDao
 {
-    private static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions
-    {
+    private readonly static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
         UnsafeUseInsecureChannelCallCredentials = true
     });
 
-    private IUserConverter converter;
-    private static UserService.UserServiceClient client = new(channel);
+    private readonly static UserService.UserServiceClient client = new UserService.UserServiceClient(channel);
+
+    private readonly IUserConverter converter;
 
     public UserDao(IUserConverter converter)
     {
@@ -27,14 +26,16 @@ public class UserDao : IUserDao
     {
         try
         {
-            UserLoginRequest request = converter.GetUserLoginRequestFromDto(dto);
-            UserMessage userMessage = await client.loginAsync(request);
-            User user = converter.GetUserFromUserMessage(userMessage);
+            var request = converter.GetUserLoginRequestFromDto(dto);
+            var userMessage = await client.loginAsync(request);
+            var user = converter.GetUserFromUserMessage(userMessage);
+
             return user;
         }
         catch (Exception e)
         {
             Console.WriteLine("GRPC CLIENT: " + e);
+
             throw;
         }
     }
@@ -44,25 +45,25 @@ public class UserDao : IUserDao
     {
         try
         {
-            UserCreationRequest request = converter.GetUserCreationRequestFromDto(dto);
-            UserMessage userMessage = await client.registerAsync(request);
-            User user = converter.GetUserFromUserMessage(userMessage);
+            var request = converter.GetUserCreationRequestFromDto(dto);
+            var userMessage = await client.registerAsync(request);
+            var user = converter.GetUserFromUserMessage(userMessage);
 
             return user;
         }
         catch (Exception e)
         {
             Console.WriteLine("GRPC CLIENT: " + e);
+
             throw;
         }
     }
 
     public async Task<OpeningHours> GetOpeningHoursAsync(string username)
     {
-        OpeningHours openingHours = new OpeningHours();
+        var openingHours = new OpeningHours();
 
-        OpeningHoursResponse response = await client.GetOpeningHoursAsync(new UserName
-        {
+        var response = await client.GetOpeningHoursAsync(new UserName{
             Username = username
         });
 
@@ -86,92 +87,78 @@ public class UserDao : IUserDao
 
     public async Task<User> CreateOpeningHoursAsync(OpeningHoursCreationDto dto)
     {
-        UserMessage response = await client.assignOpeningHoursAsync(new OpeningHoursRequest
-        {
+        var response = await client.assignOpeningHoursAsync(new OpeningHoursRequest{
             Username = dto.Username,
-            OpeningHours = new OpeningHoursResponse
-            {
-                MondayOpening = new OCTime
-                {
+            OpeningHours = new OpeningHoursResponse{
+                MondayOpening = new OCTime{
                     Hour = dto.MondayOpeningHours.Hour,
                     Minutes = dto.MondayOpeningHours.Minutes
                 },
-                MondayClosing = new OCTime
-                {
+                MondayClosing = new OCTime{
                     Hour = dto.MondayClosingHours.Hour,
                     Minutes = dto.MondayClosingHours.Minutes
                 },
-                TuesdayOpening = new OCTime
-                {
+                TuesdayOpening = new OCTime{
                     Hour = dto.TuesdayOpeningHours.Hour,
                     Minutes = dto.TuesdayOpeningHours.Minutes
                 },
-                TuesdayClosing = new OCTime
-                {
+                TuesdayClosing = new OCTime{
                     Hour = dto.TuesdayClosingHours.Hour,
                     Minutes = dto.TuesdayClosingHours.Minutes
                 },
-                WednesdayOpening = new OCTime
-                {
+                WednesdayOpening = new OCTime{
                     Hour = dto.WednesdayOpeningHours.Hour,
                     Minutes = dto.WednesdayOpeningHours.Minutes
                 },
-                WednesdayClosing = new OCTime
-                {
+                WednesdayClosing = new OCTime{
                     Hour = dto.WednesdayClosingHours.Hour,
                     Minutes = dto.WednesdayClosingHours.Minutes
                 },
-                ThursdayOpening = new OCTime
-                {
+                ThursdayOpening = new OCTime{
                     Hour = dto.ThursdayOpeningHours.Hour,
                     Minutes = dto.ThursdayOpeningHours.Minutes
                 },
-                ThursdayClosing = new OCTime
-                {
+                ThursdayClosing = new OCTime{
                     Hour = dto.ThursdayClosingHours.Hour,
                     Minutes = dto.ThursdayClosingHours.Minutes
                 },
-                FridayOpening = new OCTime
-                {
+                FridayOpening = new OCTime{
                     Hour = dto.FridayOpeningHours.Hour,
                     Minutes = dto.FridayOpeningHours.Minutes
                 },
-                FridayClosing = new OCTime
-                {
+                FridayClosing = new OCTime{
                     Hour = dto.FridayClosingHours.Hour,
                     Minutes = dto.FridayClosingHours.Minutes
                 },
-                SaturdayOpening = new OCTime()
-                {
+                SaturdayOpening = new OCTime{
                     Hour = dto.SaturdayOpeningHours.Hour,
                     Minutes = dto.SaturdayOpeningHours.Minutes
                 },
-                SaturdayClosing = new OCTime()
-                {
+                SaturdayClosing = new OCTime{
                     Hour = dto.SaturdayClosingHours.Hour,
                     Minutes = dto.SaturdayClosingHours.Minutes
                 },
-                SundayOpening = new OCTime
-                {
+                SundayOpening = new OCTime{
                     Hour = dto.SundayOpeningHours.Hour,
                     Minutes = dto.SundayOpeningHours.Minutes
                 },
-                SundayClosing = new OCTime
-                {
+                SundayClosing = new OCTime{
                     Hour = dto.SundayClosingHours.Hour,
                     Minutes = dto.SundayClosingHours.Minutes
                 }
             }
         });
-        User user = converter.GetUserFromUserMessage(response);
+        var user = converter.GetUserFromUserMessage(response);
+
         return user;
     }
 
     public async Task<User> GetByUsername(string username)
     {
-        UserRequest userRequest = converter.GetUserRequestFromUsername(username);
-        UserMessage userMessage = await client.getByUsernameAsync(userRequest);
-        User user = converter.GetUserFromUserMessage(userMessage);
+        var userRequest = converter.GetUserRequestFromUsername(username);
+        var userMessage = await client.getByUsernameAsync(userRequest);
+        var user = converter.GetUserFromUserMessage(userMessage);
+
         return user;
     }
 
