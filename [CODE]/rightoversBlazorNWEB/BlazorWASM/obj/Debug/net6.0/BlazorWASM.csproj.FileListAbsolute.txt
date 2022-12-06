@@ -1679,7 +1679,6 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\o
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\xTTuzjg7.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\eLImTjnZ.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\+kOJStFz.gz
-C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\VztmEXyS.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\Login.razor.rz.scp.css
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\PostDetails.razor.rz.scp.css
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\Register.razor.rz.scp.css
@@ -2556,3 +2555,5 @@ C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\
 C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\UserProfile.razor.rz.scp.css
 C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\jSEZROX7.gz
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\wQhrCOaM.gz
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\ebpA1Kgo.gz
+C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\UserProfile.razor.rz.scp.css
