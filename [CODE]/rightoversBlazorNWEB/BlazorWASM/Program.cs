@@ -6,6 +6,7 @@ using HttpClients.Implementations;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Radzen;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -18,5 +19,6 @@ builder.Services.AddScoped<IUserService, UserHttpClient>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 builder.Services.AddScoped<IAddressService, AddressServiceHttpClient>();
 builder.Services.AddScoped<IRatingService, RatingHttpClient>();
+builder.Services.AddScoped<DialogService>();
 
 await builder.Build().RunAsync();

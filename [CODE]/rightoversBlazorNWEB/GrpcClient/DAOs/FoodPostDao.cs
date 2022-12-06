@@ -78,7 +78,6 @@ public class FoodPostDao : IFoodPostDao
             {
                 var fp = converter.GetFoodPost(message);
                 listHolder.Add(fp);
-                Console.WriteLine("I found a post: " + fp.Title + " : " + fp.Category);
             }
 
         return listHolder;
@@ -100,7 +99,6 @@ public class FoodPostDao : IFoodPostDao
             {
                 var fp = converter.GetFoodPost(message);
                 listHolder.Add(fp);
-                Console.WriteLine("I found a post: " + fp.Title + " : " + fp.Category);
             }
 
         return listHolder;

@@ -19,9 +19,10 @@ public class Rating
     public string Comment { get; set; }
     public string TypeOfRating { get; set; }
 
-    public string ToString()
+    public override string ToString()
     {
-        return
-            $"Value: {Value}, Comment: {Comment}, Type of rating: {TypeOfRating}, Username making rating: {UsernameMakingRating}, Username being rated: {UsernameBeingRated}";
+        return $"UsernameMakingRating: {UsernameMakingRating}, UsernameBeingRated: {UsernameBeingRated}, Value: {Value}, Comment: {Comment}, TypeOfRating: {TypeOfRating}";
     }
+    
+    
 }
