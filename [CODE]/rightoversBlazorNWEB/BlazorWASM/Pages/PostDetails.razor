@@ -233,6 +233,7 @@ else
         {
             var dto = new FoodPostReservationDto(username, foodPostId);
             await foodPostService.ReserveAsync(dto);
+            showModal = true;
             msg = foodPost.Title + " is reserved";
         }
         catch (Exception e)

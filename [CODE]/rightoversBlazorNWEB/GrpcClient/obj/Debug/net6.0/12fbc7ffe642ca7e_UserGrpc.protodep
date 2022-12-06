@@ -1,4 +1,4 @@
 obj\Debug\net6.0\Protos/UserGrpc.cs \
-obj\Debug\net6.0\Protos/UserGrpcGrpc.cs: C:/Users/fisch/.nuget/packages/grpc.tools/2.50.0/build/native/include/google/protobuf/timestamp.proto\
+obj\Debug\net6.0\Protos/UserGrpcGrpc.cs: C:/Users/thanks/.nuget/packages/grpc.tools/2.50.0/build/native/include/google/protobuf/timestamp.proto\
  Protos/FoodPostGrpc.proto\
  Protos/UserGrpc.proto
