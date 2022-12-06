@@ -46,6 +46,5 @@ public class OpeningHours
     public MyTime SaturdayClosingHours { get; set; }
     public MyTime SundayOpeningHours { get; set; }
     public MyTime SundayClosingHours { get; set; }
-
     public User User { get; set; }
 }
