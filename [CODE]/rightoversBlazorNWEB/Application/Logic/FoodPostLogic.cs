@@ -71,6 +71,11 @@ public class FoodPostLogic : IFoodPostLogic
         return fpDao.GetAllFoodPostsByUser(username);
     }
 
+    public async Task<FoodPost> PickUp(PickUpDto dto)
+    {
+        return await fpDao.PickUp(dto);
+    }
+
     public async Task ReserveAsync(FoodPostReservationDto dto)
     {
         await fpDao.Reserve(dto);
