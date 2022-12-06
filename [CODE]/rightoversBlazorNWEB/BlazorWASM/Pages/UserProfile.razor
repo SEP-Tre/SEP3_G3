@@ -188,6 +188,8 @@ else
     protected async Task RefetchRatings()
     {
         ratings = await ratingService.GetAllByUserRated(username);
+        avgCookerRating = GetAvgCookerRating();
+        avgPickerRating = GetAvgPickerRating();
     }
 
     protected void NavigateToProfile(string username)
