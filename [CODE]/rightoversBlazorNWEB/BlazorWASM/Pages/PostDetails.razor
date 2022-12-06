@@ -5,6 +5,7 @@
 @using BlazorWASM.Pages.UIComponents
 @inject IFoodPostService foodPostService
 @inject NavigationManager navMgr
+@inject IUserService userService;
 
 @*
 <div class="card-back-title d-flex justify-content-center align-items-center">
@@ -54,7 +55,7 @@ else
                             <h5 class="sm-text">MON</h5>
                         </td>
                         <td>
-                            <h5 class="xs-text-days px-5">@openingHours[0]</h5>
+                            <h5 class="xs-text-days px-5">@OpeningHours.MondayOpeningHours - @OpeningHours.MondayClosingHours</h5>
                         </td>
                     </tr>
                     <tr>
@@ -62,7 +63,7 @@ else
                             <h5 class="sm-text">TUE</h5>
                         </td>
                         <td>
-                            <h5 class="xs-text-days px-5">@openingHours[1]</h5>
+                            <h5 class="xs-text-days px-5">@OpeningHours.TuesdayOpeningHours - @OpeningHours.TuesdayClosingHours</h5>
                         </td>
                     </tr>
                     <tr>
@@ -70,7 +71,7 @@ else
                             <h5 class="sm-text">WED</h5>
                         </td>
                         <td>
-                            <h5 class="xs-text-days px-5">@openingHours[2]</h5>
+                            <h5 class="xs-text-days px-5">@OpeningHours.WednesdayOpeningHours - @OpeningHours.WednesdayClosingHours</h5>
                         </td>
                     </tr>
                     <tr>
@@ -78,7 +79,7 @@ else
                             <h5 class="sm-text">THU</h5>
                         </td>
                         <td>
-                            <h5 class="xs-text-days px-5">@openingHours[3]</h5>
+                            <h5 class="xs-text-days px-5">@OpeningHours.ThursdayOpeningHours - @OpeningHours.ThursdayClosingHours</h5>
                         </td>
                     </tr>
                     <tr>
@@ -86,7 +87,7 @@ else
                             <h5 class="sm-text">FRI</h5>
                         </td>
                         <td>
-                            <h5 class="xs-text-days px-5">@openingHours[4]</h5>
+                            <h5 class="xs-text-days px-5">@OpeningHours.FridayOpeningHours - @OpeningHours.FridayClosingHours</h5>
                         </td>
                     </tr>
                     <tr>
@@ -94,7 +95,7 @@ else
                             <h5 class="sm-text">SAT</h5>
                         </td>
                         <td>
-                            <h5 class="xs-text-days px-5">@openingHours[5]</h5>
+                            <h5 class="xs-text-days px-5">@OpeningHours.SaturdayOpeningHours - @OpeningHours.SaturdayClosingHours</h5>
                         </td>
                     </tr>
                     <tr>
@@ -102,7 +103,7 @@ else
                             <h5 class="sm-text">SUN</h5>
                         </td>
                         <td>
-                            <h5 class="xs-text-days px-5">@openingHours[6]</h5>
+                            <h5 class="xs-text-days px-5">@OpeningHours.SundayOpeningHours - @OpeningHours.SundayClosingHours</h5>
                         </td>
                     </tr>
                 </table>
@@ -171,7 +172,7 @@ else
     public string pickupDetailsDates;
     public string pickupDetailsTime;
     public string creationDate;
-    public List<string> openingHours;
+    public OpeningHours OpeningHours;
     private bool showModal;
 
     protected override async Task OnInitializedAsync()
@@ -193,7 +194,7 @@ else
         }
     }
 
-    private void DisplayInformation()
+    private async void DisplayInformation()
     {
         var endDate = foodPost.EndDate;
         var startDate = foodPost.StartDate;
@@ -205,17 +206,10 @@ else
         var dateTime = foodPost.TimestampPosted;
         creationDate = $"{dateTime.Day}/{dateTime.Month}/{dateTime.Year}";
 
-    //Here would an if statement
-    //OpenningHours hours = await usersService.GetOpeningHoursAsync(username);
-        openingHours = new List<string>();
-        openingHours.Add("09:00-17:00");
-        openingHours.Add("09:00-17:00");
-        openingHours.Add("09:00-17:00");
-        openingHours.Add("09:00-17:00");
-        openingHours.Add("09:00-17:00");
-        openingHours.Add("09:00-17:00");
-        openingHours.Add("09:00-17:00");
-        openingHours.Add("09:00-17:00");
+        if (foodPost.User.IsBusiness)
+        {
+            OpeningHours = await userService.GetOpeningHoursAsync(username);
+        }
     }
 
     private void SetUsername(string? username)
