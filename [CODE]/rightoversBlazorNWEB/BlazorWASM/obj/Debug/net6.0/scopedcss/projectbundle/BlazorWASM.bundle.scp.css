@@ -335,7 +335,6 @@
     border-radius: 50%;
 }
 
-
 .ratings[b-wiwjy8u4u7] {
     font-size: 1.5rem;
     color: white;
@@ -348,6 +347,10 @@
 
 #picker_rating[b-wiwjy8u4u7] {
     margin-top: -15px;
+}
+
+.no-mb[b-wiwjy8u4u7] {
+    margin-bottom: 0 !important;
 }
 
 .firstname[b-wiwjy8u4u7] {

@@ -4,7 +4,6 @@
     border-radius: 50%;
 }
 
-
 .ratings {
     font-size: 1.5rem;
     color: white;
@@ -17,6 +16,10 @@
 
 #picker_rating {
     margin-top: -15px;
+}
+
+.no-mb {
+    margin-bottom: 0 !important;
 }
 
 .firstname {

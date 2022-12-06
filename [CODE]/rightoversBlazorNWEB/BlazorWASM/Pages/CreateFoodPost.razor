@@ -99,8 +99,6 @@
 
     protected override void OnInitialized()
     {
-    //TODO createdUser = get user from auth? :)
-        creatorUsername = "KamilHardCoded";
         initDates();
     }
 
@@ -139,7 +137,6 @@
     {
         try
         {
-            Console.WriteLine(creatorUsername);
             int howManyDays = IntegerType.FromString(daysLeftToEat);
             var myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
             var myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
