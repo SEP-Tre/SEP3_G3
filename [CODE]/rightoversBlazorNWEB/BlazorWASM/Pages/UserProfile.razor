@@ -28,7 +28,11 @@ else
             </div>
             <AuthorizeView>
                 <Authorized>
-                     <RadzenButton ButtonStyle="ButtonStyle.Dark" Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value; await ShowRateDialog();}">Rate</RadzenButton>
+                    <RadzenButton 
+                        ButtonStyle="ButtonStyle.Dark"
+                        Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value;
+                                             await ShowRateDialog();}">Rate
+                        </RadzenButton>
                 </Authorized>
             </AuthorizeView>
 
@@ -61,15 +65,8 @@ else
                                     </div>
                                     <div class="col-md-6 text-end">
                                         <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@(foodPost.StartTime.ToString() + " - " + foodPost.EndTime.ToString()) Class="me-1" IsPill="true"/>
-                                        @* <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@(foodPost.Category)</RadzenText> *@
                                     </div>
-                                    @*
-                                    <div class="col-md-4 text-end">
-                                        <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@("USERNAME") IsPill="true" />
-                                    </div>
-                                    *@
                                 </div>
-                                @*<hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;" />*@
                                 <div class="d-flex flex-row align-items-center">
                                     @* pfp and username *@
                                     <div class="d-flex flex-column me-3">
@@ -280,7 +277,6 @@ else
 
     private async Task SubmitRating()
     {
-        Console.WriteLine("Entered submit rating.");
         String type = "";
         switch (ratingType)
         {
@@ -291,9 +287,10 @@ else
                 type = "picker";
                 break;
         }
-        Rating newRating = new Rating(loggedInUsername, username, ratingValue, ratingComment, type);
-        
-        Console.WriteLine(newRating);
+        Rating newRating = new Rating(
+            loggedInUsername,
+            username, ratingValue,
+            ratingComment, type);
         await ratingService.AddRating(newRating);
         await RefetchRatings();
     }
