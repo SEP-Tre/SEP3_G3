@@ -66,7 +66,8 @@ public class UserConverter : IUserConverter
             UserName = userMessage.Username,
             Password = userMessage.Password,
             Address = new Address(addressMessage.AddressId, addressMessage.StreetNumber, addressMessage.Street,
-                addressMessage.PostCode, addressMessage.City, addressMessage.Longitude, addressMessage.Latitude)
+                addressMessage.PostCode, addressMessage.City, addressMessage.Longitude, addressMessage.Latitude),
+            IsBusiness = userMessage.IsBusiness
         };
 
         return user;

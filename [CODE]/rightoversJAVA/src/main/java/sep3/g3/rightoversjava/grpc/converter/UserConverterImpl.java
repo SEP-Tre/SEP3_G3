@@ -32,6 +32,7 @@ public class UserConverterImpl implements UserConverter {
                 .setFirstname(user.getFirstName())
                 .setPassword(user.getPassword())
                 .setAddress(addressMessage)
+                .setIsBusiness(user.isBusiness())
                 .build();
 
         return userMessage;

@@ -230,6 +230,7 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(cookerRatings.Count());
+        avg = Math.Truncate(avg * 100) / 100;
         return avg;
     }
 
@@ -246,6 +247,7 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(pickerRatings.Count());
+        avg = Math.Truncate(avg * 100)/100;
         return avg;
     }
 

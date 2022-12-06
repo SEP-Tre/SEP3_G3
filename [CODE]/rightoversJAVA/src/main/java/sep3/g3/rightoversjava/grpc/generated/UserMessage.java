@@ -82,6 +82,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 40: {
+
+            isBusiness_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -230,6 +235,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ISBUSINESS_FIELD_NUMBER = 5;
+  private boolean isBusiness_;
+  /**
+   * <code>bool isBusiness = 5;</code>
+   * @return The isBusiness.
+   */
+  @java.lang.Override
+  public boolean getIsBusiness() {
+    return isBusiness_;
+  }
+
   public static final int ADDRESS_FIELD_NUMBER = 4;
   private sep3.g3.rightoversjava.grpc.generated.AddressMessage address_;
   /**
@@ -282,6 +298,9 @@ private static final long serialVersionUID = 0L;
     if (address_ != null) {
       output.writeMessage(4, getAddress());
     }
+    if (isBusiness_ != false) {
+      output.writeBool(5, isBusiness_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -304,6 +323,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getAddress());
     }
+    if (isBusiness_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, isBusiness_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -325,6 +348,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFirstname())) return false;
     if (!getPassword()
         .equals(other.getPassword())) return false;
+    if (getIsBusiness()
+        != other.getIsBusiness()) return false;
     if (hasAddress() != other.hasAddress()) return false;
     if (hasAddress()) {
       if (!getAddress()
@@ -347,6 +372,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFirstname().hashCode();
     hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
     hash = (53 * hash) + getPassword().hashCode();
+    hash = (37 * hash) + ISBUSINESS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsBusiness());
     if (hasAddress()) {
       hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getAddress().hashCode();
@@ -490,6 +518,8 @@ private static final long serialVersionUID = 0L;
 
       password_ = "";
 
+      isBusiness_ = false;
+
       if (addressBuilder_ == null) {
         address_ = null;
       } else {
@@ -525,6 +555,7 @@ private static final long serialVersionUID = 0L;
       result.username_ = username_;
       result.firstname_ = firstname_;
       result.password_ = password_;
+      result.isBusiness_ = isBusiness_;
       if (addressBuilder_ == null) {
         result.address_ = address_;
       } else {
@@ -589,6 +620,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getPassword().isEmpty()) {
         password_ = other.password_;
         onChanged();
+      }
+      if (other.getIsBusiness() != false) {
+        setIsBusiness(other.getIsBusiness());
       }
       if (other.hasAddress()) {
         mergeAddress(other.getAddress());
@@ -846,6 +880,37 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       password_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean isBusiness_ ;
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @return The isBusiness.
+     */
+    @java.lang.Override
+    public boolean getIsBusiness() {
+      return isBusiness_;
+    }
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @param value The isBusiness to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsBusiness(boolean value) {
+      
+      isBusiness_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsBusiness() {
+      
+      isBusiness_ = false;
       onChanged();
       return this;
     }
