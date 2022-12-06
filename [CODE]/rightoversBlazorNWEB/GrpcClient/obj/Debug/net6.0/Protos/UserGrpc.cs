@@ -34,39 +34,40 @@ namespace GrpcCL {
             "ZBgCIAEoCSKRAQoOQWRkcmVzc01lc3NhZ2USEgoKYWRkcmVzc19pZBgBIAEo",
             "BRIOCgZzdHJlZXQYAiABKAkSFQoNc3RyZWV0X251bWJlchgDIAEoCRIRCglw",
             "b3N0X2NvZGUYBCABKAUSDAoEY2l0eRgFIAEoCRIRCglsb25naXR1ZGUYBiAB",
-            "KAESEAoIbGF0aXR1ZGUYByABKAEibgoLVXNlck1lc3NhZ2USEAoIdXNlcm5h",
-            "bWUYASABKAkSEQoJZmlyc3RuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJ",
-            "EigKB2FkZHJlc3MYBCABKAsyFy5zZXAzLmczLkFkZHJlc3NNZXNzYWdlIicK",
-            "Bk9DVGltZRIMCgRob3VyGAEgASgFEg8KB21pbnV0ZXMYAiABKAUi1gQKFE9w",
-            "ZW5pbmdIb3Vyc1Jlc3BvbnNlEiYKDW1vbmRheU9wZW5pbmcYASABKAsyDy5z",
-            "ZXAzLmczLk9DVGltZRImCg1tb25kYXlDbG9zaW5nGAIgASgLMg8uc2VwMy5n",
-            "My5PQ1RpbWUSJwoOdHVlc2RheU9wZW5pbmcYAyABKAsyDy5zZXAzLmczLk9D",
-            "VGltZRInCg50dWVzZGF5Q2xvc2luZxgEIAEoCzIPLnNlcDMuZzMuT0NUaW1l",
-            "EikKEHdlZG5lc2RheU9wZW5pbmcYBSABKAsyDy5zZXAzLmczLk9DVGltZRIp",
-            "ChB3ZWRuZXNkYXlDbG9zaW5nGAYgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoP",
-            "dGh1cnNkYXlPcGVuaW5nGAcgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPdGh1",
-            "cnNkYXlDbG9zaW5nGAggASgLMg8uc2VwMy5nMy5PQ1RpbWUSJgoNZnJpZGF5",
-            "T3BlbmluZxgJIAEoCzIPLnNlcDMuZzMuT0NUaW1lEiYKDWZyaWRheUNsb3Np",
-            "bmcYCiABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9zYXR1cmRheU9wZW5pbmcY",
-            "CyABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9zYXR1cmRheUNsb3NpbmcYDCAB",
-            "KAsyDy5zZXAzLmczLk9DVGltZRImCg1zdW5kYXlPcGVuaW5nGA0gASgLMg8u",
-            "c2VwMy5nMy5PQ1RpbWUSJgoNc3VuZGF5Q2xvc2luZxgOIAEoCzIPLnNlcDMu",
-            "ZzMuT0NUaW1lIlwKE09wZW5pbmdIb3Vyc1JlcXVlc3QSEAoIdXNlcm5hbWUY",
-            "ASABKAkSMwoMb3BlbmluZ0hvdXJzGAIgASgLMh0uc2VwMy5nMy5PcGVuaW5n",
-            "SG91cnNSZXNwb25zZSIcCghVc2VyTmFtZRIQCgh1c2VybmFtZRgBIAEoCSJ+",
-            "ChJSZXNlcnZhdGlvbk1lc3NhZ2USFgoOcmVzZXJ2YXRpb25faWQYASABKAUS",
-            "LAoJZm9vZF9wb3N0GAIgASgLMhkuc2VwMy5nMy5Gb29kUG9zdFJlc3BvbnNl",
-            "EiIKBHVzZXIYAyABKAsyFC5zZXAzLmczLlVzZXJNZXNzYWdlMqUDCgtVc2Vy",
-            "U2VydmljZRI7Cg1nZXRCeVVzZXJuYW1lEhQuc2VwMy5nMy5Vc2VyUmVxdWVz",
-            "dBoULnNlcDMuZzMuVXNlck1lc3NhZ2USPgoIcmVnaXN0ZXISHC5zZXAzLmcz",
-            "LlVzZXJDcmVhdGlvblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEjgK",
-            "BWxvZ2luEhkuc2VwMy5nMy5Vc2VyTG9naW5SZXF1ZXN0GhQuc2VwMy5nMy5V",
-            "c2VyTWVzc2FnZRJIChJhc3NpZ25PcGVuaW5nSG91cnMSHC5zZXAzLmczLk9w",
-            "ZW5pbmdIb3Vyc1JlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkMKD0dl",
-            "dE9wZW5pbmdIb3VycxIRLnNlcDMuZzMuVXNlck5hbWUaHS5zZXAzLmczLk9w",
-            "ZW5pbmdIb3Vyc1Jlc3BvbnNlElAKGWdldFJlc2VydmF0aW9uc0J5VXNlcm5h",
-            "bWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0Ghsuc2VwMy5nMy5SZXNlcnZhdGlv",
-            "bk1lc3NhZ2UwAUIJqgIGR3JwY0NMYgZwcm90bzM="));
+            "KAESEAoIbGF0aXR1ZGUYByABKAEiggEKC1VzZXJNZXNzYWdlEhAKCHVzZXJu",
+            "YW1lGAEgASgJEhEKCWZpcnN0bmFtZRgCIAEoCRIQCghwYXNzd29yZBgDIAEo",
+            "CRISCgppc0J1c2luZXNzGAUgASgIEigKB2FkZHJlc3MYBCABKAsyFy5zZXAz",
+            "LmczLkFkZHJlc3NNZXNzYWdlIicKBk9DVGltZRIMCgRob3VyGAEgASgFEg8K",
+            "B21pbnV0ZXMYAiABKAUi1gQKFE9wZW5pbmdIb3Vyc1Jlc3BvbnNlEiYKDW1v",
+            "bmRheU9wZW5pbmcYASABKAsyDy5zZXAzLmczLk9DVGltZRImCg1tb25kYXlD",
+            "bG9zaW5nGAIgASgLMg8uc2VwMy5nMy5PQ1RpbWUSJwoOdHVlc2RheU9wZW5p",
+            "bmcYAyABKAsyDy5zZXAzLmczLk9DVGltZRInCg50dWVzZGF5Q2xvc2luZxgE",
+            "IAEoCzIPLnNlcDMuZzMuT0NUaW1lEikKEHdlZG5lc2RheU9wZW5pbmcYBSAB",
+            "KAsyDy5zZXAzLmczLk9DVGltZRIpChB3ZWRuZXNkYXlDbG9zaW5nGAYgASgL",
+            "Mg8uc2VwMy5nMy5PQ1RpbWUSKAoPdGh1cnNkYXlPcGVuaW5nGAcgASgLMg8u",
+            "c2VwMy5nMy5PQ1RpbWUSKAoPdGh1cnNkYXlDbG9zaW5nGAggASgLMg8uc2Vw",
+            "My5nMy5PQ1RpbWUSJgoNZnJpZGF5T3BlbmluZxgJIAEoCzIPLnNlcDMuZzMu",
+            "T0NUaW1lEiYKDWZyaWRheUNsb3NpbmcYCiABKAsyDy5zZXAzLmczLk9DVGlt",
+            "ZRIoCg9zYXR1cmRheU9wZW5pbmcYCyABKAsyDy5zZXAzLmczLk9DVGltZRIo",
+            "Cg9zYXR1cmRheUNsb3NpbmcYDCABKAsyDy5zZXAzLmczLk9DVGltZRImCg1z",
+            "dW5kYXlPcGVuaW5nGA0gASgLMg8uc2VwMy5nMy5PQ1RpbWUSJgoNc3VuZGF5",
+            "Q2xvc2luZxgOIAEoCzIPLnNlcDMuZzMuT0NUaW1lIlwKE09wZW5pbmdIb3Vy",
+            "c1JlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSMwoMb3BlbmluZ0hvdXJzGAIg",
+            "ASgLMh0uc2VwMy5nMy5PcGVuaW5nSG91cnNSZXNwb25zZSIcCghVc2VyTmFt",
+            "ZRIQCgh1c2VybmFtZRgBIAEoCSJ+ChJSZXNlcnZhdGlvbk1lc3NhZ2USFgoO",
+            "cmVzZXJ2YXRpb25faWQYASABKAUSLAoJZm9vZF9wb3N0GAIgASgLMhkuc2Vw",
+            "My5nMy5Gb29kUG9zdFJlc3BvbnNlEiIKBHVzZXIYAyABKAsyFC5zZXAzLmcz",
+            "LlVzZXJNZXNzYWdlMqUDCgtVc2VyU2VydmljZRI7Cg1nZXRCeVVzZXJuYW1l",
+            "EhQuc2VwMy5nMy5Vc2VyUmVxdWVzdBoULnNlcDMuZzMuVXNlck1lc3NhZ2US",
+            "PgoIcmVnaXN0ZXISHC5zZXAzLmczLlVzZXJDcmVhdGlvblJlcXVlc3QaFC5z",
+            "ZXAzLmczLlVzZXJNZXNzYWdlEjgKBWxvZ2luEhkuc2VwMy5nMy5Vc2VyTG9n",
+            "aW5SZXF1ZXN0GhQuc2VwMy5nMy5Vc2VyTWVzc2FnZRJIChJhc3NpZ25PcGVu",
+            "aW5nSG91cnMSHC5zZXAzLmczLk9wZW5pbmdIb3Vyc1JlcXVlc3QaFC5zZXAz",
+            "LmczLlVzZXJNZXNzYWdlEkMKD0dldE9wZW5pbmdIb3VycxIRLnNlcDMuZzMu",
+            "VXNlck5hbWUaHS5zZXAzLmczLk9wZW5pbmdIb3Vyc1Jlc3BvbnNlElAKGWdl",
+            "dFJlc2VydmF0aW9uc0J5VXNlcm5hbWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0",
+            "Ghsuc2VwMy5nMy5SZXNlcnZhdGlvbk1lc3NhZ2UwAUIJqgIGR3JwY0NMYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcCL.FoodPostGrpcReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -74,7 +75,7 @@ namespace GrpcCL {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserCreationRequest), global::GrpcCL.UserCreationRequest.Parser, new[]{ "Username", "Firstname", "Password", "Address", "IsBusiness" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserLoginRequest), global::GrpcCL.UserLoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.AddressMessage), global::GrpcCL.AddressMessage.Parser, new[]{ "AddressId", "Street", "StreetNumber", "PostCode", "City", "Longitude", "Latitude" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserMessage), global::GrpcCL.UserMessage.Parser, new[]{ "Username", "Firstname", "Password", "Address" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserMessage), global::GrpcCL.UserMessage.Parser, new[]{ "Username", "Firstname", "Password", "IsBusiness", "Address" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OCTime), global::GrpcCL.OCTime.Parser, new[]{ "Hour", "Minutes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursResponse), global::GrpcCL.OpeningHoursResponse.Parser, new[]{ "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursRequest), global::GrpcCL.OpeningHoursRequest.Parser, new[]{ "Username", "OpeningHours" }, null, null, null, null),
@@ -1295,6 +1296,7 @@ namespace GrpcCL {
       username_ = other.username_;
       firstname_ = other.firstname_;
       password_ = other.password_;
+      isBusiness_ = other.isBusiness_;
       address_ = other.address_ != null ? other.address_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1341,6 +1343,18 @@ namespace GrpcCL {
       }
     }
 
+    /// <summary>Field number for the "isBusiness" field.</summary>
+    public const int IsBusinessFieldNumber = 5;
+    private bool isBusiness_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsBusiness {
+      get { return isBusiness_; }
+      set {
+        isBusiness_ = value;
+      }
+    }
+
     /// <summary>Field number for the "address" field.</summary>
     public const int AddressFieldNumber = 4;
     private global::GrpcCL.AddressMessage address_;
@@ -1371,6 +1385,7 @@ namespace GrpcCL {
       if (Username != other.Username) return false;
       if (Firstname != other.Firstname) return false;
       if (Password != other.Password) return false;
+      if (IsBusiness != other.IsBusiness) return false;
       if (!object.Equals(Address, other.Address)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1382,6 +1397,7 @@ namespace GrpcCL {
       if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (Firstname.Length != 0) hash ^= Firstname.GetHashCode();
       if (Password.Length != 0) hash ^= Password.GetHashCode();
+      if (IsBusiness != false) hash ^= IsBusiness.GetHashCode();
       if (address_ != null) hash ^= Address.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1417,6 +1433,10 @@ namespace GrpcCL {
         output.WriteRawTag(34);
         output.WriteMessage(Address);
       }
+      if (IsBusiness != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsBusiness);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1443,6 +1463,10 @@ namespace GrpcCL {
         output.WriteRawTag(34);
         output.WriteMessage(Address);
       }
+      if (IsBusiness != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsBusiness);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1461,6 +1485,9 @@ namespace GrpcCL {
       }
       if (Password.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
+      }
+      if (IsBusiness != false) {
+        size += 1 + 1;
       }
       if (address_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Address);
@@ -1485,6 +1512,9 @@ namespace GrpcCL {
       }
       if (other.Password.Length != 0) {
         Password = other.Password;
+      }
+      if (other.IsBusiness != false) {
+        IsBusiness = other.IsBusiness;
       }
       if (other.address_ != null) {
         if (address_ == null) {
@@ -1526,6 +1556,10 @@ namespace GrpcCL {
             input.ReadMessage(Address);
             break;
           }
+          case 40: {
+            IsBusiness = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -1558,6 +1592,10 @@ namespace GrpcCL {
               Address = new global::GrpcCL.AddressMessage();
             }
             input.ReadMessage(Address);
+            break;
+          }
+          case 40: {
+            IsBusiness = input.ReadBool();
             break;
           }
         }

@@ -39,28 +39,34 @@
                     <label style="color: @color">@resultMsg</label>
                 }
             </div>
-            <div class="form-group field">
-                <label>Start Date for Pickup</label>
-                <input id="start_date" type="date" @bind="@startDate"/>
-            </div>
+            @if (context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value.Equals("False"))
+            {
+                <div class="form-group field">
+                    <label>Start Date for Pickup</label>
+                    <input id="start_date" type="date" @bind="@startDate"/>
+                </div>
 
-            <div class="form-group field">
-                <label>End Date for Pickup</label>
-                <input id="end_date" type="date" @bind="@endDate"/>
-            </div>
+                <div class="form-group field">
+                    <label>End Date for Pickup</label>
+                    <input id="end_date" type="date" @bind="@endDate"/>
+                </div>
 
-            <div class="form-group field">
-                <label>Start Time for Pickup</label>
-                <input id="start_time" type="time" @bind="@startTime"/>
-            </div>
+                <div class="form-group field">
+                    <label>Start Time for Pickup</label>
+                    <input id="start_time" type="time" @bind="@startTime"/>
+                </div>
 
-            <div class="form-group field">
-                <label>End Time for Pickup</label>
-                <input id="end_time" type="time" @bind="@endTime"/>
-            </div>
-            <div class="button-row">
-                <button @onclick="@CWfields" class="acceptbtn">See Fields</button>
-            </div>
+                <div class="form-group field">
+                    <label>End Time for Pickup</label>
+                    <input id="end_time" type="time" @bind="@endTime"/>
+                </div>
+            }
+            else
+            {
+                <div>
+                    <p>People can pick up the food during your business' opening hours.</p>
+                </div>
+            }
 
             <div class="button-row">
                 <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => CreateAsync())" MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Create" ButtonStyle="ButtonStyle.Dark"/>
@@ -101,15 +107,7 @@
     {
         initDates();
     }
-
-    private void CWfields()
-    {
-        Console.WriteLine("Title: " + title);
-        Console.WriteLine("CAT: " + category);
-        Console.WriteLine("desc: " + description);
-        Console.WriteLine("etc");
-    }
-
+    
     private void initDates()
     {
         startDate = DateOnly.FromDateTime(DateTime.Now);

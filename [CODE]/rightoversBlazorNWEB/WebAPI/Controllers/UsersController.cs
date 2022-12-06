@@ -154,7 +154,8 @@ public class UsersController : ControllerBase
             new Claim("PostalCode", user.Address.PostCode.ToString()),
             new Claim("City", user.Address.City),
             new Claim("Longitude", user.Address.Longitude.ToString()),
-            new Claim("Latitude", user.Address.Latitude.ToString())
+            new Claim("Latitude", user.Address.Latitude.ToString()),
+            new Claim("IsBusiness", user.IsBusiness.ToString())
             //@context.User.Longitude <- This is a string.
         };
 
