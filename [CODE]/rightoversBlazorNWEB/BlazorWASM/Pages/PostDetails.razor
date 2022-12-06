@@ -4,6 +4,7 @@
 @using Domain.DTOs
 @using BlazorWASM.Pages.UIComponents
 @inject IFoodPostService foodPostService
+@inject IUserService userService;
 @inject NavigationManager navMgr
 
 @*
@@ -19,7 +20,17 @@
 }
 else
 {
-    <div class="d-flex justify-content-center my-1">
+    <AuthorizeView>
+        <NotAuthorized>
+            <div class="d-flex justify-content-center">
+                <h3>
+                    Please log in if you would like to reserve a post!
+                </h3>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+    <div class="d-flex justify-content-around my-1">
+        
         <div class="card-back mx-3">
             <div class="card d-flex align-items-start flex-column">
 
@@ -39,75 +50,84 @@ else
                 <h5 class="sm-text my-2">DESCRIPTION</h5>
 
                 <h5 class="bg-text">@foodPost.Description</h5>
+                @if (creator != null)
+                {
+                    @if (!creator.IsBusiness)
+                    {
+                        <h5 class="sm-text my-2">PICK UP DETAILS</h5>
 
-
-                <h5 class="sm-text my-2">PICK UP DETAILS</h5>
-
-                <div class="d-flex align-items-start flex-column">
-                    <h5 class="bg-text">@pickupDetailsDates</h5>
-                    <h5 class="bg-text">@pickupDetailsTime</h5>
-                </div>
-
-                <table>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">MON</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@openingHours[0]</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">TUE</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@openingHours[1]</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">WED</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@openingHours[2]</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">THU</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@openingHours[3]</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">FRI</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@openingHours[4]</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">SAT</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@openingHours[5]</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">SUN</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@openingHours[6]</h5>
-                        </td>
-                    </tr>
-                </table>
-
-
+                        <div class="d-flex align-items-start flex-column">
+                            <h5 class="bg-text">@pickupDetailsDates</h5>
+                            <h5 class="bg-text">@pickupDetailsTime</h5>
+                        </div>
+                    }
+                    else
+                    {
+                        <h5 class="sm-text my-2">OPENNING HOURS</h5>
+                        <table>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">MON</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[0]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">TUE</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[1]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">WED</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[2]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">THU</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[3]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">FRI</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[4]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">SAT</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[5]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">SUN</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[6]</h5>
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                }
+                else
+                {
+                    <p>Loading the details...</p>
+                }
                 <AuthorizeView>
                     <Authorized>
                         <div>
@@ -132,15 +152,7 @@ else
             </div>
         </div>
     </div>
-    <AuthorizeView>
-        <NotAuthorized>
-            <div>
-                <h3>
-                    Please log in if you would like to reserve a post
-                </h3>
-            </div>
-        </NotAuthorized>
-    </AuthorizeView>
+    
     <div>
         <h2>
             @errorMsg
@@ -173,12 +185,16 @@ else
     public string creationDate;
     public List<string> openingHours;
     private bool showModal;
+    private User creator;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             foodPost = await foodPostService.GetSingleAsync(id);
+
+            creator = await userService.GetUserByUsername(foodPost.User.UserName);
+
             DisplayInformation();
 
 

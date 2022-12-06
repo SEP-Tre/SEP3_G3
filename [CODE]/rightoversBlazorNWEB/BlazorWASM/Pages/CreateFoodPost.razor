@@ -34,10 +34,6 @@
             <div class="form-group field">
                 <label>Image url:</label>
                 <input id="imageUrl" type="url" @bind="@pictureUrl"/>
-                @if (!string.IsNullOrEmpty(resultMsg))
-                {
-                    <label style="color: @color">@resultMsg</label>
-                }
             </div>
             @if (context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value.Equals("False"))
             {
@@ -72,15 +68,17 @@
                 <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => CreateAsync())" MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Create" ButtonStyle="ButtonStyle.Dark"/>
             </div>
             <Modal ShowModal="showModal">
-                <p>@createdDtoString</p>
-                <button @onclick="@Proceed">Wonderful</button>
+                <p class="text-center">@resultMsg</p>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Wonderful!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
             </Modal>
         </div>
     </Authorized>
     <NotAuthorized>
-        <h1>
-            You must be logged in to create a post
-        </h1>
+        <div class="d-flex justify-content-center align-items-center">
+            <h1>
+                You must be logged in to create a post!
+            </h1>
+        </div>
     </NotAuthorized>
 
 </AuthorizeView>
@@ -107,7 +105,7 @@
     {
         initDates();
     }
-    
+
     private void initDates()
     {
         startDate = DateOnly.FromDateTime(DateTime.Now);
@@ -156,7 +154,7 @@
                     creatorUsername
                     ));
             clear();
-            resultMsg = "Food Post successfully created";
+            resultMsg = $"Food Post with a title '{newFoodPost.Title}' successfully created!";
             color = "green";
     // createdDtoString = "Your Food Post <" + newFoodPost.Title + "> was created.";
             showModal = true;
