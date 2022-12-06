@@ -28,7 +28,11 @@ else
             </div>
             <AuthorizeView>
                 <Authorized>
-                     <RadzenButton ButtonStyle="ButtonStyle.Dark" Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value; await ShowRateDialog();}">Rate</RadzenButton>
+                    <RadzenButton 
+                        ButtonStyle="ButtonStyle.Dark"
+                        Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value;
+                                             await ShowRateDialog();}">Rate
+                        </RadzenButton>
                 </Authorized>
             </AuthorizeView>
 
@@ -61,15 +65,8 @@ else
                                     </div>
                                     <div class="col-md-6 text-end">
                                         <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@(foodPost.StartTime.ToString() + " - " + foodPost.EndTime.ToString()) Class="me-1" IsPill="true"/>
-                                        @* <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@(foodPost.Category)</RadzenText> *@
                                     </div>
-                                    @*
-                                    <div class="col-md-4 text-end">
-                                        <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@("USERNAME") IsPill="true" />
-                                    </div>
-                                    *@
                                 </div>
-                                @*<hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;" />*@
                                 <div class="d-flex flex-row align-items-center">
                                     @* pfp and username *@
                                     <div class="d-flex flex-column me-3">
@@ -82,41 +79,6 @@ else
                                         </RadzenText>
                                         <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@foodPost.Category</RadzenText>
                                         <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@($"Expires in {foodPost.DaysUntilExpired} days")</RadzenText>
-                                    </div>
-                                </div>
-                            </RadzenCard>
-                        </Template>
-                    </RadzenDataList>
-                </RadzenTabsItem>
-                <RadzenTabsItem Text="Reservations">
-                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@reservations" TItem="Reservation">
-                        <Template Context="reservation">
-                            <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
-                                <div class="d-flex d-table-row">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <RadzenImage Path="@reservation.FoodPost.PictureUrl" Class="rz-border-radius-10 float-start me-3" Style="width: 80px; height: 80px;"/>
-                                        <div>
-                                            <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                                <strong>@reservation.FoodPost.Title</strong>
-                                            </RadzenText>
-                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.User.UserName </RadzenText>
-                                        </div>
-                                    </div>
-                                    <hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;"/>
-
-                                    <div class="d-flex flex-column align-items-center ms-5">
-                                        <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                            <strong>When?</strong>
-                                        </RadzenText>
-                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.StartDate.DayAndMonth() - @reservation.FoodPost.EndDate.DayAndMonth()</RadzenText>
-                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.StartTime.ToString() - @reservation.FoodPost.EndTime.ToString()</RadzenText>
-
-                                        <div class="mt-3">
-                                            <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                                <strong>Where?</strong>
-                                            </RadzenText>
-                                            <div>MAP HERE</div>
-                                        </div>
                                     </div>
                                 </div>
                             </RadzenCard>
@@ -289,7 +251,6 @@ else
 
     private async Task SubmitRating()
     {
-        Console.WriteLine("Entered submit rating.");
         String type = "";
         switch (ratingType)
         {
@@ -300,9 +261,10 @@ else
                 type = "picker";
                 break;
         }
-        Rating newRating = new Rating(loggedInUsername, username, ratingValue, ratingComment, type);
-
-        Console.WriteLine(newRating);
+        Rating newRating = new Rating(
+            loggedInUsername,
+            username, ratingValue,
+            ratingComment, type);
         await ratingService.AddRating(newRating);
         await RefetchRatings();
     }

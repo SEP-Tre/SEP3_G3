@@ -43,4 +43,17 @@ public class Address
     public string City { get; set; }
     public double Longitude { get; set; }
     public double Latitude { get; set; }
+
+    public override string ToString()
+    {
+        string s = "";
+        s += Street;
+        s += " ";
+        s += StreetNumber;
+        s += ", ";
+        s += PostCode;
+        s += " ";
+        s += City;
+        return s;
+    }
 }
