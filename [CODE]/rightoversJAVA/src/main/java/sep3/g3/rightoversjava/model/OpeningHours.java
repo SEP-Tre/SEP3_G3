@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 
 import javax.persistence.*;
@@ -7,10 +9,15 @@ import java.time.LocalTime;
 
 @Entity
 @Table(name = "opening_hours")
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class OpeningHours {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE,
+            generator = "table-generator")
+    @TableGenerator(name = "table-generator",
+            table = "opening_hours",
+            pkColumnName = "id")
     private int id;
 
     @Column(name = "monday_opening_hours", columnDefinition = "TIME")

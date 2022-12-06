@@ -56,17 +56,19 @@ namespace GrpcCL {
             "SG91cnNSZXNwb25zZSIcCghVc2VyTmFtZRIQCgh1c2VybmFtZRgBIAEoCSJ+",
             "ChJSZXNlcnZhdGlvbk1lc3NhZ2USFgoOcmVzZXJ2YXRpb25faWQYASABKAUS",
             "LAoJZm9vZF9wb3N0GAIgASgLMhkuc2VwMy5nMy5Gb29kUG9zdFJlc3BvbnNl",
-            "EiIKBHVzZXIYAyABKAsyFC5zZXAzLmczLlVzZXJNZXNzYWdlMqUDCgtVc2Vy",
-            "U2VydmljZRI7Cg1nZXRCeVVzZXJuYW1lEhQuc2VwMy5nMy5Vc2VyUmVxdWVz",
-            "dBoULnNlcDMuZzMuVXNlck1lc3NhZ2USPgoIcmVnaXN0ZXISHC5zZXAzLmcz",
-            "LlVzZXJDcmVhdGlvblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEjgK",
-            "BWxvZ2luEhkuc2VwMy5nMy5Vc2VyTG9naW5SZXF1ZXN0GhQuc2VwMy5nMy5V",
-            "c2VyTWVzc2FnZRJIChJhc3NpZ25PcGVuaW5nSG91cnMSHC5zZXAzLmczLk9w",
-            "ZW5pbmdIb3Vyc1JlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkMKD0dl",
-            "dE9wZW5pbmdIb3VycxIRLnNlcDMuZzMuVXNlck5hbWUaHS5zZXAzLmczLk9w",
-            "ZW5pbmdIb3Vyc1Jlc3BvbnNlElAKGWdldFJlc2VydmF0aW9uc0J5VXNlcm5h",
-            "bWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0Ghsuc2VwMy5nMy5SZXNlcnZhdGlv",
-            "bk1lc3NhZ2UwAUIJqgIGR3JwY0NMYgZwcm90bzM="));
+            "EiIKBHVzZXIYAyABKAsyFC5zZXAzLmczLlVzZXJNZXNzYWdlIhgKBkZpbGxl",
+            "chIOCgZmaWxsZXIYASABKAgy2gMKC1VzZXJTZXJ2aWNlEjsKDWdldEJ5VXNl",
+            "cm5hbWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0GhQuc2VwMy5nMy5Vc2VyTWVz",
+            "c2FnZRI+CghyZWdpc3RlchIcLnNlcDMuZzMuVXNlckNyZWF0aW9uUmVxdWVz",
+            "dBoULnNlcDMuZzMuVXNlck1lc3NhZ2USOAoFbG9naW4SGS5zZXAzLmczLlVz",
+            "ZXJMb2dpblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkgKEmFzc2ln",
+            "bk9wZW5pbmdIb3VycxIcLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVxdWVzdBoU",
+            "LnNlcDMuZzMuVXNlck1lc3NhZ2USQwoPR2V0T3BlbmluZ0hvdXJzEhEuc2Vw",
+            "My5nMy5Vc2VyTmFtZRodLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVzcG9uc2US",
+            "UAoZZ2V0UmVzZXJ2YXRpb25zQnlVc2VybmFtZRIULnNlcDMuZzMuVXNlclJl",
+            "cXVlc3QaGy5zZXAzLmczLlJlc2VydmF0aW9uTWVzc2FnZTABEjMKCmRlbGV0",
+            "ZVVzZXISFC5zZXAzLmczLlVzZXJSZXF1ZXN0Gg8uc2VwMy5nMy5GaWxsZXJC",
+            "CaoCBkdycGNDTGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcCL.FoodPostGrpcReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -79,7 +81,8 @@ namespace GrpcCL {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursResponse), global::GrpcCL.OpeningHoursResponse.Parser, new[]{ "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursRequest), global::GrpcCL.OpeningHoursRequest.Parser, new[]{ "Username", "OpeningHours" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserName), global::GrpcCL.UserName.Parser, new[]{ "Username" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.ReservationMessage), global::GrpcCL.ReservationMessage.Parser, new[]{ "ReservationId", "FoodPost", "User" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.ReservationMessage), global::GrpcCL.ReservationMessage.Parser, new[]{ "ReservationId", "FoodPost", "User" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.Filler), global::GrpcCL.Filler.Parser, new[]{ "Filler_" }, null, null, null, null)
           }));
     }
     #endregion
@@ -3285,6 +3288,195 @@ namespace GrpcCL {
               User = new global::GrpcCL.UserMessage();
             }
             input.ReadMessage(User);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Filler : pb::IMessage<Filler>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Filler> _parser = new pb::MessageParser<Filler>(() => new Filler());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<Filler> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GrpcCL.UserGrpcReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Filler() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Filler(Filler other) : this() {
+      filler_ = other.filler_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Filler Clone() {
+      return new Filler(this);
+    }
+
+    /// <summary>Field number for the "filler" field.</summary>
+    public const int Filler_FieldNumber = 1;
+    private bool filler_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Filler_ {
+      get { return filler_; }
+      set {
+        filler_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as Filler);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(Filler other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Filler_ != other.Filler_) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Filler_ != false) hash ^= Filler_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Filler_ != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Filler_);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Filler_ != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Filler_);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Filler_ != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(Filler other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Filler_ != false) {
+        Filler_ = other.Filler_;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Filler_ = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Filler_ = input.ReadBool();
             break;
           }
         }

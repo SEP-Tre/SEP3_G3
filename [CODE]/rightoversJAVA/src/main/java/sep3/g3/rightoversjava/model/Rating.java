@@ -18,7 +18,11 @@ public class Rating {
     @JoinColumn(name = "username_rated")
     public User userRated;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE,
+            generator = "table-generator")
+    @TableGenerator(name = "table-generator",
+            table = "reservation",
+            pkColumnName = "reservation_id")
     private int ratingId;
 
     public Rating(int value, String comment, String ratingType, User userRating, User userRated) {

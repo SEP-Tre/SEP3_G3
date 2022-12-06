@@ -1,11 +1,14 @@
 package sep3.g3.rightoversjava.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_")
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class User {
     @Id
     public String username;

@@ -120,4 +120,24 @@ public class UserServiceGrpcImpl
                             .asRuntimeException());
         }
     }
+
+    @Override
+    public void deleteUser(UserRequest request, StreamObserver<Filler> responseObserver) {
+        try
+        {
+            userService.deleteUser(request.getUsername());
+            Filler response = Filler.newBuilder()
+                    .setFiller(true)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
+        }
+    }
 }

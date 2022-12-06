@@ -51,6 +51,11 @@ public class UserLogic : IUserLogic
         return user;
     }
 
+    public async Task DeleteUserAsync(string username)
+    {
+        await userDao.DeleteUser(username);
+    }
+
     public async Task<OpeningHours> GetOpeningHoursAsync(string username)
     {
         var openingHours = await userDao.GetOpeningHoursAsync(username);

@@ -159,6 +159,17 @@ else
             </Tabs>
         </RadzenTabs>
     </div>
+    
+    <AuthorizeView>
+        <Authorized>
+            @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
+            {
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Dark" ButtonStyle="ButtonStyle.Danger" 
+                              Click=@(args => DeleteUser())
+                              Text="Delete User"/>
+            }
+        </Authorized>
+    </AuthorizeView>
 }
 
 @code {
@@ -208,8 +219,8 @@ else
 
         avgCookerRating = GetAvgCookerRating();
         avgPickerRating = GetAvgPickerRating();
-        
-        
+
+
     }
 
     protected async Task RefetchRatings()
@@ -224,8 +235,7 @@ else
 
     protected void InitCookPicUrls()
     {
-        cookUrls = new Dictionary<int, string>
-        {
+        cookUrls = new Dictionary<int, string>{
             [1] = cookOneStarPicUrl,
             [2] = cookTwoStarsPicUrl,
             [3] = cookThreeStarsPicUrl,
@@ -236,8 +246,7 @@ else
 
     protected void InitPickerPicUrls()
     {
-        pickerUrls = new Dictionary<int, string>
-        {
+        pickerUrls = new Dictionary<int, string>{
             [1] = pickerOneStarPicUrl,
             [2] = pickerTwoStarsPicUrl,
             [3] = pickerThreeStarsPicUrl,
@@ -292,7 +301,7 @@ else
                 break;
         }
         Rating newRating = new Rating(loggedInUsername, username, ratingValue, ratingComment, type);
-        
+
         Console.WriteLine(newRating);
         await ratingService.AddRating(newRating);
         await RefetchRatings();
@@ -319,10 +328,19 @@ else
                 </div>
                 <div class="d-flex flex-row justify-content-evenly">
                     <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
-                    <RadzenButton Text="Rate" Click="async () => { await SubmitRating(); ds.Close(true);  }" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Rate" Click="async () => { await SubmitRating(); ds.Close(true); }" Class="me-1" Style="width: 80px;"/>
                 </div>
             </div>);
     }
 
+    public async Task DeleteUser()
+    {
+        var confirm = await DialogService.Confirm("Are you sure?", "MyTitle",
+            new ConfirmOptions(){OkButtonText = "Yes", CancelButtonText = "No"});
+        if (confirm.Value)
+        {
+            await userService.DeleteUserAsync(username);
+        }
+    }
 
 }

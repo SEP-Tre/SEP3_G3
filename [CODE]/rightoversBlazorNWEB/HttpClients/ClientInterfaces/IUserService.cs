@@ -10,14 +10,12 @@ public interface IUserService
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; }
     Task LoginAsync(UserLoginDto dto);
     Task<User> RegisterAsync(UserCreationDto dto);
-
     Task LogoutAsync();
     Task<User> GetUserByUsername(string username);
     Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username);
     Task<IEnumerable<Rating>> GetAllRatingsToUser(string username);
-    public Task<ClaimsPrincipal> GetAuthAsync();
-
-    public Task<OpeningHours> GetOpeningHoursAsync(string username);
-
-    public Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto);
+    Task<ClaimsPrincipal> GetAuthAsync();
+    Task<OpeningHours> GetOpeningHoursAsync(string username);
+    Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto);
+    Task DeleteUserAsync(string username);
 }

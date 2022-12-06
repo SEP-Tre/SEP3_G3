@@ -54,6 +54,11 @@ public final class User {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sep3_g3_ReservationMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_Filler_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_Filler_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -95,17 +100,19 @@ public final class User {
       "p3.g3.OpeningHours\"~\n\022ReservationMessage" +
       "\022\026\n\016reservation_id\030\001 \001(\005\022,\n\tfood_post\030\002 " +
       "\001(\0132\031.sep3.g3.FoodPostResponse\022\"\n\004user\030\003" +
-      " \001(\0132\024.sep3.g3.UserMessage2\340\002\n\013UserServi" +
-      "ce\022;\n\rgetByUsername\022\024.sep3.g3.UserReques" +
-      "t\032\024.sep3.g3.UserMessage\022>\n\010register\022\034.se" +
-      "p3.g3.UserCreationRequest\032\024.sep3.g3.User" +
-      "Message\022H\n\022assignOpeningHours\022\034.sep3.g3." +
-      "OpeningHoursRequest\032\024.sep3.g3.UserMessag" +
-      "e\0228\n\005login\022\031.sep3.g3.UserLoginRequest\032\024." +
-      "sep3.g3.UserMessage\022P\n\031getReservationsBy" +
-      "Username\022\024.sep3.g3.UserRequest\032\033.sep3.g3" +
-      ".ReservationMessage0\001B)\n%sep3.g3.rightov" +
-      "ersjava.grpc.generatedP\001b\006proto3"
+      " \001(\0132\024.sep3.g3.UserMessage\"\030\n\006Filler\022\016\n\006" +
+      "filler\030\001 \001(\0102\225\003\n\013UserService\022;\n\rgetByUse" +
+      "rname\022\024.sep3.g3.UserRequest\032\024.sep3.g3.Us" +
+      "erMessage\022>\n\010register\022\034.sep3.g3.UserCrea" +
+      "tionRequest\032\024.sep3.g3.UserMessage\022H\n\022ass" +
+      "ignOpeningHours\022\034.sep3.g3.OpeningHoursRe" +
+      "quest\032\024.sep3.g3.UserMessage\0228\n\005login\022\031.s" +
+      "ep3.g3.UserLoginRequest\032\024.sep3.g3.UserMe" +
+      "ssage\022P\n\031getReservationsByUsername\022\024.sep" +
+      "3.g3.UserRequest\032\033.sep3.g3.ReservationMe" +
+      "ssage0\001\0223\n\ndeleteUser\022\024.sep3.g3.UserRequ" +
+      "est\032\017.sep3.g3.FillerB)\n%sep3.g3.rightove" +
+      "rsjava.grpc.generatedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -160,6 +167,12 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_ReservationMessage_descriptor,
         new java.lang.String[] { "ReservationId", "FoodPost", "User", });
+    internal_static_sep3_g3_Filler_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_sep3_g3_Filler_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_Filler_descriptor,
+        new java.lang.String[] { "Filler", });
     sep3.g3.rightoversjava.grpc.generated.FoodPost.getDescriptor();
   }
 

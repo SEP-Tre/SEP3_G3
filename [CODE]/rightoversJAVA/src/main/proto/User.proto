@@ -65,10 +65,15 @@ message ReservationMessage {
   UserMessage user = 3;
 }
 
+message Filler {
+  bool filler = 1;
+}
+
 service UserService {
   rpc getByUsername(UserRequest) returns (UserMessage);
   rpc register(UserCreationRequest) returns (UserMessage);
   rpc assignOpeningHours(OpeningHoursRequest) returns (UserMessage);
   rpc login(UserLoginRequest) returns (UserMessage);
   rpc getReservationsByUsername(UserRequest) returns (stream ReservationMessage);
+  rpc deleteUser(UserRequest) returns (Filler);
 }

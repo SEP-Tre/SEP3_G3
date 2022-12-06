@@ -2,15 +2,16 @@ package sep3.g3.rightoversjava.model;
 
 import sep3.g3.rightoversjava.model.dto.AddressCreationDTO;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Address {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE,
+            generator = "table-generator")
+    @TableGenerator(name = "table-generator",
+            table = "address",
+            pkColumnName = "address_id")
     private int addressId;
     //String so we don't need an optional lettering after
     private String street;

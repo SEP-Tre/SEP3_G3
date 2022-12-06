@@ -154,6 +154,12 @@ public class UserDao : IUserDao
         return user;
     }
 
+    public async Task DeleteUser(string username)
+    {
+        var userRequest = converter.GetUserRequestFromUsername(username);
+        var fillerResponse = await client.deleteUserAsync(userRequest);
+    }
+
     public async Task<User> GetByUsername(string username)
     {
         var userRequest = converter.GetUserRequestFromUsername(username);

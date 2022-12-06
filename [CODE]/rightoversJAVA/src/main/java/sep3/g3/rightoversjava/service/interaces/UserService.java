@@ -18,4 +18,5 @@ public interface UserService {
     ArrayList<Reservation> getReservationsByUsername(String username);
 
     User assignOpeningHours(OpeningHoursCreationDTO dto) throws IllegalAccessException;
+    void deleteUser(String username);
 }

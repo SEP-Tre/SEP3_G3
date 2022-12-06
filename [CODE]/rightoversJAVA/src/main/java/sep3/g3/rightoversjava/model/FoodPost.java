@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
 
 import javax.persistence.*;
@@ -11,9 +13,14 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "food_post")
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class FoodPost {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE,
+            generator = "table-generator")
+    @TableGenerator(name = "table-generator",
+            table = "food_post",
+            pkColumnName = "post_id")
     private int post_id;
     private String title;
     private String category_;

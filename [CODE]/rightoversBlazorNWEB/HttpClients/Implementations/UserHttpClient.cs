@@ -58,6 +58,18 @@ public class UserHttpClient : IUserService
         return user;
     }
 
+    public async Task DeleteUserAsync(string username)
+    {
+        var response = await client.DeleteAsync($"/Users/{username}");
+        // The response itself is just a filler boolean
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+    }
+
     public async Task<OpeningHours> GetOpeningHoursAsync(string username)
     {
         var response = await client.PostAsJsonAsync("/Users/hours", username);

@@ -67,6 +67,18 @@ public class UserServiceImp implements UserService {
 
     }
 
+    @Override
+    public void deleteUser(String username) {
+        if (userRepository.existsById(username))
+        {
+            userRepository.deleteById(username);
+        }
+        else
+        {
+            throw new IllegalArgumentException("That user does not exist!");
+        }
+    }
+
 
     @Override
     public User getByUsername(String username) throws Exception {

@@ -12,4 +12,5 @@ public interface IUserLogic
     Task<IEnumerable<Rating>> GetAllRatingsToUser(string username);
     Task<OpeningHours> GetOpeningHoursAsync(string username);
     Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto);
+    Task DeleteUserAsync(string username);
 }

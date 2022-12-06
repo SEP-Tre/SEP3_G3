@@ -61,6 +61,8 @@ namespace GrpcCL {
     static readonly grpc::Marshaller<global::GrpcCL.OpeningHoursResponse> __Marshaller_sep3_g3_OpeningHoursResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.OpeningHoursResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcCL.ReservationMessage> __Marshaller_sep3_g3_ReservationMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.ReservationMessage.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.Filler> __Marshaller_sep3_g3_Filler = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.Filler.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcCL.UserRequest, global::GrpcCL.UserMessage> __Method_getByUsername = new grpc::Method<global::GrpcCL.UserRequest, global::GrpcCL.UserMessage>(
@@ -109,6 +111,14 @@ namespace GrpcCL {
         "getReservationsByUsername",
         __Marshaller_sep3_g3_UserRequest,
         __Marshaller_sep3_g3_ReservationMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.UserRequest, global::GrpcCL.Filler> __Method_deleteUser = new grpc::Method<global::GrpcCL.UserRequest, global::GrpcCL.Filler>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "deleteUser",
+        __Marshaller_sep3_g3_UserRequest,
+        __Marshaller_sep3_g3_Filler);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -252,6 +262,26 @@ namespace GrpcCL {
       public virtual grpc::AsyncServerStreamingCall<global::GrpcCL.ReservationMessage> getReservationsByUsername(global::GrpcCL.UserRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_getReservationsByUsername, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.Filler deleteUser(global::GrpcCL.UserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return deleteUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.Filler deleteUser(global::GrpcCL.UserRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_deleteUser, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.Filler> deleteUserAsync(global::GrpcCL.UserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return deleteUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.Filler> deleteUserAsync(global::GrpcCL.UserRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_deleteUser, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
