@@ -133,4 +133,13 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
                    .asRuntimeException());
         }
     }
+
+    @Override
+    public void delete(FoodPostID request, StreamObserver<ReservationResponse> responseObserver)
+    {
+        service.delete(request.getId());
+        ReservationResponse response = ReservationResponse.newBuilder().setFiller(true).build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
 }

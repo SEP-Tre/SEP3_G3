@@ -77,4 +77,5 @@ service FoodPostService {
   rpc getSingleFoodPost(FoodPostID) returns (FoodPostResponse);
   rpc reserve(FoodPostReservation) returns (ReservationResponse);
   rpc pickUp(PickUpRequest) returns(FoodPostResponse);
+  rpc delete(FoodPostID) returns (ReservationResponse);
 }

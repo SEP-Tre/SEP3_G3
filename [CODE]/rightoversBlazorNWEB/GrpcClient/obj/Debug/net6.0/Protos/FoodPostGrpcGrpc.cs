@@ -110,6 +110,14 @@ namespace GrpcCL {
         __Marshaller_sep3_g3_PickUpRequest,
         __Marshaller_sep3_g3_FoodPostResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.FoodPostID, global::GrpcCL.ReservationResponse> __Method_delete = new grpc::Method<global::GrpcCL.FoodPostID, global::GrpcCL.ReservationResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "delete",
+        __Marshaller_sep3_g3_FoodPostID,
+        __Marshaller_sep3_g3_ReservationResponse);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -242,6 +250,26 @@ namespace GrpcCL {
       public virtual grpc::AsyncUnaryCall<global::GrpcCL.FoodPostResponse> pickUpAsync(global::GrpcCL.PickUpRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_pickUp, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.ReservationResponse delete(global::GrpcCL.FoodPostID request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return delete(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.ReservationResponse delete(global::GrpcCL.FoodPostID request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_delete, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.ReservationResponse> deleteAsync(global::GrpcCL.FoodPostID request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return deleteAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.ReservationResponse> deleteAsync(global::GrpcCL.FoodPostID request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_delete, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

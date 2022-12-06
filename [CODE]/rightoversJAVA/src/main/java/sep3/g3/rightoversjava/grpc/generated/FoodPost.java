@@ -98,7 +98,7 @@ public final class FoodPost {
       "\023FoodPostReservation\022\020\n\010username\030\001 \001(\t\022\023" +
       "\n\013foodpost_id\030\002 \001(\005\"%\n\023ReservationRespon" +
       "se\022\016\n\006filler\030\001 \001(\010\"-\n\rPickUpRequest\022\n\n\002i" +
-      "d\030\001 \001(\005\022\020\n\010username\030\002 \001(\t2\264\003\n\017FoodPostSe" +
+      "d\030\001 \001(\005\022\020\n\010username\030\002 \001(\t2\361\003\n\017FoodPostSe" +
       "rvice\022S\n\026getFoodPostsByUsername\022\034.sep3.g" +
       "3.FPByUsernameRequest\032\031.sep3.g3.FoodPost" +
       "Response0\001\022;\n\004post\022\030.sep3.g3.FoodPostReq" +
@@ -109,8 +109,10 @@ public final class FoodPost {
       "PostResponse\022E\n\007reserve\022\034.sep3.g3.FoodPo" +
       "stReservation\032\034.sep3.g3.ReservationRespo" +
       "nse\022;\n\006pickUp\022\026.sep3.g3.PickUpRequest\032\031." +
-      "sep3.g3.FoodPostResponseB)\n%sep3.g3.righ" +
-      "toversjava.grpc.generatedP\001b\006proto3"
+      "sep3.g3.FoodPostResponse\022;\n\006delete\022\023.sep" +
+      "3.g3.FoodPostID\032\034.sep3.g3.ReservationRes" +
+      "ponseB)\n%sep3.g3.rightoversjava.grpc.gen" +
+      "eratedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

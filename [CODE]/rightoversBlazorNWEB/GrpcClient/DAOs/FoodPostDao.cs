@@ -113,6 +113,11 @@ public class FoodPostDao : IFoodPostDao
         return foodPost;
     }
 
+    public async Task DeleteAsync(int id)
+    {
+        await client.deleteAsync(new FoodPostID { Id = id });
+    }
+
 
     public async Task<FoodPost> GetSingleAsync(int id)
     {

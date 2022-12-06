@@ -28,4 +28,6 @@ public interface FoodPostService {
     void reserve(ReservationCreationDto dto);
 
     FoodPost pickUp(PickUpDto dto) throws IllegalAccessException;
+
+    void delete(int id);
 }

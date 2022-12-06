@@ -137,4 +137,18 @@ public class FoodPostServiceImp implements FoodPostService {
         FoodPost udpatedFp = fpRepository.save(fpToBeUpdated);
         return udpatedFp;
     }
+
+    public void delete(int id)
+    {
+        Optional<FoodPost> foodPost = fpRepository.findById(id);
+        if(foodPost.isPresent())
+        {
+            Reservation reservation = reservationRepository.findByFoodPost(foodPost.get());
+            if (reservation!=null)
+            {
+                reservationRepository.delete(reservation);
+            }
+            fpRepository.deleteById(id);
+        }
+    }
 }

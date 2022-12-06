@@ -12,4 +12,6 @@ public interface IFoodPostDao
     Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username);
 
     Task<FoodPost> PickUp(PickUpDto dto);
+
+    Task DeleteAsync(int id);
 }
