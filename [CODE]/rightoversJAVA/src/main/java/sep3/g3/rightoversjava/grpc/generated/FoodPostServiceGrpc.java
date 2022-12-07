@@ -201,6 +201,68 @@ public final class FoodPostServiceGrpc {
     return getPickUpMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FoodPostID,
+      sep3.g3.rightoversjava.grpc.generated.ReservationResponse> getDeleteMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "delete",
+      requestType = sep3.g3.rightoversjava.grpc.generated.FoodPostID.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.ReservationResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FoodPostID,
+      sep3.g3.rightoversjava.grpc.generated.ReservationResponse> getDeleteMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.FoodPostID, sep3.g3.rightoversjava.grpc.generated.ReservationResponse> getDeleteMethod;
+    if ((getDeleteMethod = FoodPostServiceGrpc.getDeleteMethod) == null) {
+      synchronized (FoodPostServiceGrpc.class) {
+        if ((getDeleteMethod = FoodPostServiceGrpc.getDeleteMethod) == null) {
+          FoodPostServiceGrpc.getDeleteMethod = getDeleteMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.FoodPostID, sep3.g3.rightoversjava.grpc.generated.ReservationResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "delete"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.FoodPostID.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ReservationResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FoodPostServiceMethodDescriptorSupplier("delete"))
+              .build();
+        }
+      }
+    }
+    return getDeleteMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ReportMessage,
+      sep3.g3.rightoversjava.grpc.generated.ReportMessage> getReportMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "report",
+      requestType = sep3.g3.rightoversjava.grpc.generated.ReportMessage.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.ReportMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ReportMessage,
+      sep3.g3.rightoversjava.grpc.generated.ReportMessage> getReportMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ReportMessage, sep3.g3.rightoversjava.grpc.generated.ReportMessage> getReportMethod;
+    if ((getReportMethod = FoodPostServiceGrpc.getReportMethod) == null) {
+      synchronized (FoodPostServiceGrpc.class) {
+        if ((getReportMethod = FoodPostServiceGrpc.getReportMethod) == null) {
+          FoodPostServiceGrpc.getReportMethod = getReportMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.ReportMessage, sep3.g3.rightoversjava.grpc.generated.ReportMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "report"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ReportMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ReportMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new FoodPostServiceMethodDescriptorSupplier("report"))
+              .build();
+        }
+      }
+    }
+    return getReportMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -291,6 +353,20 @@ public final class FoodPostServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPickUpMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void delete(sep3.g3.rightoversjava.grpc.generated.FoodPostID request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void report(sep3.g3.rightoversjava.grpc.generated.ReportMessage request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReportMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -335,6 +411,20 @@ public final class FoodPostServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.PickUpRequest,
                 sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>(
                   this, METHODID_PICK_UP)))
+          .addMethod(
+            getDeleteMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.FoodPostID,
+                sep3.g3.rightoversjava.grpc.generated.ReservationResponse>(
+                  this, METHODID_DELETE)))
+          .addMethod(
+            getReportMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.ReportMessage,
+                sep3.g3.rightoversjava.grpc.generated.ReportMessage>(
+                  this, METHODID_REPORT)))
           .build();
     }
   }
@@ -400,6 +490,22 @@ public final class FoodPostServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getPickUpMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void delete(sep3.g3.rightoversjava.grpc.generated.FoodPostID request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void report(sep3.g3.rightoversjava.grpc.generated.ReportMessage request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getReportMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -459,6 +565,20 @@ public final class FoodPostServiceGrpc {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getPickUpMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public sep3.g3.rightoversjava.grpc.generated.ReservationResponse delete(sep3.g3.rightoversjava.grpc.generated.FoodPostID request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public sep3.g3.rightoversjava.grpc.generated.ReportMessage report(sep3.g3.rightoversjava.grpc.generated.ReportMessage request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getReportMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -506,6 +626,22 @@ public final class FoodPostServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getPickUpMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.ReservationResponse> delete(
+        sep3.g3.rightoversjava.grpc.generated.FoodPostID request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.ReportMessage> report(
+        sep3.g3.rightoversjava.grpc.generated.ReportMessage request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getReportMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_FOOD_POSTS_BY_USERNAME = 0;
@@ -514,6 +650,8 @@ public final class FoodPostServiceGrpc {
   private static final int METHODID_GET_SINGLE_FOOD_POST = 3;
   private static final int METHODID_RESERVE = 4;
   private static final int METHODID_PICK_UP = 5;
+  private static final int METHODID_DELETE = 6;
+  private static final int METHODID_REPORT = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -555,6 +693,14 @@ public final class FoodPostServiceGrpc {
         case METHODID_PICK_UP:
           serviceImpl.pickUp((sep3.g3.rightoversjava.grpc.generated.PickUpRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>) responseObserver);
+          break;
+        case METHODID_DELETE:
+          serviceImpl.delete((sep3.g3.rightoversjava.grpc.generated.FoodPostID) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationResponse>) responseObserver);
+          break;
+        case METHODID_REPORT:
+          serviceImpl.report((sep3.g3.rightoversjava.grpc.generated.ReportMessage) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -623,6 +769,8 @@ public final class FoodPostServiceGrpc {
               .addMethod(getGetSingleFoodPostMethod())
               .addMethod(getReserveMethod())
               .addMethod(getPickUpMethod())
+              .addMethod(getDeleteMethod())
+              .addMethod(getReportMethod())
               .build();
         }
       }

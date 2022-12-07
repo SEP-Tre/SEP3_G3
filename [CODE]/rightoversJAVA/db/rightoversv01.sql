@@ -93,3 +93,26 @@ CREATE TABLE rating
         ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS report;
+CREATE TABLE report
+(
+    report_id          SERIAL PRIMARY KEY,
+    post_id            int REFERENCES food_post (post_id),
+    comment_           varchar,
+    username_reporting varchar REFERENCES user_ (username)
+);
+
+UPDATE food_post
+SET post_state = 'posted'
+WHERE post_id = 2;
+
+DROP TABLE IF EXISTS user_;
+CREATE TABLE user_
+(
+    username    varchar(50) primary key,
+    firstname   varchar(50),
+    password_   varchar(100),
+    address_id  int references address (address_id),
+    is_business bool
+);
+

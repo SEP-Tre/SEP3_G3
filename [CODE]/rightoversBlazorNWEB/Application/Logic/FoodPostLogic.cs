@@ -76,6 +76,11 @@ public class FoodPostLogic : IFoodPostLogic
         return await fpDao.PickUp(dto);
     }
 
+    public async Task DeleteAsync(int id)
+    {
+        await fpDao.DeleteAsync(id);
+    }
+
     public async Task ReserveAsync(FoodPostReservationDto dto)
     {
         await fpDao.Reserve(dto);

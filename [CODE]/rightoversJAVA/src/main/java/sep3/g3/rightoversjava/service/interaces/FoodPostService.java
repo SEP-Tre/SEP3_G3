@@ -1,8 +1,10 @@
 package sep3.g3.rightoversjava.service.interaces;
 
 import sep3.g3.rightoversjava.model.FoodPost;
+import sep3.g3.rightoversjava.model.Report;
 import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
 import sep3.g3.rightoversjava.model.dto.PickUpDto;
+import sep3.g3.rightoversjava.model.dto.ReportCreationDto;
 import sep3.g3.rightoversjava.model.dto.ReservationCreationDto;
 
 import java.util.ArrayList;
@@ -28,4 +30,8 @@ public interface FoodPostService {
     void reserve(ReservationCreationDto dto);
 
     FoodPost pickUp(PickUpDto dto) throws IllegalAccessException;
+
+    void delete(int id);
+
+    Report report(ReportCreationDto dto);//report
 }

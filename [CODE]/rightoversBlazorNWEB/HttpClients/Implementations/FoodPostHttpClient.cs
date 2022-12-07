@@ -119,4 +119,15 @@ public class FoodPostHttpClient : IFoodPostService
 
         return foodPosts;
     }
+
+    public async Task DeleteAsync(int id)
+    {
+        var response = await client.DeleteAsync($"/FoodPosts/?id={id}");
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        } 
+    }
 }
