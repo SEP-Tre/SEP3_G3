@@ -252,6 +252,13 @@ else
         return avg;
     }
 
+    private void clearRating()
+    {
+        ratingType = 1;
+        ratingValue = 1;
+        ratingComment = "";
+    }
+
     private async Task SubmitRating()
     {
         String type = "";
@@ -270,6 +277,8 @@ else
             ratingComment, type);
         await ratingService.AddRating(newRating);
         await InitRatings();
+        clearRating();
+        
     }
 
     async Task ShowRateDialog()
