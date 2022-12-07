@@ -14,4 +14,6 @@ public interface IFoodPostDao
     Task<FoodPost> PickUp(PickUpDto dto);
 
     Task DeleteAsync(int id);
+
+    Task<Report> ReportAsync(Report report);
 }

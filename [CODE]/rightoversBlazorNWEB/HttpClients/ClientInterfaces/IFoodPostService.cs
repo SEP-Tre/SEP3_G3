@@ -12,4 +12,6 @@ public interface IFoodPostService
     Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username);
     Task DeleteAsync(int id);
 
+    Task<Report> ReportAsync(Report report);
+
 }

@@ -6,6 +6,7 @@
 @inject IFoodPostService foodPostService
 @inject IUserService userService;
 @inject NavigationManager navMgr
+@inject DialogService DialogService
 
 @*
 <div class="card-back-title d-flex justify-content-center align-items-center">
@@ -130,7 +131,7 @@ else
                 }
                 <AuthorizeView>
                     <Authorized>
-                        <div>
+                        <div class="d-flex justify-content-around my-2">
                             
                             <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
                             <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
@@ -152,16 +153,28 @@ else
                 <a class="bg-text" href="/UserProfile/@foodPost.User.UserName">@foodPost.User.UserName</a>
                 <AuthorizeView>
                     <Authorized>
-                        <div>
+                        <div class="d-flex justify-content-around my-2">
                             @if (creator != null)
                             {
                                 @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName))
                                 {
-                                    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Delete())  Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
+                                    <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Delete())  Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
+                                }
+                                else
+                                {
+                                    <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter" 
+                                                  Click="async () => await ShowRateDialog()"
+                                                  MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value))
+                                                  Text="Report" ButtonStyle="ButtonStyle.Dark"/>
                                 }
                             }
                         </div>
                     </Authorized>
+                    <NotAuthorized>
+                        <div class="d-flex justify-content-center my-2">
+                            <p class="px-3">If you wish to report, please log in.</p>
+                        </div>
+                    </NotAuthorized>
                 </AuthorizeView>
             </div>
         </div>
@@ -180,7 +193,7 @@ else
 
     <Modal ShowModal="showModal">
         <div class="d-flex flex-column justify-content-start align-items-center">
-            <p class=m-auto>@msg</p>
+            <RadzenText Text="@msg" TextAlign="TextAlign.Center"></RadzenText>
             <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
         </div>
     </Modal>
@@ -200,6 +213,7 @@ else
     public List<string> openingHours;
     private bool showModal;
     private User creator;
+    private string reportComment;
 
     protected override async Task OnInitializedAsync()
     {
@@ -280,4 +294,40 @@ else
         await foodPostService.DeleteAsync(foodPost.PostId);
         navMgr.NavigateTo($"/UserProfile/{creator.UserName}");
     }
+    
+    private async Task ShowRateDialog()
+    {
+        var result = await DialogService.OpenAsync($"Report {creator.UserName}", ds =>
+            @<div class="d-flex flex-column">
+                <div class="big d-flex flex-row m-2 justify-content-center">
+                    <RadzenText Text="Specify what is the report about in the below comment."></RadzenText>
+                </div>
+                <div class="d-flex flex-column">
+                    <RadzenTextArea class="mb-2" @bind-Value=@reportComment></RadzenTextArea>
+                </div>
+                <div class="d-flex flex-row justify-content-evenly">
+                    <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Report" Click="async () => { await ReportAsync(); ds.Close(true);  }" Class="me-1" Style="width: 80px;"/>
+                </div>
+            </div>);
+    }
+
+    private async Task ReportAsync()
+    {
+        try
+        {
+            Report report = new Report(foodPost.PostId, reportComment, username!);
+            Console.WriteLine(report.Comment);
+            Report savedReport = await foodPostService.ReportAsync(report);
+            msg = "Thank you for your input. We will consider this report as soon as possible.";
+            showModal = true;
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
 }}

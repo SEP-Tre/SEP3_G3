@@ -81,6 +81,11 @@ public class FoodPostLogic : IFoodPostLogic
         await fpDao.DeleteAsync(id);
     }
 
+    public async Task<Report> ReportAsync(Report report)
+    {
+        return await fpDao.ReportAsync(report);
+    }
+
     public async Task ReserveAsync(FoodPostReservationDto dto)
     {
         await fpDao.Reserve(dto);
