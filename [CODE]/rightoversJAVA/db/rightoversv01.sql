@@ -40,22 +40,22 @@ CREATE TABLE address
 DROP TABLE IF EXISTS opening_hours;
 CREATE TABLE opening_hours
 (
-    id SERIAL PRIMARY KEY,
-    username varchar(50) references user_(username),
-    monday_opening_hours time,
-    monday_closing_hours time,
-    tuesday_opening_hours time,
-    tuesday_closing_hours time,
+    id                      SERIAL PRIMARY KEY,
+    username                varchar(50) references user_ (username),
+    monday_opening_hours    time,
+    monday_closing_hours    time,
+    tuesday_opening_hours   time,
+    tuesday_closing_hours   time,
     wednesday_opening_hours time,
     wednesday_closing_hours time,
-    thursday_opening_hours time,
-    thursday_closing_hours time,
-    friday_opening_hours time,
-    friday_closing_hours time,
-    saturday_opening_hours time,
-    saturday_closing_hours time,
-    sunday_opening_hours time,
-    sunday_closing_hours time
+    thursday_opening_hours  time,
+    thursday_closing_hours  time,
+    friday_opening_hours    time,
+    friday_closing_hours    time,
+    saturday_opening_hours  time,
+    saturday_closing_hours  time,
+    sunday_opening_hours    time,
+    sunday_closing_hours    time
 );
 
 DROP TABLE IF EXISTS reservation;
@@ -76,13 +76,23 @@ VALUES ('Haldsvej', '1', 8700, 'Horsens', 55.87746972455174, 9.835904241121996),
 DROP TABLE IF EXISTS rating;
 CREATE TABLE rating
 (
-    rating_id SERIAL PRIMARY KEY,
-    value_ int,
-    comment_             varchar,
-    rating_type          varchar,
-    username_rating      varchar REFERENCES user_ (username),
-    username_rated varchar REFERENCES user_ (username)
+    rating_id       SERIAL PRIMARY KEY,
+    value_          int,
+    comment_        varchar,
+    rating_type     varchar,
+    username_rating varchar REFERENCES user_ (username),
+    username_rated  varchar REFERENCES user_ (username)
 );
+
+DROP TABLE IF EXISTS report;
+CREATE TABLE report
+(
+    report_id          SERIAL PRIMARY KEY,
+    post_id            int REFERENCES food_post (post_id),
+    comment_           varchar,
+    username_reporting varchar REFERENCES user_ (username)
+);
+
 UPDATE food_post
 SET post_state = 'posted'
 WHERE post_id = 2;
@@ -90,10 +100,10 @@ WHERE post_id = 2;
 DROP TABLE IF EXISTS user_;
 CREATE TABLE user_
 (
-    username   varchar(50) primary key,
-    firstname  varchar(50),
-    password_  varchar(100),
-    address_id int references address (address_id),
+    username    varchar(50) primary key,
+    firstname   varchar(50),
+    password_   varchar(100),
+    address_id  int references address (address_id),
     is_business bool
 );
 

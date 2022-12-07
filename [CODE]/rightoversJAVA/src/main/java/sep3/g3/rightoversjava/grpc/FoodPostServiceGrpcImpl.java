@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Configurable;
 import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.FoodPost;
+import sep3.g3.rightoversjava.model.Report;
 import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
 import sep3.g3.rightoversjava.model.dto.PickUpDto;
+import sep3.g3.rightoversjava.model.dto.ReportCreationDto;
 import sep3.g3.rightoversjava.model.dto.ReservationCreationDto;
 import sep3.g3.rightoversjava.service.interaces.FoodPostService;
 
@@ -17,20 +19,23 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 @Configurable
-public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostServiceImplBase {
+public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostServiceImplBase
+{
 
     @Autowired
     private FoodPostService service;
     @Autowired
     private FoodPostConverter converter;
 
-    public FoodPostServiceGrpcImpl() {
+    public FoodPostServiceGrpcImpl()
+    {
         service = SpringContext.getBean(FoodPostService.class);
         converter = SpringContext.getBean(FoodPostConverter.class);
     }
 
     @Override
-    public void post(FoodPostRequest request, StreamObserver<FoodPostResponse> responseObserver) {
+    public void post(FoodPostRequest request, StreamObserver<FoodPostResponse> responseObserver)
+    {
         Date sd = request.getStartDate();
         Date ed = request.getEndDate();
         Time st = request.getStartTime();
@@ -40,13 +45,15 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
         LocalTime startTime = LocalTime.of(st.getHour(), st.getMinutes());
         LocalTime endTime = LocalTime.of(et.getHour(), et.getMinutes());
         FoodPostCreationDTO dto = new FoodPostCreationDTO(request.getTitle(), request.getCategory(), request.getDescription(), request.getPictureUrl(), request.getDaysUntilExpired(), startDate, endDate, startTime, endTime, request.getUsername());
-        try {
+        try
+        {
             FoodPost created = service.create(dto);
             FoodPostResponse response = converter.getFoodPostResponse(created);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             responseObserver.onError(e);
         }
 
@@ -55,10 +62,12 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
 
     @Override
     public void getAllFoodPosts(GetAllRequest request,
-                                StreamObserver<FoodPostResponse> responseObserver) {
+                                StreamObserver<FoodPostResponse> responseObserver)
+    {
         ArrayList<FoodPost> allPosts = service.getAllFoodPosts();
         // System.out.println("All posts: " + allPosts.toString());
-        for (int i = 0; i < allPosts.size(); i++) {
+        for (int i = 0; i < allPosts.size(); i++)
+        {
             FoodPost foodPost = allPosts.get(i);
             FoodPostResponse response = converter.getFoodPostResponse(foodPost);
 
@@ -68,21 +77,26 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
     }
 
     @Override
-    public void getSingleFoodPost(FoodPostID request, StreamObserver<FoodPostResponse> responseObserver) {
-        try {
+    public void getSingleFoodPost(FoodPostID request, StreamObserver<FoodPostResponse> responseObserver)
+    {
+        try
+        {
             FoodPost foodPost = service.getSingleFoodPost(request.getId());
             FoodPostResponse response = converter.getFoodPostResponse(foodPost);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
 
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e)
+        {
             responseObserver.onError(e);
         }
     }
 
     @Override
-    public void reserve(FoodPostReservation request, StreamObserver<ReservationResponse> responseObserver) {
-        try {
+    public void reserve(FoodPostReservation request, StreamObserver<ReservationResponse> responseObserver)
+    {
+        try
+        {
             service.reserve(new ReservationCreationDto(
                     request.getFoodpostId(),
                     request.getUsername()
@@ -90,7 +104,8 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
             ReservationResponse response = ReservationResponse.newBuilder().setFiller(true).build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
             responseObserver.onError(
                     io.grpc.Status.INVALID_ARGUMENT
@@ -100,17 +115,21 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
     }
 
     @Override
-    public void getFoodPostsByUsername(FPByUsernameRequest request, StreamObserver<FoodPostResponse> responseObserver) {
+    public void getFoodPostsByUsername(FPByUsernameRequest request, StreamObserver<FoodPostResponse> responseObserver)
+    {
         String username = request.getUsername();
-        try {
+        try
+        {
             ArrayList<FoodPost> allPosts = service.getAllFoodPostsByUsername(username);
-            for (int i = 0; i < allPosts.size(); i++) {
+            for (int i = 0; i < allPosts.size(); i++)
+            {
                 FoodPost foodPost = allPosts.get(i);
                 FoodPostResponse response = converter.getFoodPostResponse(foodPost);
                 responseObserver.onNext(response);
             }
             responseObserver.onCompleted();
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             responseObserver.onError(e);
         }
     }
@@ -128,9 +147,9 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
         } catch (IllegalAccessException e)
         {
             e.printStackTrace();
-           responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT
-                   .withDescription(e.getMessage())
-                   .asRuntimeException());
+            responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT
+                    .withDescription(e.getMessage())
+                    .asRuntimeException());
         }
     }
 
@@ -141,5 +160,24 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
         ReservationResponse response = ReservationResponse.newBuilder().setFiller(true).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
+    }
+
+    @Override
+    public void report(ReportMessage request, StreamObserver<ReportMessage> responseObserver)
+    {
+        ReportCreationDto dto = converter.getReportCreationDtoFromRequest(request);
+        try
+        {
+            Report report = service.report(dto);
+            ReportMessage message = converter.getReportMessageFromReport(report);
+            responseObserver.onNext(message);
+            responseObserver.onCompleted();
+        } catch (NoSuchElementException e)
+        {
+            e.printStackTrace();
+            responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT
+                    .withDescription(e.getMessage())
+                    .asRuntimeException());
+        }
     }
 }
