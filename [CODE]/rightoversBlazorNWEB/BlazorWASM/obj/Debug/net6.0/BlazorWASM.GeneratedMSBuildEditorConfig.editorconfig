@@ -34,10 +34,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/MyReservations.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlSZXNlcnZhdGlvbnMucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/SeeAllUsers.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VlQWxsVXNlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -65,6 +61,10 @@ build_metadata.AdditionalFiles.CssScope = b-xauouoch9k
 [C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xm4hp2nt19
+
+[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/MyReservations.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlSZXNlcnZhdGlvbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-w1tifvojrv
 
 [C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/PostDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdERldGFpbHMucmF6b3I=

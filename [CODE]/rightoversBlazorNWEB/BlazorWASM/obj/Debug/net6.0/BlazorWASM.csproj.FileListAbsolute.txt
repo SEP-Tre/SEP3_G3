@@ -2557,3 +2557,4 @@ C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\wQhrCOaM.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\build-gz\ebpA1Kgo.gz
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\UserProfile.razor.rz.scp.css
+C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\MyReservations.razor.rz.scp.css
