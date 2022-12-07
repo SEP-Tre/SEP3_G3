@@ -61,6 +61,8 @@ namespace GrpcCL {
     static readonly grpc::Marshaller<global::GrpcCL.ReservationResponse> __Marshaller_sep3_g3_ReservationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.ReservationResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcCL.PickUpRequest> __Marshaller_sep3_g3_PickUpRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.PickUpRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.ReportMessage> __Marshaller_sep3_g3_ReportMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.ReportMessage.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcCL.FPByUsernameRequest, global::GrpcCL.FoodPostResponse> __Method_getFoodPostsByUsername = new grpc::Method<global::GrpcCL.FPByUsernameRequest, global::GrpcCL.FoodPostResponse>(
@@ -125,6 +127,14 @@ namespace GrpcCL {
         "getAllReportedPosts",
         __Marshaller_sep3_g3_ReservationResponse,
         __Marshaller_sep3_g3_FoodPostResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.ReportMessage, global::GrpcCL.ReportMessage> __Method_report = new grpc::Method<global::GrpcCL.ReportMessage, global::GrpcCL.ReportMessage>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "report",
+        __Marshaller_sep3_g3_ReportMessage,
+        __Marshaller_sep3_g3_ReportMessage);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -288,6 +298,26 @@ namespace GrpcCL {
       public virtual grpc::AsyncServerStreamingCall<global::GrpcCL.FoodPostResponse> getAllReportedPosts(global::GrpcCL.ReservationResponse request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_getAllReportedPosts, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.ReportMessage report(global::GrpcCL.ReportMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return report(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.ReportMessage report(global::GrpcCL.ReportMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_report, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.ReportMessage> reportAsync(global::GrpcCL.ReportMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return reportAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.ReportMessage> reportAsync(global::GrpcCL.ReportMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_report, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

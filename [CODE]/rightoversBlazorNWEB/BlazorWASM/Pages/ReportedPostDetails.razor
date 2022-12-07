@@ -156,23 +156,7 @@ else
                             @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
                             {
                                 <h1>Reports</h1>
-                                <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
-                                                Data="" TItem="FoodPost" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
-                                    <Columns>
-                                        <RadzenDataGridColumn TItem="FoodPost" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="150px" TextAlign="TextAlign.Center">
-                                            <Template Context="data">
-                                                <RadzenImage Path=@data.PictureUrl class="rz-gravatar"/>
-
-                                            </Template>
-
-                                        </RadzenDataGridColumn>
-
-                                        <RadzenDataGridColumn TItem="FoodPost" Property="Title" Title="Title" Frozen="true" Width="160px"/>
-                                        <RadzenDataGridColumn TItem="FoodPost" Property="Category" Title="Category" Width="160px"/>
-                                        <RadzenDataGridColumn TItem="FoodPost" Property="DaysUntilExpired" Title="Days Until Expiration" Width="170px"/>
-
-                                    </Columns>
-                                </RadzenDataGrid>
+    
                             }
                         </div>
                         <div>
