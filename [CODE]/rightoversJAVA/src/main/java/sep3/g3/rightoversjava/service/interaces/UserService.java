@@ -1,5 +1,6 @@
 package sep3.g3.rightoversjava.service.interaces;
 
+import sep3.g3.rightoversjava.model.Report;
 import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
@@ -19,4 +20,5 @@ public interface UserService {
 
     User assignOpeningHours(OpeningHoursCreationDTO dto) throws IllegalAccessException;
     void deleteUser(String username);
+    ArrayList<Report> getAllReportsAgainstUser(String username);
 }

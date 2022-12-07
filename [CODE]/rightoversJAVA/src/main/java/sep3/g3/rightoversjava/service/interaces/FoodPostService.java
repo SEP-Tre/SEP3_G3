@@ -36,4 +36,5 @@ public interface FoodPostService {
     Report report(ReportCreationDto dto);//report
 
     ArrayList<FoodPost> getAllReportedPosts();
+    ArrayList<Report> getReportsOnPost(int postId);
 }

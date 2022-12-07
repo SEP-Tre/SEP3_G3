@@ -2,6 +2,7 @@ package sep3.g3.rightoversjava.service.impl;
 
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.model.OpeningHours;
+import sep3.g3.rightoversjava.model.Report;
 import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
@@ -22,15 +23,17 @@ public class UserServiceImp implements UserService {
     private final ReservationRepository reservationRepository;
 
     private final OpeningHoursRepository openingHoursRepository;
+    private final ReportRepository reportRepository;
 
     public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository,
                           FoodPostRepository foodPostRepository, OpeningHoursRepository openingHoursRepository,
-                          ReservationRepository reservationRepository) {
+                          ReservationRepository reservationRepository, ReportRepository reportRepository) {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
         this.foodPostRepository = foodPostRepository;
         this.reservationRepository = reservationRepository;
         this.openingHoursRepository = openingHoursRepository;
+        this.reportRepository = reportRepository;
     }
 
     @Override
@@ -77,6 +80,11 @@ public class UserServiceImp implements UserService {
         {
             throw new IllegalArgumentException("That user does not exist!");
         }
+    }
+
+    @Override
+    public ArrayList<Report> getAllReportsAgainstUser(String username) {
+        return reportRepository.findAllByFoodPost_User_Username(username);
     }
 
 

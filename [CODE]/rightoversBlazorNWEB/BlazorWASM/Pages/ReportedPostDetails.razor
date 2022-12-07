@@ -131,7 +131,7 @@ else
                 <AuthorizeView>
                     <Authorized>
                         <div>
-                            
+
                             <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
                             <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
                         </div>
@@ -153,13 +153,6 @@ else
                 <AuthorizeView>
                     <Authorized>
                         <div>
-                            @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
-                            {
-                                <h1>Reports</h1>
-    
-                            }
-                        </div>
-                        <div>
                             @if (creator != null)
                             {
                                 @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName)
@@ -173,6 +166,25 @@ else
                 </AuthorizeView>
             </div>
         </div>
+    </div>
+    <div>
+        <AuthorizeView>
+            <Authorized>
+                <div>
+                    @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
+                    {
+                        <h1>Reports</h1>
+                        <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                                        Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="160px"/>
+                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="170px"/>
+                            </Columns>
+                        </RadzenDataGrid>
+                    }
+                </div>
+            </Authorized>
+        </AuthorizeView>
     </div>
 
     <div>
@@ -192,7 +204,7 @@ else
             <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
         </div>
     </Modal>
-    
+
 @code {
 
     [Parameter]
@@ -209,7 +221,8 @@ else
     public List<string> openingHours;
     private bool showModal;
     private User creator;
-    
+    public IEnumerable<Report>? reports;
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -218,6 +231,8 @@ else
             foodPost = await foodPostService.GetSingleAsync(id);
 
             creator = await userService.GetUserByUsername(foodPost.User.UserName);
+
+            reports = await foodPostService.GetReportsOnPostAsync(id);
 
             DisplayInformation();
 
@@ -290,4 +305,5 @@ else
         await foodPostService.DeleteAsync(foodPost.PostId);
         navMgr.NavigateTo($"/UserProfile/{creator.UserName}");
     }
+
 }}

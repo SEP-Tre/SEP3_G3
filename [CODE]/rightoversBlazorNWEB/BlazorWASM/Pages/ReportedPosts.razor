@@ -38,7 +38,7 @@
 
                     </RadzenDataGridColumn>
 
-                    <RadzenDataGridColumn TItem="FoodPost" Property="Username" Title="Username" Frozen="true" Width="160px"/>
+                    <RadzenDataGridColumn TItem="FoodPost" Property="User.UserName" Title="Username" Frozen="true" Width="160px"/>
                     <RadzenDataGridColumn TItem="FoodPost" Property="Title" Title="Title" Frozen="true" Width="160px"/>
                     <RadzenDataGridColumn TItem="FoodPost" Property="Category" Title="Category" Width="160px"/>
                     <RadzenDataGridColumn TItem="FoodPost" Property="DaysUntilExpired" Title="Days Until Expiration" Width="170px"/>
@@ -77,7 +77,7 @@
     {
         try
         {
-            navMgr.NavigateTo($"/PostDetails/{postId}");
+            navMgr.NavigateTo($"/ReportedPostDetails/{postId}");
         }
         catch (Exception e)
         {

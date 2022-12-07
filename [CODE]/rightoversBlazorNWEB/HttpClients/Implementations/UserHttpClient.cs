@@ -161,6 +161,24 @@ public class UserHttpClient : IUserService
         throw new NotImplementedException();
     }
 
+    public async Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username)
+    {
+        var response = await client.GetAsync($"Users/Reports/{username}");
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+        
+        var reports =
+            JsonSerializer.Deserialize<IEnumerable<Report>>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return reports;
+    }
+
     public Task<ClaimsPrincipal> GetAuthAsync()
     {
         var principal = CreateClaimsPrincipal();

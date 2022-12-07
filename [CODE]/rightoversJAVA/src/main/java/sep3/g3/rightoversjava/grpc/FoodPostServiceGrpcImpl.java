@@ -200,4 +200,24 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
                     .asRuntimeException());
         }
     }
+
+    @Override
+    public void getReportsOnPost(FoodPostID request, StreamObserver<ReportMessage> responseObserver) {
+        try
+        {
+            ArrayList<Report> reports = service.getReportsOnPost(request.getId());
+            for (Report report:
+                 reports) {
+                responseObserver.onNext(converter.getReportMessageFromReport(report));
+            }
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT
+                    .withDescription(e.getMessage())
+                    .asRuntimeException());
+        }
+    }
 }

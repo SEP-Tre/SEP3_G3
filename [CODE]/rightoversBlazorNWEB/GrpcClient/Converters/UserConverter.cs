@@ -82,4 +82,10 @@ public class UserConverter : IUserConverter
 
         return request;
     }
+    
+    public Report GetReportFromMessage(ReportMessage message)
+    {
+        Report report = new Report(message.PostId, message.Comment, message.UsernameReporting);
+        return report;
+    }
 }

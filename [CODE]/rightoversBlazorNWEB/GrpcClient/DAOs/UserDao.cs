@@ -190,4 +190,18 @@ public class UserDao : IUserDao
         //TODO GRPC FOR GETTING ALL RATINGS TO A USER
         throw new NotImplementedException();
     }
+
+    public async Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username)
+    {
+        var request = converter.GetUserRequestFromUsername(username);
+        var listHolder = new List<Report>();
+        AsyncServerStreamingCall<ReportMessage> response = client.getReportsAgainstUser(request);
+        await foreach (var message in response.ResponseStream.ReadAllAsync())
+            if (message.PostId != null)
+            {
+                var report = converter.GetReportFromMessage(message);
+                listHolder.Add(report);
+            }
+        return listHolder;
+    }
 }

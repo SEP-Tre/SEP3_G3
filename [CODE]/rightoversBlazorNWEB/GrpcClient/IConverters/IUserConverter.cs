@@ -13,4 +13,5 @@ public interface IUserConverter
     Reservation GetReservationFromReservationMessage(ReservationMessage message);
 
     MyTime TimeConverter(OCTime time);
+    Report GetReportFromMessage(ReportMessage message);
 }

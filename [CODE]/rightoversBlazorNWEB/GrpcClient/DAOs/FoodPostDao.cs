@@ -200,4 +200,20 @@ public class FoodPostDao : IFoodPostDao
             throw;
         }
     }
+
+    public async Task<IEnumerable<Report>> GetReportsOnPostAsync(int postId)
+    {
+        var request = new FoodPostID{
+            Id = postId
+        };
+        var listHolder = new List<Report>();
+        AsyncServerStreamingCall<ReportMessage> response = client.getReportsOnPost(request);
+        await foreach (var message in response.ResponseStream.ReadAllAsync())
+            if (message.PostId != null)
+            {
+                var report = converter.GetReportFromMessage(message);
+                listHolder.Add(report);
+            }
+        return listHolder;
+    }
 }

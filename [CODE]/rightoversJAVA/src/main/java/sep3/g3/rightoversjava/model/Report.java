@@ -1,12 +1,24 @@
 package sep3.g3.rightoversjava.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
 public class Report
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "report-sequence-generator")
+    @GenericGenerator(
+            name = "report-sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "schema", value = "rightovers"),
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "report_report_id_seq"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "12"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
     private int reportId;
 
     @ManyToOne(cascade = {CascadeType.MERGE})

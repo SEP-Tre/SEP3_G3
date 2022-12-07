@@ -126,6 +126,20 @@ else
         <Authorized>
             @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
             {
+                <h1>Reports</h1>
+                <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                                Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+                    <Columns>
+                        <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="160px"/>
+                        <RadzenDataGridColumn TItem="Report" Property="FoodPostId" Title="Foodpost ID" Width="160px"/>
+                        <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="170px"/>
+                        <RadzenDataGridColumn Width="160px" TItem="Report" Property="FoodPostId" Title="Meal Details">
+                            <Template Context="data">
+                                <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.FoodPostId)"></RadzenButton>
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
                 <RadzenButton Variant="Variant.Flat" Shade="Shade.Dark" ButtonStyle="ButtonStyle.Danger" 
                               Click=@(args => DeleteUser())
                               Text="Delete User"/>
@@ -137,8 +151,9 @@ else
 @code {
     private String claimUsername = "UserName"; // pls ignore i have some problems
     private IEnumerable<FoodPost> foodPosts;
-    private IEnumerable<Reservation> reservations;
+    private IEnumerable<Reservation>? reservations;
     private List<Rating> ratings;
+    private IEnumerable<Report> reports;
 
     [Parameter]
     public string username { get; set; }
@@ -178,6 +193,7 @@ else
         foodPosts = await foodPostService.GetAllFoodPostsByUser(username);
         ratings = await ratingService.GetAllByUserRated(username);
         reservations = await userService.GetAllReservationsByUser(username);
+        reports = await userService.GetReportsAgainstUserAsync(username);
 
         avgCookerRating = GetAvgCookerRating();
         avgPickerRating = GetAvgPickerRating();
@@ -306,6 +322,19 @@ else
         if (confirm.Value)
         {
             await userService.DeleteUserAsync(username);
+        }
+    }
+
+    private void ViewPost(int postId)
+    {
+        try
+        {
+            navMgr.NavigateTo($"/ReportedPostDetails/{postId}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
 

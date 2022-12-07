@@ -77,4 +77,9 @@ public class UserLogic : IUserLogic
             throw new Exception("Password has to contain more than six characters.");
         }
     }
+
+    public async Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username)
+    {
+        return await userDao.GetReportsAgainstUserAsync(username);
+    }
 }

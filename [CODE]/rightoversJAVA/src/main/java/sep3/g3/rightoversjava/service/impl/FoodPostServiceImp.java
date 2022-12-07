@@ -18,6 +18,7 @@ import sep3.g3.rightoversjava.service.interaces.FoodPostService;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -193,8 +194,22 @@ public class FoodPostServiceImp implements FoodPostService
 
     @Override
     public ArrayList<FoodPost> getAllReportedPosts() {
-        return new ArrayList<>(fpRepository.getAllByPostStateIsLike("reported"));
+        // TODO: make JPA do this to improve performance
+        ArrayList<Report> allReports = (ArrayList<Report>) reportRepository.findAll();
+        ArrayList<FoodPost> postHolder = new ArrayList<>();
+        for (Report report:
+             allReports) {
+            if (!postHolder.contains(report.getFoodPost()))
+            {
+                postHolder.add(report.getFoodPost());
+            }
+        }
+        return postHolder;
     }
 
-
+    @Override
+    public ArrayList<Report> getReportsOnPost(int postId) {
+        FoodPost foodPost = fpRepository.findById(postId).get();
+        return new ArrayList<>(reportRepository.findAllByFoodPost(foodPost));
+    }
 }

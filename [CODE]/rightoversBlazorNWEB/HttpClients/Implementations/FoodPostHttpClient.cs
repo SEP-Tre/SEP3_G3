@@ -166,4 +166,22 @@ public class FoodPostHttpClient : IFoodPostService
 
         return savedReport;
     }
+    
+    public async Task<IEnumerable<Report>> GetReportsOnPostAsync(int id)
+    {
+        var response = await client.GetAsync($"/FoodPosts/Reports/{id}");
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var reports =
+            JsonSerializer.Deserialize<IEnumerable<Report>>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return reports;
+    }
 }

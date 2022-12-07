@@ -77,4 +77,5 @@ service UserService {
   rpc login(UserLoginRequest) returns (UserMessage);
   rpc getReservationsByUsername(UserRequest) returns (stream ReservationMessage);
   rpc deleteUser(UserRequest) returns (Filler);
+  rpc getReportsAgainstUser(UserRequest) returns (stream ReportMessage);
 }

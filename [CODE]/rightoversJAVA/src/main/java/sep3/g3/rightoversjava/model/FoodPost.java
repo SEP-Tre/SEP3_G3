@@ -1,5 +1,6 @@
 package sep3.g3.rightoversjava.model;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import sep3.g3.rightoversjava.model.dto.FoodPostCreationDTO;
@@ -16,11 +17,17 @@ import java.util.Objects;
 @OnDelete(action = OnDeleteAction.CASCADE)
 public class FoodPost {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE,
-            generator = "table-generator")
-    @TableGenerator(name = "table-generator",
-            table = "food_post",
-            pkColumnName = "post_id")
+    @GeneratedValue(generator = "foodpost_sequence-generator")
+    @GenericGenerator(
+            name = "foodpost_sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "schema", value = "rightovers"),
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "food_post_post_id_seq"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "11"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
     private int post_id;
     private String title;
     private String category_;

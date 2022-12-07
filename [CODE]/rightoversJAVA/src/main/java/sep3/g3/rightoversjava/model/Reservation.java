@@ -24,11 +24,17 @@ public class Reservation {
     )
      */
     // Performance isn't as good, but we don't have to set the initial value
-    @GeneratedValue(strategy = GenerationType.TABLE,
-            generator = "table-generator")
-    @TableGenerator(name = "table-generator",
-            table = "reservation",
-            pkColumnName = "reservation_id")
+    @GeneratedValue(generator = "reservation-sequence-generator")
+    @GenericGenerator(
+            name = "reservation-sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @Parameter(name = "schema", value = "rightovers"),
+                    @Parameter(name = "sequence_name", value = "reservation_reservation_id_seq"),
+                    @Parameter(name = "initial_value", value = "5"),
+                    @Parameter(name = "increment_size", value = "1")
+            }
+    )
     private int reservationId;
 
     @JoinColumn(name = "post_id")

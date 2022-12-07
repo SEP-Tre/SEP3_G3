@@ -88,4 +88,5 @@ service UserService {
   rpc GetOpeningHours(UserName) returns (OpeningHoursResponse);
   rpc getReservationsByUsername(UserRequest) returns (stream ReservationMessage);
   rpc deleteUser(UserRequest) returns (Filler);
+  rpc getReportsAgainstUser(UserRequest) returns (stream ReportMessage);
 }

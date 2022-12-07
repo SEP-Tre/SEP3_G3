@@ -201,6 +201,37 @@ public final class UserServiceGrpc {
     return getDeleteUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.ReportMessage> getGetReportsAgainstUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getReportsAgainstUser",
+      requestType = sep3.g3.rightoversjava.grpc.generated.UserRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.ReportMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.ReportMessage> getGetReportsAgainstUserMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.ReportMessage> getGetReportsAgainstUserMethod;
+    if ((getGetReportsAgainstUserMethod = UserServiceGrpc.getGetReportsAgainstUserMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetReportsAgainstUserMethod = UserServiceGrpc.getGetReportsAgainstUserMethod) == null) {
+          UserServiceGrpc.getGetReportsAgainstUserMethod = getGetReportsAgainstUserMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.ReportMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getReportsAgainstUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ReportMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getReportsAgainstUser"))
+              .build();
+        }
+      }
+    }
+    return getGetReportsAgainstUserMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -291,6 +322,13 @@ public final class UserServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteUserMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getReportsAgainstUser(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetReportsAgainstUserMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -335,6 +373,13 @@ public final class UserServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.UserRequest,
                 sep3.g3.rightoversjava.grpc.generated.Filler>(
                   this, METHODID_DELETE_USER)))
+          .addMethod(
+            getGetReportsAgainstUserMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.UserRequest,
+                sep3.g3.rightoversjava.grpc.generated.ReportMessage>(
+                  this, METHODID_GET_REPORTS_AGAINST_USER)))
           .build();
     }
   }
@@ -400,6 +445,14 @@ public final class UserServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteUserMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getReportsAgainstUser(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getGetReportsAgainstUserMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -457,6 +510,14 @@ public final class UserServiceGrpc {
     public sep3.g3.rightoversjava.grpc.generated.Filler deleteUser(sep3.g3.rightoversjava.grpc.generated.UserRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<sep3.g3.rightoversjava.grpc.generated.ReportMessage> getReportsAgainstUser(
+        sep3.g3.rightoversjava.grpc.generated.UserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getGetReportsAgainstUserMethod(), getCallOptions(), request);
     }
   }
 
@@ -521,6 +582,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_LOGIN = 3;
   private static final int METHODID_GET_RESERVATIONS_BY_USERNAME = 4;
   private static final int METHODID_DELETE_USER = 5;
+  private static final int METHODID_GET_REPORTS_AGAINST_USER = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -562,6 +624,10 @@ public final class UserServiceGrpc {
         case METHODID_DELETE_USER:
           serviceImpl.deleteUser((sep3.g3.rightoversjava.grpc.generated.UserRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.Filler>) responseObserver);
+          break;
+        case METHODID_GET_REPORTS_AGAINST_USER:
+          serviceImpl.getReportsAgainstUser((sep3.g3.rightoversjava.grpc.generated.UserRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -630,6 +696,7 @@ public final class UserServiceGrpc {
               .addMethod(getLoginMethod())
               .addMethod(getGetReservationsByUsernameMethod())
               .addMethod(getDeleteUserMethod())
+              .addMethod(getGetReportsAgainstUserMethod())
               .build();
         }
       }

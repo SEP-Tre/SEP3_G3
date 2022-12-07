@@ -13,4 +13,5 @@ public interface IUserLogic
     Task<OpeningHours> GetOpeningHoursAsync(string username);
     Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto);
     Task DeleteUserAsync(string username);
+    Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username);
 }

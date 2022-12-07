@@ -95,4 +95,9 @@ public class FoodPostLogic : IFoodPostLogic
     {
         return await fpDao.GetAllReportedPostsAsync();
     }
+
+    public async Task<IEnumerable<Report>> GetReportsOnPostAsync(int postId)
+    {
+        return await fpDao.GetReportsOnPostAsync(postId);
+    }
 }

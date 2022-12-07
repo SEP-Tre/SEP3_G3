@@ -14,4 +14,5 @@ public interface IUserDao
     public Task<OpeningHours> GetOpeningHoursAsync(string username);
     public Task<User> CreateOpeningHoursAsync(OpeningHoursCreationDto dto);
     public Task DeleteUser(string username);
+    public Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username);
 }

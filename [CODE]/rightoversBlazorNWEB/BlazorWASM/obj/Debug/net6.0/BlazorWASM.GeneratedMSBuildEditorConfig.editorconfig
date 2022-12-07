@@ -38,10 +38,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlSZXNlcnZhdGlvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/thanks/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPostDetails.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0ZWRQb3N0RGV0YWlscy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/thanks/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPosts.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0ZWRQb3N0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -81,6 +77,10 @@ build_metadata.AdditionalFiles.CssScope = b-jixqs6uerm
 [C:/Users/thanks/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hyqv80bnnt
+
+[C:/Users/thanks/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPostDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0ZWRQb3N0RGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-ej807hrmdi
 
 [C:/Users/thanks/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UIComponents/Modal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVUlDb21wb25lbnRzXE1vZGFsLnJhem9y

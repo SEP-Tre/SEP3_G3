@@ -101,7 +101,7 @@ public final class User {
       "~\n\022ReservationMessage\022\026\n\016reservation_id\030" +
       "\001 \001(\005\022,\n\tfood_post\030\002 \001(\0132\031.sep3.g3.FoodP" +
       "ostResponse\022\"\n\004user\030\003 \001(\0132\024.sep3.g3.User" +
-      "Message\"\030\n\006Filler\022\016\n\006filler\030\001 \001(\0102\225\003\n\013Us" +
+      "Message\"\030\n\006Filler\022\016\n\006filler\030\001 \001(\0102\336\003\n\013Us" +
       "erService\022;\n\rgetByUsername\022\024.sep3.g3.Use" +
       "rRequest\032\024.sep3.g3.UserMessage\022>\n\010regist" +
       "er\022\034.sep3.g3.UserCreationRequest\032\024.sep3." +
@@ -112,8 +112,10 @@ public final class User {
       "tionsByUsername\022\024.sep3.g3.UserRequest\032\033." +
       "sep3.g3.ReservationMessage0\001\0223\n\ndeleteUs" +
       "er\022\024.sep3.g3.UserRequest\032\017.sep3.g3.Fille" +
-      "rB)\n%sep3.g3.rightoversjava.grpc.generat" +
-      "edP\001b\006proto3"
+      "r\022G\n\025getReportsAgainstUser\022\024.sep3.g3.Use" +
+      "rRequest\032\026.sep3.g3.ReportMessage0\001B)\n%se" +
+      "p3.g3.rightoversjava.grpc.generatedP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

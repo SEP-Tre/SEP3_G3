@@ -15,5 +15,6 @@ public interface IFoodPostLogic
     Task<IEnumerable<FoodPost>> GetAllReportedPostsAsync();
     
     Task<Report> ReportAsync(Report report);
+    Task<IEnumerable<Report>> GetReportsOnPostAsync(int postId);
 
 }

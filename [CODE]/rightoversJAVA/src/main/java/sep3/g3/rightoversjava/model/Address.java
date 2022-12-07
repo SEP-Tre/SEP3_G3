@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import sep3.g3.rightoversjava.model.dto.AddressCreationDTO;
 
 import javax.persistence.*;
@@ -7,11 +9,17 @@ import javax.persistence.*;
 @Entity
 public class Address {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE,
-            generator = "table-generator")
-    @TableGenerator(name = "table-generator",
-            table = "address",
-            pkColumnName = "address_id")
+    @GeneratedValue(generator = "address_sequence-generator")
+    @GenericGenerator(
+            name = "address_sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @Parameter(name = "schema", value = "rightovers"),
+                    @Parameter(name = "sequence_name", value = "address_address_id_seq"),
+                    @Parameter(name = "initial_value", value = "8"),
+                    @Parameter(name = "increment_size", value = "1")
+            }
+    )
     private int addressId;
     //String so we don't need an optional lettering after
     private String street;

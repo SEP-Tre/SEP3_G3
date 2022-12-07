@@ -48,7 +48,7 @@ namespace GrpcCL {
             "AiABKAUiJQoTUmVzZXJ2YXRpb25SZXNwb25zZRIOCgZmaWxsZXIYASABKAgi",
             "LQoNUGlja1VwUmVxdWVzdBIKCgJpZBgBIAEoBRIQCgh1c2VybmFtZRgCIAEo",
             "CSJNCg1SZXBvcnRNZXNzYWdlEg8KB3Bvc3RfaWQYASABKAUSDwoHY29tbWVu",
-            "dBgCIAEoCRIaChJ1c2VybmFtZV9yZXBvcnRpbmcYAyABKAky/QQKD0Zvb2RQ",
+            "dBgCIAEoCRIaChJ1c2VybmFtZV9yZXBvcnRpbmcYAyABKAkywAUKD0Zvb2RQ",
             "b3N0U2VydmljZRJTChZnZXRGb29kUG9zdHNCeVVzZXJuYW1lEhwuc2VwMy5n",
             "My5GUEJ5VXNlcm5hbWVSZXF1ZXN0Ghkuc2VwMy5nMy5Gb29kUG9zdFJlc3Bv",
             "bnNlMAESOwoEcG9zdBIYLnNlcDMuZzMuRm9vZFBvc3RSZXF1ZXN0Ghkuc2Vw",
@@ -63,7 +63,8 @@ namespace GrpcCL {
             "ZXRBbGxSZXBvcnRlZFBvc3RzEhwuc2VwMy5nMy5SZXNlcnZhdGlvblJlc3Bv",
             "bnNlGhkuc2VwMy5nMy5Gb29kUG9zdFJlc3BvbnNlMAESOAoGcmVwb3J0EhYu",
             "c2VwMy5nMy5SZXBvcnRNZXNzYWdlGhYuc2VwMy5nMy5SZXBvcnRNZXNzYWdl",
-            "QgmqAgZHcnBjQ0xiBnByb3RvMw=="));
+            "EkEKEGdldFJlcG9ydHNPblBvc3QSEy5zZXAzLmczLkZvb2RQb3N0SUQaFi5z",
+            "ZXAzLmczLlJlcG9ydE1lc3NhZ2UwAUIJqgIGR3JwY0NMYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
