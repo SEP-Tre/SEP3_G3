@@ -38,3 +38,16 @@
     margin-top: -15px;
     color: dimgrey;
 }
+
+.post-title {
+    font-weight: bolder;
+}
+
+.post-title:hover {
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer !important;
+}

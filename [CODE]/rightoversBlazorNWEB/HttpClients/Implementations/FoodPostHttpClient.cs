@@ -206,4 +206,19 @@ public class FoodPostHttpClient : IFoodPostService
 
         return fp;
     }
+
+    public async Task PickUpAsync(PickUpDto dto)
+    {
+        string dtoAsJson = JsonSerializer.Serialize(dto);
+        var body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        Console.Write(body);
+
+        var response = await client.PostAsync("/FoodPosts/Pick", body);
+        Console.Write(response);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
 }

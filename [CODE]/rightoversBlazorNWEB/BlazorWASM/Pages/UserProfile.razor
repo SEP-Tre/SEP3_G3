@@ -7,7 +7,7 @@
 @inject NavigationManager navMgr
 @inject DialogService DialogService
 
-@if (foodPosts == null)
+@if (activeFoodPosts == null)
 {
     <p>Loading food posts...</p>
 }
@@ -28,11 +28,11 @@ else
             </div>
             <AuthorizeView>
                 <Authorized>
-                    <RadzenButton 
+                    <RadzenButton
                         ButtonStyle="ButtonStyle.Dark"
-                        Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value;
-                                             await ShowRateDialog();}">Rate
-                        </RadzenButton>
+                        Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value; await ShowRateDialog();}">
+                        Rate
+                    </RadzenButton>
                 </Authorized>
             </AuthorizeView>
 
@@ -56,7 +56,7 @@ else
         <RadzenTabs TabPosition="@tabPosition" Class="w-75 my-5 mx-auto" RenderMode="TabRenderMode.Client">
             <Tabs>
                 <RadzenTabsItem Text="Food Posts">
-                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@foodPosts" TItem="FoodPost">
+                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@activeFoodPosts" TItem="FoodPost">
                         <Template Context="foodPost">
                             <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
                                 <div class="row mb-3">
@@ -70,13 +70,11 @@ else
                                 <div class="d-flex flex-row align-items-center">
                                     @* pfp and username *@
                                     <div class="d-flex flex-column me-3">
-                                        <RadzenImage Path=@foodPost.PictureUrl Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px;"/>
-                                        <RadzenBadge class="mt-2" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@(foodPost.User.UserName) IsPill="true"/>
+                                        <RadzenImage onclick="@(() => GoToFoodPost(foodPost.PostId))" Path=@foodPost.PictureUrl Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px; cursor: pointer;"/>
+                                        <RadzenBadge onclick="@(() => GoToUserProfile(foodPost.User.UserName))" class="mt-2 pointer" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@(foodPost.User.UserName) IsPill="true"/>
                                     </div>
                                     <div>
-                                        <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                            <strong>@(foodPost.Title)</strong>
-                                        </RadzenText>
+                                        <a class="post-title" onclick="@(() => GoToFoodPost(foodPost.PostId))">@foodPost.Title</a>
                                         <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@foodPost.Category</RadzenText>
                                         <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@($"Expires in {foodPost.DaysUntilExpired} days")</RadzenText>
                                     </div>
@@ -150,8 +148,9 @@ else
 
 @code {
     private String claimUsername = "UserName"; // pls ignore i have some problems
-    private IEnumerable<FoodPost> foodPosts;
-    private IEnumerable<Reservation>? reservations;
+    private IEnumerable<FoodPost> allFoodPosts;
+    private IEnumerable<FoodPost> activeFoodPosts;
+    private IEnumerable<Reservation> reservations;
     private List<Rating> ratings;
     private IEnumerable<Report> reports;
 
@@ -190,25 +189,36 @@ else
         InitCookPicUrls();
         InitPickerPicUrls();
         user = await userService.GetUserByUsername(username);
-        foodPosts = await foodPostService.GetAllFoodPostsByUser(username);
-        ratings = await ratingService.GetAllByUserRated(username);
+        await InitFoodPosts();
         reservations = await userService.GetAllReservationsByUser(username);
+        await InitRatings();
         reports = await userService.GetReportsAgainstUserAsync(username);
-
-        avgCookerRating = GetAvgCookerRating();
-        avgPickerRating = GetAvgPickerRating();
-
-
     }
 
-    protected async Task RefetchRatings()
+    private async Task InitFoodPosts()
+    {
+        allFoodPosts = await foodPostService.GetAllFoodPostsByUser(username);
+        activeFoodPosts = allFoodPosts.Where(fp => fp.PostState.Equals("posted"));
+    }
+
+    private async Task InitRatings()
     {
         ratings = await ratingService.GetAllByUserRated(username);
         avgCookerRating = GetAvgCookerRating();
         avgPickerRating = GetAvgPickerRating();
     }
 
+    private void GoToFoodPost(int fpId)
+    {
+        navMgr.NavigateTo($"/PostDetails/{fpId}");
+    }
+
     protected void NavigateToProfile(string username)
+    {
+        navMgr.NavigateTo($"/UserProfile/{username}");
+    }
+    
+    private void GoToUserProfile(string username)
     {
         navMgr.NavigateTo($"/UserProfile/{username}");
     }
@@ -248,7 +258,6 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(cookerRatings.Count());
-        avg = Math.Truncate(avg * 100) / 100;
         return avg;
     }
 
@@ -265,8 +274,14 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(pickerRatings.Count());
-        avg = Math.Truncate(avg * 100)/100;
         return avg;
+    }
+
+    private void clearRating()
+    {
+        ratingType = 1;
+        ratingValue = 1;
+        ratingComment = "";
     }
 
     private async Task SubmitRating()
@@ -286,7 +301,9 @@ else
             username, ratingValue,
             ratingComment, type);
         await ratingService.AddRating(newRating);
-        await RefetchRatings();
+        await InitRatings();
+        clearRating();
+        
     }
 
     async Task ShowRateDialog()
