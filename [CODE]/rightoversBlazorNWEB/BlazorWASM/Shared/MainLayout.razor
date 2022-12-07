@@ -8,12 +8,28 @@
     </div>
 
     <main>
-        <div class="top-row px-4">
-            <LoginButtons/>
-        </div>
+        <AuthorizeView>
+            <Authorized>
+                <div class="top-row px-4">
+                    <a class="me-3 header-username" href="/UserProfile/@context.User.Claims.First(claim => claim.Type.Equals(claimsUsername)).Value">@context.User.Claims.First(claim => claim.Type.Equals(claimsUsername)).Value</a>
+                    <LoginButtons/>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="top-row px-4">
+                    <LoginButtons/>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
         <article class="content px-4">
             @Body
 
         </article>
     </main>
 </div>
+
+@code {
+
+    string claimsUsername = "UserName";
+
+}
