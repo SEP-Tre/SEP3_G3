@@ -131,4 +131,20 @@ public class FoodPostsController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpGet]
+    [Route("Reported")]
+    public async Task<ActionResult<IEnumerable<FoodPost>>> GetAllReportedPostsAsync()
+    {
+        try
+        {
+           var reportedPosts = await fpLogic.GetAllReportedPostsAsync();
+
+           return Ok(reportedPosts);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

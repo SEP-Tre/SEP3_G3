@@ -85,4 +85,9 @@ public class FoodPostLogic : IFoodPostLogic
     {
         await fpDao.Reserve(dto);
     }
+
+    public async Task<IEnumerable<FoodPost>> GetAllReportedPostsAsync()
+    {
+        return await fpDao.GetAllReportedPostsAsync();
+    }
 }

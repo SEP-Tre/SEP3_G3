@@ -263,6 +263,37 @@ public final class FoodPostServiceGrpc {
     return getReportMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ReservationResponse,
+      sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetAllReportedPostsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getAllReportedPosts",
+      requestType = sep3.g3.rightoversjava.grpc.generated.ReservationResponse.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.FoodPostResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ReservationResponse,
+      sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetAllReportedPostsMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ReservationResponse, sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getGetAllReportedPostsMethod;
+    if ((getGetAllReportedPostsMethod = FoodPostServiceGrpc.getGetAllReportedPostsMethod) == null) {
+      synchronized (FoodPostServiceGrpc.class) {
+        if ((getGetAllReportedPostsMethod = FoodPostServiceGrpc.getGetAllReportedPostsMethod) == null) {
+          FoodPostServiceGrpc.getGetAllReportedPostsMethod = getGetAllReportedPostsMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.ReservationResponse, sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getAllReportedPosts"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ReservationResponse.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.FoodPostResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FoodPostServiceMethodDescriptorSupplier("getAllReportedPosts"))
+              .build();
+        }
+      }
+    }
+    return getGetAllReportedPostsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -367,6 +398,13 @@ public final class FoodPostServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReportMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getAllReportedPosts(sep3.g3.rightoversjava.grpc.generated.ReservationResponse request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllReportedPostsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -425,6 +463,13 @@ public final class FoodPostServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.ReportMessage,
                 sep3.g3.rightoversjava.grpc.generated.ReportMessage>(
                   this, METHODID_REPORT)))
+          .addMethod(
+            getGetAllReportedPostsMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.ReservationResponse,
+                sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>(
+                  this, METHODID_GET_ALL_REPORTED_POSTS)))
           .build();
     }
   }
@@ -506,6 +551,14 @@ public final class FoodPostServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getReportMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getAllReportedPosts(sep3.g3.rightoversjava.grpc.generated.ReservationResponse request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getGetAllReportedPostsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -578,6 +631,14 @@ public final class FoodPostServiceGrpc {
     public sep3.g3.rightoversjava.grpc.generated.ReportMessage report(sep3.g3.rightoversjava.grpc.generated.ReportMessage request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getReportMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse> getAllReportedPosts(
+        sep3.g3.rightoversjava.grpc.generated.ReservationResponse request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getGetAllReportedPostsMethod(), getCallOptions(), request);
     }
   }
 
@@ -652,6 +713,7 @@ public final class FoodPostServiceGrpc {
   private static final int METHODID_PICK_UP = 5;
   private static final int METHODID_DELETE = 6;
   private static final int METHODID_REPORT = 7;
+  private static final int METHODID_GET_ALL_REPORTED_POSTS = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -701,6 +763,10 @@ public final class FoodPostServiceGrpc {
         case METHODID_REPORT:
           serviceImpl.report((sep3.g3.rightoversjava.grpc.generated.ReportMessage) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage>) responseObserver);
+          break;
+        case METHODID_GET_ALL_REPORTED_POSTS:
+          serviceImpl.getAllReportedPosts((sep3.g3.rightoversjava.grpc.generated.ReservationResponse) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.FoodPostResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -771,6 +837,7 @@ public final class FoodPostServiceGrpc {
               .addMethod(getPickUpMethod())
               .addMethod(getDeleteMethod())
               .addMethod(getReportMethod())
+              .addMethod(getGetAllReportedPostsMethod())
               .build();
         }
       }

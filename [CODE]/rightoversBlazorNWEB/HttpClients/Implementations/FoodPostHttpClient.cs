@@ -130,4 +130,22 @@ public class FoodPostHttpClient : IFoodPostService
             throw new Exception(content);
         } 
     }
+
+    public async Task<ICollection<FoodPost>> GetAllReportedPostsAsync()
+    {
+        var response = await client.GetAsync("/FoodPosts/Reported");
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var foodPosts =
+            JsonSerializer.Deserialize<ICollection<FoodPost>>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return foodPosts;
+    }
 }

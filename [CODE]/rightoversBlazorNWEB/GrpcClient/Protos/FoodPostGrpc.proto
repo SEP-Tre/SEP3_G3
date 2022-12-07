@@ -78,4 +78,5 @@ service FoodPostService {
   rpc reserve(FoodPostReservation) returns (ReservationResponse);
   rpc pickUp(PickUpRequest) returns(FoodPostResponse);
   rpc delete(FoodPostID) returns (ReservationResponse);
+  rpc getAllReportedPosts(ReservationResponse) returns (stream FoodPostResponse);
 }

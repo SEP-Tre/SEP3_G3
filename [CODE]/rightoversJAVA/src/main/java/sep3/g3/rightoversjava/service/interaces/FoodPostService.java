@@ -34,4 +34,6 @@ public interface FoodPostService {
     void delete(int id);
 
     Report report(ReportCreationDto dto);//report
+
+    ArrayList<FoodPost> getAllReportedPosts();
 }

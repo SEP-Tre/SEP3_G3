@@ -1,0 +1,88 @@
+﻿@page "/ReportedPosts"
+@using HttpClients.ClientInterfaces
+@using Domain.Classes
+@inject IFoodPostService foodPostWebService
+@inject NavigationManager navMgr
+
+
+<RadzenText TextStyle="TextStyle.H3" TagName="TagName.H1" Class="my-4">
+    Reported Posts
+</RadzenText>
+
+<AuthorizeView>
+    <NotAuthorized>
+        You do not have the permissions to view this page
+    </NotAuthorized>
+    <Authorized>
+        @if (!context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
+        {
+            <h1>
+                You do not have the permissions to view this page
+            </h1>
+        }
+        else
+        {
+            @if (posts == null)
+            {
+                <p>Loading...</p>
+            }
+
+            <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                            Data="@posts" TItem="FoodPost" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+                <Columns>
+                    <RadzenDataGridColumn TItem="FoodPost" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="150px" TextAlign="TextAlign.Center">
+                        <Template Context="data">
+                            <RadzenImage Path=@data.PictureUrl class="rz-gravatar"/>
+
+                        </Template>
+
+                    </RadzenDataGridColumn>
+
+                    <RadzenDataGridColumn TItem="FoodPost" Property="Username" Title="Username" Frozen="true" Width="160px"/>
+                    <RadzenDataGridColumn TItem="FoodPost" Property="Title" Title="Title" Frozen="true" Width="160px"/>
+                    <RadzenDataGridColumn TItem="FoodPost" Property="Category" Title="Category" Width="160px"/>
+                    <RadzenDataGridColumn TItem="FoodPost" Property="DaysUntilExpired" Title="Days Until Expiration" Width="170px"/>
+                    <RadzenDataGridColumn Width="160px" TItem="FoodPost" Property="id" Title="Meal Details">
+                        <Template Context="data">
+                            <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.PostId)"></RadzenButton>
+                        </Template>
+                    </RadzenDataGridColumn>
+
+
+                </Columns>
+            </RadzenDataGrid>
+        }
+        </Authorized>
+</AuthorizeView>
+
+
+@code {
+    private ICollection<FoodPost>? posts;
+    private string msg = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            posts = await foodPostWebService.GetAllReportedPostsAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+
+    private void ViewPost(int postId)
+    {
+        try
+        {
+            navMgr.NavigateTo($"/PostDetails/{postId}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+}

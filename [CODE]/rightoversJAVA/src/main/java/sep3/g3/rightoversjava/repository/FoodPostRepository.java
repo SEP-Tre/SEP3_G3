@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface FoodPostRepository extends CrudRepository<FoodPost, Integer> {
     List<FoodPost> getFoodPostsByUser(User user);
+    List<FoodPost> getAllByPostStateIsLike(String state);
 }

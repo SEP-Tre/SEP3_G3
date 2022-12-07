@@ -191,5 +191,10 @@ public class FoodPostServiceImp implements FoodPostService
         return savedReport;
     }
 
+    @Override
+    public ArrayList<FoodPost> getAllReportedPosts() {
+        return new ArrayList<>(fpRepository.getAllByPostStateIsLike("reported"));
+    }
+
 
 }
