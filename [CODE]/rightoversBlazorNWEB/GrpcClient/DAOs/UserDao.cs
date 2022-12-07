@@ -64,7 +64,7 @@ public class UserDao : IUserDao
     {
         var openingHours = new OpeningHours();
 
-        var response = await client.GetOpeningHoursAsync(new UserName{
+        var response = await client.getOpeningHoursAsync(new UserName{
             Username = username
         });
 
@@ -83,6 +83,7 @@ public class UserDao : IUserDao
         openingHours.SundayOpeningHours = converter.TimeConverter(response.SundayOpening);
         openingHours.SundayClosingHours = converter.TimeConverter(response.SundayClosing);
 
+        Console.WriteLine("USERDAO: MONDAY OPENING: "+openingHours.MondayOpeningHours.Hour+":"+openingHours.MondayOpeningHours.Minutes);
         return openingHours;
     }
 

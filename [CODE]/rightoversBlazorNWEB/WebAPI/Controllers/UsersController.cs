@@ -37,6 +37,25 @@ public class UsersController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    
+    [HttpGet]
+    [Route("OpeningHours")]
+    public async Task<ActionResult<OpeningHours>> GetOpeningHoursAsync([FromQuery]string username)
+    {
+        Console.WriteLine($"The usersController has been called {username}" );
+        
+        try
+        {
+            var openingHours = await userLogic.GetOpeningHoursAsync(username);
+            return Ok(openingHours);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            throw;
+        }
+    }
 
     [HttpGet]
     [Route("Reservations")]
@@ -71,7 +90,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    [Route("hours")]
+    [Route("hour")]
     public async Task<ActionResult> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
     {
         try
@@ -87,24 +106,7 @@ public class UsersController : ControllerBase
             throw;
         }
     }
-
-    [HttpGet]
-    [Route("hours")]
-    public async Task<ActionResult> GetOpeningHoursAsync(string username)
-    {
-        try
-        {
-            var openingHours = await userLogic.GetOpeningHoursAsync(username);
-
-            return Ok(openingHours);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-
-            throw;
-        }
-    }
+    
 
     [HttpPost]
     [Route("login")]

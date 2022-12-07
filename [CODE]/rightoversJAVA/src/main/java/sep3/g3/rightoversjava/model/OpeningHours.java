@@ -136,4 +136,60 @@ public class OpeningHours {
                 ", user=" + user +
                 '}';
     }
+
+    public LocalTime getMondayOpeningHours() {
+        return mondayOpeningHours;
+    }
+
+    public LocalTime getMondayClosingHours() {
+        return mondayClosingHours;
+    }
+
+    public LocalTime getTuesdayOpeningHours() {
+        return tuesdayOpeningHours;
+    }
+
+    public LocalTime getTuesdayClosingHours() {
+        return tuesdayClosingHours;
+    }
+
+    public LocalTime getWednesdayOpeningHours() {
+        return wednesdayOpeningHours;
+    }
+
+    public LocalTime getWednesdayClosingHours() {
+        return wednesdayClosingHours;
+    }
+
+    public LocalTime getThursdayOpeningHours() {
+        return thursdayOpeningHours;
+    }
+
+    public LocalTime getThursdayClosingHours() {
+        return thursdayClosingHours;
+    }
+
+    public LocalTime getFridayOpeningHours() {
+        return fridayOpeningHours;
+    }
+
+    public LocalTime getFridayClosingHours() {
+        return fridayClosingHours;
+    }
+
+    public LocalTime getSaturdayOpeningHours() {
+        return saturdayOpeningHours;
+    }
+
+    public LocalTime getSaturdayClosingHours() {
+        return saturdayClosingHours;
+    }
+
+    public LocalTime getSundayOpeningHours() {
+        return sundayOpeningHours;
+    }
+
+    public LocalTime getSundayClosingHours() {
+        return sundayClosingHours;
+    }
 }

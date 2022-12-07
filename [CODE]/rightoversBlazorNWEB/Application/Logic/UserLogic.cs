@@ -53,7 +53,7 @@ public class UserLogic : IUserLogic
 
     public async Task<OpeningHours> GetOpeningHoursAsync(string username)
     {
-        var openingHours = await userDao.GetOpeningHoursAsync(username);
+        OpeningHours openingHours = await userDao.GetOpeningHoursAsync(username);
 
         return openingHours;
     }

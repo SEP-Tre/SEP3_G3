@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.Address;
+import sep3.g3.rightoversjava.model.OpeningHours;
 import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.User;
 import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
@@ -64,7 +65,46 @@ public class UserConverterImpl implements UserConverter {
     }
 
     @Override
-    public OpeningHoursCreationDTO getOpeningHours(OpeningHoursRequest request) {
+    public OpeningHoursResponse getOpeningHoursResponse(OpeningHours openingHours) {
+        Time mondayOpening= Time.newBuilder().setHour(openingHours.getMondayOpeningHours().getHour()).setMinutes(openingHours.getMondayOpeningHours().getMinute()).build();
+        Time mondayClosing= Time.newBuilder().setHour(openingHours.getMondayClosingHours().getHour()).setMinutes(openingHours.getMondayClosingHours().getMinute()).build();
+
+        Time tuesdayOpening=Time.newBuilder().setHour(openingHours.getTuesdayOpeningHours().getHour()).setMinutes(openingHours.getTuesdayOpeningHours().getMinute()).build();
+        Time tuesdayClosing=Time.newBuilder().setHour(openingHours.getTuesdayClosingHours().getHour()).setMinutes(openingHours.getTuesdayClosingHours().getMinute()).build();
+
+        Time wednesdayOpening=Time.newBuilder().setHour(openingHours.getWednesdayOpeningHours().getHour()).setMinutes(openingHours.getWednesdayOpeningHours().getMinute()).build();
+        Time wednesdayClosing=Time.newBuilder().setHour(openingHours.getWednesdayClosingHours().getHour()).setMinutes(openingHours.getWednesdayClosingHours().getMinute()).build();
+
+        Time thursdayOpening=Time.newBuilder().setHour(openingHours.getThursdayOpeningHours().getHour()).setMinutes(openingHours.getThursdayOpeningHours().getMinute()).build();
+        Time thursdayClosing=Time.newBuilder().setHour(openingHours.getThursdayClosingHours().getHour()).setMinutes(openingHours.getThursdayClosingHours().getMinute()).build();
+
+        Time fridayOpening=Time.newBuilder().setHour(openingHours.getFridayOpeningHours().getHour()).setMinutes(openingHours.getFridayClosingHours().getMinute()).build();
+        Time fridayClosing=Time.newBuilder().setHour(openingHours.getFridayClosingHours().getHour()).setMinutes(openingHours.getFridayClosingHours().getMinute()).build();
+
+        Time saturdayOpening=Time.newBuilder().setHour(openingHours.getSaturdayOpeningHours().getHour()).setMinutes(openingHours.getSaturdayOpeningHours().getMinute()).build();
+        Time saturdayClosing=Time.newBuilder().setHour(openingHours.getSaturdayClosingHours().getHour()).setMinutes(openingHours.getSaturdayClosingHours().getMinute()).build();
+
+
+        Time sundayOpening=Time.newBuilder().setHour(openingHours.getSundayOpeningHours().getHour()).setMinutes(openingHours.getSundayOpeningHours().getMinute()).build();
+        Time sundayClosing=Time.newBuilder().setHour(openingHours.getSundayClosingHours().getHour()).setMinutes(openingHours.getSundayClosingHours().getMinute()).build();
+
+
+
+        OpeningHoursResponse response=  OpeningHoursResponse.newBuilder()
+                .setMondayOpening(mondayOpening).setMondayClosing(mondayClosing)
+                .setTuesdayOpening(tuesdayClosing).setTuesdayClosing(tuesdayClosing)
+                .setWednesdayOpening(wednesdayOpening).setWednesdayClosing(wednesdayClosing)
+                .setThursdayOpening(thursdayOpening).setThursdayClosing(thursdayClosing)
+                .setFridayOpening(fridayOpening).setFridayClosing(fridayClosing)
+                .setSaturdayOpening(saturdayOpening).setSaturdayClosing(saturdayClosing)
+                .setSundayOpening(sundayOpening).setSundayClosing(sundayClosing).build();
+
+        return response;
+
+    }
+
+    @Override
+    public OpeningHoursCreationDTO convertOpeningHours(OpeningHoursRequest request) {
 
         Time mondayOpening = request.getOpeningHours().getMondayOpening();
         Time mondayClosing = request.getOpeningHours().getMondayClosing();

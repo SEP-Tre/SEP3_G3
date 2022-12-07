@@ -42,73 +42,80 @@ else
                 <h5 class="bg-text">@foodPost.Description</h5>
 
 
-                <h5 class="sm-text my-2">PICK UP DETAILS</h5>
+                @if (creator != null)
+                {
+                    
+                    
+                        <h5 class="sm-text my-2">PICK UP DETAILS</h5>
 
-                <div class="d-flex align-items-start flex-column">
-                    <h5 class="bg-text">@pickupDetailsDates</h5>
-                    <h5 class="bg-text">@pickupDetailsTime</h5>
-                </div>
+                        <div class="d-flex align-items-start flex-column">
+                            <h5 class="bg-text">@pickupDetailsDates</h5>
+                            <h5 class="bg-text">@pickupDetailsTime</h5>
+                        </div>
+                    
+                
+                
+                    <h5 class="sm-text my-2">OPENING HOURS</h5>
 
-                <table>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">MON</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@OpeningHours.MondayOpeningHours - @OpeningHours.MondayClosingHours</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">TUE</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@OpeningHours.TuesdayOpeningHours - @OpeningHours.TuesdayClosingHours</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">WED</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@OpeningHours.WednesdayOpeningHours - @OpeningHours.WednesdayClosingHours</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">THU</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@OpeningHours.ThursdayOpeningHours - @OpeningHours.ThursdayClosingHours</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">FRI</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@OpeningHours.FridayOpeningHours - @OpeningHours.FridayClosingHours</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">SAT</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@OpeningHours.SaturdayOpeningHours - @OpeningHours.SaturdayClosingHours</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="sm-text">SUN</h5>
-                        </td>
-                        <td>
-                            <h5 class="xs-text-days px-5">@OpeningHours.SundayOpeningHours - @OpeningHours.SundayClosingHours</h5>
-                        </td>
-                    </tr>
-                </table>
-
-
+                    <table >
+                        <tr>
+                            <td>
+                                <h5 class="sm-text">MON</h5>
+                            </td>
+                            <td>
+                                <h5 class="xs-text-days px-5">@OpeningHours.MondayOpeningHours.timeFormatter(OpeningHours.MondayOpeningHours) - @OpeningHours.MondayClosingHours.timeFormatter(OpeningHours.MondayClosingHours)</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="sm-text">TUE</h5>
+                            </td>
+                            <td>
+                                <h5 class="xs-text-days px-5">@OpeningHours.TuesdayOpeningHours.timeFormatter(OpeningHours.TuesdayOpeningHours) - @OpeningHours.TuesdayClosingHours.timeFormatter(OpeningHours.TuesdayClosingHours)</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="sm-text">WED</h5>
+                            </td>
+                            <td>
+                                <h5 class="xs-text-days px-5">@OpeningHours.WednesdayOpeningHours.timeFormatter(OpeningHours.WednesdayOpeningHours) - @OpeningHours.WednesdayClosingHours.timeFormatter(OpeningHours.WednesdayClosingHours)</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="sm-text">THU</h5>
+                            </td>
+                            <td>
+                                <h5 class="xs-text-days px-5">@OpeningHours.ThursdayOpeningHours.timeFormatter(OpeningHours.ThursdayOpeningHours) - @OpeningHours.ThursdayClosingHours.timeFormatter(OpeningHours.ThursdayClosingHours)</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="sm-text">FRI</h5>
+                            </td>
+                            <td>
+                                <h5 class="xs-text-days px-5">@OpeningHours.FridayOpeningHours.timeFormatter(OpeningHours.FridayOpeningHours) - @OpeningHours.FridayClosingHours.timeFormatter(OpeningHours.FridayClosingHours)</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="sm-text">SAT</h5>
+                            </td>
+                            <td>
+                                <h5 class="xs-text-days px-5">@OpeningHours.SaturdayOpeningHours.timeFormatter(OpeningHours.SaturdayOpeningHours) - @OpeningHours.SaturdayClosingHours.timeFormatter(OpeningHours.SaturdayClosingHours)</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 class="sm-text">SUN</h5>
+                            </td>
+                            <td>
+                                <h5 class="xs-text-days px-5">@OpeningHours.SundayOpeningHours.timeFormatter(OpeningHours.SundayOpeningHours) - @OpeningHours.SundayClosingHours.timeFormatter(OpeningHours.SundayClosingHours)</h5>
+                            </td>
+                        </tr>
+                    </table>
+                }
                 <AuthorizeView>
                     <Authorized>
                         <div>
@@ -172,14 +179,16 @@ else
     public string pickupDetailsDates;
     public string pickupDetailsTime;
     public string creationDate;
-    public OpeningHours OpeningHours;
+    public OpeningHours? OpeningHours;
     private bool showModal;
+    private User creator;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             foodPost = await foodPostService.GetSingleAsync(id);
+            creator = await userService.GetUserByUsername(foodPost.User.UserName);
             DisplayInformation();
 
 
@@ -203,13 +212,13 @@ else
         pickupDetailsDates = $"Dates: {startDate.Day}-{endDate.Day}/{endDate.Month}/{endDate.Year} ";
         pickupDetailsTime = $"Timeframe: {startTime.Hour}:{startTime.Minutes}-{endTime.Hour}:{endTime.Minutes} ";
 
+
+        OpeningHours = await userService.GetOpeningHoursAsync(foodPost.User.UserName);
+
         var dateTime = foodPost.TimestampPosted;
         creationDate = $"{dateTime.Day}/{dateTime.Month}/{dateTime.Year}";
 
-        if (foodPost.User.IsBusiness)
-        {
-            OpeningHours = await userService.GetOpeningHoursAsync(username);
-        }
+        StateHasChanged();
     }
 
     private void SetUsername(string? username)

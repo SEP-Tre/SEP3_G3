@@ -170,6 +170,37 @@ public final class UserServiceGrpc {
     return getGetReservationsByUsernameMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserName,
+      sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> getGetOpeningHoursMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getOpeningHours",
+      requestType = sep3.g3.rightoversjava.grpc.generated.UserName.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserName,
+      sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> getGetOpeningHoursMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserName, sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> getGetOpeningHoursMethod;
+    if ((getGetOpeningHoursMethod = UserServiceGrpc.getGetOpeningHoursMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetOpeningHoursMethod = UserServiceGrpc.getGetOpeningHoursMethod) == null) {
+          UserServiceGrpc.getGetOpeningHoursMethod = getGetOpeningHoursMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.UserName, sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getOpeningHours"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserName.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getOpeningHours"))
+              .build();
+        }
+      }
+    }
+    return getGetOpeningHoursMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -253,6 +284,13 @@ public final class UserServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetReservationsByUsernameMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getOpeningHours(sep3.g3.rightoversjava.grpc.generated.UserName request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetOpeningHoursMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -290,6 +328,13 @@ public final class UserServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.UserRequest,
                 sep3.g3.rightoversjava.grpc.generated.ReservationMessage>(
                   this, METHODID_GET_RESERVATIONS_BY_USERNAME)))
+          .addMethod(
+            getGetOpeningHoursMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.UserName,
+                sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse>(
+                  this, METHODID_GET_OPENING_HOURS)))
           .build();
     }
   }
@@ -347,6 +392,14 @@ public final class UserServiceGrpc {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
           getChannel().newCall(getGetReservationsByUsernameMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getOpeningHours(sep3.g3.rightoversjava.grpc.generated.UserName request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetOpeningHoursMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -398,6 +451,13 @@ public final class UserServiceGrpc {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getGetReservationsByUsernameMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse getOpeningHours(sep3.g3.rightoversjava.grpc.generated.UserName request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetOpeningHoursMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -445,6 +505,14 @@ public final class UserServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getLoginMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> getOpeningHours(
+        sep3.g3.rightoversjava.grpc.generated.UserName request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetOpeningHoursMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_BY_USERNAME = 0;
@@ -452,6 +520,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_ASSIGN_OPENING_HOURS = 2;
   private static final int METHODID_LOGIN = 3;
   private static final int METHODID_GET_RESERVATIONS_BY_USERNAME = 4;
+  private static final int METHODID_GET_OPENING_HOURS = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -489,6 +558,10 @@ public final class UserServiceGrpc {
         case METHODID_GET_RESERVATIONS_BY_USERNAME:
           serviceImpl.getReservationsByUsername((sep3.g3.rightoversjava.grpc.generated.UserRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationMessage>) responseObserver);
+          break;
+        case METHODID_GET_OPENING_HOURS:
+          serviceImpl.getOpeningHours((sep3.g3.rightoversjava.grpc.generated.UserName) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -556,6 +629,7 @@ public final class UserServiceGrpc {
               .addMethod(getAssignOpeningHoursMethod())
               .addMethod(getLoginMethod())
               .addMethod(getGetReservationsByUsernameMethod())
+              .addMethod(getGetOpeningHoursMethod())
               .build();
         }
       }

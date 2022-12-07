@@ -59,14 +59,14 @@ namespace GrpcCL {
             "EiIKBHVzZXIYAyABKAsyFC5zZXAzLmczLlVzZXJNZXNzYWdlMqUDCgtVc2Vy",
             "U2VydmljZRI7Cg1nZXRCeVVzZXJuYW1lEhQuc2VwMy5nMy5Vc2VyUmVxdWVz",
             "dBoULnNlcDMuZzMuVXNlck1lc3NhZ2USPgoIcmVnaXN0ZXISHC5zZXAzLmcz",
-            "LlVzZXJDcmVhdGlvblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEjgK",
-            "BWxvZ2luEhkuc2VwMy5nMy5Vc2VyTG9naW5SZXF1ZXN0GhQuc2VwMy5nMy5V",
-            "c2VyTWVzc2FnZRJIChJhc3NpZ25PcGVuaW5nSG91cnMSHC5zZXAzLmczLk9w",
-            "ZW5pbmdIb3Vyc1JlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkMKD0dl",
-            "dE9wZW5pbmdIb3VycxIRLnNlcDMuZzMuVXNlck5hbWUaHS5zZXAzLmczLk9w",
-            "ZW5pbmdIb3Vyc1Jlc3BvbnNlElAKGWdldFJlc2VydmF0aW9uc0J5VXNlcm5h",
-            "bWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0Ghsuc2VwMy5nMy5SZXNlcnZhdGlv",
-            "bk1lc3NhZ2UwAUIJqgIGR3JwY0NMYgZwcm90bzM="));
+            "LlVzZXJDcmVhdGlvblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkgK",
+            "EmFzc2lnbk9wZW5pbmdIb3VycxIcLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVx",
+            "dWVzdBoULnNlcDMuZzMuVXNlck1lc3NhZ2USOAoFbG9naW4SGS5zZXAzLmcz",
+            "LlVzZXJMb2dpblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlElAKGWdl",
+            "dFJlc2VydmF0aW9uc0J5VXNlcm5hbWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0",
+            "Ghsuc2VwMy5nMy5SZXNlcnZhdGlvbk1lc3NhZ2UwARJDCg9nZXRPcGVuaW5n",
+            "SG91cnMSES5zZXAzLmczLlVzZXJOYW1lGh0uc2VwMy5nMy5PcGVuaW5nSG91",
+            "cnNSZXNwb25zZUIJqgIGR3JwY0NMYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcCL.FoodPostGrpcReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

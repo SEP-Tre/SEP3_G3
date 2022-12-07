@@ -78,9 +78,8 @@ message ReservationMessage {
 service UserService {
   rpc getByUsername(UserRequest) returns (UserMessage);
   rpc register(UserCreationRequest) returns (UserMessage);
-  rpc login(UserLoginRequest) returns (UserMessage);
   rpc assignOpeningHours(OpeningHoursRequest) returns (UserMessage);
-  rpc GetOpeningHours(UserName) returns (OpeningHoursResponse);
+  rpc login(UserLoginRequest) returns (UserMessage);
   rpc getReservationsByUsername(UserRequest) returns (stream ReservationMessage);
-
+  rpc getOpeningHours(UserName) returns (OpeningHoursResponse);
 }

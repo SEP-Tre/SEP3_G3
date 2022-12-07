@@ -38,7 +38,11 @@ message UserMessage {
   AddressMessage address = 4;
 }
 
-message OpeningHours{
+message UserName{
+  string username=1;
+}
+
+message OpeningHoursResponse{
   Time mondayOpening = 1;
   Time mondayClosing = 2;
   Time tuesdayOpening = 3;
@@ -57,7 +61,7 @@ message OpeningHours{
 
 message OpeningHoursRequest{
   string username = 1;
-  OpeningHours openingHours = 2;
+  OpeningHoursResponse openingHours = 2;
 }
 message ReservationMessage {
   int32 reservation_id = 1;
@@ -71,4 +75,5 @@ service UserService {
   rpc assignOpeningHours(OpeningHoursRequest) returns (UserMessage);
   rpc login(UserLoginRequest) returns (UserMessage);
   rpc getReservationsByUsername(UserRequest) returns (stream ReservationMessage);
+  rpc getOpeningHours(UserName) returns (OpeningHoursResponse);
 }

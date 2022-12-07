@@ -4,18 +4,18 @@
 package sep3.g3.rightoversjava.grpc.generated;
 
 /**
- * Protobuf type {@code sep3.g3.OpeningHoursRequest}
+ * Protobuf type {@code sep3.g3.UserName}
  */
-public final class OpeningHoursRequest extends
+public final class UserName extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:sep3.g3.OpeningHoursRequest)
-    OpeningHoursRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:sep3.g3.UserName)
+    UserNameOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use OpeningHoursRequest.newBuilder() to construct.
-  private OpeningHoursRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use UserName.newBuilder() to construct.
+  private UserName(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private OpeningHoursRequest() {
+  private UserName() {
     username_ = "";
   }
 
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new OpeningHoursRequest();
+    return new UserName();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OpeningHoursRequest(
+  private UserName(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -53,19 +53,6 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             username_ = s;
-            break;
-          }
-          case 18: {
-            sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.Builder subBuilder = null;
-            if (openingHours_ != null) {
-              subBuilder = openingHours_.toBuilder();
-            }
-            openingHours_ = input.readMessage(sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(openingHours_);
-              openingHours_ = subBuilder.buildPartial();
-            }
-
             break;
           }
           default: {
@@ -91,15 +78,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_OpeningHoursRequest_descriptor;
+    return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_UserName_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_OpeningHoursRequest_fieldAccessorTable
+    return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_UserName_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.class, sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.Builder.class);
+            sep3.g3.rightoversjava.grpc.generated.UserName.class, sep3.g3.rightoversjava.grpc.generated.UserName.Builder.class);
   }
 
   public static final int USERNAME_FIELD_NUMBER = 1;
@@ -140,32 +127,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int OPENINGHOURS_FIELD_NUMBER = 2;
-  private sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse openingHours_;
-  /**
-   * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-   * @return Whether the openingHours field is set.
-   */
-  @java.lang.Override
-  public boolean hasOpeningHours() {
-    return openingHours_ != null;
-  }
-  /**
-   * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-   * @return The openingHours.
-   */
-  @java.lang.Override
-  public sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse getOpeningHours() {
-    return openingHours_ == null ? sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.getDefaultInstance() : openingHours_;
-  }
-  /**
-   * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-   */
-  @java.lang.Override
-  public sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponseOrBuilder getOpeningHoursOrBuilder() {
-    return getOpeningHours();
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -183,9 +144,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
     }
-    if (openingHours_ != null) {
-      output.writeMessage(2, getOpeningHours());
-    }
     unknownFields.writeTo(output);
   }
 
@@ -198,10 +156,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, username_);
     }
-    if (openingHours_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getOpeningHours());
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -212,18 +166,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest)) {
+    if (!(obj instanceof sep3.g3.rightoversjava.grpc.generated.UserName)) {
       return super.equals(obj);
     }
-    sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest other = (sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest) obj;
+    sep3.g3.rightoversjava.grpc.generated.UserName other = (sep3.g3.rightoversjava.grpc.generated.UserName) obj;
 
     if (!getUsername()
         .equals(other.getUsername())) return false;
-    if (hasOpeningHours() != other.hasOpeningHours()) return false;
-    if (hasOpeningHours()) {
-      if (!getOpeningHours()
-          .equals(other.getOpeningHours())) return false;
-    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -237,78 +186,74 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USERNAME_FIELD_NUMBER;
     hash = (53 * hash) + getUsername().hashCode();
-    if (hasOpeningHours()) {
-      hash = (37 * hash) + OPENINGHOURS_FIELD_NUMBER;
-      hash = (53 * hash) + getOpeningHours().hashCode();
-    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(byte[] data)
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(java.io.InputStream input)
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseDelimitedFrom(java.io.InputStream input)
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseDelimitedFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parseFrom(
+  public static sep3.g3.rightoversjava.grpc.generated.UserName parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -321,7 +266,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest prototype) {
+  public static Builder newBuilder(sep3.g3.rightoversjava.grpc.generated.UserName prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -337,26 +282,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code sep3.g3.OpeningHoursRequest}
+   * Protobuf type {@code sep3.g3.UserName}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:sep3.g3.OpeningHoursRequest)
-      sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:sep3.g3.UserName)
+      sep3.g3.rightoversjava.grpc.generated.UserNameOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_OpeningHoursRequest_descriptor;
+      return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_UserName_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_OpeningHoursRequest_fieldAccessorTable
+      return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_UserName_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.class, sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.Builder.class);
+              sep3.g3.rightoversjava.grpc.generated.UserName.class, sep3.g3.rightoversjava.grpc.generated.UserName.Builder.class);
     }
 
-    // Construct using sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.newBuilder()
+    // Construct using sep3.g3.rightoversjava.grpc.generated.UserName.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -376,29 +321,23 @@ private static final long serialVersionUID = 0L;
       super.clear();
       username_ = "";
 
-      if (openingHoursBuilder_ == null) {
-        openingHours_ = null;
-      } else {
-        openingHours_ = null;
-        openingHoursBuilder_ = null;
-      }
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_OpeningHoursRequest_descriptor;
+      return sep3.g3.rightoversjava.grpc.generated.User.internal_static_sep3_g3_UserName_descriptor;
     }
 
     @java.lang.Override
-    public sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest getDefaultInstanceForType() {
-      return sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.getDefaultInstance();
+    public sep3.g3.rightoversjava.grpc.generated.UserName getDefaultInstanceForType() {
+      return sep3.g3.rightoversjava.grpc.generated.UserName.getDefaultInstance();
     }
 
     @java.lang.Override
-    public sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest build() {
-      sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest result = buildPartial();
+    public sep3.g3.rightoversjava.grpc.generated.UserName build() {
+      sep3.g3.rightoversjava.grpc.generated.UserName result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -406,14 +345,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest buildPartial() {
-      sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest result = new sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest(this);
+    public sep3.g3.rightoversjava.grpc.generated.UserName buildPartial() {
+      sep3.g3.rightoversjava.grpc.generated.UserName result = new sep3.g3.rightoversjava.grpc.generated.UserName(this);
       result.username_ = username_;
-      if (openingHoursBuilder_ == null) {
-        result.openingHours_ = openingHours_;
-      } else {
-        result.openingHours_ = openingHoursBuilder_.build();
-      }
       onBuilt();
       return result;
     }
@@ -452,22 +386,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest) {
-        return mergeFrom((sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest)other);
+      if (other instanceof sep3.g3.rightoversjava.grpc.generated.UserName) {
+        return mergeFrom((sep3.g3.rightoversjava.grpc.generated.UserName)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest other) {
-      if (other == sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(sep3.g3.rightoversjava.grpc.generated.UserName other) {
+      if (other == sep3.g3.rightoversjava.grpc.generated.UserName.getDefaultInstance()) return this;
       if (!other.getUsername().isEmpty()) {
         username_ = other.username_;
         onChanged();
-      }
-      if (other.hasOpeningHours()) {
-        mergeOpeningHours(other.getOpeningHours());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -484,11 +415,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest parsedMessage = null;
+      sep3.g3.rightoversjava.grpc.generated.UserName parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest) e.getUnfinishedMessage();
+        parsedMessage = (sep3.g3.rightoversjava.grpc.generated.UserName) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -573,125 +504,6 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-
-    private sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse openingHours_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse, sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.Builder, sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponseOrBuilder> openingHoursBuilder_;
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     * @return Whether the openingHours field is set.
-     */
-    public boolean hasOpeningHours() {
-      return openingHoursBuilder_ != null || openingHours_ != null;
-    }
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     * @return The openingHours.
-     */
-    public sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse getOpeningHours() {
-      if (openingHoursBuilder_ == null) {
-        return openingHours_ == null ? sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.getDefaultInstance() : openingHours_;
-      } else {
-        return openingHoursBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     */
-    public Builder setOpeningHours(sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse value) {
-      if (openingHoursBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        openingHours_ = value;
-        onChanged();
-      } else {
-        openingHoursBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     */
-    public Builder setOpeningHours(
-        sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.Builder builderForValue) {
-      if (openingHoursBuilder_ == null) {
-        openingHours_ = builderForValue.build();
-        onChanged();
-      } else {
-        openingHoursBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     */
-    public Builder mergeOpeningHours(sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse value) {
-      if (openingHoursBuilder_ == null) {
-        if (openingHours_ != null) {
-          openingHours_ =
-            sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.newBuilder(openingHours_).mergeFrom(value).buildPartial();
-        } else {
-          openingHours_ = value;
-        }
-        onChanged();
-      } else {
-        openingHoursBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     */
-    public Builder clearOpeningHours() {
-      if (openingHoursBuilder_ == null) {
-        openingHours_ = null;
-        onChanged();
-      } else {
-        openingHours_ = null;
-        openingHoursBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     */
-    public sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.Builder getOpeningHoursBuilder() {
-      
-      onChanged();
-      return getOpeningHoursFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     */
-    public sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponseOrBuilder getOpeningHoursOrBuilder() {
-      if (openingHoursBuilder_ != null) {
-        return openingHoursBuilder_.getMessageOrBuilder();
-      } else {
-        return openingHours_ == null ?
-            sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.getDefaultInstance() : openingHours_;
-      }
-    }
-    /**
-     * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse, sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.Builder, sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponseOrBuilder> 
-        getOpeningHoursFieldBuilder() {
-      if (openingHoursBuilder_ == null) {
-        openingHoursBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse, sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse.Builder, sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponseOrBuilder>(
-                getOpeningHours(),
-                getParentForChildren(),
-                isClean());
-        openingHours_ = null;
-      }
-      return openingHoursBuilder_;
-    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -705,41 +517,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:sep3.g3.OpeningHoursRequest)
+    // @@protoc_insertion_point(builder_scope:sep3.g3.UserName)
   }
 
-  // @@protoc_insertion_point(class_scope:sep3.g3.OpeningHoursRequest)
-  private static final sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:sep3.g3.UserName)
+  private static final sep3.g3.rightoversjava.grpc.generated.UserName DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest();
+    DEFAULT_INSTANCE = new sep3.g3.rightoversjava.grpc.generated.UserName();
   }
 
-  public static sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest getDefaultInstance() {
+  public static sep3.g3.rightoversjava.grpc.generated.UserName getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<OpeningHoursRequest>
-      PARSER = new com.google.protobuf.AbstractParser<OpeningHoursRequest>() {
+  private static final com.google.protobuf.Parser<UserName>
+      PARSER = new com.google.protobuf.AbstractParser<UserName>() {
     @java.lang.Override
-    public OpeningHoursRequest parsePartialFrom(
+    public UserName parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OpeningHoursRequest(input, extensionRegistry);
+      return new UserName(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<OpeningHoursRequest> parser() {
+  public static com.google.protobuf.Parser<UserName> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<OpeningHoursRequest> getParserForType() {
+  public com.google.protobuf.Parser<UserName> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public sep3.g3.rightoversjava.grpc.generated.OpeningHoursRequest getDefaultInstanceForType() {
+  public sep3.g3.rightoversjava.grpc.generated.UserName getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

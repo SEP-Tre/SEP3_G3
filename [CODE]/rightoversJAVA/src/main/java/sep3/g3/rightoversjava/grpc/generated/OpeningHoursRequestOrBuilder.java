@@ -20,17 +20,17 @@ public interface OpeningHoursRequestOrBuilder extends
       getUsernameBytes();
 
   /**
-   * <code>.sep3.g3.OpeningHours openingHours = 2;</code>
+   * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
    * @return Whether the openingHours field is set.
    */
   boolean hasOpeningHours();
   /**
-   * <code>.sep3.g3.OpeningHours openingHours = 2;</code>
+   * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
    * @return The openingHours.
    */
-  sep3.g3.rightoversjava.grpc.generated.OpeningHours getOpeningHours();
+  sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse getOpeningHours();
   /**
-   * <code>.sep3.g3.OpeningHours openingHours = 2;</code>
+   * <code>.sep3.g3.OpeningHoursResponse openingHours = 2;</code>
    */
-  sep3.g3.rightoversjava.grpc.generated.OpeningHoursOrBuilder getOpeningHoursOrBuilder();
+  sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponseOrBuilder getOpeningHoursOrBuilder();
 }

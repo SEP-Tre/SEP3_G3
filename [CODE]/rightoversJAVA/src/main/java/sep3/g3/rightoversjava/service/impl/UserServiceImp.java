@@ -59,7 +59,6 @@ public class UserServiceImp implements UserService {
     public User assignOpeningHours(OpeningHoursCreationDTO dto) throws IllegalAccessException {
         Optional<User> user = userRepository.findById(dto.username);
         if (user.get().isBusiness()) {
-            System.out.println("IS IT A BUSINESS???? " + user.get().isBusiness);
             OpeningHours openingHours = new OpeningHours(dto, user.get());
             openingHoursRepository.save(openingHours);
             return user.get();
@@ -83,6 +82,13 @@ public class UserServiceImp implements UserService {
         User user = userRepository.findById(username).get();
         ArrayList<Reservation> reservations = (ArrayList<Reservation>) reservationRepository.findAllByUser(user);
         return reservations;
+    }
+
+    @Override
+    public OpeningHours getOpeningHours(String username){
+        Optional<User> user=userRepository.findById(username);
+
+        return openingHoursRepository.getOpeningHoursByUser(user.get());
     }
 
 

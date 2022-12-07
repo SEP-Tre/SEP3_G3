@@ -26,4 +26,30 @@ public class MyTime
 
         return s;
     }
+    
+    public String timeFormatter(MyTime mytime)
+    {
+        String minutes = "";
+        String hours = "";
+        
+        if (mytime.Minutes < 10)
+        {
+            minutes="0"+mytime.Minutes ;
+        }
+        else
+        {
+            minutes = mytime.Minutes.ToString();
+        }
+
+        if (mytime.Hour<10)
+        {
+            hours = "0" + mytime.Hour;
+        }
+        else
+        {
+            hours = mytime.Hour.ToString();
+        }
+
+        return hours + ":" + minutes;
+    }
 }

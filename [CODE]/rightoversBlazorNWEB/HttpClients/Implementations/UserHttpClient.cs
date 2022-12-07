@@ -43,7 +43,7 @@ public class UserHttpClient : IUserService
 
     public async Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
     {
-        var response = await client.PostAsJsonAsync("/Users/hours", dto);
+        var response = await client.PostAsJsonAsync("/Users/hour", dto);
         string content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
@@ -56,23 +56,6 @@ public class UserHttpClient : IUserService
         })!;
 
         return user;
-    }
-
-    public async Task<OpeningHours> GetOpeningHoursAsync(string username)
-    {
-        var response = await client.PostAsJsonAsync("/Users/hours", username);
-        string content = await response.Content.ReadAsStringAsync();
-
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(content);
-        }
-
-        var openingHours = JsonSerializer.Deserialize<OpeningHours>(content, new JsonSerializerOptions{
-            PropertyNameCaseInsensitive = true
-        })!;
-
-        return openingHours;
     }
 
     public async Task<User> RegisterAsync(UserCreationDto dto)
@@ -124,6 +107,25 @@ public class UserHttpClient : IUserService
         return user;
     }
 
+    public async Task<OpeningHours> GetOpeningHoursAsync(string username)
+    {
+        var response = await client.GetAsync($"/Users/OpeningHours?username={username}");
+        string content = await response.Content.ReadAsStringAsync();
+
+        Console.WriteLine("GET OPENING HOURS USERHTTPCLIENT");
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        Console.WriteLine("USERHTTPCLIENT IS TRYING TO CREATE THE OPENING HOURS OBJECT");
+        var openingHours = JsonSerializer.Deserialize<OpeningHours>(content, new JsonSerializerOptions{
+            PropertyNameCaseInsensitive = true
+        })!;
+    
+        Console.WriteLine("USERHTTPCLIENT IS RETURNING THE OPENINGHRS OBJECT "+openingHours.MondayOpeningHours.Hour+":"+openingHours.MondayOpeningHours.Minutes);
+        return openingHours;
+    }
 
     public async Task<IEnumerable<Reservation>> GetAllReservationsByUser(string username)
     {

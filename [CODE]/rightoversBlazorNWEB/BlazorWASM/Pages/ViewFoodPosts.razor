@@ -19,12 +19,12 @@
     <p>Loading...</p>
 }
 
-<RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
-                Data="@posts" TItem="FoodPost" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+<RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="false" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="@postedPosts" TItem="FoodPost" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
     <Columns>
         <RadzenDataGridColumn TItem="FoodPost" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="150px" TextAlign="TextAlign.Center">
             <Template Context="data">
-                <RadzenImage Path=@data.PictureUrl class="rz-gravatar"/>
+                <RadzenImage Path=@data.PictureUrl class="rz-gravatar" />
 
             </Template>
 
@@ -46,6 +46,7 @@
 
 @code {
     private ICollection<FoodPost>? posts;
+    private ICollection<FoodPost>? postedPosts;
     private string msg = "";
 
     protected override async Task OnInitializedAsync()
@@ -53,6 +54,16 @@
         try
         {
             posts = await foodPostWebService.GetAsync();
+            postedPosts = new List<FoodPost>();
+            foreach (FoodPost post in posts)
+            {
+                if (post.PostState.Equals("posted"))
+                {
+                    postedPosts.Add(post);
+                }
+                
+            } 
+            Console.WriteLine("POSTED POSTS= "+postedPosts.Count);
         }
         catch (Exception e)
         {

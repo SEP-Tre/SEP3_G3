@@ -1,5 +1,6 @@
 package sep3.g3.rightoversjava.grpc;
 
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Configurable;
 import sep3.g3.rightoversjava.grpc.converter.FoodPostConverterImpl;
@@ -7,6 +8,7 @@ import sep3.g3.rightoversjava.grpc.converter.UserConverterImpl;
 import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
+import sep3.g3.rightoversjava.model.OpeningHours;
 import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
@@ -107,7 +109,7 @@ public class UserServiceGrpcImpl
     @Override
     public void assignOpeningHours(OpeningHoursRequest request, StreamObserver<UserMessage> responseObserver) {
 
-        OpeningHoursCreationDTO dto = userConverter.getOpeningHours(request);
+        OpeningHoursCreationDTO dto = userConverter.convertOpeningHours(request);
         try {
             User user = userService.assignOpeningHours(dto);
             UserMessage userMessage = userConverter.getUserMessageFromUser(user);
@@ -118,6 +120,22 @@ public class UserServiceGrpcImpl
                     io.grpc.Status.INVALID_ARGUMENT
                             .withDescription(e.getMessage())
                             .asRuntimeException());
+        }
+    }
+
+    @Override
+    public void getOpeningHours(UserName request, StreamObserver<OpeningHoursResponse> responseObserver) {
+        String username=request.getUsername();
+
+        try{
+            OpeningHours openingHours = userService.getOpeningHours(username);
+            OpeningHoursResponse response= userConverter.getOpeningHoursResponse(openingHours);
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+        catch( Exception e)
+        {
+            responseObserver.onError(Status.INVALID_ARGUMENT.withDescription(e.getMessage()).asRuntimeException());
         }
     }
 }
