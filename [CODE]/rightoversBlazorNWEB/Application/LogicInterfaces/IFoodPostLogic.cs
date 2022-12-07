@@ -13,4 +13,7 @@ public interface IFoodPostLogic
     Task<FoodPost> PickUp(PickUpDto dto);
     Task DeleteAsync(int id);
     Task<IEnumerable<FoodPost>> GetAllReportedPostsAsync();
+    
+    Task<Report> ReportAsync(Report report);
+
 }

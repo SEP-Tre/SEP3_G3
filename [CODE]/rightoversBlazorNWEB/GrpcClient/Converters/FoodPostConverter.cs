@@ -51,4 +51,21 @@ public class FoodPostConverter : IFoodPostConverter
         };
         return request;
     }
+
+    public Report GetReportFromMessage(ReportMessage message)
+    {
+        Report report = new Report(message.PostId, message.Comment, message.UsernameReporting);
+        return report;
+    }
+
+    public ReportMessage GetReportMessage(Report report)
+    {
+        ReportMessage reportMessage = new ReportMessage
+        {
+            PostId = report.FoodPostId,
+            Comment = report.Comment,
+            UsernameReporting = report.UsernameReporting
+        };
+        return reportMessage;
+    }
 }

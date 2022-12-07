@@ -147,4 +147,21 @@ public class FoodPostsController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpPost]
+    [Route("Report")]
+    public async Task<ActionResult<Report>> ReportAsync(Report report)
+    {
+        try
+        {
+            Console.WriteLine(report.Comment);
+            Report savedReport =await fpLogic.ReportAsync(report);  
+            return Ok( savedReport);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return BadRequest(e.Message);
+        }
+    }
 }

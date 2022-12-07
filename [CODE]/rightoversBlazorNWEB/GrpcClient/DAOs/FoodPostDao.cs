@@ -1,4 +1,5 @@
-﻿using Application.DAOInterfaces;
+﻿using System.Runtime.CompilerServices;
+using Application.DAOInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
 using Grpc.Core;
@@ -116,6 +117,27 @@ public class FoodPostDao : IFoodPostDao
     public async Task DeleteAsync(int id)
     {
         await client.deleteAsync(new FoodPostID { Id = id });
+    }
+
+    public async Task<Report> ReportAsync(Report report)
+    {
+        try
+        {
+            /*
+            ReportMessage message = converter.GetReportMessage(report);
+            ReportMessage retrievedMessage = await client.reportAsync(message);
+            return converter.GetReportFromMessage(retrievedMessage);
+            */
+            return converter.GetReportFromMessage
+            (await client.reportAsync
+                (converter.GetReportMessage(report)));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("GRPC CLIENT: " + e);
+
+            throw;
+        }
     }
 
 

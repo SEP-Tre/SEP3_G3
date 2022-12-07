@@ -70,6 +70,13 @@ message PickUpRequest{
   string username=2;
 }
 
+message ReportMessage
+{
+  int32 post_id=1;
+  string comment =2;
+  string username_reporting=3;
+}
+
 service FoodPostService {
   rpc getFoodPostsByUsername(FPByUsernameRequest) returns (stream FoodPostResponse);
   rpc post(FoodPostRequest) returns (FoodPostResponse);
@@ -79,4 +86,5 @@ service FoodPostService {
   rpc pickUp(PickUpRequest) returns(FoodPostResponse);
   rpc delete(FoodPostID) returns (ReservationResponse);
   rpc getAllReportedPosts(ReservationResponse) returns (stream FoodPostResponse);
+  rpc report(ReportMessage) returns(ReportMessage);
 }
