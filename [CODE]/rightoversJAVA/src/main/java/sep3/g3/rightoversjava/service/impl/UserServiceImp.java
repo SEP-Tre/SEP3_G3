@@ -1,11 +1,8 @@
 package sep3.g3.rightoversjava.service.impl;
 
 import org.springframework.stereotype.Service;
-import sep3.g3.rightoversjava.model.OpeningHours;
-import sep3.g3.rightoversjava.model.Report;
+import sep3.g3.rightoversjava.model.*;
 import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
-import sep3.g3.rightoversjava.model.Reservation;
-import sep3.g3.rightoversjava.model.User;
 import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
 import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
 import sep3.g3.rightoversjava.repository.*;
@@ -21,19 +18,21 @@ public class UserServiceImp implements UserService {
     private final AddressRepository addressRepository;
     private final FoodPostRepository foodPostRepository;
     private final ReservationRepository reservationRepository;
+    private final RatingRepository ratingRepository;
 
     private final OpeningHoursRepository openingHoursRepository;
     private final ReportRepository reportRepository;
 
     public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository,
                           FoodPostRepository foodPostRepository, OpeningHoursRepository openingHoursRepository,
-                          ReservationRepository reservationRepository, ReportRepository reportRepository) {
+                          ReservationRepository reservationRepository, ReportRepository reportRepository, RatingRepository ratingRepository) {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
         this.foodPostRepository = foodPostRepository;
         this.reservationRepository = reservationRepository;
         this.openingHoursRepository = openingHoursRepository;
         this.reportRepository = reportRepository;
+        this.ratingRepository = ratingRepository;
     }
 
     @Override
@@ -72,6 +71,8 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void deleteUser(String username) {
+        // For cascade
+        /*
         if (userRepository.existsById(username))
         {
             userRepository.deleteById(username);
@@ -79,6 +80,41 @@ public class UserServiceImp implements UserService {
         else
         {
             throw new IllegalArgumentException("That user does not exist!");
+        }
+
+         */
+
+        // Workaround
+        Optional<User> user = userRepository.findById(username);
+        if (user.isPresent())
+        {
+            ArrayList<Report> reports = reportRepository.findAllByUserReporting(user.get());
+            if (reports.size() > 0)
+            {
+                reportRepository.deleteAll(reports);
+            }
+            ArrayList<Reservation> reservations = (ArrayList<Reservation>) reservationRepository.findAllByUser(user.get());
+            if (reservations.size() > 0)
+            {
+                reservationRepository.deleteAll(reservations);
+            }
+            ArrayList<Rating> ratings = ratingRepository.findAllByUserRated(user.get());
+            ratings.addAll(ratingRepository.findAllByUserRating(user.get()));
+            if (ratings.size() > 0)
+            {
+                ratingRepository.deleteAll(ratings);
+            }
+            OpeningHours openingHours = openingHoursRepository.findByUser(user.get());
+            if (openingHours != null)
+            {
+                openingHoursRepository.delete(openingHours);
+            }
+            ArrayList<FoodPost> foodPosts = (ArrayList<FoodPost>) foodPostRepository.getFoodPostsByUser(user.get());
+            if (foodPosts.size() > 0)
+            {
+                foodPostRepository.deleteAll(foodPosts);
+            }
+            userRepository.deleteById(username);
         }
     }
 

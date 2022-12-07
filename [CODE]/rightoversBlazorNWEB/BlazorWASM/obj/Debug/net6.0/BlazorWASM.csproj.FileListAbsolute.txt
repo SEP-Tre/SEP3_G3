@@ -2558,3 +2558,4 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\o
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\BlazorWASM.pdb
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\ref\BlazorWASM.dll
 C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\ReportedPostDetails.razor.rz.scp.css
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\EditFoodPost.razor.rz.scp.css

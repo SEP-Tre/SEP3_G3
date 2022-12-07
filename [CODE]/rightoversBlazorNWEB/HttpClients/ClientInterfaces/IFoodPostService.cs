@@ -15,5 +15,6 @@ public interface IFoodPostService
 
     Task<Report> ReportAsync(Report report);
     Task<IEnumerable<Report>> GetReportsOnPostAsync(int id);
+    Task<FoodPost> EditAsync(FoodPost foodPost);
 
 }

@@ -7,6 +7,7 @@ namespace GrpcClient.IConverters;
 public interface IFoodPostConverter
 {
     FoodPost GetFoodPost(FoodPostResponse response);
+    public FoodPostResponse GetFoodPostResponse(FoodPost foodPost);
     PickUpRequest GetPickUpRequestFromDto(PickUpDto dto);
 
     Report GetReportFromMessage(ReportMessage message);

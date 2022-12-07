@@ -1,5 +1,6 @@
 ﻿using Domain.Classes;
 using Domain.DTOs;
+using Google.Protobuf.WellKnownTypes;
 using GrpcCL;
 using GrpcClient.IConverters;
 
@@ -40,6 +41,47 @@ public class FoodPostConverter : IFoodPostConverter
             startTime,
             endTime,
             new User(response.Username));
+    }
+
+    public FoodPostResponse GetFoodPostResponse(FoodPost foodPost)
+    {
+        Timestamp ts = Timestamp.FromDateTime(foodPost.TimestampPosted);
+        Time st = new Time{
+            Hour = foodPost.StartTime.Hour,
+            Minutes = foodPost.StartTime.Minutes
+        };
+        Time et = new Time{
+            Hour = foodPost.EndTime.Hour,
+            Minutes = foodPost.EndTime.Minutes
+        };
+        Date sd = new Date{
+            Day = foodPost.StartDate.Day,
+            Month = foodPost.StartDate.Month,
+            Year = foodPost.StartDate.Year
+        };
+        Date ed = new Date
+        {
+            Day = foodPost.EndDate.Day,
+            Month = foodPost.EndDate.Month,
+            Year = foodPost.EndDate.Year
+        };
+        FoodPostResponse response = new FoodPostResponse{
+            Title = foodPost.Title,
+            Category = foodPost.Category,
+            DaysUntilExpired = foodPost.DaysUntilExpired,
+            Description = foodPost.Description,
+            EndDate = ed,
+            EndTime = et,
+            FpId = foodPost.PostId,
+            FpState = foodPost.PostState,
+            PictureUrl = foodPost.PictureUrl,
+            StartDate = sd,
+            StartTime = st,
+            TimestampPosted = ts,
+            Username = foodPost.User.UserName
+        };
+
+        return response;
     }
 
     public PickUpRequest GetPickUpRequestFromDto(PickUpDto dto)

@@ -212,4 +212,9 @@ public class FoodPostServiceImp implements FoodPostService
         FoodPost foodPost = fpRepository.findById(postId).get();
         return new ArrayList<>(reportRepository.findAllByFoodPost(foodPost));
     }
+
+    @Override
+    public FoodPost edit(FoodPost foodPost) {
+        return fpRepository.save(foodPost);
+    }
 }

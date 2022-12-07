@@ -216,4 +216,21 @@ public class FoodPostDao : IFoodPostDao
             }
         return listHolder;
     }
+
+    public async Task<FoodPost> EditAsync(FoodPost foodPost)
+    {
+        try
+        {
+            FoodPostResponse request = converter.GetFoodPostResponse(foodPost);
+            var response = await client.editAsync(request);
+
+            return converter.GetFoodPost(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            throw;
+        }
+    }
 }

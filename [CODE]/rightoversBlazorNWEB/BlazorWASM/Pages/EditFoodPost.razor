@@ -1,0 +1,259 @@
+﻿@page "/EditFoodPost/{id:int}"
+@using HttpClients.ClientInterfaces
+@using Microsoft.VisualBasic.CompilerServices
+@using Domain.Classes
+@using Domain.DTOs
+@using BlazorWASM.Pages.UIComponents
+@inject NavigationManager navMgr
+@inject IFoodPostService fpService;
+
+<AuthorizeView>
+    <Authorized>
+        @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creatorUsername))
+        {
+            <div class="card">
+                <h3>Edit Food Post</h3>
+                <div class="form-group field">
+                    <label>Title:</label>
+                    <br/>
+                    <input id = "title_field" type="text" @bind="title" @bind:event="oninput"/>
+                </div>
+                <div class="form-group field">
+                    <label>Description:</label>
+                    <br/>
+                    <input id = "description_field" type="text" @bind="description" @bind:event="oninput"/>
+                </div>
+                <div class="form-group field">
+                    <label>Category:</label>
+                    <br/>
+                    <input id = "category_field" type="text" @bind="category" @bind:event="oninput"/>
+                </div>
+                <div class="form-group field">
+                    <label>Days left to consume: </label>
+                    <input id = "days_field" type="text" @bind="daysLeftToEat" @bind:event="oninput"/>
+
+                </div>
+                <div class="form-group field">
+                    <label>Image url:</label>
+                    <input id="imageUrl" type="url" @bind="@pictureUrl"/>
+                </div>
+                @if (context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value.Equals("False"))
+                {
+                    <div class="form-group field">
+                        <label>Start Date for Pickup</label>
+                        <input id="start_date" type="date" @bind="@startDate"/>
+                    </div>
+
+                    <div class="form-group field">
+                        <label>End Date for Pickup</label>
+                        <input id="end_date" type="date" @bind="@endDate"/>
+                    </div>
+
+                    <div class="form-group field">
+                        <label>Start Time for Pickup</label>
+                        <input id="start_time" type="time" @bind="@startTime"/>
+                    </div>
+
+                    <div class="form-group field">
+                        <label>End Time for Pickup</label>
+                        <input id="end_time" type="time" @bind="@endTime"/>
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <p>People can pick up the food during your business' opening hours.</p>
+                    </div>
+                }
+
+                <div class="button-row">
+                    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => EditAsync())" 
+                                  MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) 
+                                  Text="Edit" ButtonStyle="ButtonStyle.Dark"/>
+                </div>
+                <Modal ShowModal="showModal">
+                    <p class="text-center">@resultMsg</p>
+                    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Wonderful!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
+                </Modal>
+            </div>
+        }
+        else
+        {
+            <h1>
+                You can't edit someone else's post
+            </h1>
+        }
+    </Authorized>
+    <NotAuthorized>
+        <div class="d-flex justify-content-center align-items-center">
+            <h1>
+                You must be logged in to edit a post!
+            </h1>
+        </div>
+    </NotAuthorized>
+
+</AuthorizeView>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private FoodPost foodPost;
+    private string title;
+    private string description;
+    private string daysLeftToEat;
+    private string category;
+    private string pictureUrl;
+    private DateOnly startDate;
+    private DateOnly endDate;
+    private TimeOnly startTime;
+    private TimeOnly endTime;
+    private string creatorUsername;
+
+    private string color = "red";
+    private bool showModal;
+    private string createdDtoString;
+
+    private string resultMsg;
+
+    protected override async Task OnInitializedAsync()
+    {
+        initDates();
+        // Avoiding the async for now
+        foodPost = await fpService.GetSingleAsync(id);
+        title = foodPost.Title;
+        description = foodPost.Description;
+        daysLeftToEat = foodPost.DaysUntilExpired.ToString();
+        category = foodPost.Category;
+        pictureUrl = foodPost.PictureUrl;
+        startDate = DateOnly.FromDayNumber(startDate.DayNumber);
+        endDate = DateOnly.FromDayNumber(startDate.DayNumber);
+        startTime = TimeOnly.Parse(foodPost.StartTime.ToString());
+        endTime = TimeOnly.Parse(foodPost.EndTime.ToString());
+        creatorUsername = foodPost.User.UserName;
+    }
+
+    private void initDates()
+    {
+        startDate = DateOnly.FromDateTime(DateTime.Now);
+        endDate = DateOnly.FromDateTime(DateTime.Now);
+        startTime = TimeOnly.MinValue;
+        endTime = TimeOnly.MinValue;
+    }
+
+    private void clear()
+    {
+        title = "";
+        category = "";
+        description = "";
+        pictureUrl = "";
+        daysLeftToEat = "";
+        initDates();
+    }
+
+    private void SeeDate()
+    {
+        Console.WriteLine(startDate.Day + " " + startDate.Month + " " + startDate.Year);
+    }
+
+    private async Task EditAsync()
+    {
+        try
+        {
+            int howManyDays = IntegerType.FromString(daysLeftToEat);
+            var myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
+            var myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
+            var myStartTime = new MyTime(startTime.Hour, startTime.Minute);
+            var myEndTime = new MyTime(endTime.Hour, endTime.Minute);
+            
+            foodPost.Title = title;
+            foodPost.Category = category;
+            foodPost.Description = description;
+            foodPost.PictureUrl = pictureUrl;
+            foodPost.DaysUntilExpired = howManyDays;
+            foodPost.StartDate = myStartDate;
+            foodPost.EndDate = myEndDate;
+            foodPost.StartTime = myStartTime;
+            foodPost.EndTime = myEndTime;
+
+            await fpService.EditAsync(foodPost);
+
+            clear();
+            resultMsg = $"Food Post with a title '{foodPost.Title}' successfully edited!";
+            color = "green";
+    // createdDtoString = "Your Food Post <" + newFoodPost.Title + "> was created.";
+            showModal = true;
+        }
+        catch (Exception e)
+        {
+            resultMsg = e.Message;
+            color = "red";
+        }
+    }
+
+    private void Proceed()
+    {
+        showModal = false;
+        navMgr.NavigateTo($"/PostDetails/{id}");
+    }
+
+    private void SetUsername(string? username)
+    {
+        creatorUsername = username;
+    }
+
+    public string Title
+    {
+        get => title;
+        set => title = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public string Description
+    {
+        get => description;
+        set => description = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public string DaysLeftToEat
+    {
+        get => daysLeftToEat;
+        set => daysLeftToEat = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public string Category
+    {
+        get => category;
+        set => category = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public string PictureUrl
+    {
+        get => pictureUrl;
+        set => pictureUrl = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public DateOnly StartDate
+    {
+        get => startDate;
+        set => startDate = value;
+    }
+
+    public DateOnly EndDate
+    {
+        get => endDate;
+        set => endDate = value;
+    }
+
+    public TimeOnly StartTime
+    {
+        get => startTime;
+        set => startTime = value;
+    }
+
+    public TimeOnly EndTime
+    {
+        get => endTime;
+        set => endTime = value;
+    }
+
+}

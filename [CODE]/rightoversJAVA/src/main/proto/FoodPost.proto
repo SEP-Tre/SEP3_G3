@@ -87,4 +87,5 @@ service FoodPostService {
   rpc report(ReportMessage) returns(ReportMessage);
   rpc getAllReportedPosts(ReservationResponse) returns (stream FoodPostResponse);
   rpc getReportsOnPost(FoodPostID) returns (stream ReportMessage);
+  rpc edit(FoodPostResponse) returns (FoodPostResponse);
 }

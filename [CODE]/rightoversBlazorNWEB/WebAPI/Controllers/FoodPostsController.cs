@@ -180,4 +180,20 @@ public class FoodPostsController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpPatch]
+    [Route("Edit")]
+    public async Task<ActionResult<FoodPost>> EditAsync([FromBody] FoodPost foodPost)
+    {
+        try
+        {
+            return await fpLogic.EditAsync(foodPost);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            throw;
+        }
+    }
 }
