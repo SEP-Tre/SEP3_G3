@@ -9,7 +9,8 @@
 
 <AuthorizeView>
     <Authorized>
-        @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creatorUsername))
+        @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creatorUsername)
+            || context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
         {
             <div class="card">
                 <h3>Edit Food Post</h3>
