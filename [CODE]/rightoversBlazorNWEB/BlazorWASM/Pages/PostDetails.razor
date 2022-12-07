@@ -155,7 +155,8 @@ else
                         <div>
                             @if (creator != null)
                             {
-                                @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName))
+                                @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName)
+                                || context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
                                 {
                                     <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Delete())  Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
                                 }
@@ -184,6 +185,7 @@ else
             <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
         </div>
     </Modal>
+    
 @code {
 
     [Parameter]
