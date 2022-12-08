@@ -132,6 +132,38 @@ public class FoodPostsController : ControllerBase
         }
     }
 
+    [HttpGet]
+    [Route("Reported")]
+    public async Task<ActionResult<IEnumerable<FoodPost>>> GetAllReportedPostsAsync()
+    {
+        try
+        {
+           var reportedPosts = await fpLogic.GetAllReportedPostsAsync();
+
+           return Ok(reportedPosts);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
+    [HttpGet]
+    [Route("Reports/{id:int}")]
+    public async Task<ActionResult<IEnumerable<FoodPost>>> GetReportsOnPost([FromRoute]int id)
+    {
+        try
+        {
+            var reports = await fpLogic.GetReportsOnPostAsync(id);
+
+            return Ok(reports);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
     [HttpPost]
     [Route("Report")]
     public async Task<ActionResult<Report>> ReportAsync(Report report)
@@ -146,6 +178,22 @@ public class FoodPostsController : ControllerBase
         {
             Console.WriteLine(e.Message);
             return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPatch]
+    [Route("Edit")]
+    public async Task<ActionResult<FoodPost>> EditAsync([FromBody] FoodPost foodPost)
+    {
+        try
+        {
+            return await fpLogic.EditAsync(foodPost);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            throw;
         }
     }
 }

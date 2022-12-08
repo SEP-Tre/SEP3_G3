@@ -66,6 +66,11 @@ public class UserLogic : IUserLogic
         return userDao.ChangeAddress(dto);
     }
 
+    public async Task DeleteUserAsync(string username)
+    {
+        await userDao.DeleteUser(username);
+    }
+
     public async Task<OpeningHours> GetOpeningHoursAsync(string username)
     {
         OpeningHours openingHours = await userDao.GetOpeningHoursAsync(username);
@@ -86,5 +91,10 @@ public class UserLogic : IUserLogic
         {
             throw new Exception("Password has to contain more than six characters.");
         }
+    }
+
+    public async Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username)
+    {
+        return await userDao.GetReportsAgainstUserAsync(username);
     }
 }

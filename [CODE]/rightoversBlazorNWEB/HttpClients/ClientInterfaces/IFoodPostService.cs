@@ -11,8 +11,11 @@ public interface IFoodPostService
     Task ReserveAsync(FoodPostReservationDto dto);
     Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username);
     Task DeleteAsync(int id);
+    Task<ICollection<FoodPost>> GetAllReportedPostsAsync();
 
     Task<Report> ReportAsync(Report report);
+    Task<IEnumerable<Report>> GetReportsOnPostAsync(int id);
+    Task<FoodPost> EditAsync(FoodPost foodPost);
 
     Task PickUpAsync(PickUpDto dto);
 }

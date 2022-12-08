@@ -171,4 +171,66 @@ public class FoodPostDao : IFoodPostDao
             throw;
         }
     }
+
+    public async Task<IEnumerable<FoodPost>> GetAllReportedPostsAsync()
+    {
+        try
+        {
+            // This is a filler request
+            ReservationResponse filler = new ReservationResponse
+            {
+                Filler = true
+            };
+            var listHolder = new List<FoodPost>();
+            AsyncServerStreamingCall<FoodPostResponse> response = client.getAllReportedPosts(filler);
+            // Because it is a stream, lets make a Dto for the current one we are on
+            await foreach (var message in response.ResponseStream.ReadAllAsync())
+                if (message.Category != null && message.Title != null)
+                {
+                    var fp = converter.GetFoodPost(message);
+                    listHolder.Add(fp);
+                }
+
+            return listHolder;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            throw;
+        }
+    }
+
+    public async Task<IEnumerable<Report>> GetReportsOnPostAsync(int postId)
+    {
+        var request = new FoodPostID{
+            Id = postId
+        };
+        var listHolder = new List<Report>();
+        AsyncServerStreamingCall<ReportMessage> response = client.getReportsOnPost(request);
+        await foreach (var message in response.ResponseStream.ReadAllAsync())
+            if (message.PostId != null)
+            {
+                var report = converter.GetReportFromMessage(message);
+                listHolder.Add(report);
+            }
+        return listHolder;
+    }
+
+    public async Task<FoodPost> EditAsync(FoodPost foodPost)
+    {
+        try
+        {
+            FoodPostResponse request = converter.GetFoodPostResponse(foodPost);
+            var response = await client.editAsync(request);
+
+            return converter.GetFoodPost(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+
+            throw;
+        }
+    }
 }

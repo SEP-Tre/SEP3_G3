@@ -90,9 +90,7 @@ public class UserDao : IUserDao
         openingHours.IsSaturdayOpen = response.SaturdayIsOpen;
         openingHours.IsSundayOpen = response.SundayIsOpen;
         
-        Console.WriteLine("USERDAO: THEY TOLD ME MONDAY IS "+openingHours.IsMondayOpen);
-        Console.WriteLine("USERDAO: THEY TOLD ME FRIDAY IS "+openingHours.IsFridayOpen);
-
+        
         return openingHours;
     }
 
@@ -229,6 +227,12 @@ public class UserDao : IUserDao
         }
     }
 
+    public async Task DeleteUser(string username)
+    {
+        var userRequest = converter.GetUserRequestFromUsername(username);
+        var fillerResponse = await client.deleteUserAsync(userRequest);
+    }
+
     public async Task<User> GetByUsername(string username)
     {
         var userRequest = converter.GetUserRequestFromUsername(username);
@@ -258,5 +262,19 @@ public class UserDao : IUserDao
     {
         //TODO GRPC FOR GETTING ALL RATINGS TO A USER
         throw new NotImplementedException();
+    }
+
+    public async Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username)
+    {
+        var request = converter.GetUserRequestFromUsername(username);
+        var listHolder = new List<Report>();
+        AsyncServerStreamingCall<ReportMessage> response = client.getReportsAgainstUser(request);
+        await foreach (var message in response.ResponseStream.ReadAllAsync())
+            if (message.PostId != null)
+            {
+                var report = converter.GetReportFromMessage(message);
+                listHolder.Add(report);
+            }
+        return listHolder;
     }
 }

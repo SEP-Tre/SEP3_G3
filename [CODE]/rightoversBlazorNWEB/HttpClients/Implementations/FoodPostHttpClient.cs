@@ -119,7 +119,7 @@ public class FoodPostHttpClient : IFoodPostService
 
         return foodPosts;
     }
-
+    
     public async Task DeleteAsync(int id)
     {
         var response = await client.DeleteAsync($"/FoodPosts/?id={id}");
@@ -129,6 +129,24 @@ public class FoodPostHttpClient : IFoodPostService
         {
             throw new Exception(content);
         } 
+    }
+
+    public async Task<ICollection<FoodPost>> GetAllReportedPostsAsync()
+    {
+        var response = await client.GetAsync("/FoodPosts/Reported");
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var foodPosts =
+            JsonSerializer.Deserialize<ICollection<FoodPost>>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return foodPosts;
     }
 
     public async Task<Report> ReportAsync(Report report)
@@ -163,4 +181,45 @@ public class FoodPostHttpClient : IFoodPostService
             throw new Exception(content);
         }
     }
+    
+    public async Task<IEnumerable<Report>> GetReportsOnPostAsync(int id)
+    {
+        var response = await client.GetAsync($"/FoodPosts/Reports/{id}");
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var reports =
+            JsonSerializer.Deserialize<IEnumerable<Report>>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return reports;
+    }
+
+    public async Task<FoodPost> EditAsync(FoodPost foodPost)
+    {
+        string dtoAsJson = JsonSerializer.Serialize(foodPost);
+        var body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        Console.Write(body);
+        
+        var response = await client.PatchAsync("FoodPosts/Edit", body);
+        Console.Write(response);
+        string result = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        var fp = JsonSerializer.Deserialize<FoodPost>(result, new JsonSerializerOptions{
+            PropertyNameCaseInsensitive = true
+        })!;
+
+        return fp;
+    }
+    
 }

@@ -105,7 +105,7 @@ public final class FoodPost {
       "se\022\016\n\006filler\030\001 \001(\010\"-\n\rPickUpRequest\022\n\n\002i" +
       "d\030\001 \001(\005\022\020\n\010username\030\002 \001(\t\"M\n\rReportMessa" +
       "ge\022\017\n\007post_id\030\001 \001(\005\022\017\n\007comment\030\002 \001(\t\022\032\n\022" +
-      "username_reporting\030\003 \001(\t2\253\004\n\017FoodPostSer" +
+      "username_reporting\030\003 \001(\t2\376\005\n\017FoodPostSer" +
       "vice\022S\n\026getFoodPostsByUsername\022\034.sep3.g3" +
       ".FPByUsernameRequest\032\031.sep3.g3.FoodPostR" +
       "esponse0\001\022;\n\004post\022\030.sep3.g3.FoodPostRequ" +
@@ -119,8 +119,14 @@ public final class FoodPost {
       "ep3.g3.FoodPostResponse\022;\n\006delete\022\023.sep3" +
       ".g3.FoodPostID\032\034.sep3.g3.ReservationResp" +
       "onse\0228\n\006report\022\026.sep3.g3.ReportMessage\032\026" +
-      ".sep3.g3.ReportMessageB)\n%sep3.g3.righto" +
-      "versjava.grpc.generatedP\001b\006proto3"
+      ".sep3.g3.ReportMessage\022P\n\023getAllReported" +
+      "Posts\022\034.sep3.g3.ReservationResponse\032\031.se" +
+      "p3.g3.FoodPostResponse0\001\022A\n\020getReportsOn" +
+      "Post\022\023.sep3.g3.FoodPostID\032\026.sep3.g3.Repo" +
+      "rtMessage0\001\022<\n\004edit\022\031.sep3.g3.FoodPostRe" +
+      "sponse\032\031.sep3.g3.FoodPostResponseB)\n%sep" +
+      "3.g3.rightoversjava.grpc.generatedP\001b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

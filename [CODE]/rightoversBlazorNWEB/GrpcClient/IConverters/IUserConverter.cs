@@ -16,4 +16,5 @@ public interface IUserConverter
     ChangeAddressRequest GetChangeAddressRequestFromDto(UserUpdateAddressDto dto);
 
     MyTime TimeConverter(OCTime time);
+    Report GetReportFromMessage(ReportMessage message);
 }

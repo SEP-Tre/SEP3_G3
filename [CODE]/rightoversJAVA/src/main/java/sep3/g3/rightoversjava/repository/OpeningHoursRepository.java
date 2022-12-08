@@ -7,6 +7,7 @@ import sep3.g3.rightoversjava.model.User;
 
 @Repository
 public interface OpeningHoursRepository extends CrudRepository<OpeningHours, Integer> {
+    OpeningHours findByUser(User user);
 
     OpeningHours getOpeningHoursByUser(User user);
 }

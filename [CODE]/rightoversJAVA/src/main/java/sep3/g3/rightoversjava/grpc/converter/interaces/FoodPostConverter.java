@@ -16,4 +16,5 @@ public interface FoodPostConverter {
 
     ReportCreationDto getReportCreationDtoFromRequest(ReportMessage request);
     ReportMessage getReportMessageFromReport(Report report);
+    FoodPost getFoodPostFromResponse(FoodPostResponse foodPostResponse);
 }

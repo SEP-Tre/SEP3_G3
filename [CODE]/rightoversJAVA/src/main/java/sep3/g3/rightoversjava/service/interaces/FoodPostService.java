@@ -21,12 +21,6 @@ public interface FoodPostService {
 
     FoodPost getSingleFoodPost(int id) throws NoSuchElementException;
 
-    // Should this return something? - CF
-    // TODO: Add user
-
-
-    // Should this return something? - CF
-    // TODO: Add user
     void reserve(ReservationCreationDto dto);
 
     FoodPost pickUp(PickUpDto dto) throws IllegalAccessException;
@@ -34,4 +28,8 @@ public interface FoodPostService {
     void delete(int id);
 
     Report report(ReportCreationDto dto);//report
+
+    ArrayList<FoodPost> getAllReportedPosts();
+    ArrayList<Report> getReportsOnPost(int postId);
+    FoodPost edit(FoodPost foodPost);
 }

@@ -15,4 +15,6 @@ public interface IUserLogic
     Task<User> ChangeFirstName(UserUpdateFirstNameDto dto);
     Task<User> ChangePassword(UserUpdatePasswordDto dto);
     Task<User> ChangeAddress(UserUpdateAddressDto dto);
+    Task DeleteUserAsync(string username);
+    Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username);
 }

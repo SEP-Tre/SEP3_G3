@@ -104,12 +104,18 @@ message ChangeAddressRequest {
   string city = 5;
 }
 
+message Filler {
+  bool filler = 1;
+}
+
 service UserService {
   rpc getByUsername(UserRequest) returns (UserMessage);
   rpc register(UserCreationRequest) returns (UserMessage);
   rpc assignOpeningHours(OpeningHoursRequest) returns (UserMessage);
   rpc login(UserLoginRequest) returns (UserMessage);
   rpc getReservationsByUsername(UserRequest) returns (stream ReservationMessage);
+  rpc deleteUser(UserRequest) returns (Filler);
+  rpc getReportsAgainstUser(UserRequest) returns (stream ReportMessage);
   rpc getOpeningHours(UserName) returns (OpeningHoursResponse);
   rpc changeFirstName(ChangeFirstNameRequest) returns (UserMessage);
   rpc changePassword(ChangePasswordRequest) returns (UserMessage);

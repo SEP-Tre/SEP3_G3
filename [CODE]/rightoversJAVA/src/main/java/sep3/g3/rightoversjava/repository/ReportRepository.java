@@ -13,4 +13,5 @@ public interface ReportRepository extends CrudRepository<Report, Integer>
 {
     ArrayList<Report> findAllByFoodPost(FoodPost foodPost);
     ArrayList<Report> findAllByUserReporting(User user);
+    ArrayList<Report> findAllByFoodPost_User_Username(String username);
 }

@@ -180,4 +180,61 @@ public class FoodPostServiceGrpcImpl extends FoodPostServiceGrpc.FoodPostService
                     .asRuntimeException());
         }
     }
+
+    @Override
+    public void getAllReportedPosts(ReservationResponse request, StreamObserver<FoodPostResponse> responseObserver) {
+        try
+        {
+            ArrayList<FoodPost> posts = service.getAllReportedPosts();
+            for (FoodPost post:
+                 posts) {
+                responseObserver.onNext(converter.getFoodPostResponse(post));
+            }
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT
+                    .withDescription(e.getMessage())
+                    .asRuntimeException());
+        }
+    }
+
+    @Override
+    public void getReportsOnPost(FoodPostID request, StreamObserver<ReportMessage> responseObserver) {
+        try
+        {
+            ArrayList<Report> reports = service.getReportsOnPost(request.getId());
+            for (Report report:
+                 reports) {
+                responseObserver.onNext(converter.getReportMessageFromReport(report));
+            }
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT
+                    .withDescription(e.getMessage())
+                    .asRuntimeException());
+        }
+    }
+
+    @Override
+    public void edit(FoodPostResponse request, StreamObserver<FoodPostResponse> responseObserver) {
+        try {
+            FoodPost foodPostRequest = converter.getFoodPostFromResponse(request);
+            FoodPost editedPost = service.edit(foodPostRequest);
+            responseObserver.onNext(converter.getFoodPostResponse(editedPost));
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            responseObserver.onError(io.grpc.Status.INVALID_ARGUMENT
+                    .withDescription(e.getMessage())
+                    .asRuntimeException());
+        }
+    }
 }

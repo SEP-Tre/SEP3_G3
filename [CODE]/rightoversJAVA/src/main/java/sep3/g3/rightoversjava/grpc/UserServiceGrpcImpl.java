@@ -10,6 +10,7 @@ import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.dto.*;
 import sep3.g3.rightoversjava.model.OpeningHours;
+import sep3.g3.rightoversjava.model.Report;
 import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
@@ -185,6 +186,47 @@ public class UserServiceGrpcImpl
                             .withDescription(e.getMessage())
                             .asRuntimeException());
         }
+    }
+
+    @Override
+    public void getReportsAgainstUser(UserRequest request, StreamObserver<ReportMessage> responseObserver) {
+        try {
+            ArrayList<Report> reports = userService.getAllReportsAgainstUser(request.getUsername());
+            for (Report report:
+                 reports) {
+                responseObserver.onNext(foodPostConverter.getReportMessageFromReport(report));
+            }
+            responseObserver.onCompleted();
+        }
+        catch (Exception e) {
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
+        }
+
+    }
+
+    @Override
+    public void deleteUser(UserRequest request, StreamObserver<Filler> responseObserver) {
+        try
+        {
+            userService.deleteUser(request.getUsername());
+            Filler response = Filler.newBuilder()
+                    .setFiller(true)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+        catch (Exception e)
+        {
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
+        }
+
+
     }
 
     @Override

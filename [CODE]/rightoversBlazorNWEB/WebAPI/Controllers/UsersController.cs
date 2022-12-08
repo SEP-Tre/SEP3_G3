@@ -186,6 +186,36 @@ public class UsersController : ControllerBase
         }
     }
 
+    [HttpDelete("{username}")]
+    public async Task<ActionResult> DeleteAsync([FromRoute] string username)
+    {
+        try
+        {
+            await userLogic.DeleteUserAsync(username);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpGet]
+    [Route("Reports/{username}")]
+    public async Task<ActionResult<IEnumerable<Report>>> GetReportsAgainstUserAsync([FromRoute]string username)
+    {
+        try
+        {
+            var reports = await userLogic.GetReportsAgainstUserAsync(username);
+            return Ok(reports);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return BadRequest(e.Message);
+        }
+    }
 
     private List<Claim> GenerateClaims(User user)
     {

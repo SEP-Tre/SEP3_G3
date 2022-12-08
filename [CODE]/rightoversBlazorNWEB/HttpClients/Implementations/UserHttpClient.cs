@@ -79,6 +79,18 @@ public class UserHttpClient : IUserService
         return user;
     }
 
+    public async Task DeleteUserAsync(string username)
+    {
+        var response = await client.DeleteAsync($"/Users/{username}");
+        // The response itself is just a filler boolean
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+    }
+
     public async Task<User> ChangePassword(UserUpdatePasswordDto dto)
     {
         String dtoJson = JsonSerializer.Serialize(dto);
@@ -98,24 +110,7 @@ public class UserHttpClient : IUserService
 
         return user;
     }
-
-    public async Task<User> ChangeAddress(UserUpdateAddressDto dto)
-    {
-        String dtoJson = JsonSerializer.Serialize(dto);
-        var body = new StringContent(dtoJson, Encoding.UTF8, "application/json");
-        var response = await client.PatchAsync("/Users/Address", body);
-        string content = await response.Content.ReadAsStringAsync();
-
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(content);
-        }
-
-        var user = JsonSerializer.Deserialize<User>(content, new JsonSerializerOptions{
-            PropertyNameCaseInsensitive = true
-        })!;
-        return user;
-    }
+    
 
     public async Task<User> RegisterAsync(UserCreationDto dto)
     {
@@ -208,6 +203,24 @@ public class UserHttpClient : IUserService
     public Task<IEnumerable<Rating>> GetAllRatingsToUser(string username)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username)
+    {
+        var response = await client.GetAsync($"Users/Reports/{username}");
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+        
+        var reports =
+            JsonSerializer.Deserialize<IEnumerable<Report>>(content, new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            })!;
+
+        return reports;
     }
 
     public Task<ClaimsPrincipal> GetAuthAsync()

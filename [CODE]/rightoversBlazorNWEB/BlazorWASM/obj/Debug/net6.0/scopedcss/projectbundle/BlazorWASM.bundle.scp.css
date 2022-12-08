@@ -25,6 +25,33 @@
 .button-row[b-xauouoch9k] {
     margin-top: 15px;
 }
+/* /Pages/EditFoodPost.razor.rz.scp.css */
+.card[b-k60enmo6oc] {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 350px;
+    padding: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: 25px;
+    border-radius: 15px;
+}
+
+.field[b-k60enmo6oc] {
+    margin-top: 20px;
+}
+
+.acceptbtn[b-k60enmo6oc] {
+    background-color: lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-row[b-k60enmo6oc] {
+    margin-top: 15px;
+}
 /* /Pages/Login.razor.rz.scp.css */
 .card[b-xm4hp2nt19] {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -301,6 +328,117 @@
 
 .bckgrnd[b-hyqv80bnnt] {
     background-image: linear-gradient(180deg, rgb(5, 163, 47) 0%, rgb(4, 102, 56) 70%);
+}
+/* /Pages/ReportedPostDetails.razor.rz.scp.css */
+.card[b-ej807hrmdi] {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: fit-content;
+    height: auto;
+    padding: 35px;
+    text-align: center;
+    margin-top: 25px;
+    border-radius: 15px;
+    border-left-style: groove;
+
+}
+
+.card-back[b-ej807hrmdi] {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: fit-content;
+    height: fit-content;
+    padding: 25px;
+    text-align: center;
+    margin-top: 25px;
+    border-radius: 15px;
+    background-image: linear-gradient(180deg, rgb(5, 163, 47) 0%, rgb(4, 102, 56) 70%);
+}
+
+.card-back-title[b-ej807hrmdi] {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 250px;
+    height: fit-content;
+    padding: 5px;
+    text-align: center;
+    margin: auto;
+    border-radius: 15px;
+    background-image: linear-gradient(180deg, rgb(5, 163, 47) 0%, rgb(4, 102, 56) 70%);
+}
+
+.card-title[b-ej807hrmdi] {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 15px;
+    border-left-style: groove;
+    background-color: white;
+    width: fit-content;
+}
+
+.sm-text[b-ej807hrmdi] {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: gray;
+}
+
+.xs-text[b-ej807hrmdi] {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: gray;
+}
+
+.xs-text-days[b-ej807hrmdi] {
+    font-size: 15px;
+}
+
+
+.bg-text[b-ej807hrmdi] {
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-justify: kashida;
+    width: fit-content;
+
+}
+
+.description-text[b-ej807hrmdi] {
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-justify: kashida;
+    height: fit-content;
+    display: block;
+    overflow: auto;
+    width: fit-content;
+}
+
+.title[b-ej807hrmdi] {
+    font-size: 25px;
+}
+
+.bckgrnd[b-ej807hrmdi] {
+    background-image: linear-gradient(180deg, rgb(5, 163, 47) 0%, rgb(4, 102, 56) 70%);
+}
+
+.field[b-ej807hrmdi] {
+    margin-top: 20px;
+}
+
+.acceptbtn[b-ej807hrmdi] {
+    background-color: lightgreen;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-row[b-ej807hrmdi] {
+    margin-top: 15px;
 }
 /* /Pages/UIComponents/Modal.razor.rz.scp.css */
 .modal-background[b-sp2tgkowl2] { /* This style class makes the background darker, and un-clickable */

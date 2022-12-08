@@ -196,10 +196,11 @@ else
                     }
                     else
                     {
-                        <h5 class="bg-text">Opuning hours loading...</h5>
+                        <h5 class="bg-text">Opening hours loading...</h5>
                     }
                 }
             }
+
             <AuthorizeView>
                 <Authorized>
                     <div class="d-flex justify-content-around my-2">
@@ -211,6 +212,7 @@ else
             </AuthorizeView>
         </div>
     </div>
+
     <div class="card-back mx-3">
         <div class="card d-flex align-items-start flex-column">
             <RadzenImage Path="@foodPost.PictureUrl" Style="max-width: 250px; background-size: contain; height:auto">
@@ -222,14 +224,21 @@ else
             <h5 class="sm-text my-2">CREATOR</h5>
 
             <a class="bg-text" href="/UserProfile/@foodPost.User.UserName">@foodPost.User.UserName</a>
+
+
+            <a class="bg-text" href="/UserProfile/@foodPost.User.UserName">@foodPost.User.UserName</a>
             <AuthorizeView>
                 <Authorized>
                     <div class="d-flex justify-content-around my-2">
                         @if (creator != null)
                         {
-                            @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName))
+                            @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName)
+                                 || context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
                             {
-                                <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Delete()) Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
+                                <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter"
+                                              Click="() => Edit()"
+                                              Text="Edit" ButtonStyle="ButtonStyle.Dark"/>
+                                <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Dark" Click=@(args => Delete()) Text="Delete" ButtonStyle="ButtonStyle.Danger"/>
                             }
                             else
                             {
@@ -316,9 +325,6 @@ else
             if (creator.IsBusiness)
             {
                 OpeningHours = await userService.GetOpeningHoursAsync(creator.UserName);
-                Console.WriteLine("MONADY OPUN??" + OpeningHours.IsMondayOpen);
-
-                Console.WriteLine("FRIDAY OPUN???" + OpeningHours.IsFridayOpen);
             }
         }
 
@@ -399,4 +405,11 @@ else
         }
     }
 
+
+    public void Edit()
+    {
+        navMgr.NavigateTo($"/EditFoodPost/{id}");
+    }
+
 }}
+    

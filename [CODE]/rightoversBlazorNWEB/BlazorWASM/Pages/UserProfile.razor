@@ -121,6 +121,31 @@ else
             </Tabs>
         </RadzenTabs>
     </div>
+    
+    <AuthorizeView>
+        <Authorized>
+            @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
+            {
+                <h1>Reports</h1>
+                <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                                Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+                    <Columns>
+                        <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="160px"/>
+                        <RadzenDataGridColumn TItem="Report" Property="FoodPostId" Title="Foodpost ID" Width="160px"/>
+                        <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="170px"/>
+                        <RadzenDataGridColumn Width="160px" TItem="Report" Property="FoodPostId" Title="Meal Details">
+                            <Template Context="data">
+                                <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.FoodPostId)"></RadzenButton>
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Dark" ButtonStyle="ButtonStyle.Danger" 
+                              Click=@(args => DeleteUser())
+                              Text="Delete User"/>
+            }
+        </Authorized>
+    </AuthorizeView>
 }
 
 @code {
@@ -129,6 +154,7 @@ else
     private IEnumerable<FoodPost> activeFoodPosts;
     private IEnumerable<Reservation> reservations;
     private List<Rating> ratings;
+    private IEnumerable<Report> reports;
 
     [Parameter]
     public string username { get; set; }
@@ -168,6 +194,7 @@ else
         await InitFoodPosts();
         reservations = await userService.GetAllReservationsByUser(username);
         await InitRatings();
+        reports = await userService.GetReportsAgainstUserAsync(username);
     }
 
     private async Task InitFoodPosts()
@@ -200,8 +227,7 @@ else
 
     protected void InitCookPicUrls()
     {
-        cookUrls = new Dictionary<int, string>
-        {
+        cookUrls = new Dictionary<int, string>{
             [1] = cookOneStarPicUrl,
             [2] = cookTwoStarsPicUrl,
             [3] = cookThreeStarsPicUrl,
@@ -212,8 +238,7 @@ else
 
     protected void InitPickerPicUrls()
     {
-        pickerUrls = new Dictionary<int, string>
-        {
+        pickerUrls = new Dictionary<int, string>{
             [1] = pickerOneStarPicUrl,
             [2] = pickerTwoStarsPicUrl,
             [3] = pickerThreeStarsPicUrl,
@@ -235,7 +260,6 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(cookerRatings.Count());
-        avg = Math.Truncate(avg * 100) / 100;
         return avg;
     }
 
@@ -252,7 +276,6 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(pickerRatings.Count());
-        avg = Math.Truncate(avg * 100)/100;
         return avg;
     }
 
@@ -311,5 +334,27 @@ else
             </div>);
     }
 
+    public async Task DeleteUser()
+    {
+        var confirm = await DialogService.Confirm("Are you sure?", "MyTitle",
+            new ConfirmOptions(){OkButtonText = "Yes", CancelButtonText = "No"});
+        if (confirm.Value)
+        {
+            await userService.DeleteUserAsync(username);
+        }
+    }
+
+    private void ViewPost(int postId)
+    {
+        try
+        {
+            navMgr.NavigateTo($"/ReportedPostDetails/{postId}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 
 }

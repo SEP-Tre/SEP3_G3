@@ -1,0 +1,309 @@
+﻿@page "/ReportedPostDetails/{id:int}"
+@using HttpClients.ClientInterfaces
+@using Domain.Classes
+@using Domain.DTOs
+@using BlazorWASM.Pages.UIComponents
+@inject IFoodPostService foodPostService
+@inject NavigationManager navMgr
+@inject IUserService userService;
+
+@*
+<div class="card-back-title d-flex justify-content-center align-items-center">
+    <div class="card-title d-flex justify-content-center my-1">
+        <h5 class="bg-text title">Post details</h5>
+    </div>
+</div>
+*@
+@if (string.IsNullOrEmpty(foodPost.Title))
+{
+    <p>Loading...</p>
+}
+else
+{
+    <AuthorizeView>
+        <NotAuthorized>
+            <div class="d-flex justify-content-center">
+                <h3>
+                    Please log in if you would like to reserve a post!
+                </h3>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+    <div class="d-flex justify-content-around my-1">
+
+        <div class="card-back mx-3">
+            <div class="card d-flex align-items-start flex-column">
+
+
+                <h5 class="sm-text my-2">TITLE</h5>
+
+                <h5 class="bg-text">@foodPost.Title</h5>
+
+                <h5 class="sm-text my-2">CATEGORY</h5>
+
+                <h5 class="bg-text">@foodPost.Category</h5>
+
+                <h5 class="sm-text my-2">DAYS LEFT TO EAT</h5>
+
+                <h5 class="bg-text">@foodPost.DaysUntilExpired</h5>
+
+                <h5 class="sm-text my-2">DESCRIPTION</h5>
+
+                <h5 class="bg-text">@foodPost.Description</h5>
+                @if (creator != null)
+                {
+                    @if (!creator.IsBusiness)
+                    {
+                        <h5 class="sm-text my-2">PICK UP DETAILS</h5>
+
+                        <div class="d-flex align-items-start flex-column">
+                            <h5 class="bg-text">@pickupDetailsDates</h5>
+                            <h5 class="bg-text">@pickupDetailsTime</h5>
+                        </div>
+                    }
+                    else
+                    {
+                        <h5 class="sm-text my-2">OPENNING HOURS</h5>
+                        <table>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">MON</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[0]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">TUE</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[1]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">WED</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[2]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">THU</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[3]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">FRI</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[4]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">SAT</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[5]</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 class="sm-text">SUN</h5>
+                                </td>
+                                <td>
+                                    <h5 class="xs-text-days px-5">@openingHours[6]</h5>
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                }
+                else
+                {
+                    <p>Loading the details...</p>
+                }
+                <AuthorizeView>
+                    <Authorized>
+                        <div>
+
+                            <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
+                            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                        </div>
+                    </Authorized>
+                </AuthorizeView>
+            </div>
+        </div>
+        <div class="card-back mx-3">
+            <div class="card d-flex align-items-start flex-column">
+                <RadzenImage Path="@foodPost.PictureUrl" Style="max-width: 250px; background-size: contain; height:auto">
+                </RadzenImage>
+                <h5 class="sm-text my-2">CREATION DATE</h5>
+
+                <h5 class="bg-text">@creationDate</h5>
+
+                <h5 class="sm-text my-2">CREATOR</h5>
+
+                <a class="bg-text" href="/UserProfile/@foodPost.User.UserName">@foodPost.User.UserName</a>
+                <AuthorizeView>
+                    <Authorized>
+                        <div>
+                            @if (creator != null)
+                            {
+                                @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName)
+                                     || context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
+                                {
+                                    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Delete()) Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
+                                }
+                            }
+                        </div>
+                    </Authorized>
+                </AuthorizeView>
+            </div>
+        </div>
+    </div>
+    <div>
+        <AuthorizeView>
+            <Authorized>
+                <div>
+                    @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
+                    {
+                        <h1>Reports</h1>
+                        <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                                        Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="160px"/>
+                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="170px"/>
+                            </Columns>
+                        </RadzenDataGrid>
+                    }
+                </div>
+            </Authorized>
+        </AuthorizeView>
+    </div>
+
+    <div>
+        <h2>
+            @errorMsg
+        </h2>
+    </div>
+    <div>
+        <h3>
+            @msg
+        </h3>
+    </div>
+
+    <Modal ShowModal="showModal">
+        <div class="d-flex flex-column justify-content-start align-items-center">
+            <p class=m-auto>@msg</p>
+            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+        </div>
+    </Modal>
+
+@code {
+
+    [Parameter]
+    public int id { get; set; }
+
+
+    public FoodPost foodPost = new FoodPost();
+    public string? username;
+    public string msg;
+    public string errorMsg;
+    public string pickupDetailsDates;
+    public string pickupDetailsTime;
+    public string creationDate;
+    public List<string> openingHours;
+    private bool showModal;
+    private User creator;
+    public IEnumerable<Report>? reports;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            foodPost = await foodPostService.GetSingleAsync(id);
+
+            creator = await userService.GetUserByUsername(foodPost.User.UserName);
+
+            reports = await foodPostService.GetReportsOnPostAsync(id);
+
+            DisplayInformation();
+
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private async void DisplayInformation()
+    {
+        var endDate = foodPost.EndDate;
+        var startDate = foodPost.StartDate;
+        var startTime = foodPost.StartTime;
+        var endTime = foodPost.EndTime;
+        pickupDetailsDates = $"Dates: {startDate.Day}-{endDate.Day}/{endDate.Month}/{endDate.Year} ";
+        pickupDetailsTime = $"Timeframe: {startTime.Hour}:{startTime.Minutes}-{endTime.Hour}:{endTime.Minutes} ";
+
+        var dateTime = foodPost.TimestampPosted;
+        creationDate = $"{dateTime.Day}/{dateTime.Month}/{dateTime.Year}";
+
+    //Here would an if statement
+    //OpenningHours hours = await usersService.GetOpeningHoursAsync(username);
+        openingHours = new List<string>();
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+        openingHours.Add("09:00-17:00");
+    }
+
+    private void SetUsername(string? username)
+    {
+        this.username = username;
+    }
+
+    public async Task Reserve(int foodPostId)
+    {
+        if (username == null)
+        {
+            msg = "Username is not set";
+        }
+        try
+        {
+            var dto = new FoodPostReservationDto(username, foodPostId);
+            await foodPostService.ReserveAsync(dto);
+            showModal = true;
+            msg = foodPost.Title + " is reserved";
+        }
+        catch (Exception e)
+        {
+            errorMsg = "Error: " + e.Message;
+        }
+    }
+
+    public void Proceed()
+    {
+    // Change to move to the user's reservations once profile is ready
+        navMgr.NavigateTo("/ViewFoodPosts");
+    }
+
+    private async void Delete()
+    {
+        await foodPostService.DeleteAsync(foodPost.PostId);
+        navMgr.NavigateTo($"/UserProfile/{creator.UserName}");
+    }
+
+}}

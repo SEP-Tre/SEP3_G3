@@ -1,6 +1,7 @@
 package sep3.g3.rightoversjava.service.interaces;
 
 import sep3.g3.rightoversjava.model.OpeningHours;
+import sep3.g3.rightoversjava.model.Report;
 import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
 import sep3.g3.rightoversjava.model.dto.*;
 import sep3.g3.rightoversjava.model.Reservation;
@@ -24,4 +25,6 @@ public interface UserService {
     User changeAddress(UserUpdateAddressDto dto) throws Exception;
 
     OpeningHours getOpeningHours(String username);
+    void deleteUser(String username);
+    ArrayList<Report> getAllReportsAgainstUser(String username);
 }

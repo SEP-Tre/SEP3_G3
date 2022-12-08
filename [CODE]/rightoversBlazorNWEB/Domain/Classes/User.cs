@@ -17,6 +17,11 @@ public class User
     public User(string userName)
     {
         UserName = userName;
+        Id = 0;
+        FirstName = "holder";
+        Password = "12345";
+        Address = new Address("2", "Torvet", 8700, "Horsens");
+        IsBusiness = false;
     }
 
     public User()

@@ -1,5 +1,7 @@
 package sep3.g3.rightoversjava.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,7 +20,17 @@ public class Rating {
     @JoinColumn(name = "username_rated")
     public User userRated;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "rating-sequence-generator")
+    @GenericGenerator(
+            name = "rating-sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "schema", value = "rightovers"),
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "rating_rating_id_seq"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "2"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
     private int ratingId;
 
     public Rating(int value, String comment, String ratingType, User userRating, User userRated) {

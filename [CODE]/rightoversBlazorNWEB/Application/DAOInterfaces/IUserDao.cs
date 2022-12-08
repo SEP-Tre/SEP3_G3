@@ -17,4 +17,6 @@ public interface IUserDao
     Task<User> ChangeFirstName(UserUpdateFirstNameDto dto);
     Task<User> ChangePassword(UserUpdatePasswordDto dto);
     Task<User> ChangeAddress(UserUpdateAddressDto dto);
+    public Task DeleteUser(string username);
+    public Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username);
 }

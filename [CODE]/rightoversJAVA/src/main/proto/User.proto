@@ -79,6 +79,10 @@ message ReservationMessage {
   UserMessage user = 3;
 }
 
+message Filler {
+  bool filler = 1;
+}
+
 message ChangeFirstNameRequest {
   string username = 1;
   string new_first_name = 2;
@@ -104,6 +108,8 @@ service UserService {
   rpc assignOpeningHours(OpeningHoursRequest) returns (UserMessage);
   rpc login(UserLoginRequest) returns (UserMessage);
   rpc getReservationsByUsername(UserRequest) returns (stream ReservationMessage);
+  rpc deleteUser(UserRequest) returns (Filler);
+  rpc getReportsAgainstUser(UserRequest) returns (stream ReportMessage);
   rpc getOpeningHours(UserName) returns (OpeningHoursResponse);
   rpc changeFirstName(ChangeFirstNameRequest) returns (UserMessage);
   rpc changePassword(ChangePasswordRequest) returns (UserMessage);
