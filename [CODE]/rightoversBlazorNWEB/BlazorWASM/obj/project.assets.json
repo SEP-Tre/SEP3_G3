@@ -2353,19 +2353,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\barta\\.nuget\\packages\\": {}
+    "C:\\Users\\laura\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\BlazorWASM.csproj",
+      "projectUniqueName": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\BlazorWASM.csproj",
       "projectName": "BlazorWASM",
-      "projectPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\BlazorWASM.csproj",
-      "packagesPath": "C:\\Users\\barta\\.nuget\\packages\\",
-      "outputPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\obj\\",
+      "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\BlazorWASM.csproj",
+      "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\barta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -2377,11 +2377,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj": {
-              "projectPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj"
+            "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj"
             },
-            "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj": {
-              "projectPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj"
+            "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj": {
+              "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj"
             }
           }
         }
@@ -2440,7 +2440,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[6.0.11, 6.0.11]"
+            "version": "[6.0.9, 6.0.9]"
           }
         ],
         "frameworkReferences": {
@@ -2448,7 +2448,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

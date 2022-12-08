@@ -41,23 +41,40 @@ else
                                         <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
                                             <strong>When?</strong>
                                         </RadzenText>
-                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0"><strong>DATES: </strong>@reservation.FoodPost.StartDate.DayAndMonth() - @reservation.FoodPost.EndDate.DayAndMonth()</RadzenText>
-                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0"><strong>TIME: </strong>@reservation.FoodPost.StartTime.ToString() - @reservation.FoodPost.EndTime.ToString()</RadzenText>
+                                        @if (reservation.FoodPost.User.IsBusiness)
+                                        {
+                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0">Click on the Food Post to see the Business's opening hours for pickup.</RadzenText>
+                                        }
+                                        else
+                                        {
+                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0"><strong>DATES: </strong>@reservation.FoodPost.StartDate.DayAndMonth() - @reservation.FoodPost.EndDate.DayAndMonth()</RadzenText>
+                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0"><strong>TIME: </strong>@reservation.FoodPost.StartTime.ToString() - @reservation.FoodPost.EndTime.ToString()</RadzenText>
+                                        }
                                     </div>
                                     <div class="mt-2">
                                         <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
                                             <strong>Where?</strong>
                                         </RadzenText>
-                                        <div>@reservation.User.Address.ToString()</div>
+                                        <div>
+                                            @* PUT FOOD POSTER'S USERNAME HERE*@
+                                        </div>
                                     </div>
                                     <div class="mt-2">
                                         <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
                                             <strong>Cook's Contact</strong>
+                                            @* PUT FOOD POSTER'S PHONE NUMBER HERE *@
                                         </RadzenText>
-                                        <div>+NU MB ER HE RE</div>
+                                        <div>
+                                            @(() =>
+                                            {
+                                                User user = GetUserByUsername(reservation.FoodPost.User.UserName).Result;
+                                                return user.PhoneNumber;
+                                            })
+                                        </div>
                                     </div>
                                     <div class="mt-2">
                                         <RadzenButton Click="@(() => ShowConfirmationDialog(@reservation))" ButtonStyle="ButtonStyle.Dark">Confirm Pickup</RadzenButton>
+                                        <RadzenButton Click="@(() => CwReservation(@reservation))" ButtonStyle="ButtonStyle.Dark">Cw Reservation</RadzenButton>
                                     </div>
                                 </div>
                             </div>
@@ -176,8 +193,17 @@ else
                 </div>
             </div>);
     }
-    
-    
+
+    private void CwReservation(Reservation reservation)
+    {
+        Console.WriteLine(reservation);
+    }
+
+    private async Task<User> GetUserByUsername(string username)
+    {
+        return await userService.GetUserByUsername(username);
+    }
+
 
     private void GoToFoodPost(int fpId)
     {

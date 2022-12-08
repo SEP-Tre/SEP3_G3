@@ -36,4 +36,9 @@ public class User
     public bool IsBusiness { get; set; }
     
     public string PhoneNumber { get; set; }
+
+    public override string ToString()
+    {
+        return $"Id: {Id}, FirstName: {FirstName}, UserName: {UserName}, Password: {Password}, Address: {Address}, IsBusiness: {IsBusiness}, PhoneNumber: {PhoneNumber}";
+    }
 }

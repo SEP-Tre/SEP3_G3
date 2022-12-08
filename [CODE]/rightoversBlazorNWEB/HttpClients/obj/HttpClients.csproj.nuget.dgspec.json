@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj": {}
+    "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj": {}
   },
   "projects": {
-    "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj": {
+    "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\barta\\.nuget\\packages\\",
-        "outputPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\barta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -67,21 +67,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\barta\\.nuget\\packages\\",
-        "outputPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\obj\\",
+        "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\HttpClients.csproj",
+        "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\barta\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -93,8 +93,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj": {
-                "projectPath": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj"
+              "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\laura\\OneDrive\\Documents\\GitHub\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\Domain\\Domain.csproj"
               }
             }
           }
@@ -134,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
