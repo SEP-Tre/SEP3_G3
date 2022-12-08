@@ -34,44 +34,44 @@ namespace GrpcCL {
             "bmFtZRgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSKRAQoOQWRkcmVzc01lc3Nh",
             "Z2USEgoKYWRkcmVzc19pZBgBIAEoBRIOCgZzdHJlZXQYAiABKAkSFQoNc3Ry",
             "ZWV0X251bWJlchgDIAEoCRIRCglwb3N0X2NvZGUYBCABKAUSDAoEY2l0eRgF",
-            "IAEoCRIRCglsb25naXR1ZGUYBiABKAESEAoIbGF0aXR1ZGUYByABKAEigwEK",
+            "IAEoCRIRCglsb25naXR1ZGUYBiABKAESEAoIbGF0aXR1ZGUYByABKAEilwEK",
             "C1VzZXJNZXNzYWdlEhAKCHVzZXJuYW1lGAEgASgJEhEKCWZpcnN0bmFtZRgC",
             "IAEoCRIQCghwYXNzd29yZBgDIAEoCRIoCgdhZGRyZXNzGAQgASgLMhcuc2Vw",
-            "My5nMy5BZGRyZXNzTWVzc2FnZRITCgtwaG9uZU51bWJlchgFIAEoCSInCgZP",
-            "Q1RpbWUSDAoEaG91chgBIAEoBRIPCgdtaW51dGVzGAIgASgFIvgFChRPcGVu",
-            "aW5nSG91cnNSZXNwb25zZRImCg1tb25kYXlPcGVuaW5nGAEgASgLMg8uc2Vw",
-            "My5nMy5PQ1RpbWUSJgoNbW9uZGF5Q2xvc2luZxgCIAEoCzIPLnNlcDMuZzMu",
-            "T0NUaW1lEicKDnR1ZXNkYXlPcGVuaW5nGAMgASgLMg8uc2VwMy5nMy5PQ1Rp",
-            "bWUSJwoOdHVlc2RheUNsb3NpbmcYBCABKAsyDy5zZXAzLmczLk9DVGltZRIp",
-            "ChB3ZWRuZXNkYXlPcGVuaW5nGAUgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKQoQ",
-            "d2VkbmVzZGF5Q2xvc2luZxgGIAEoCzIPLnNlcDMuZzMuT0NUaW1lEigKD3Ro",
-            "dXJzZGF5T3BlbmluZxgHIAEoCzIPLnNlcDMuZzMuT0NUaW1lEigKD3RodXJz",
-            "ZGF5Q2xvc2luZxgIIAEoCzIPLnNlcDMuZzMuT0NUaW1lEiYKDWZyaWRheU9w",
-            "ZW5pbmcYCSABKAsyDy5zZXAzLmczLk9DVGltZRImCg1mcmlkYXlDbG9zaW5n",
-            "GAogASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPc2F0dXJkYXlPcGVuaW5nGAsg",
-            "ASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPc2F0dXJkYXlDbG9zaW5nGAwgASgL",
-            "Mg8uc2VwMy5nMy5PQ1RpbWUSJgoNc3VuZGF5T3BlbmluZxgNIAEoCzIPLnNl",
-            "cDMuZzMuT0NUaW1lEiYKDXN1bmRheUNsb3NpbmcYDiABKAsyDy5zZXAzLmcz",
-            "Lk9DVGltZRIUCgxtb25kYXlJc09wZW4YDyABKAgSFQoNdHVlc2RheUlzT3Bl",
-            "bhgQIAEoCBIXCg93ZWRuZXNkYXlJc09wZW4YESABKAgSFgoOdGh1cnNkYXlJ",
-            "c09wZW4YEiABKAgSFAoMZnJpZGF5SXNPcGVuGBMgASgIEhYKDnNhdHVyZGF5",
-            "SXNPcGVuGBQgASgIEhQKDHN1bmRheUlzT3BlbhgVIAEoCCJcChNPcGVuaW5n",
-            "SG91cnNSZXF1ZXN0EhAKCHVzZXJuYW1lGAEgASgJEjMKDG9wZW5pbmdIb3Vy",
-            "cxgCIAEoCzIdLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVzcG9uc2UiHAoIVXNl",
-            "ck5hbWUSEAoIdXNlcm5hbWUYASABKAkifgoSUmVzZXJ2YXRpb25NZXNzYWdl",
-            "EhYKDnJlc2VydmF0aW9uX2lkGAEgASgFEiwKCWZvb2RfcG9zdBgCIAEoCzIZ",
-            "LnNlcDMuZzMuRm9vZFBvc3RSZXNwb25zZRIiCgR1c2VyGAMgASgLMhQuc2Vw",
-            "My5nMy5Vc2VyTWVzc2FnZTKlAwoLVXNlclNlcnZpY2USOwoNZ2V0QnlVc2Vy",
-            "bmFtZRIULnNlcDMuZzMuVXNlclJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNz",
-            "YWdlEj4KCHJlZ2lzdGVyEhwuc2VwMy5nMy5Vc2VyQ3JlYXRpb25SZXF1ZXN0",
-            "GhQuc2VwMy5nMy5Vc2VyTWVzc2FnZRJIChJhc3NpZ25PcGVuaW5nSG91cnMS",
-            "HC5zZXAzLmczLk9wZW5pbmdIb3Vyc1JlcXVlc3QaFC5zZXAzLmczLlVzZXJN",
-            "ZXNzYWdlEjgKBWxvZ2luEhkuc2VwMy5nMy5Vc2VyTG9naW5SZXF1ZXN0GhQu",
-            "c2VwMy5nMy5Vc2VyTWVzc2FnZRJQChlnZXRSZXNlcnZhdGlvbnNCeVVzZXJu",
-            "YW1lEhQuc2VwMy5nMy5Vc2VyUmVxdWVzdBobLnNlcDMuZzMuUmVzZXJ2YXRp",
-            "b25NZXNzYWdlMAESQwoPZ2V0T3BlbmluZ0hvdXJzEhEuc2VwMy5nMy5Vc2Vy",
-            "TmFtZRodLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVzcG9uc2VCCaoCBkdycGND",
-            "TGIGcHJvdG8z"));
+            "My5nMy5BZGRyZXNzTWVzc2FnZRISCgppc0J1c2luZXNzGAUgASgIEhMKC3Bo",
+            "b25lTnVtYmVyGAYgASgJIicKBk9DVGltZRIMCgRob3VyGAEgASgFEg8KB21p",
+            "bnV0ZXMYAiABKAUi+AUKFE9wZW5pbmdIb3Vyc1Jlc3BvbnNlEiYKDW1vbmRh",
+            "eU9wZW5pbmcYASABKAsyDy5zZXAzLmczLk9DVGltZRImCg1tb25kYXlDbG9z",
+            "aW5nGAIgASgLMg8uc2VwMy5nMy5PQ1RpbWUSJwoOdHVlc2RheU9wZW5pbmcY",
+            "AyABKAsyDy5zZXAzLmczLk9DVGltZRInCg50dWVzZGF5Q2xvc2luZxgEIAEo",
+            "CzIPLnNlcDMuZzMuT0NUaW1lEikKEHdlZG5lc2RheU9wZW5pbmcYBSABKAsy",
+            "Dy5zZXAzLmczLk9DVGltZRIpChB3ZWRuZXNkYXlDbG9zaW5nGAYgASgLMg8u",
+            "c2VwMy5nMy5PQ1RpbWUSKAoPdGh1cnNkYXlPcGVuaW5nGAcgASgLMg8uc2Vw",
+            "My5nMy5PQ1RpbWUSKAoPdGh1cnNkYXlDbG9zaW5nGAggASgLMg8uc2VwMy5n",
+            "My5PQ1RpbWUSJgoNZnJpZGF5T3BlbmluZxgJIAEoCzIPLnNlcDMuZzMuT0NU",
+            "aW1lEiYKDWZyaWRheUNsb3NpbmcYCiABKAsyDy5zZXAzLmczLk9DVGltZRIo",
+            "Cg9zYXR1cmRheU9wZW5pbmcYCyABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9z",
+            "YXR1cmRheUNsb3NpbmcYDCABKAsyDy5zZXAzLmczLk9DVGltZRImCg1zdW5k",
+            "YXlPcGVuaW5nGA0gASgLMg8uc2VwMy5nMy5PQ1RpbWUSJgoNc3VuZGF5Q2xv",
+            "c2luZxgOIAEoCzIPLnNlcDMuZzMuT0NUaW1lEhQKDG1vbmRheUlzT3BlbhgP",
+            "IAEoCBIVCg10dWVzZGF5SXNPcGVuGBAgASgIEhcKD3dlZG5lc2RheUlzT3Bl",
+            "bhgRIAEoCBIWCg50aHVyc2RheUlzT3BlbhgSIAEoCBIUCgxmcmlkYXlJc09w",
+            "ZW4YEyABKAgSFgoOc2F0dXJkYXlJc09wZW4YFCABKAgSFAoMc3VuZGF5SXNP",
+            "cGVuGBUgASgIIlwKE09wZW5pbmdIb3Vyc1JlcXVlc3QSEAoIdXNlcm5hbWUY",
+            "ASABKAkSMwoMb3BlbmluZ0hvdXJzGAIgASgLMh0uc2VwMy5nMy5PcGVuaW5n",
+            "SG91cnNSZXNwb25zZSIcCghVc2VyTmFtZRIQCgh1c2VybmFtZRgBIAEoCSJ+",
+            "ChJSZXNlcnZhdGlvbk1lc3NhZ2USFgoOcmVzZXJ2YXRpb25faWQYASABKAUS",
+            "LAoJZm9vZF9wb3N0GAIgASgLMhkuc2VwMy5nMy5Gb29kUG9zdFJlc3BvbnNl",
+            "EiIKBHVzZXIYAyABKAsyFC5zZXAzLmczLlVzZXJNZXNzYWdlMqUDCgtVc2Vy",
+            "U2VydmljZRI7Cg1nZXRCeVVzZXJuYW1lEhQuc2VwMy5nMy5Vc2VyUmVxdWVz",
+            "dBoULnNlcDMuZzMuVXNlck1lc3NhZ2USPgoIcmVnaXN0ZXISHC5zZXAzLmcz",
+            "LlVzZXJDcmVhdGlvblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkgK",
+            "EmFzc2lnbk9wZW5pbmdIb3VycxIcLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVx",
+            "dWVzdBoULnNlcDMuZzMuVXNlck1lc3NhZ2USOAoFbG9naW4SGS5zZXAzLmcz",
+            "LlVzZXJMb2dpblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlElAKGWdl",
+            "dFJlc2VydmF0aW9uc0J5VXNlcm5hbWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0",
+            "Ghsuc2VwMy5nMy5SZXNlcnZhdGlvbk1lc3NhZ2UwARJDCg9nZXRPcGVuaW5n",
+            "SG91cnMSES5zZXAzLmczLlVzZXJOYW1lGh0uc2VwMy5nMy5PcGVuaW5nSG91",
+            "cnNSZXNwb25zZUIJqgIGR3JwY0NMYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcCL.FoodPostGrpcReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -79,7 +79,7 @@ namespace GrpcCL {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserCreationRequest), global::GrpcCL.UserCreationRequest.Parser, new[]{ "Username", "Firstname", "Password", "Address", "IsBusiness", "PhoneNumber" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserLoginRequest), global::GrpcCL.UserLoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.AddressMessage), global::GrpcCL.AddressMessage.Parser, new[]{ "AddressId", "Street", "StreetNumber", "PostCode", "City", "Longitude", "Latitude" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserMessage), global::GrpcCL.UserMessage.Parser, new[]{ "Username", "Firstname", "Password", "Address", "PhoneNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserMessage), global::GrpcCL.UserMessage.Parser, new[]{ "Username", "Firstname", "Password", "Address", "IsBusiness", "PhoneNumber" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OCTime), global::GrpcCL.OCTime.Parser, new[]{ "Hour", "Minutes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursResponse), global::GrpcCL.OpeningHoursResponse.Parser, new[]{ "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing", "MondayIsOpen", "TuesdayIsOpen", "WednesdayIsOpen", "ThursdayIsOpen", "FridayIsOpen", "SaturdayIsOpen", "SundayIsOpen" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursRequest), global::GrpcCL.OpeningHoursRequest.Parser, new[]{ "Username", "OpeningHours" }, null, null, null, null),
@@ -1338,6 +1338,7 @@ namespace GrpcCL {
       firstname_ = other.firstname_;
       password_ = other.password_;
       address_ = other.address_ != null ? other.address_.Clone() : null;
+      isBusiness_ = other.isBusiness_;
       phoneNumber_ = other.phoneNumber_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1396,8 +1397,20 @@ namespace GrpcCL {
       }
     }
 
+    /// <summary>Field number for the "isBusiness" field.</summary>
+    public const int IsBusinessFieldNumber = 5;
+    private bool isBusiness_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsBusiness {
+      get { return isBusiness_; }
+      set {
+        isBusiness_ = value;
+      }
+    }
+
     /// <summary>Field number for the "phoneNumber" field.</summary>
-    public const int PhoneNumberFieldNumber = 5;
+    public const int PhoneNumberFieldNumber = 6;
     private string phoneNumber_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1427,6 +1440,7 @@ namespace GrpcCL {
       if (Firstname != other.Firstname) return false;
       if (Password != other.Password) return false;
       if (!object.Equals(Address, other.Address)) return false;
+      if (IsBusiness != other.IsBusiness) return false;
       if (PhoneNumber != other.PhoneNumber) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1439,6 +1453,7 @@ namespace GrpcCL {
       if (Firstname.Length != 0) hash ^= Firstname.GetHashCode();
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (address_ != null) hash ^= Address.GetHashCode();
+      if (IsBusiness != false) hash ^= IsBusiness.GetHashCode();
       if (PhoneNumber.Length != 0) hash ^= PhoneNumber.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1474,8 +1489,12 @@ namespace GrpcCL {
         output.WriteRawTag(34);
         output.WriteMessage(Address);
       }
+      if (IsBusiness != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsBusiness);
+      }
       if (PhoneNumber.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(PhoneNumber);
       }
       if (_unknownFields != null) {
@@ -1504,8 +1523,12 @@ namespace GrpcCL {
         output.WriteRawTag(34);
         output.WriteMessage(Address);
       }
+      if (IsBusiness != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsBusiness);
+      }
       if (PhoneNumber.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(PhoneNumber);
       }
       if (_unknownFields != null) {
@@ -1529,6 +1552,9 @@ namespace GrpcCL {
       }
       if (address_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Address);
+      }
+      if (IsBusiness != false) {
+        size += 1 + 1;
       }
       if (PhoneNumber.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PhoneNumber);
@@ -1559,6 +1585,9 @@ namespace GrpcCL {
           Address = new global::GrpcCL.AddressMessage();
         }
         Address.MergeFrom(other.Address);
+      }
+      if (other.IsBusiness != false) {
+        IsBusiness = other.IsBusiness;
       }
       if (other.PhoneNumber.Length != 0) {
         PhoneNumber = other.PhoneNumber;
@@ -1597,7 +1626,11 @@ namespace GrpcCL {
             input.ReadMessage(Address);
             break;
           }
-          case 42: {
+          case 40: {
+            IsBusiness = input.ReadBool();
+            break;
+          }
+          case 50: {
             PhoneNumber = input.ReadString();
             break;
           }
@@ -1635,7 +1668,11 @@ namespace GrpcCL {
             input.ReadMessage(Address);
             break;
           }
-          case 42: {
+          case 40: {
+            IsBusiness = input.ReadBool();
+            break;
+          }
+          case 50: {
             PhoneNumber = input.ReadString();
             break;
           }

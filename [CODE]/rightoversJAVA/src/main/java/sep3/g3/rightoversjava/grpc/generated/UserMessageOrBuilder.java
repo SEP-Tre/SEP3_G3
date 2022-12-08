@@ -44,12 +44,6 @@ public interface UserMessageOrBuilder extends
       getPasswordBytes();
 
   /**
-   * <code>bool isBusiness = 5;</code>
-   * @return The isBusiness.
-   */
-  boolean getIsBusiness();
-
-  /**
    * <code>.sep3.g3.AddressMessage address = 4;</code>
    * @return Whether the address field is set.
    */
@@ -65,12 +59,18 @@ public interface UserMessageOrBuilder extends
   sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder getAddressOrBuilder();
 
   /**
-   * <code>string phoneNumber = 5;</code>
+   * <code>bool isBusiness = 5;</code>
+   * @return The isBusiness.
+   */
+  boolean getIsBusiness();
+
+  /**
+   * <code>string phoneNumber = 6;</code>
    * @return The phoneNumber.
    */
   java.lang.String getPhoneNumber();
   /**
-   * <code>string phoneNumber = 5;</code>
+   * <code>string phoneNumber = 6;</code>
    * @return The bytes for phoneNumber.
    */
   com.google.protobuf.ByteString

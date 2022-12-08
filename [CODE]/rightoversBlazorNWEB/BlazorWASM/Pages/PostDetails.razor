@@ -32,42 +32,41 @@ else
     </AuthorizeView>
     <div class="d-flex justify-content-around my-1">
 
-        <div class="card-back mx-3">
-            <div class="card d-flex align-items-start flex-column">
+    <div class="card-back mx-3">
+        <div class="card d-flex align-items-start flex-column">
 
 
-                <h5 class="sm-text my-2">TITLE</h5>
+            <h5 class="sm-text my-2">TITLE</h5>
 
-                <h5 class="bg-text">@foodPost.Title</h5>
+            <h5 class="bg-text">@foodPost.Title</h5>
 
-                <h5 class="sm-text my-2">CATEGORY</h5>
+            <h5 class="sm-text my-2">CATEGORY</h5>
 
-                <h5 class="bg-text">@foodPost.Category</h5>
+            <h5 class="bg-text">@foodPost.Category</h5>
 
-                <h5 class="sm-text my-2">DAYS LEFT TO EAT</h5>
+            <h5 class="sm-text my-2">DAYS LEFT TO EAT</h5>
 
-                <h5 class="bg-text">@foodPost.DaysUntilExpired</h5>
+            <h5 class="bg-text">@foodPost.DaysUntilExpired</h5>
 
-                <h5 class="sm-text my-2">DESCRIPTION</h5>
+            <h5 class="sm-text my-2">DESCRIPTION</h5>
 
-                <h5 class="bg-text">@foodPost.Description</h5>
-                @if (creator != null)
+            <h5 class="bg-text">@foodPost.Description</h5>
+            @if (creator != null)
+            {
+                @if (!creator.IsBusiness)
                 {
-                    @if (!creator.IsBusiness)
+                    <h5 class="sm-text my-2">PICK UP DETAILS</h5>
+
+                    <div class="d-flex align-items-start flex-column">
+                        <h5 class="bg-text">@pickupDetailsDates</h5>
+                        <h5 class="bg-text">@pickupDetailsTime</h5>
+                    </div>
+                }
+                else
+                {
+                    <h5 class="sm-text my-2">OPENING HOURS</h5>
+                    @if (OpeningHours != null)
                     {
-                        <h5 class="sm-text my-2">PICK UP DETAILS</h5>
-
-                        <div class="d-flex align-items-start flex-column">
-                            <h5 class="bg-text">@pickupDetailsDates</h5>
-                            <h5 class="bg-text">@pickupDetailsTime</h5>
-                        </div>
-
-                    }
-                    else
-                    {
-
-                        <h5 class="sm-text my-2">OPENING HOURS</h5>
-
                         <table >
                             <tr>
                                 <td>
@@ -142,8 +141,6 @@ else
                             <tr>
 
 
-
-
                                 <td>
                                     <h5 class="sm-text">FRI</h5>
                                 </td>
@@ -197,56 +194,61 @@ else
                             </tr>
                         </table>
                     }
+                    else
+                    {
+                        <h5 class="bg-text">Opuning hours loading...</h5>
+                    }
                 }
-                <AuthorizeView>
-                    <Authorized>
-                        <div class="d-flex justify-content-around my-2">
-                            
-                            <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
-                            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
-                        </div>
-                    </Authorized>
-                </AuthorizeView>
-            </div>
+            }
+            <AuthorizeView>
+                <Authorized>
+                    <div class="d-flex justify-content-around my-2">
+
+                        <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
+                        <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                    </div>
+                </Authorized>
+            </AuthorizeView>
         </div>
-        <div class="card-back mx-3">
-            <div class="card d-flex align-items-start flex-column">
-                <RadzenImage Path="@foodPost.PictureUrl" Style="max-width: 250px; background-size: contain; height:auto">
-                </RadzenImage>
-                <h5 class="sm-text my-2">CREATION DATE</h5>
+    </div>
+    <div class="card-back mx-3">
+        <div class="card d-flex align-items-start flex-column">
+            <RadzenImage Path="@foodPost.PictureUrl" Style="max-width: 250px; background-size: contain; height:auto">
+            </RadzenImage>
+            <h5 class="sm-text my-2">CREATION DATE</h5>
 
-                <h5 class="bg-text">@creationDate</h5>
+            <h5 class="bg-text">@creationDate</h5>
 
-                <h5 class="sm-text my-2">CREATOR</h5>
+            <h5 class="sm-text my-2">CREATOR</h5>
 
-                <a class="bg-text" href="/UserProfile/@foodPost.User.UserName">@foodPost.User.UserName</a>
-                <AuthorizeView>
-                    <Authorized>
-                        <div class="d-flex justify-content-around my-2">
-                            @if (creator != null)
+            <a class="bg-text" href="/UserProfile/@foodPost.User.UserName">@foodPost.User.UserName</a>
+            <AuthorizeView>
+                <Authorized>
+                    <div class="d-flex justify-content-around my-2">
+                        @if (creator != null)
+                        {
+                            @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName))
                             {
-                                @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName))
-                                {
-                                    <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Delete())  Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
-                                }
-                                else
-                                {
-                                    <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter" 
-                                                  Click="async () => await ShowRateDialog()"
-                                                  MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value))
-                                                  Text="Report" ButtonStyle="ButtonStyle.Dark"/>
-                                }
+                                <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Delete()) Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
                             }
-                        </div>
-                    </Authorized>
-                    <NotAuthorized>
-                        <div class="d-flex justify-content-center my-2">
-                            <p class="px-3">If you wish to report, please log in.</p>
-                        </div>
-                    </NotAuthorized>
-                </AuthorizeView>
-            </div>
+                            else
+                            {
+                                <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter"
+                                              Click="async () => await ShowRateDialog()"
+                                              MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value))
+                                              Text="Report" ButtonStyle="ButtonStyle.Dark"/>
+                            }
+                        }
+                    </div>
+                </Authorized>
+                <NotAuthorized>
+                    <div class="d-flex justify-content-center my-2">
+                        <p class="px-3">If you wish to report, please log in.</p>
+                    </div>
+                </NotAuthorized>
+            </AuthorizeView>
         </div>
+    </div>
     </div>
 
     <div>
@@ -281,7 +283,7 @@ else
     public string creationDate;
     public OpeningHours? OpeningHours;
     private bool showModal;
-    private User creator;
+    private User? creator;
     private string reportComment;
 
     protected override async Task OnInitializedAsync()
@@ -293,9 +295,6 @@ else
             creator = await userService.GetUserByUsername(foodPost.User.UserName);
 
             DisplayInformation();
-
-            
-
         }
         catch (Exception e)
         {
@@ -312,14 +311,16 @@ else
         var endTime = foodPost.EndTime;
         pickupDetailsDates = $"Dates: {startDate.Day}-{endDate.Day}/{endDate.Month}/{endDate.Year} ";
         pickupDetailsTime = $"Timeframe: {startTime.Hour}:{startTime.Minutes}-{endTime.Hour}:{endTime.Minutes} ";
+        if (creator != null)
+        {
+            if (creator.IsBusiness)
+            {
+                OpeningHours = await userService.GetOpeningHoursAsync(creator.UserName);
+                Console.WriteLine("MONADY OPUN??" + OpeningHours.IsMondayOpen);
 
-        //if (foodPost.User.IsBusiness)
-        //{
-            OpeningHours = await userService.GetOpeningHoursAsync(foodPost.User.UserName);
-        //}
-        Console.WriteLine("MONADY OPUN??"+OpeningHours.IsMondayOpen);
-            
-        Console.WriteLine("FRIDAY OPUN???"+OpeningHours.IsFridayOpen);
+                Console.WriteLine("FRIDAY OPUN???" + OpeningHours.IsFridayOpen);
+            }
+        }
 
         var dateTime = foodPost.TimestampPosted;
         creationDate = $"{dateTime.Day}/{dateTime.Month}/{dateTime.Year}";
@@ -362,7 +363,7 @@ else
         await foodPostService.DeleteAsync(foodPost.PostId);
         navMgr.NavigateTo($"/UserProfile/{creator.UserName}");
     }
-    
+
     private async Task ShowRateDialog()
     {
         var result = await DialogService.OpenAsync($"Report {creator.UserName}", ds =>
@@ -375,7 +376,7 @@ else
                 </div>
                 <div class="d-flex flex-row justify-content-evenly">
                     <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
-                    <RadzenButton Text="Report" Click="async () => { await ReportAsync(); ds.Close(true);  }" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Report" Click="async () => { await ReportAsync(); ds.Close(true); }" Class="me-1" Style="width: 80px;"/>
                 </div>
             </div>);
     }
@@ -397,5 +398,5 @@ else
             throw;
         }
     }
-    
+
 }}

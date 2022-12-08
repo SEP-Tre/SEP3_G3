@@ -83,7 +83,12 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 42: {
+          case 40: {
+
+            isBusiness_ = input.readBool();
+            break;
+          }
+          case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
             phoneNumber_ = s;
@@ -263,10 +268,21 @@ private static final long serialVersionUID = 0L;
     return getAddress();
   }
 
-  public static final int PHONENUMBER_FIELD_NUMBER = 5;
+  public static final int ISBUSINESS_FIELD_NUMBER = 5;
+  private boolean isBusiness_;
+  /**
+   * <code>bool isBusiness = 5;</code>
+   * @return The isBusiness.
+   */
+  @java.lang.Override
+  public boolean getIsBusiness() {
+    return isBusiness_;
+  }
+
+  public static final int PHONENUMBER_FIELD_NUMBER = 6;
   private volatile java.lang.Object phoneNumber_;
   /**
-   * <code>string phoneNumber = 5;</code>
+   * <code>string phoneNumber = 6;</code>
    * @return The phoneNumber.
    */
   @java.lang.Override
@@ -283,7 +299,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string phoneNumber = 5;</code>
+   * <code>string phoneNumber = 6;</code>
    * @return The bytes for phoneNumber.
    */
   @java.lang.Override
@@ -327,8 +343,11 @@ private static final long serialVersionUID = 0L;
     if (address_ != null) {
       output.writeMessage(4, getAddress());
     }
+    if (isBusiness_ != false) {
+      output.writeBool(5, isBusiness_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, phoneNumber_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, phoneNumber_);
     }
     unknownFields.writeTo(output);
   }
@@ -352,8 +371,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getAddress());
     }
+    if (isBusiness_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, isBusiness_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, phoneNumber_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, phoneNumber_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -381,6 +404,8 @@ private static final long serialVersionUID = 0L;
       if (!getAddress()
           .equals(other.getAddress())) return false;
     }
+    if (getIsBusiness()
+        != other.getIsBusiness()) return false;
     if (!getPhoneNumber()
         .equals(other.getPhoneNumber())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -404,6 +429,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getAddress().hashCode();
     }
+    hash = (37 * hash) + ISBUSINESS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsBusiness());
     hash = (37 * hash) + PHONENUMBER_FIELD_NUMBER;
     hash = (53 * hash) + getPhoneNumber().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -551,6 +579,8 @@ private static final long serialVersionUID = 0L;
         address_ = null;
         addressBuilder_ = null;
       }
+      isBusiness_ = false;
+
       phoneNumber_ = "";
 
       return this;
@@ -587,6 +617,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.address_ = addressBuilder_.build();
       }
+      result.isBusiness_ = isBusiness_;
       result.phoneNumber_ = phoneNumber_;
       onBuilt();
       return result;
@@ -650,6 +681,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasAddress()) {
         mergeAddress(other.getAddress());
+      }
+      if (other.getIsBusiness() != false) {
+        setIsBusiness(other.getIsBusiness());
       }
       if (!other.getPhoneNumber().isEmpty()) {
         phoneNumber_ = other.phoneNumber_;
@@ -1031,9 +1065,40 @@ private static final long serialVersionUID = 0L;
       return addressBuilder_;
     }
 
+    private boolean isBusiness_ ;
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @return The isBusiness.
+     */
+    @java.lang.Override
+    public boolean getIsBusiness() {
+      return isBusiness_;
+    }
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @param value The isBusiness to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsBusiness(boolean value) {
+      
+      isBusiness_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool isBusiness = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsBusiness() {
+      
+      isBusiness_ = false;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object phoneNumber_ = "";
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @return The phoneNumber.
      */
     public java.lang.String getPhoneNumber() {
@@ -1049,7 +1114,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @return The bytes for phoneNumber.
      */
     public com.google.protobuf.ByteString
@@ -1066,7 +1131,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @param value The phoneNumber to set.
      * @return This builder for chaining.
      */
@@ -1081,7 +1146,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearPhoneNumber() {
@@ -1091,7 +1156,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phoneNumber = 5;</code>
+     * <code>string phoneNumber = 6;</code>
      * @param value The bytes for phoneNumber to set.
      * @return This builder for chaining.
      */
