@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using System.Security.Claims;
+using System.Text;
 using System.Text.Json;
 using Domain.Classes;
 using Domain.DTOs;
@@ -55,6 +56,64 @@ public class UserHttpClient : IUserService
             PropertyNameCaseInsensitive = true
         })!;
 
+        return user;
+    }
+
+    public async Task<User> ChangeFirstName(UserUpdateFirstNameDto dto)
+    {
+        String dtoJson = JsonSerializer.Serialize(dto);
+        var body = new StringContent(dtoJson, Encoding.UTF8, "application/json");
+        var response = await client.PatchAsync("/Users/FirstName", body);
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var user = JsonSerializer.Deserialize<User>(content, new JsonSerializerOptions{
+            PropertyNameCaseInsensitive = true
+        })!;
+        
+
+        return user;
+    }
+
+    public async Task<User> ChangePassword(UserUpdatePasswordDto dto)
+    {
+        String dtoJson = JsonSerializer.Serialize(dto);
+        var body = new StringContent(dtoJson, Encoding.UTF8, "application/json");
+        var response = await client.PatchAsync("/Users/Password", body);
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var user = JsonSerializer.Deserialize<User>(content, new JsonSerializerOptions{
+            PropertyNameCaseInsensitive = true
+        })!;
+        
+
+        return user;
+    }
+
+    public async Task<User> ChangeAddress(UserUpdateAddressDto dto)
+    {
+        String dtoJson = JsonSerializer.Serialize(dto);
+        var body = new StringContent(dtoJson, Encoding.UTF8, "application/json");
+        var response = await client.PatchAsync("/Users/Address", body);
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var user = JsonSerializer.Deserialize<User>(content, new JsonSerializerOptions{
+            PropertyNameCaseInsensitive = true
+        })!;
         return user;
     }
 

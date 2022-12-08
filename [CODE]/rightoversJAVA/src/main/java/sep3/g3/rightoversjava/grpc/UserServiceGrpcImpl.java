@@ -7,11 +7,9 @@ import sep3.g3.rightoversjava.grpc.converter.UserConverterImpl;
 import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
 import sep3.g3.rightoversjava.grpc.converter.interaces.UserConverter;
 import sep3.g3.rightoversjava.grpc.generated.*;
-import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
+import sep3.g3.rightoversjava.model.dto.*;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
-import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
 import sep3.g3.rightoversjava.service.interaces.UserService;
 
 import java.util.ArrayList;
@@ -97,6 +95,71 @@ public class UserServiceGrpcImpl
             }
             responseObserver.onCompleted();
         } catch (Exception e) {
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
+        }
+    }
+
+    @Override
+    public void changeFirstName(ChangeFirstNameRequest request, StreamObserver<UserMessage> responseObserver) {
+        UserUpdateFirstNameDto dto = new UserUpdateFirstNameDto(
+                request.getUsername(),
+                request.getNewFirstName()
+        );
+        try {
+            User user = userService.changeFirstName(dto);
+            UserMessage userMessage = userConverter.getUserMessageFromUser(user);
+            responseObserver.onNext(userMessage);
+            responseObserver.onCompleted();
+        }
+        catch (Exception e) {
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
+        }
+
+    }
+
+    @Override
+    public void changePassword(ChangePasswordRequest request, StreamObserver<UserMessage> responseObserver) {
+        UserUpdatePasswordDto dto = new UserUpdatePasswordDto(
+                request.getUsername(),
+                request.getOldPassword(),
+                request.getNewPassword()
+        );
+        try {
+            User user = userService.changePassword(dto);
+            UserMessage userMessage = userConverter.getUserMessageFromUser(user);
+            responseObserver.onNext(userMessage);
+            responseObserver.onCompleted();
+        }
+        catch (Exception e) {
+            responseObserver.onError(
+                    io.grpc.Status.INVALID_ARGUMENT
+                            .withDescription(e.getMessage())
+                            .asRuntimeException());
+        }
+    }
+
+    @Override
+    public void changeAddress(ChangeAddressRequest request, StreamObserver<UserMessage> responseObserver) {
+        UserUpdateAddressDto dto = new UserUpdateAddressDto(
+                request.getUsername(),
+                request.getStreetName(),
+                request.getStreetNumber(),
+                request.getPostalCode(),
+                request.getCity()
+        );
+        try {
+            User user = userService.changeAddress(dto);
+            UserMessage userMessage = userConverter.getUserMessageFromUser(user);
+            responseObserver.onNext(userMessage);
+            responseObserver.onCompleted();
+        }
+        catch (Exception e) {
             responseObserver.onError(
                     io.grpc.Status.INVALID_ARGUMENT
                             .withDescription(e.getMessage())

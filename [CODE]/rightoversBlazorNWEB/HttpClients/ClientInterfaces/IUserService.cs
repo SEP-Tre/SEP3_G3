@@ -20,4 +20,7 @@ public interface IUserService
     public Task<OpeningHours> GetOpeningHoursAsync(string username);
 
     public Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto);
+    public Task<User> ChangeFirstName(UserUpdateFirstNameDto dto);
+    public Task<User> ChangePassword(UserUpdatePasswordDto dto);
+    public Task<User> ChangeAddress(UserUpdateAddressDto dto);
 }

@@ -13,4 +13,8 @@ public interface IUserDao
 
     public Task<OpeningHours> GetOpeningHoursAsync(string username);
     public Task<User> CreateOpeningHoursAsync(OpeningHoursCreationDto dto);
+    
+    Task<User> ChangeFirstName(UserUpdateFirstNameDto dto);
+    Task<User> ChangePassword(UserUpdatePasswordDto dto);
+    Task<User> ChangeAddress(UserUpdateAddressDto dto);
 }

@@ -61,6 +61,12 @@ namespace GrpcCL {
     static readonly grpc::Marshaller<global::GrpcCL.OpeningHoursResponse> __Marshaller_sep3_g3_OpeningHoursResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.OpeningHoursResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcCL.ReservationMessage> __Marshaller_sep3_g3_ReservationMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.ReservationMessage.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.ChangeFirstNameRequest> __Marshaller_sep3_g3_ChangeFirstNameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.ChangeFirstNameRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.ChangePasswordRequest> __Marshaller_sep3_g3_ChangePasswordRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.ChangePasswordRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcCL.ChangeAddressRequest> __Marshaller_sep3_g3_ChangeAddressRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcCL.ChangeAddressRequest.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::GrpcCL.UserRequest, global::GrpcCL.UserMessage> __Method_getByUsername = new grpc::Method<global::GrpcCL.UserRequest, global::GrpcCL.UserMessage>(
@@ -109,6 +115,30 @@ namespace GrpcCL {
         "getReservationsByUsername",
         __Marshaller_sep3_g3_UserRequest,
         __Marshaller_sep3_g3_ReservationMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.ChangeFirstNameRequest, global::GrpcCL.UserMessage> __Method_changeFirstName = new grpc::Method<global::GrpcCL.ChangeFirstNameRequest, global::GrpcCL.UserMessage>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "changeFirstName",
+        __Marshaller_sep3_g3_ChangeFirstNameRequest,
+        __Marshaller_sep3_g3_UserMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.ChangePasswordRequest, global::GrpcCL.UserMessage> __Method_changePassword = new grpc::Method<global::GrpcCL.ChangePasswordRequest, global::GrpcCL.UserMessage>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "changePassword",
+        __Marshaller_sep3_g3_ChangePasswordRequest,
+        __Marshaller_sep3_g3_UserMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcCL.ChangeAddressRequest, global::GrpcCL.UserMessage> __Method_changeAddress = new grpc::Method<global::GrpcCL.ChangeAddressRequest, global::GrpcCL.UserMessage>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "changeAddress",
+        __Marshaller_sep3_g3_ChangeAddressRequest,
+        __Marshaller_sep3_g3_UserMessage);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -252,6 +282,66 @@ namespace GrpcCL {
       public virtual grpc::AsyncServerStreamingCall<global::GrpcCL.ReservationMessage> getReservationsByUsername(global::GrpcCL.UserRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_getReservationsByUsername, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage changeFirstName(global::GrpcCL.ChangeFirstNameRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return changeFirstName(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage changeFirstName(global::GrpcCL.ChangeFirstNameRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_changeFirstName, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> changeFirstNameAsync(global::GrpcCL.ChangeFirstNameRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return changeFirstNameAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> changeFirstNameAsync(global::GrpcCL.ChangeFirstNameRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_changeFirstName, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage changePassword(global::GrpcCL.ChangePasswordRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return changePassword(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage changePassword(global::GrpcCL.ChangePasswordRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_changePassword, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> changePasswordAsync(global::GrpcCL.ChangePasswordRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return changePasswordAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> changePasswordAsync(global::GrpcCL.ChangePasswordRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_changePassword, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage changeAddress(global::GrpcCL.ChangeAddressRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return changeAddress(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcCL.UserMessage changeAddress(global::GrpcCL.ChangeAddressRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_changeAddress, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> changeAddressAsync(global::GrpcCL.ChangeAddressRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return changeAddressAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcCL.UserMessage> changeAddressAsync(global::GrpcCL.ChangeAddressRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_changeAddress, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

@@ -1,0 +1,125 @@
+﻿@page "/EditProfile"
+@using HttpClients.ClientInterfaces
+@using Domain.DTOs
+@using Domain.Classes
+@using System.Security.Claims
+@using BlazorWASM.Pages.UIComponents
+@inject IUserService userService;
+@inject NavigationManager navMgr
+<h3>Edit Profile</h3>
+<AuthorizeView>
+    <Authorized>
+    <Modal ShowModal="showModal">
+                <div class="d-flex flex-column justify-content-start align-items-center">
+                    <p class="m-auto">@msg</p>
+                    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
+                </div>
+            </Modal>
+        <h1>You are here to edit your profile.</h1>
+        <div id="changeNameDiv" class="d-flex flex-column p-5">
+            <h3>Change your First Name?</h3>
+            <label for="changeName">New First Name?</label>
+            <input type="text" id="changeName" @bind="newFirstName"/>
+            <RadzenButton class="mt-2" Click=@(args => ChangeName())>Change First Name</RadzenButton>
+        </div>
+        <div id="changePasswordDiv" class="d-flex flex-column p-5">
+            <h3>Change your password?</h3>
+            <label for="oldPassword">Old Password</label>
+            <input type="text" id="oldPassword" @bind="oldPassword"/>
+            <label for="newPassword">New Password</label>
+            <input type="text" id="newPassword" @bind="newPassword"/>
+            <label for="confirmNewPassword">Confirm New Password</label>
+            <input type="text" id="confirmNewPassword" @bind="confirmNewPassword"/>
+            <RadzenButton class="mt-2" Click=@(args => ChangePassword())>Change Password</RadzenButton>
+            <p @bind="passwordErrorMessage"></p>
+        </div>
+        <div id="changeAddressDiv" class="d-flex flex-column p-5">
+            <h3>Change your address?</h3>
+            <label for="newStreetName">New Street Name</label>
+            <input type="text" id="newStreetName" @bind="newStreetName"/>
+            <label for="newStreetNumber">New Street Number</label>
+            <input type="text" id="newStreetNumber" @bind="newStreetNumber"/>
+            <label for="newPostalCode">New Postal Code</label>
+            <input type="text" id="newPostalCode" @bind="newPostalCode"/>
+            <label for="newCity">New City</label>
+            <input type="text" id="newCity" @bind="newCity"/>
+            <RadzenButton class="mt-2" Click=@(args => ChangeAddress()) >Change Address</RadzenButton>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+
+@code {
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    private bool showModal;
+    
+    private string newFirstName = "";
+    private string oldPassword = "";
+    private string newPassword = "";
+    private string confirmNewPassword = "";
+    
+    private string newStreetName = "";
+    private string newStreetNumber = "";
+    private string newPostalCode = "";
+    private string newCity = "";
+
+    private string loggedInUsername;
+    private string passwordErrorMessage = "";
+
+    private string msg = "";
+    
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+
+        if (!isLoggedIn) return;
+
+        userClaims = user.Claims;
+        loggedInUsername = userClaims.First(claim => claim.Type.Equals("UserName")).Value;
+    }
+
+    public async Task ChangeName()
+    {
+        UserUpdateFirstNameDto dto = new UserUpdateFirstNameDto(loggedInUsername, newFirstName);
+        await userService.ChangeFirstName(dto);
+        msg = "You have changed your name! :)";
+        showModal = true;
+    }
+
+    public async Task ChangePassword()
+    {
+        if (newPassword.Equals(confirmNewPassword))
+        {
+            UserUpdatePasswordDto dto = new UserUpdatePasswordDto(loggedInUsername, oldPassword, newPassword);
+            await userService.ChangePassword(dto);
+            passwordErrorMessage = "";
+            msg = "You have changed your password! :)";
+            showModal = true;
+        }
+        else
+        {
+            passwordErrorMessage = "The new passwords don't match!";
+        }
+    }
+
+    public async Task ChangeAddress()
+    {
+        int intPostalCode = Int32.Parse(newPostalCode);
+        UserUpdateAddressDto dto = new UserUpdateAddressDto(loggedInUsername, newStreetName, newStreetNumber, intPostalCode, newCity);
+        await userService.ChangeAddress(dto);
+        msg = "You have changed your address! :)";
+        showModal = true;
+    }
+    
+    private void Proceed()
+    {
+        navMgr.NavigateTo($"/UserProfile/{loggedInUsername}");
+    }
+    
+}
