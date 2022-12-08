@@ -16,9 +16,11 @@ public interface IUserService
     Task<ClaimsPrincipal> GetAuthAsync();
     Task<OpeningHours> GetOpeningHoursAsync(string username);
     Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto);
+    
     Task<User> ChangeFirstName(UserUpdateFirstNameDto dto);
     Task<User> ChangePassword(UserUpdatePasswordDto dto);
     Task<User> ChangeAddress(UserUpdateAddressDto dto);
     Task DeleteUserAsync(string username);
     Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username);
+    
 }

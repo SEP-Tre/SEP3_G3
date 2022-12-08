@@ -59,6 +59,26 @@ public final class User {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sep3_g3_ReservationMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_Filler_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_Filler_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_ChangeFirstNameRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_ChangeFirstNameRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_ChangePasswordRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_ChangePasswordRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sep3_g3_ChangeAddressRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sep3_g3_ChangeAddressRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -107,19 +127,35 @@ public final class User {
       "sResponse\"~\n\022ReservationMessage\022\026\n\016reser" +
       "vation_id\030\001 \001(\005\022,\n\tfood_post\030\002 \001(\0132\031.sep" +
       "3.g3.FoodPostResponse\022\"\n\004user\030\003 \001(\0132\024.se" +
-      "p3.g3.UserMessage2\245\003\n\013UserService\022;\n\rget" +
-      "ByUsername\022\024.sep3.g3.UserRequest\032\024.sep3." +
-      "g3.UserMessage\022>\n\010register\022\034.sep3.g3.Use" +
-      "rCreationRequest\032\024.sep3.g3.UserMessage\022H" +
-      "\n\022assignOpeningHours\022\034.sep3.g3.OpeningHo" +
-      "ursRequest\032\024.sep3.g3.UserMessage\0228\n\005logi" +
-      "n\022\031.sep3.g3.UserLoginRequest\032\024.sep3.g3.U" +
-      "serMessage\022P\n\031getReservationsByUsername\022" +
-      "\024.sep3.g3.UserRequest\032\033.sep3.g3.Reservat" +
-      "ionMessage0\001\022C\n\017getOpeningHours\022\021.sep3.g" +
-      "3.UserName\032\035.sep3.g3.OpeningHoursRespons" +
-      "eB)\n%sep3.g3.rightoversjava.grpc.generat" +
-      "edP\001b\006proto3"
+      "p3.g3.UserMessage\"\030\n\006Filler\022\016\n\006filler\030\001 " +
+      "\001(\010\"B\n\026ChangeFirstNameRequest\022\020\n\010usernam" +
+      "e\030\001 \001(\t\022\026\n\016new_first_name\030\002 \001(\t\"U\n\025Chang" +
+      "ePasswordRequest\022\020\n\010username\030\001 \001(\t\022\024\n\014ol" +
+      "d_password\030\002 \001(\t\022\024\n\014new_password\030\003 \001(\t\"w" +
+      "\n\024ChangeAddressRequest\022\020\n\010username\030\001 \001(\t" +
+      "\022\023\n\013street_name\030\002 \001(\t\022\025\n\rstreet_number\030\003" +
+      " \001(\t\022\023\n\013postal_code\030\004 \001(\005\022\014\n\004city\030\005 \001(\t2" +
+      "\373\005\n\013UserService\022;\n\rgetByUsername\022\024.sep3." +
+      "g3.UserRequest\032\024.sep3.g3.UserMessage\022>\n\010" +
+      "register\022\034.sep3.g3.UserCreationRequest\032\024" +
+      ".sep3.g3.UserMessage\022H\n\022assignOpeningHou" +
+      "rs\022\034.sep3.g3.OpeningHoursRequest\032\024.sep3." +
+      "g3.UserMessage\0228\n\005login\022\031.sep3.g3.UserLo" +
+      "ginRequest\032\024.sep3.g3.UserMessage\022P\n\031getR" +
+      "eservationsByUsername\022\024.sep3.g3.UserRequ" +
+      "est\032\033.sep3.g3.ReservationMessage0\001\0223\n\nde" +
+      "leteUser\022\024.sep3.g3.UserRequest\032\017.sep3.g3" +
+      ".Filler\022G\n\025getReportsAgainstUser\022\024.sep3." +
+      "g3.UserRequest\032\026.sep3.g3.ReportMessage0\001" +
+      "\022C\n\017getOpeningHours\022\021.sep3.g3.UserName\032\035" +
+      ".sep3.g3.OpeningHoursResponse\022H\n\017changeF" +
+      "irstName\022\037.sep3.g3.ChangeFirstNameReques" +
+      "t\032\024.sep3.g3.UserMessage\022F\n\016changePasswor" +
+      "d\022\036.sep3.g3.ChangePasswordRequest\032\024.sep3" +
+      ".g3.UserMessage\022D\n\rchangeAddress\022\035.sep3." +
+      "g3.ChangeAddressRequest\032\024.sep3.g3.UserMe" +
+      "ssageB)\n%sep3.g3.rightoversjava.grpc.gen" +
+      "eratedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -180,6 +216,30 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_ReservationMessage_descriptor,
         new java.lang.String[] { "ReservationId", "FoodPost", "User", });
+    internal_static_sep3_g3_Filler_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_sep3_g3_Filler_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_Filler_descriptor,
+        new java.lang.String[] { "Filler", });
+    internal_static_sep3_g3_ChangeFirstNameRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_sep3_g3_ChangeFirstNameRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_ChangeFirstNameRequest_descriptor,
+        new java.lang.String[] { "Username", "NewFirstName", });
+    internal_static_sep3_g3_ChangePasswordRequest_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_sep3_g3_ChangePasswordRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_ChangePasswordRequest_descriptor,
+        new java.lang.String[] { "Username", "OldPassword", "NewPassword", });
+    internal_static_sep3_g3_ChangeAddressRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_sep3_g3_ChangeAddressRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sep3_g3_ChangeAddressRequest_descriptor,
+        new java.lang.String[] { "Username", "StreetName", "StreetNumber", "PostalCode", "City", });
     sep3.g3.rightoversjava.grpc.generated.FoodPost.getDescriptor();
   }
 

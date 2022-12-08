@@ -24,12 +24,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlhbG9nQ2FyZFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/EditProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFByb2ZpbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Map.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPosts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0ZWRQb3N0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/SeeAllUsers.razor]
@@ -56,9 +64,17 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlRm9vZFBvc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xauouoch9k
 
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/EditFoodPost.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEZvb2RQb3N0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-k60enmo6oc
+
 [O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xm4hp2nt19
+
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/MyReservations.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlSZXNlcnZhdGlvbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-w1tifvojrv
 
 [O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/PostDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdERldGFpbHMucmF6b3I=
@@ -67,6 +83,10 @@ build_metadata.AdditionalFiles.CssScope = b-jixqs6uerm
 [O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hyqv80bnnt
+
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPostDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0ZWRQb3N0RGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-ej807hrmdi
 
 [O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UIComponents/Modal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVUlDb21wb25lbnRzXE1vZGFsLnJhem9y

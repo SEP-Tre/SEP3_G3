@@ -32,23 +32,6 @@ C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Grp
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\refint\GrpcClient.dll
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.pdb
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\ref\GrpcClient.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.deps.json
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.pdb
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\Application.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\Domain.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\Application.pdb
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\Domain.pdb
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.csproj.AssemblyReference.cache
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.GeneratedMSBuildEditorConfig.editorconfig
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.AssemblyInfoInputs.cache
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.AssemblyInfo.cs
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.csproj.CoreCompileInputs.cache
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.csproj.CopyComplete
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\refint\GrpcClient.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.pdb
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\ref\GrpcClient.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.deps.json
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.pdb
@@ -66,3 +49,20 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\o
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\refint\GrpcClient.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.pdb
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\ref\GrpcClient.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.deps.json
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\GrpcClient.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\Application.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\Domain.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\Application.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\bin\Debug\net6.0\Domain.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.csproj.AssemblyReference.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.GeneratedMSBuildEditorConfig.editorconfig
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.AssemblyInfoInputs.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.AssemblyInfo.cs
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.csproj.CoreCompileInputs.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.csproj.CopyComplete
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\refint\GrpcClient.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\GrpcClient.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\GrpcClient\obj\Debug\net6.0\ref\GrpcClient.dll

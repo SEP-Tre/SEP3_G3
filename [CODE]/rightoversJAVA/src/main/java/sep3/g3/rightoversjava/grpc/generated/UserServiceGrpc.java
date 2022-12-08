@@ -170,6 +170,68 @@ public final class UserServiceGrpc {
     return getGetReservationsByUsernameMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.Filler> getDeleteUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deleteUser",
+      requestType = sep3.g3.rightoversjava.grpc.generated.UserRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.Filler.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.Filler> getDeleteUserMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.Filler> getDeleteUserMethod;
+    if ((getDeleteUserMethod = UserServiceGrpc.getDeleteUserMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getDeleteUserMethod = UserServiceGrpc.getDeleteUserMethod) == null) {
+          UserServiceGrpc.getDeleteUserMethod = getDeleteUserMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.Filler>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.Filler.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("deleteUser"))
+              .build();
+        }
+      }
+    }
+    return getDeleteUserMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.ReportMessage> getGetReportsAgainstUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getReportsAgainstUser",
+      requestType = sep3.g3.rightoversjava.grpc.generated.UserRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.ReportMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest,
+      sep3.g3.rightoversjava.grpc.generated.ReportMessage> getGetReportsAgainstUserMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.ReportMessage> getGetReportsAgainstUserMethod;
+    if ((getGetReportsAgainstUserMethod = UserServiceGrpc.getGetReportsAgainstUserMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetReportsAgainstUserMethod = UserServiceGrpc.getGetReportsAgainstUserMethod) == null) {
+          UserServiceGrpc.getGetReportsAgainstUserMethod = getGetReportsAgainstUserMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.UserRequest, sep3.g3.rightoversjava.grpc.generated.ReportMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getReportsAgainstUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ReportMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getReportsAgainstUser"))
+              .build();
+        }
+      }
+    }
+    return getGetReportsAgainstUserMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.UserName,
       sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> getGetOpeningHoursMethod;
 
@@ -199,6 +261,99 @@ public final class UserServiceGrpc {
       }
     }
     return getGetOpeningHoursMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangeFirstNameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "changeFirstName",
+      requestType = sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.UserMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangeFirstNameMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangeFirstNameMethod;
+    if ((getChangeFirstNameMethod = UserServiceGrpc.getChangeFirstNameMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getChangeFirstNameMethod = UserServiceGrpc.getChangeFirstNameMethod) == null) {
+          UserServiceGrpc.getChangeFirstNameMethod = getChangeFirstNameMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "changeFirstName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeFirstName"))
+              .build();
+        }
+      }
+    }
+    return getChangeFirstNameMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangePasswordMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "changePassword",
+      requestType = sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.UserMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangePasswordMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangePasswordMethod;
+    if ((getChangePasswordMethod = UserServiceGrpc.getChangePasswordMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getChangePasswordMethod = UserServiceGrpc.getChangePasswordMethod) == null) {
+          UserServiceGrpc.getChangePasswordMethod = getChangePasswordMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "changePassword"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changePassword"))
+              .build();
+        }
+      }
+    }
+    return getChangePasswordMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangeAddressMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "changeAddress",
+      requestType = sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest.class,
+      responseType = sep3.g3.rightoversjava.grpc.generated.UserMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest,
+      sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangeAddressMethod() {
+    io.grpc.MethodDescriptor<sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage> getChangeAddressMethod;
+    if ((getChangeAddressMethod = UserServiceGrpc.getChangeAddressMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getChangeAddressMethod = UserServiceGrpc.getChangeAddressMethod) == null) {
+          UserServiceGrpc.getChangeAddressMethod = getChangeAddressMethod =
+              io.grpc.MethodDescriptor.<sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest, sep3.g3.rightoversjava.grpc.generated.UserMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "changeAddress"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sep3.g3.rightoversjava.grpc.generated.UserMessage.getDefaultInstance()))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeAddress"))
+              .build();
+        }
+      }
+    }
+    return getChangeAddressMethod;
   }
 
   /**
@@ -286,9 +441,44 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void deleteUser(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.Filler> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteUserMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getReportsAgainstUser(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetReportsAgainstUserMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getOpeningHours(sep3.g3.rightoversjava.grpc.generated.UserName request,
         io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetOpeningHoursMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void changeFirstName(sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getChangeFirstNameMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void changePassword(sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getChangePasswordMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void changeAddress(sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getChangeAddressMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -329,12 +519,47 @@ public final class UserServiceGrpc {
                 sep3.g3.rightoversjava.grpc.generated.ReservationMessage>(
                   this, METHODID_GET_RESERVATIONS_BY_USERNAME)))
           .addMethod(
+            getDeleteUserMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.UserRequest,
+                sep3.g3.rightoversjava.grpc.generated.Filler>(
+                  this, METHODID_DELETE_USER)))
+          .addMethod(
+            getGetReportsAgainstUserMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.UserRequest,
+                sep3.g3.rightoversjava.grpc.generated.ReportMessage>(
+                  this, METHODID_GET_REPORTS_AGAINST_USER)))
+          .addMethod(
             getGetOpeningHoursMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 sep3.g3.rightoversjava.grpc.generated.UserName,
                 sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse>(
                   this, METHODID_GET_OPENING_HOURS)))
+          .addMethod(
+            getChangeFirstNameMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest,
+                sep3.g3.rightoversjava.grpc.generated.UserMessage>(
+                  this, METHODID_CHANGE_FIRST_NAME)))
+          .addMethod(
+            getChangePasswordMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest,
+                sep3.g3.rightoversjava.grpc.generated.UserMessage>(
+                  this, METHODID_CHANGE_PASSWORD)))
+          .addMethod(
+            getChangeAddressMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest,
+                sep3.g3.rightoversjava.grpc.generated.UserMessage>(
+                  this, METHODID_CHANGE_ADDRESS)))
           .build();
     }
   }
@@ -395,10 +620,50 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public void deleteUser(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.Filler> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDeleteUserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getReportsAgainstUser(sep3.g3.rightoversjava.grpc.generated.UserRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getGetReportsAgainstUserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void getOpeningHours(sep3.g3.rightoversjava.grpc.generated.UserName request,
         io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetOpeningHoursMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void changeFirstName(sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getChangeFirstNameMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void changePassword(sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getChangePasswordMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void changeAddress(sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest request,
+        io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getChangeAddressMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -454,9 +719,45 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public sep3.g3.rightoversjava.grpc.generated.Filler deleteUser(sep3.g3.rightoversjava.grpc.generated.UserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDeleteUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<sep3.g3.rightoversjava.grpc.generated.ReportMessage> getReportsAgainstUser(
+        sep3.g3.rightoversjava.grpc.generated.UserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getGetReportsAgainstUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse getOpeningHours(sep3.g3.rightoversjava.grpc.generated.UserName request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetOpeningHoursMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public sep3.g3.rightoversjava.grpc.generated.UserMessage changeFirstName(sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getChangeFirstNameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public sep3.g3.rightoversjava.grpc.generated.UserMessage changePassword(sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getChangePasswordMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public sep3.g3.rightoversjava.grpc.generated.UserMessage changeAddress(sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getChangeAddressMethod(), getCallOptions(), request);
     }
   }
 
@@ -508,10 +809,42 @@ public final class UserServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.Filler> deleteUser(
+        sep3.g3.rightoversjava.grpc.generated.UserRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDeleteUserMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse> getOpeningHours(
         sep3.g3.rightoversjava.grpc.generated.UserName request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetOpeningHoursMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.UserMessage> changeFirstName(
+        sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getChangeFirstNameMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.UserMessage> changePassword(
+        sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getChangePasswordMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<sep3.g3.rightoversjava.grpc.generated.UserMessage> changeAddress(
+        sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getChangeAddressMethod(), getCallOptions()), request);
     }
   }
 
@@ -520,7 +853,12 @@ public final class UserServiceGrpc {
   private static final int METHODID_ASSIGN_OPENING_HOURS = 2;
   private static final int METHODID_LOGIN = 3;
   private static final int METHODID_GET_RESERVATIONS_BY_USERNAME = 4;
-  private static final int METHODID_GET_OPENING_HOURS = 5;
+  private static final int METHODID_DELETE_USER = 5;
+  private static final int METHODID_GET_REPORTS_AGAINST_USER = 6;
+  private static final int METHODID_GET_OPENING_HOURS = 7;
+  private static final int METHODID_CHANGE_FIRST_NAME = 8;
+  private static final int METHODID_CHANGE_PASSWORD = 9;
+  private static final int METHODID_CHANGE_ADDRESS = 10;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -559,9 +897,29 @@ public final class UserServiceGrpc {
           serviceImpl.getReservationsByUsername((sep3.g3.rightoversjava.grpc.generated.UserRequest) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReservationMessage>) responseObserver);
           break;
+        case METHODID_DELETE_USER:
+          serviceImpl.deleteUser((sep3.g3.rightoversjava.grpc.generated.UserRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.Filler>) responseObserver);
+          break;
+        case METHODID_GET_REPORTS_AGAINST_USER:
+          serviceImpl.getReportsAgainstUser((sep3.g3.rightoversjava.grpc.generated.UserRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.ReportMessage>) responseObserver);
+          break;
         case METHODID_GET_OPENING_HOURS:
           serviceImpl.getOpeningHours((sep3.g3.rightoversjava.grpc.generated.UserName) request,
               (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.OpeningHoursResponse>) responseObserver);
+          break;
+        case METHODID_CHANGE_FIRST_NAME:
+          serviceImpl.changeFirstName((sep3.g3.rightoversjava.grpc.generated.ChangeFirstNameRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage>) responseObserver);
+          break;
+        case METHODID_CHANGE_PASSWORD:
+          serviceImpl.changePassword((sep3.g3.rightoversjava.grpc.generated.ChangePasswordRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage>) responseObserver);
+          break;
+        case METHODID_CHANGE_ADDRESS:
+          serviceImpl.changeAddress((sep3.g3.rightoversjava.grpc.generated.ChangeAddressRequest) request,
+              (io.grpc.stub.StreamObserver<sep3.g3.rightoversjava.grpc.generated.UserMessage>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -629,7 +987,12 @@ public final class UserServiceGrpc {
               .addMethod(getAssignOpeningHoursMethod())
               .addMethod(getLoginMethod())
               .addMethod(getGetReservationsByUsernameMethod())
+              .addMethod(getDeleteUserMethod())
+              .addMethod(getGetReportsAgainstUserMethod())
               .addMethod(getGetOpeningHoursMethod())
+              .addMethod(getChangeFirstNameMethod())
+              .addMethod(getChangePasswordMethod())
+              .addMethod(getChangeAddressMethod())
               .build();
         }
       }

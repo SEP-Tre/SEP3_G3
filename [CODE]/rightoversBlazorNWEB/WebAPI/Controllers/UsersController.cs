@@ -216,6 +216,7 @@ public class UsersController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    
 
     private List<Claim> GenerateClaims(User user)
     {

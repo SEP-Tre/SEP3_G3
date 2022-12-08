@@ -90,7 +90,8 @@ public class UserDao : IUserDao
         openingHours.IsSaturdayOpen = response.SaturdayIsOpen;
         openingHours.IsSundayOpen = response.SundayIsOpen;
         
-        
+    
+
         return openingHours;
     }
 
@@ -191,7 +192,7 @@ public class UserDao : IUserDao
         }
     }
 
-    public async Task<User> ChangePassword(UserUpdatePasswordDto dto)
+     public async Task<User> ChangePassword(UserUpdatePasswordDto dto)
     {
         try
         {
@@ -227,11 +228,13 @@ public class UserDao : IUserDao
         }
     }
 
+    
     public async Task DeleteUser(string username)
     {
         var userRequest = converter.GetUserRequestFromUsername(username);
         var fillerResponse = await client.deleteUserAsync(userRequest);
     }
+    
 
     public async Task<User> GetByUsername(string username)
     {
@@ -264,6 +267,7 @@ public class UserDao : IUserDao
         throw new NotImplementedException();
     }
 
+    
     public async Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username)
     {
         var request = converter.GetUserRequestFromUsername(username);
@@ -277,4 +281,5 @@ public class UserDao : IUserDao
             }
         return listHolder;
     }
+  
 }

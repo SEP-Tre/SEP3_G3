@@ -144,6 +144,11 @@
     text-decoration: underline;
     padding: 10px 0 15px;
 }
+/* /Pages/MyReservations.razor.rz.scp.css */
+.hover-underlined:hover[b-w1tifvojrv] {
+    text-decoration: underline !important;
+    cursor: pointer;
+}
 /* /Pages/PostDetails.razor.rz.scp.css */
 .card[b-jixqs6uerm] {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -242,6 +247,11 @@
 
 .field[b-jixqs6uerm] {
     margin-top: 20px;
+}
+
+.creator[b-jixqs6uerm], .creator:hover[b-jixqs6uerm] {
+    font-weight: bolder;
+    color: darkslategrey;
 }
 
 .acceptbtn[b-jixqs6uerm] {
@@ -514,6 +524,19 @@
     margin-top: -25px;
     color: grey;
 }
+
+.post-title[b-wiwjy8u4u7] {
+    font-weight: bolder;
+}
+
+.post-title:hover[b-wiwjy8u4u7] {
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.pointer[b-wiwjy8u4u7] {
+    cursor: pointer !important;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-jk00ermrez] {
     position: relative;
@@ -524,6 +547,11 @@
 main[b-jk00ermrez] {
     flex: 1;
 
+}
+.header-username[b-jk00ermrez] {
+    color: darkslategrey;
+    font-size: 1.3em;
+    font-weight: bold;
 }
 
 .sidebar[b-jk00ermrez] {

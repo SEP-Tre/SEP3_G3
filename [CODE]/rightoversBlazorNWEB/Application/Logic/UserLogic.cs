@@ -44,6 +44,8 @@ public class UserLogic : IUserLogic
         return userDao.GetAllRatingsToUser(username);
     }
 
+    
+
     public async Task<User> AssignOpeningHoursAsync(OpeningHoursCreationDto dto)
     {
         var user = await userDao.CreateOpeningHoursAsync(dto);
@@ -51,6 +53,7 @@ public class UserLogic : IUserLogic
         return user;
     }
 
+    
     public Task<User> ChangeFirstName(UserUpdateFirstNameDto dto)
     {
         return userDao.ChangeFirstName(dto);
@@ -93,8 +96,10 @@ public class UserLogic : IUserLogic
         }
     }
 
+    
     public async Task<IEnumerable<Report>> GetReportsAgainstUserAsync(string username)
     {
         return await userDao.GetReportsAgainstUserAsync(username);
     }
+    
 }

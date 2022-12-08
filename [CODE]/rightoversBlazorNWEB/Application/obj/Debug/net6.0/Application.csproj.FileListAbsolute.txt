@@ -28,21 +28,6 @@ C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\App
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\refint\Application.dll
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.pdb
 C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\ref\Application.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.deps.json
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.pdb
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Domain.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Domain.pdb
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.csproj.AssemblyReference.cache
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.GeneratedMSBuildEditorConfig.editorconfig
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.AssemblyInfoInputs.cache
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.AssemblyInfo.cs
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.csproj.CoreCompileInputs.cache
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.csproj.CopyComplete
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\refint\Application.dll
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.pdb
-O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\ref\Application.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.deps.json
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.pdb
@@ -58,3 +43,18 @@ C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\refint\Application.dll
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.pdb
 C:\Users\fisch\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\ref\Application.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.deps.json
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Application.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Domain.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\bin\Debug\net6.0\Domain.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.csproj.AssemblyReference.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.AssemblyInfoInputs.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.AssemblyInfo.cs
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.csproj.CoreCompileInputs.cache
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.csproj.CopyComplete
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\refint\Application.dll
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\Application.pdb
+O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\Application\obj\Debug\net6.0\ref\Application.dll

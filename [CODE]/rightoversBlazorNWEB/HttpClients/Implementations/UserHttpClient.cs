@@ -79,6 +79,24 @@ public class UserHttpClient : IUserService
         return user;
     }
 
+    public async Task<User> ChangeAddress(UserUpdateAddressDto dto)
+    {
+        String dtoJson = JsonSerializer.Serialize(dto);
+        var body = new StringContent(dtoJson, Encoding.UTF8, "application/json");
+        var response = await client.PatchAsync("/Users/Address", body);
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        var user = JsonSerializer.Deserialize<User>(content, new JsonSerializerOptions{
+            PropertyNameCaseInsensitive = true
+        })!;
+        return user;
+    }
+
     public async Task DeleteUserAsync(string username)
     {
         var response = await client.DeleteAsync($"/Users/{username}");
@@ -240,6 +258,8 @@ public class UserHttpClient : IUserService
 
         return keyValuePairs!.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString()!));
     }
+    
+    
 
     private static byte[] ParseBase64WithoutPadding(string base64)
     {

@@ -186,6 +186,7 @@ else
 
     readonly TabPosition tabPosition = TabPosition.Left;
 
+    
     protected override async Task OnInitializedAsync()
     {
         InitCookPicUrls();
@@ -334,6 +335,7 @@ else
             </div>);
     }
 
+    
     public async Task DeleteUser()
     {
         var confirm = await DialogService.Confirm("Are you sure?", "MyTitle",
