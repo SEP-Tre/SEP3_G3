@@ -120,7 +120,7 @@ public class UserConverter : IUserConverter
     
     public Report GetReportFromMessage(ReportMessage message)
     {
-        Report report = new Report(message.PostId, message.Comment, message.UsernameReporting);
+        Report report = new Report(message.PostId, message.Comment, message.UsernameReporting, message.ReportId);
         return report;
     }
 }

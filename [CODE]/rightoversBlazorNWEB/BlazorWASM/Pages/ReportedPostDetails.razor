@@ -173,12 +173,19 @@ else
                 <div>
                     @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
                     {
-                        <h1>Reports</h1>
+                        <div class="d-flex justify-content-center my-2">
+                                            <h1>Reports</h1>
+                                    </div>
                         <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="false" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
                                         Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
                             <Columns>
                                 <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="20%"/>
-                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="80%"/>
+                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="60%"/>
+                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Resolve" Width="10%">
+                                    <Template Context="data">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="delete_forever" class="m-1 align-content-center" Click="async () => await ResolveAsync(data.ReportId)"></RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
                             </Columns>
                         </RadzenDataGrid>
                     }
@@ -204,7 +211,6 @@ else
             <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
         </div>
     </Modal>
-
 @code {
 
     [Parameter]
@@ -235,8 +241,6 @@ else
             reports = await foodPostService.GetReportsOnPostAsync(id);
 
             DisplayInformation();
-
-
         }
         catch (Exception e)
         {
@@ -304,6 +308,15 @@ else
     {
         await foodPostService.DeleteAsync(foodPost.PostId);
         navMgr.NavigateTo($"/UserProfile/{creator.UserName}");
+    }
+
+    private async Task ResolveAsync(int id)
+    {
+        await foodPostService.ResolveReportAsync(id);
+        Report reportToDelete =reports.FirstOrDefault(report => report.ReportId ==id);
+        List<Report> reportList = new List<Report>(reports);
+        reportList.Remove(reportToDelete);
+        reports = reportList.AsEnumerable();
     }
 
 }}

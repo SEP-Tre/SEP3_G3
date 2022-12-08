@@ -196,4 +196,20 @@ public class FoodPostsController : ControllerBase
             throw;
         }
     }
+
+    [HttpDelete]
+    [Route("Report")]
+    public async Task<ActionResult> ResolveReportAsync([FromQuery] int id)
+    {
+        try
+        {
+            await fpLogic.ResolveReportAsync(id);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
 }

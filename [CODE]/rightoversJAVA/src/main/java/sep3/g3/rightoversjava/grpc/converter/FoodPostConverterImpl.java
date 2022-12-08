@@ -86,6 +86,7 @@ public class FoodPostConverterImpl implements FoodPostConverter {
                 .setPostId(report.getFoodPost().getPost_id())
                 .setComment(report.getComment())
                 .setUsernameReporting(report.getUserReporting().getUsername())
+                .setReportId(report.getReportId())
                 .build();
         return message;
     }

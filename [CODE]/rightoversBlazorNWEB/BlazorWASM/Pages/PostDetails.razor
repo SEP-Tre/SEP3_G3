@@ -232,14 +232,14 @@ else
                             @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName)
                                  || context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
                             {
-                                <RadzenButton class="mx-4" Variant="Variant.Flat" Shade="Shade.Lighter"
+                                <RadzenButton class="mx-4" Variant="Variant.Flat" Shade="Shade.Dark"
                                               Click="() => Edit()"
                                               Text="Edit" ButtonStyle="ButtonStyle.Dark"/>
-                                <RadzenButton class="mx-4" Variant="Variant.Flat" Shade="Shade.Dark" Click=@(args => Delete()) Text="Delete" ButtonStyle="ButtonStyle.Danger"/>
+                                <RadzenButton class="mx-4" Variant="Variant.Flat" Shade="Shade.Dark" Click=@(args => Delete()) Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
                             }
                             else
                             {
-                                <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter"
+                                <RadzenButton class="mx-4" Variant="Variant.Flat" Shade="Shade.Lighter"
                                               Click="async () => await ShowRateDialog()"
                                               MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value))
                                               Text="Report" ButtonStyle="ButtonStyle.Dark"/>

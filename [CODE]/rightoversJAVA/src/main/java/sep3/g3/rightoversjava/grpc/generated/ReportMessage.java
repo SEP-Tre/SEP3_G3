@@ -67,6 +67,11 @@ private static final long serialVersionUID = 0L;
             usernameReporting_ = s;
             break;
           }
+          case 32: {
+
+            reportId_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -188,6 +193,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int REPORT_ID_FIELD_NUMBER = 4;
+  private int reportId_;
+  /**
+   * <code>int32 report_id = 4;</code>
+   * @return The reportId.
+   */
+  @java.lang.Override
+  public int getReportId() {
+    return reportId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -211,6 +227,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(usernameReporting_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, usernameReporting_);
     }
+    if (reportId_ != 0) {
+      output.writeInt32(4, reportId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -229,6 +248,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(usernameReporting_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, usernameReporting_);
+    }
+    if (reportId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(4, reportId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -251,6 +274,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getComment())) return false;
     if (!getUsernameReporting()
         .equals(other.getUsernameReporting())) return false;
+    if (getReportId()
+        != other.getReportId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -268,6 +293,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getComment().hashCode();
     hash = (37 * hash) + USERNAME_REPORTING_FIELD_NUMBER;
     hash = (53 * hash) + getUsernameReporting().hashCode();
+    hash = (37 * hash) + REPORT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getReportId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -407,6 +434,8 @@ private static final long serialVersionUID = 0L;
 
       usernameReporting_ = "";
 
+      reportId_ = 0;
+
       return this;
     }
 
@@ -436,6 +465,7 @@ private static final long serialVersionUID = 0L;
       result.postId_ = postId_;
       result.comment_ = comment_;
       result.usernameReporting_ = usernameReporting_;
+      result.reportId_ = reportId_;
       onBuilt();
       return result;
     }
@@ -494,6 +524,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getUsernameReporting().isEmpty()) {
         usernameReporting_ = other.usernameReporting_;
         onChanged();
+      }
+      if (other.getReportId() != 0) {
+        setReportId(other.getReportId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -703,6 +736,37 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       usernameReporting_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int reportId_ ;
+    /**
+     * <code>int32 report_id = 4;</code>
+     * @return The reportId.
+     */
+    @java.lang.Override
+    public int getReportId() {
+      return reportId_;
+    }
+    /**
+     * <code>int32 report_id = 4;</code>
+     * @param value The reportId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setReportId(int value) {
+      
+      reportId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 report_id = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearReportId() {
+      
+      reportId_ = 0;
       onChanged();
       return this;
     }

@@ -121,28 +121,37 @@ else
             </Tabs>
         </RadzenTabs>
     </div>
-    
+
     <AuthorizeView>
         <Authorized>
             @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
             {
-                <h1>Reports</h1>
+                <div class="d-flex justify-content-center my-4">
+                    <h1>Reports</h1>
+            </div>
                 <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
                                 Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
                     <Columns>
-                        <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="160px"/>
-                        <RadzenDataGridColumn TItem="Report" Property="FoodPostId" Title="Foodpost ID" Width="160px"/>
-                        <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="170px"/>
-                        <RadzenDataGridColumn Width="160px" TItem="Report" Property="FoodPostId" Title="Meal Details">
+                        <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="10%"/>
+                        <RadzenDataGridColumn TItem="Report" Property="FoodPostId" Title="Foodpost ID" Width="10%"/>
+                        <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="40%"/>
+                        <RadzenDataGridColumn Width="20%" TItem="Report" Property="FoodPostId" Title="Meal Details">
                             <Template Context="data">
                                 <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="() => ViewPost(data.FoodPostId)"></RadzenButton>
                             </Template>
                         </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Resolve" Width="10%">
+                            <Template Context="data">
+                                <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="delete_forever" class="m-1 align-content-center" Click="async () => await ResolveAsync(data.ReportId)"></RadzenButton>
+                            </Template>
+                        </RadzenDataGridColumn>
                     </Columns>
                 </RadzenDataGrid>
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Dark" ButtonStyle="ButtonStyle.Danger" 
-                              Click=@(args => DeleteUser())
-                              Text="Delete User"/>
+                <div class="d-flex justify-content-center align-items-around flex-column my-4">
+                    <RadzenButton Variant="Variant.Flat" Shade="Shade.Dark" ButtonStyle="ButtonStyle.Danger"
+                                  Click=@(args => DeleteUser())
+                                  Text="Delete User"/>
+                </div>
             }
         </Authorized>
     </AuthorizeView>
@@ -186,7 +195,7 @@ else
 
     readonly TabPosition tabPosition = TabPosition.Left;
 
-    
+
     protected override async Task OnInitializedAsync()
     {
         InitCookPicUrls();
@@ -220,7 +229,7 @@ else
     {
         navMgr.NavigateTo($"/UserProfile/{username}");
     }
-    
+
     private void GoToUserProfile(string username)
     {
         navMgr.NavigateTo($"/UserProfile/{username}");
@@ -228,7 +237,8 @@ else
 
     protected void InitCookPicUrls()
     {
-        cookUrls = new Dictionary<int, string>{
+        cookUrls = new Dictionary<int, string>
+        {
             [1] = cookOneStarPicUrl,
             [2] = cookTwoStarsPicUrl,
             [3] = cookThreeStarsPicUrl,
@@ -239,7 +249,8 @@ else
 
     protected void InitPickerPicUrls()
     {
-        pickerUrls = new Dictionary<int, string>{
+        pickerUrls = new Dictionary<int, string>
+        {
             [1] = pickerOneStarPicUrl,
             [2] = pickerTwoStarsPicUrl,
             [3] = pickerThreeStarsPicUrl,
@@ -306,7 +317,6 @@ else
         await ratingService.AddRating(newRating);
         await InitRatings();
         clearRating();
-        
     }
 
     async Task ShowRateDialog()
@@ -335,11 +345,11 @@ else
             </div>);
     }
 
-    
+
     public async Task DeleteUser()
     {
         var confirm = await DialogService.Confirm("Are you sure?", "MyTitle",
-            new ConfirmOptions(){OkButtonText = "Yes", CancelButtonText = "No"});
+            new ConfirmOptions() { OkButtonText = "Yes", CancelButtonText = "No" });
         if (confirm.Value)
         {
             await userService.DeleteUserAsync(username);
@@ -357,6 +367,15 @@ else
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private async Task ResolveAsync(int id)
+    {
+        await foodPostService.ResolveReportAsync(id);
+        Report reportToDelete = reports.FirstOrDefault(report => report.ReportId == id);
+        List<Report> reportList = new List<Report>(reports);
+        reportList.Remove(reportToDelete);
+        reports = reportList.AsEnumerable();
     }
 
 }

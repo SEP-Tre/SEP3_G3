@@ -217,4 +217,10 @@ public class FoodPostServiceImp implements FoodPostService
     public FoodPost edit(FoodPost foodPost) {
         return fpRepository.save(foodPost);
     }
+
+    @Override
+    public void resolveReport(int id)
+    {
+        reportRepository.deleteById(id);
+    }
 }

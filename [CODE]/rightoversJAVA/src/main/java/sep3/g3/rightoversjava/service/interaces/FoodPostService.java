@@ -32,4 +32,6 @@ public interface FoodPostService {
     ArrayList<FoodPost> getAllReportedPosts();
     ArrayList<Report> getReportsOnPost(int postId);
     FoodPost edit(FoodPost foodPost);
+
+    void resolveReport(int id);
 }

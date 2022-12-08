@@ -75,7 +75,17 @@ message ReportMessage
   int32 post_id=1;
   string comment =2;
   string username_reporting=3;
+  int32 report_id=4;
 }
+message ReportID
+{
+  int32 report_id=1;
+}
+message Void
+{
+  bool filler =1;
+}
+
 
 service FoodPostService {
   rpc getFoodPostsByUsername(FPByUsernameRequest) returns (stream FoodPostResponse);
@@ -89,4 +99,5 @@ service FoodPostService {
   rpc report(ReportMessage) returns(ReportMessage);
   rpc getReportsOnPost(FoodPostID) returns (stream ReportMessage);
   rpc edit(FoodPostResponse) returns (FoodPostResponse);
+  rpc resolveReport(ReportID) returns (Void);
 }

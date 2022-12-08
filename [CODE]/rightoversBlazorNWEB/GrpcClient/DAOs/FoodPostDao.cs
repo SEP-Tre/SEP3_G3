@@ -209,7 +209,7 @@ public class FoodPostDao : IFoodPostDao
         var listHolder = new List<Report>();
         AsyncServerStreamingCall<ReportMessage> response = client.getReportsOnPost(request);
         await foreach (var message in response.ResponseStream.ReadAllAsync())
-            if (message.PostId != null)
+            if (message.PostId != 0)
             {
                 var report = converter.GetReportFromMessage(message);
                 listHolder.Add(report);
@@ -232,5 +232,10 @@ public class FoodPostDao : IFoodPostDao
 
             throw;
         }
+    }
+
+    public async Task ResolveReportAsync(int id)
+    {
+        await client.resolveReportAsync(new ReportID { ReportId = id });
     }
 }

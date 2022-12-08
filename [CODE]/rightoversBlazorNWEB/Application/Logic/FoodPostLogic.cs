@@ -105,4 +105,9 @@ public class FoodPostLogic : IFoodPostLogic
     {
         return await fpDao.EditAsync(foodPost);
     }
+
+    public async Task ResolveReportAsync(int id)
+    {
+        await fpDao.ResolveReportAsync(id);
+    }
 }

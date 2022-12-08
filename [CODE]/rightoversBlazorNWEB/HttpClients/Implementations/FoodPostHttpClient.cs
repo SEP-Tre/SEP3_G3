@@ -33,7 +33,8 @@ public class FoodPostHttpClient : IFoodPostService
             throw new Exception(result);
         }
 
-        var fp = JsonSerializer.Deserialize<FoodPost>(result, new JsonSerializerOptions{
+        var fp = JsonSerializer.Deserialize<FoodPost>(result, new JsonSerializerOptions
+        {
             PropertyNameCaseInsensitive = true
         })!;
 
@@ -53,7 +54,8 @@ public class FoodPostHttpClient : IFoodPostService
         }
 
         var foodPosts =
-            JsonSerializer.Deserialize<ICollection<FoodPost>>(content, new JsonSerializerOptions{
+            JsonSerializer.Deserialize<ICollection<FoodPost>>(content, new JsonSerializerOptions
+            {
                 PropertyNameCaseInsensitive = true
             })!;
         /*
@@ -79,7 +81,8 @@ public class FoodPostHttpClient : IFoodPostService
         }
 
         var foodPost =
-            JsonSerializer.Deserialize<FoodPost>(content, new JsonSerializerOptions{
+            JsonSerializer.Deserialize<FoodPost>(content, new JsonSerializerOptions
+            {
                 PropertyNameCaseInsensitive = true
             })!;
 
@@ -113,13 +116,14 @@ public class FoodPostHttpClient : IFoodPostService
         }
 
         var foodPosts =
-            JsonSerializer.Deserialize<IEnumerable<FoodPost>>(content, new JsonSerializerOptions{
+            JsonSerializer.Deserialize<IEnumerable<FoodPost>>(content, new JsonSerializerOptions
+            {
                 PropertyNameCaseInsensitive = true
             })!;
 
         return foodPosts;
     }
-    
+
     public async Task DeleteAsync(int id)
     {
         var response = await client.DeleteAsync($"/FoodPosts/?id={id}");
@@ -128,7 +132,7 @@ public class FoodPostHttpClient : IFoodPostService
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(content);
-        } 
+        }
     }
 
     public async Task<ICollection<FoodPost>> GetAllReportedPostsAsync()
@@ -142,7 +146,8 @@ public class FoodPostHttpClient : IFoodPostService
         }
 
         var foodPosts =
-            JsonSerializer.Deserialize<ICollection<FoodPost>>(content, new JsonSerializerOptions{
+            JsonSerializer.Deserialize<ICollection<FoodPost>>(content, new JsonSerializerOptions
+            {
                 PropertyNameCaseInsensitive = true
             })!;
 
@@ -157,10 +162,11 @@ public class FoodPostHttpClient : IFoodPostService
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(content);
-        } 
-        
+        }
+
         var savedReport =
-            JsonSerializer.Deserialize<Report>(content, new JsonSerializerOptions{
+            JsonSerializer.Deserialize<Report>(content, new JsonSerializerOptions
+            {
                 PropertyNameCaseInsensitive = true
             })!;
 
@@ -181,7 +187,17 @@ public class FoodPostHttpClient : IFoodPostService
             throw new Exception(content);
         }
     }
-    
+
+    public async Task ResolveReportAsync(int id)
+    {
+        var response = await client.DeleteAsync($"/FoodPosts/Report/?id={id}");
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
+
     public async Task<IEnumerable<Report>> GetReportsOnPostAsync(int id)
     {
         var response = await client.GetAsync($"/FoodPosts/Reports/{id}");
@@ -193,7 +209,8 @@ public class FoodPostHttpClient : IFoodPostService
         }
 
         var reports =
-            JsonSerializer.Deserialize<IEnumerable<Report>>(content, new JsonSerializerOptions{
+            JsonSerializer.Deserialize<IEnumerable<Report>>(content, new JsonSerializerOptions
+            {
                 PropertyNameCaseInsensitive = true
             })!;
 
@@ -205,7 +222,7 @@ public class FoodPostHttpClient : IFoodPostService
         string dtoAsJson = JsonSerializer.Serialize(foodPost);
         var body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
         Console.Write(body);
-        
+
         var response = await client.PatchAsync("/FoodPosts/Edit", body);
         string result = await response.Content.ReadAsStringAsync();
         Console.Write(result);
@@ -214,11 +231,11 @@ public class FoodPostHttpClient : IFoodPostService
             throw new Exception(result);
         }
 
-        var fp = JsonSerializer.Deserialize<FoodPost>(result, new JsonSerializerOptions{
+        var fp = JsonSerializer.Deserialize<FoodPost>(result, new JsonSerializerOptions
+        {
             PropertyNameCaseInsensitive = true
         })!;
         Console.WriteLine(fp.Title);
         return fp;
     }
-    
 }

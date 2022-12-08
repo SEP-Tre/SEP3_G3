@@ -18,4 +18,7 @@ public interface IFoodPostService
     Task<FoodPost> EditAsync(FoodPost foodPost);
 
     Task PickUpAsync(PickUpDto dto);
+    
+    Task ResolveReportAsync(int id);
+
 }

@@ -36,4 +36,10 @@ public interface ReportMessageOrBuilder extends
    */
   com.google.protobuf.ByteString
       getUsernameReportingBytes();
+
+  /**
+   * <code>int32 report_id = 4;</code>
+   * @return The reportId.
+   */
+  int getReportId();
 }
