@@ -36,6 +36,7 @@ message UserMessage {
   string username = 1;
   string firstname = 2;
   string password = 3;
+  bool isBusiness = 5;
   AddressMessage address = 4;
   string phoneNumber=5;
 }

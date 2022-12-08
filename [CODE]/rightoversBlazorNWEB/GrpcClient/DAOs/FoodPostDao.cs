@@ -1,4 +1,5 @@
-﻿using Application.DAOInterfaces;
+﻿using System.Runtime.CompilerServices;
+using Application.DAOInterfaces;
 using Domain.Classes;
 using Domain.DTOs;
 using Grpc.Core;
@@ -10,7 +11,8 @@ namespace GrpcClient.DAOs;
 
 public class FoodPostDao : IFoodPostDao
 {
-    private readonly static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions{
+    private readonly static GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:9090", new GrpcChannelOptions
+    {
         UnsafeUseInsecureChannelCallCredentials = true
     });
 
@@ -26,27 +28,32 @@ public class FoodPostDao : IFoodPostDao
 
     public async Task<FoodPost> Create(FoodPostCreationDto dto)
     {
-        var response = await client.postAsync(new FoodPostRequest{
+        var response = await client.postAsync(new FoodPostRequest
+        {
             Category = dto.Category,
             DaysUntilExpired = dto.DaysUntilExpired,
             Description = dto.Description,
             PictureUrl = dto.PictureUrl,
             Title = dto.Title,
-            StartDate = new Date{
+            StartDate = new Date
+            {
                 Day = dto.StartDate.Day,
                 Month = dto.StartDate.Month,
                 Year = dto.StartDate.Year
             },
-            EndDate = new Date{
+            EndDate = new Date
+            {
                 Day = dto.EndDate.Day,
                 Month = dto.EndDate.Month,
                 Year = dto.EndDate.Year
             },
-            StartTime = new Time{
+            StartTime = new Time
+            {
                 Hour = dto.StartTime.Hour,
                 Minutes = dto.StartTime.Minutes
             },
-            EndTime = new Time{
+            EndTime = new Time
+            {
                 Hour = dto.EndTime.Hour,
                 Minutes = dto.EndTime.Minutes
             },
@@ -62,7 +69,8 @@ public class FoodPostDao : IFoodPostDao
     {
         // Missing an await, but where?
         var listHolder = new List<FoodPost>();
-        AsyncServerStreamingCall<FoodPostResponse> response = client.getAllFoodPosts(new GetAllRequest{
+        AsyncServerStreamingCall<FoodPostResponse> response = client.getAllFoodPosts(new GetAllRequest
+        {
             Filler = true
         });
         // Because it is a stream, lets make a Dto for the current one we are on
@@ -71,7 +79,6 @@ public class FoodPostDao : IFoodPostDao
             {
                 var fp = converter.GetFoodPost(message);
                 listHolder.Add(fp);
-                Console.WriteLine("I found a post: " + fp.Title + " : " + fp.Category);
             }
 
         return listHolder;
@@ -79,7 +86,8 @@ public class FoodPostDao : IFoodPostDao
 
     public async Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username)
     {
-        var userRequest = new FPByUsernameRequest{
+        var userRequest = new FPByUsernameRequest
+        {
             Username = username
         };
 
@@ -92,16 +100,51 @@ public class FoodPostDao : IFoodPostDao
             {
                 var fp = converter.GetFoodPost(message);
                 listHolder.Add(fp);
-                Console.WriteLine("I found a post: " + fp.Title + " : " + fp.Category);
             }
 
         return listHolder;
     }
 
+    public async Task<FoodPost> PickUp(PickUpDto dto)
+    {
+        var request = converter.GetPickUpRequestFromDto(dto);
+
+        FoodPostResponse response = await client.pickUpAsync(request);
+        FoodPost foodPost = converter.GetFoodPost(response);
+        return foodPost;
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        await client.deleteAsync(new FoodPostID { Id = id });
+    }
+
+    public async Task<Report> ReportAsync(Report report)
+    {
+        try
+        {
+            /*
+            ReportMessage message = converter.GetReportMessage(report);
+            ReportMessage retrievedMessage = await client.reportAsync(message);
+            return converter.GetReportFromMessage(retrievedMessage);
+            */
+            return converter.GetReportFromMessage
+            (await client.reportAsync
+                (converter.GetReportMessage(report)));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("GRPC CLIENT: " + e);
+
+            throw;
+        }
+    }
+
 
     public async Task<FoodPost> GetSingleAsync(int id)
     {
-        var response = await client.getSingleFoodPostAsync(new FoodPostID{
+        var response = await client.getSingleFoodPostAsync(new FoodPostID
+        {
             Id = id
         });
 
@@ -114,8 +157,8 @@ public class FoodPostDao : IFoodPostDao
     {
         try
         {
-
-            var response = await client.reserveAsync(new FoodPostReservation{
+            var response = await client.reserveAsync(new FoodPostReservation
+            {
                 FoodpostId = dto.FoodPostId,
                 Username = dto.Username
             });

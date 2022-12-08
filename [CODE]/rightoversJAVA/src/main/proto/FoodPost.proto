@@ -65,7 +65,16 @@ message FoodPostReservation
 message ReservationResponse {
   bool filler = 1;
 }
-
+message PickUpRequest{
+  int32 id=1;
+  string username=2;
+}
+message ReportMessage
+{
+  int32 post_id=1;
+  string comment =2;
+  string username_reporting=3;
+}
 
 service FoodPostService {
   rpc getFoodPostsByUsername(FPByUsernameRequest) returns (stream FoodPostResponse);
@@ -73,4 +82,7 @@ service FoodPostService {
   rpc getAllFoodPosts(GetAllRequest) returns (stream FoodPostResponse);
   rpc getSingleFoodPost(FoodPostID) returns (FoodPostResponse);
   rpc reserve(FoodPostReservation) returns (ReservationResponse);
+  rpc pickUp(PickUpRequest) returns(FoodPostResponse);
+  rpc delete(FoodPostID) returns (ReservationResponse);
+  rpc report(ReportMessage) returns(ReportMessage);
 }

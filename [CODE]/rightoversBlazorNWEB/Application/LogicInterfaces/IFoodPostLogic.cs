@@ -10,4 +10,9 @@ public interface IFoodPostLogic
     public Task<FoodPost> GetSingleAsync(int id);
     public Task ReserveAsync(FoodPostReservationDto dto);
     Task<IEnumerable<FoodPost>> GetAllFoodPostsByUser(string username);
+    Task<FoodPost> PickUp(PickUpDto dto);
+    Task DeleteAsync(int id);
+    
+    Task<Report> ReportAsync(Report report);
+
 }

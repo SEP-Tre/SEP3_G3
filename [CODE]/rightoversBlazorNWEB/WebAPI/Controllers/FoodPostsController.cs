@@ -102,4 +102,50 @@ public class FoodPostsController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpPost]
+    [Route("Pick")]
+    public async Task<ActionResult<FoodPost>> PickUpAsync(PickUpDto dto)
+    {
+        try
+        {
+            FoodPost fp = await fpLogic.PickUp(dto);
+            return Ok(fp);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpDelete]
+    public async Task<ActionResult> DeleteAsync([FromQuery] int id)
+    {
+        try
+        {
+            await fpLogic.DeleteAsync(id);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPost]
+    [Route("Report")]
+    public async Task<ActionResult<Report>> ReportAsync(Report report)
+    {
+        try
+        {
+            Console.WriteLine(report.Comment);
+            Report savedReport =await fpLogic.ReportAsync(report);  
+            return Ok( savedReport);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return BadRequest(e.Message);
+        }
+    }
 }

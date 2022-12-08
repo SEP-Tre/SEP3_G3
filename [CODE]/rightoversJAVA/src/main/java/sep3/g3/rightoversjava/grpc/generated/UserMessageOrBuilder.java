@@ -44,6 +44,12 @@ public interface UserMessageOrBuilder extends
       getPasswordBytes();
 
   /**
+   * <code>bool isBusiness = 5;</code>
+   * @return The isBusiness.
+   */
+  boolean getIsBusiness();
+
+  /**
    * <code>.sep3.g3.AddressMessage address = 4;</code>
    * @return Whether the address field is set.
    */

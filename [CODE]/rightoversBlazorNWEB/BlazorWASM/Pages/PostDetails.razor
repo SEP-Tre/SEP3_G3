@@ -6,6 +6,7 @@
 @inject IFoodPostService foodPostService
 @inject NavigationManager navMgr
 @inject IUserService userService;
+@inject DialogService DialogService
 
 @*
 <div class="card-back-title d-flex justify-content-center align-items-center">
@@ -20,7 +21,17 @@
 }
 else
 {
-    <div class="d-flex justify-content-center my-1">
+    <AuthorizeView>
+        <NotAuthorized>
+            <div class="d-flex justify-content-center">
+                <h3>
+                    Please log in if you would like to reserve a post!
+                </h3>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+    <div class="d-flex justify-content-around my-1">
+
         <div class="card-back mx-3">
             <div class="card d-flex align-items-start flex-column">
 
@@ -40,155 +51,157 @@ else
                 <h5 class="sm-text my-2">DESCRIPTION</h5>
 
                 <h5 class="bg-text">@foodPost.Description</h5>
-
-
                 @if (creator != null)
                 {
-                    
-                    
+                    @if (!creator.IsBusiness)
+                    {
                         <h5 class="sm-text my-2">PICK UP DETAILS</h5>
 
                         <div class="d-flex align-items-start flex-column">
                             <h5 class="bg-text">@pickupDetailsDates</h5>
                             <h5 class="bg-text">@pickupDetailsTime</h5>
                         </div>
-                    
-                
-                
-                    <h5 class="sm-text my-2">OPENING HOURS</h5>
 
-                    <table >
-                        <tr>
-                            <td>
-                                <h5 class="sm-text">MON</h5>
-                            </td>
-                            @if (OpeningHours.IsMondayOpen)
+                    }
+                    else
+                    {
 
-                            {
+                        <h5 class="sm-text my-2">OPENING HOURS</h5>
+
+                        <table >
+                            <tr>
                                 <td>
-                                    <h5 class="xs-text-days px-5">@OpeningHours.MondayOpeningHours.timeFormatter(OpeningHours.MondayOpeningHours) - @OpeningHours.MondayClosingHours.timeFormatter(OpeningHours.MondayClosingHours)</h5>
+                                    <h5 class="sm-text">MON</h5>
                                 </td>
-                            }
-                            else
-                            {
+                                @if (OpeningHours.IsMondayOpen)
+
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">@OpeningHours.MondayOpeningHours.timeFormatter(OpeningHours.MondayOpeningHours) - @OpeningHours.MondayClosingHours.timeFormatter(OpeningHours.MondayClosingHours)</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
                                 <td>
-                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    <h5 class="sm-text">TUE</h5>
                                 </td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="sm-text">TUE</h5>
-                            </td>
-                            
-                            @if (OpeningHours.IsTuesdayOpen)
-                            {
+
+                                @if (OpeningHours.IsTuesdayOpen)
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">@OpeningHours.TuesdayOpeningHours.timeFormatter(OpeningHours.TuesdayOpeningHours) - @OpeningHours.TuesdayClosingHours.timeFormatter(OpeningHours.TuesdayClosingHours)</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
                                 <td>
-                                    <h5 class="xs-text-days px-5">@OpeningHours.TuesdayOpeningHours.timeFormatter(OpeningHours.TuesdayOpeningHours) - @OpeningHours.TuesdayClosingHours.timeFormatter(OpeningHours.TuesdayClosingHours)</h5>
+                                    <h5 class="sm-text">WED</h5>
                                 </td>
-                            }
-                            else
-                            {
+                                @if (OpeningHours.IsWednesdayOpen)
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">@OpeningHours.WednesdayOpeningHours.timeFormatter(OpeningHours.WednesdayOpeningHours) - @OpeningHours.WednesdayClosingHours.timeFormatter(OpeningHours.WednesdayClosingHours)</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
                                 <td>
-                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    <h5 class="sm-text">THU</h5>
                                 </td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="sm-text">WED</h5>
-                            </td>
-                            @if (OpeningHours.IsWednesdayOpen)
-                            {
+                                @if (OpeningHours.IsThursdayOpen)
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">@OpeningHours.ThursdayOpeningHours.timeFormatter(OpeningHours.ThursdayOpeningHours) - @OpeningHours.ThursdayClosingHours.timeFormatter(OpeningHours.ThursdayClosingHours)</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+
+
+
+
                                 <td>
-                                    <h5 class="xs-text-days px-5">@OpeningHours.WednesdayOpeningHours.timeFormatter(OpeningHours.WednesdayOpeningHours) - @OpeningHours.WednesdayClosingHours.timeFormatter(OpeningHours.WednesdayClosingHours)</h5>
+                                    <h5 class="sm-text">FRI</h5>
                                 </td>
-                            }
-                            else
-                            {
+
+                                @if (OpeningHours.IsFridayOpen)
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">@OpeningHours.FridayOpeningHours.timeFormatter(OpeningHours.FridayOpeningHours) - @OpeningHours.FridayClosingHours.timeFormatter(OpeningHours.FridayClosingHours)</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
                                 <td>
-                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    <h5 class="sm-text">SAT</h5>
                                 </td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="sm-text">THU</h5>
-                            </td>
-                            @if (OpeningHours.IsThursdayOpen)
-                            {
+                                @if (OpeningHours.IsSaturdayOpen)
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">@OpeningHours.SaturdayOpeningHours.timeFormatter(OpeningHours.SaturdayOpeningHours) - @OpeningHours.SaturdayClosingHours.timeFormatter(OpeningHours.SaturdayClosingHours)</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
                                 <td>
-                                    <h5 class="xs-text-days px-5">@OpeningHours.ThursdayOpeningHours.timeFormatter(OpeningHours.ThursdayOpeningHours) - @OpeningHours.ThursdayClosingHours.timeFormatter(OpeningHours.ThursdayClosingHours)</h5>
+                                    <h5 class="sm-text">SUN</h5>
                                 </td>
-                            }
-                            else
-                            {
-                                <td>
-                                    <h5 class="xs-text-days px-5">CLOSED</h5>
-                                </td>
-                            }
-                        </tr>
-                        <tr>
-                            
-                           
-                                
-                            
-                            <td>
-                                <h5 class="sm-text">FRI</h5>
-                            </td>
-                            
-                            @if (OpeningHours.IsFridayOpen)
-                            {
-                                <td>
-                                    <h5 class="xs-text-days px-5">@OpeningHours.FridayOpeningHours.timeFormatter(OpeningHours.FridayOpeningHours) - @OpeningHours.FridayClosingHours.timeFormatter(OpeningHours.FridayClosingHours)</h5>
-                                </td>
-                            }
-                            else
-                            {
-                                <td>
-                                    <h5 class="xs-text-days px-5">CLOSED</h5>
-                                </td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="sm-text">SAT</h5>
-                            </td>
-                            @if (OpeningHours.IsSaturdayOpen)
-                            {
-                                <td>
-                                    <h5 class="xs-text-days px-5">@OpeningHours.SaturdayOpeningHours.timeFormatter(OpeningHours.SaturdayOpeningHours) - @OpeningHours.SaturdayClosingHours.timeFormatter(OpeningHours.SaturdayClosingHours)</h5>
-                                </td>
-                            }
-                            else
-                            {
-                                <td>
-                                    <h5 class="xs-text-days px-5">CLOSED</h5>
-                                </td>
-                            }
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5 class="sm-text">SUN</h5>
-                            </td>
-                            @if (OpeningHours.IsSundayOpen)
-                            {
-                                <td>
-                                    <h5 class="xs-text-days px-5">@OpeningHours.SundayOpeningHours.timeFormatter(OpeningHours.SundayOpeningHours) - @OpeningHours.SundayClosingHours.timeFormatter(OpeningHours.SundayClosingHours)</h5>
-                                </td>
-                            }
-                            else
-                            {
-                                <td>
-                                    <h5 class="xs-text-days px-5">CLOSED</h5>
-                                </td>
-                            }
-                        </tr>
-                    </table>
+                                @if (OpeningHours.IsSundayOpen)
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">@OpeningHours.SundayOpeningHours.timeFormatter(OpeningHours.SundayOpeningHours) - @OpeningHours.SundayClosingHours.timeFormatter(OpeningHours.SundayClosingHours)</h5>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <h5 class="xs-text-days px-5">CLOSED</h5>
+                                    </td>
+                                }
+                            </tr>
+                        </table>
+                    }
                 }
                 <AuthorizeView>
                     <Authorized>
-                        <div>
+                        <div class="d-flex justify-content-around my-2">
+                            
                             <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
                             <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
                         </div>
@@ -207,18 +220,35 @@ else
                 <h5 class="sm-text my-2">CREATOR</h5>
 
                 <a class="bg-text" href="/UserProfile/@foodPost.User.UserName">@foodPost.User.UserName</a>
+                <AuthorizeView>
+                    <Authorized>
+                        <div class="d-flex justify-content-around my-2">
+                            @if (creator != null)
+                            {
+                                @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(creator.UserName))
+                                {
+                                    <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Delete())  Text="Delete" ButtonStyle="ButtonStyle.Dark"/>
+                                }
+                                else
+                                {
+                                    <RadzenButton class="px-3" Variant="Variant.Flat" Shade="Shade.Lighter" 
+                                                  Click="async () => await ShowRateDialog()"
+                                                  MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value))
+                                                  Text="Report" ButtonStyle="ButtonStyle.Dark"/>
+                                }
+                            }
+                        </div>
+                    </Authorized>
+                    <NotAuthorized>
+                        <div class="d-flex justify-content-center my-2">
+                            <p class="px-3">If you wish to report, please log in.</p>
+                        </div>
+                    </NotAuthorized>
+                </AuthorizeView>
             </div>
         </div>
     </div>
-    <AuthorizeView>
-        <NotAuthorized>
-            <div>
-                <h3>
-                    Please log in if you would like to reserve a post
-                </h3>
-            </div>
-        </NotAuthorized>
-    </AuthorizeView>
+
     <div>
         <h2>
             @errorMsg
@@ -232,7 +262,7 @@ else
 
     <Modal ShowModal="showModal">
         <div class="d-flex flex-column justify-content-start align-items-center">
-            <p class=m-auto>@msg</p>
+            <RadzenText Text="@msg" TextAlign="TextAlign.Center"></RadzenText>
             <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Proceed()) Text="Wonderful!" Class="w-75 btn-text" ButtonStyle="ButtonStyle.Dark"/>
         </div>
     </Modal>
@@ -252,22 +282,20 @@ else
     public OpeningHours? OpeningHours;
     private bool showModal;
     private User creator;
+    private string reportComment;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             foodPost = await foodPostService.GetSingleAsync(id);
+
             creator = await userService.GetUserByUsername(foodPost.User.UserName);
-            
-            
+
             DisplayInformation();
 
             
 
-    //title = foodPost.Title;
-    // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
-    //    "Chicken tikka masala is a dish consisting of roasted marinated chicken chunks in a spiced sauce. The sauce is usually creamy and orange-coloured.", "URL", 3, "finished");
         }
         catch (Exception e)
         {
@@ -314,6 +342,7 @@ else
         {
             var dto = new FoodPostReservationDto(username, foodPostId);
             await foodPostService.ReserveAsync(dto);
+            showModal = true;
             msg = foodPost.Title + " is reserved";
         }
         catch (Exception e)
@@ -328,4 +357,45 @@ else
         navMgr.NavigateTo("/ViewFoodPosts");
     }
 
+    private async void Delete()
+    {
+        await foodPostService.DeleteAsync(foodPost.PostId);
+        navMgr.NavigateTo($"/UserProfile/{creator.UserName}");
+    }
+    
+    private async Task ShowRateDialog()
+    {
+        var result = await DialogService.OpenAsync($"Report {creator.UserName}", ds =>
+            @<div class="d-flex flex-column">
+                <div class="big d-flex flex-row m-2 justify-content-center">
+                    <RadzenText Text="Specify what is the report about in the below comment."></RadzenText>
+                </div>
+                <div class="d-flex flex-column">
+                    <RadzenTextArea class="mb-2" @bind-Value=@reportComment></RadzenTextArea>
+                </div>
+                <div class="d-flex flex-row justify-content-evenly">
+                    <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Report" Click="async () => { await ReportAsync(); ds.Close(true);  }" Class="me-1" Style="width: 80px;"/>
+                </div>
+            </div>);
+    }
+
+    private async Task ReportAsync()
+    {
+        try
+        {
+            Report report = new Report(foodPost.PostId, reportComment, username!);
+            Console.WriteLine(report.Comment);
+            Report savedReport = await foodPostService.ReportAsync(report);
+            msg = "Thank you for your input. We will consider this report as soon as possible.";
+            showModal = true;
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
 }}

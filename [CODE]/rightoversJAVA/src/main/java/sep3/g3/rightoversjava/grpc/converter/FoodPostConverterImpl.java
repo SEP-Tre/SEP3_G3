@@ -3,10 +3,11 @@ package sep3.g3.rightoversjava.grpc.converter;
 import com.google.protobuf.Timestamp;
 import org.springframework.stereotype.Service;
 import sep3.g3.rightoversjava.grpc.converter.interaces.FoodPostConverter;
-import sep3.g3.rightoversjava.grpc.generated.Date;
-import sep3.g3.rightoversjava.grpc.generated.FoodPostResponse;
-import sep3.g3.rightoversjava.grpc.generated.Time;
+import sep3.g3.rightoversjava.grpc.generated.*;
 import sep3.g3.rightoversjava.model.FoodPost;
+import sep3.g3.rightoversjava.model.Report;
+import sep3.g3.rightoversjava.model.dto.PickUpDto;
+import sep3.g3.rightoversjava.model.dto.ReportCreationDto;
 
 import java.time.Instant;
 
@@ -58,4 +59,30 @@ public class FoodPostConverterImpl implements FoodPostConverter {
                 .setEndTime(et)
                 .setUsername(created.getUser().username).build();
     }
+
+    @Override
+    public PickUpDto getPickUpDtoFromPickUpRequest(PickUpRequest request)
+    {
+        return new PickUpDto(request.getId(), request.getUsername());
+    }
+
+    @Override
+    public ReportCreationDto getReportCreationDtoFromRequest(ReportMessage request)
+    {
+        ReportCreationDto dto = new ReportCreationDto(request.getPostId(), request.getComment(), request.getUsernameReporting());
+        return dto;
+    }
+
+    @Override
+    public ReportMessage getReportMessageFromReport(Report report)
+    {
+        ReportMessage message = ReportMessage.newBuilder()
+                .setPostId(report.getFoodPost().getPost_id())
+                .setComment(report.getComment())
+                .setUsernameReporting(report.getUserReporting().getUsername())
+                .build();
+        return message;
+    }
+
+
 }

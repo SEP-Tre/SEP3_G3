@@ -34,47 +34,51 @@
             <div class="form-group field">
                 <label>Image url:</label>
                 <input id="imageUrl" type="url" @bind="@pictureUrl"/>
-                @if (!string.IsNullOrEmpty(resultMsg))
-                {
-                    <label style="color: @color">@resultMsg</label>
-                }
             </div>
-            <div class="form-group field">
-                <label>Start Date for Pickup</label>
-                <input id="start_date" type="date" @bind="@startDate"/>
-            </div>
+            @if (context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value.Equals("False"))
+            {
+                <div class="form-group field">
+                    <label>Start Date for Pickup</label>
+                    <input id="start_date" type="date" @bind="@startDate"/>
+                </div>
 
-            <div class="form-group field">
-                <label>End Date for Pickup</label>
-                <input id="end_date" type="date" @bind="@endDate"/>
-            </div>
+                <div class="form-group field">
+                    <label>End Date for Pickup</label>
+                    <input id="end_date" type="date" @bind="@endDate"/>
+                </div>
 
-            <div class="form-group field">
-                <label>Start Time for Pickup</label>
-                <input id="start_time" type="time" @bind="@startTime"/>
-            </div>
+                <div class="form-group field">
+                    <label>Start Time for Pickup</label>
+                    <input id="start_time" type="time" @bind="@startTime"/>
+                </div>
 
-            <div class="form-group field">
-                <label>End Time for Pickup</label>
-                <input id="end_time" type="time" @bind="@endTime"/>
-            </div>
-            <div class="button-row">
-                <button @onclick="@CWfields" class="acceptbtn">See Fields</button>
-            </div>
+                <div class="form-group field">
+                    <label>End Time for Pickup</label>
+                    <input id="end_time" type="time" @bind="@endTime"/>
+                </div>
+            }
+            else
+            {
+                <div>
+                    <p>People can pick up the food during your business' opening hours.</p>
+                </div>
+            }
 
             <div class="button-row">
                 <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => CreateAsync())" MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Create" ButtonStyle="ButtonStyle.Dark"/>
             </div>
             <Modal ShowModal="showModal">
-                <p>@createdDtoString</p>
-                <button @onclick="@Proceed">Wonderful</button>
+                <p class="text-center">@resultMsg</p>
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Wonderful!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
             </Modal>
         </div>
     </Authorized>
     <NotAuthorized>
-        <h1>
-            You must be logged in to create a post
-        </h1>
+        <div class="d-flex justify-content-center align-items-center">
+            <h1>
+                You must be logged in to create a post!
+            </h1>
+        </div>
     </NotAuthorized>
 
 </AuthorizeView>
@@ -99,17 +103,7 @@
 
     protected override void OnInitialized()
     {
-    //TODO createdUser = get user from auth? :)
-        creatorUsername = "KamilHardCoded";
         initDates();
-    }
-
-    private void CWfields()
-    {
-        Console.WriteLine("Title: " + title);
-        Console.WriteLine("CAT: " + category);
-        Console.WriteLine("desc: " + description);
-        Console.WriteLine("etc");
     }
 
     private void initDates()
@@ -139,7 +133,6 @@
     {
         try
         {
-            Console.WriteLine(creatorUsername);
             int howManyDays = IntegerType.FromString(daysLeftToEat);
             var myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
             var myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
@@ -161,7 +154,7 @@
                     creatorUsername
                     ));
             clear();
-            resultMsg = "Food Post successfully created";
+            resultMsg = $"Food Post with a title '{newFoodPost.Title}' successfully created!";
             color = "green";
     // createdDtoString = "Your Food Post <" + newFoodPost.Title + "> was created.";
             showModal = true;

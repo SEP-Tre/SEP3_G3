@@ -5,6 +5,7 @@
 @inject IUserService userService
 @inject IRatingService ratingService
 @inject NavigationManager navMgr
+@inject DialogService DialogService
 
 @if (foodPosts == null)
 {
@@ -27,6 +28,12 @@ else
                     <h4 class="phone">@user.PhoneNumber</h4>
                 </div>
             </div>
+            <AuthorizeView>
+                <Authorized>
+                     <RadzenButton ButtonStyle="ButtonStyle.Dark" Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value; await ShowRateDialog();}">Rate</RadzenButton>
+                </Authorized>
+            </AuthorizeView>
+
 
             <div class="d-flex flex-column justify-content-center ratings">
                 <div class="d-flex flex-row ">
@@ -123,7 +130,7 @@ else
                         <Template Context="rating">
                             <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
                                 <div class="row">
-                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value />
+                                    <RadzenRating ReadOnly="true" Stars="5" Value=@rating.Value></RadzenRating>
                                 </div>
                                 <div class="row">
                                     <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
@@ -157,6 +164,7 @@ else
 }
 
 @code {
+    private String claimUsername = "UserName"; // pls ignore i have some problems
     private IEnumerable<FoodPost> foodPosts;
     private IEnumerable<Reservation> reservations;
     private List<Rating> ratings;
@@ -173,13 +181,18 @@ else
     private readonly string cookThreeStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-with-stuck-out-tongue.png";
     private readonly string cookFourStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/face-savouring-delicious-food.png";
     private readonly string cookFiveStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/star-struck.png";
-    
+
     private readonly string pickerOneStarPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/skull-and-crossbones.png";
     private readonly string pickerTwoStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grimacing-face.png";
     private readonly string pickerThreeStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/upside-down-face.png";
     private readonly string pickerFourStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/grinning-face-with-smiling-eyes.png";
     private readonly string pickerFiveStarsPicUrl = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/smiling-face-with-halo.png";
-    
+
+    private int ratingType = 1;
+    private String ratingComment = "";
+    private int ratingValue = 1;
+
+    private String loggedInUsername = "";
 
     private Dictionary<int, string> cookUrls { get; set; }
     private Dictionary<int, string> pickerUrls { get; set; }
@@ -197,6 +210,13 @@ else
 
         avgCookerRating = GetAvgCookerRating();
         avgPickerRating = GetAvgPickerRating();
+        
+        
+    }
+
+    protected async Task RefetchRatings()
+    {
+        ratings = await ratingService.GetAllByUserRated(username);
     }
 
     protected void NavigateToProfile(string username)
@@ -215,10 +235,8 @@ else
             [5] = cookFiveStarsPicUrl
         };
     }
-    
-    protected
 
-    void InitPickerPicUrls()
+    protected void InitPickerPicUrls()
     {
         pickerUrls = new Dictionary<int, string>
         {
@@ -243,6 +261,7 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(cookerRatings.Count());
+        avg = Math.Truncate(avg * 100) / 100;
         return avg;
     }
 
@@ -259,7 +278,54 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(pickerRatings.Count());
+        avg = Math.Truncate(avg * 100)/100;
         return avg;
+    }
+
+    private async Task SubmitRating()
+    {
+        Console.WriteLine("Entered submit rating.");
+        String type = "";
+        switch (ratingType)
+        {
+            case 1:
+                type = "cook";
+                break;
+            case 2:
+                type = "picker";
+                break;
+        }
+        Rating newRating = new Rating(loggedInUsername, username, ratingValue, ratingComment, type);
+        
+        Console.WriteLine(newRating);
+        await ratingService.AddRating(newRating);
+        await RefetchRatings();
+    }
+
+    async Task ShowRateDialog()
+    {
+        var result = await DialogService.OpenAsync($"Rate {username}.", ds =>
+            @<div class="d-flex flex-column">
+                <div class="d-flex flex-row justify-content-center">
+                    <RadzenRadioButtonList @bind-Value=@ratingType TValue="int">
+                        <Items>
+                            <RadzenRadioButtonListItem Text="Cook" Value="1"/>
+                            <RadzenRadioButtonListItem Text="Picker" Value="2"/>
+                        </Items>
+                    </RadzenRadioButtonList>
+                </div>
+                <div class="big d-flex flex-row m-2 justify-content-center">
+                    <RadzenRating @bind-Value=@ratingValue></RadzenRating>
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="no-mb">Leave a comment?</p>
+                    <RadzenTextArea class="mb-2" @bind-Value=@ratingComment></RadzenTextArea>
+                </div>
+                <div class="d-flex flex-row justify-content-evenly">
+                    <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Rate" Click="async () => { await SubmitRating(); ds.Close(true);  }" Class="me-1" Style="width: 80px;"/>
+                </div>
+            </div>);
     }
 
 
