@@ -21,7 +21,22 @@ public class OpeningHoursCreationDTO {
     private final LocalTime sundayOpeningHours;
     private final LocalTime sundayClosingHours;
 
-    public OpeningHoursCreationDTO(String username, LocalTime mondayOpeningHours, LocalTime mondayClosingHours, LocalTime tuesdayOpeningHours, LocalTime tuesdayClosingHours, LocalTime wednesdayOpeningHours, LocalTime wednesdayClosingHours, LocalTime thursdayOpeningHours, LocalTime thursdayClosingHours, LocalTime fridayOpeningHours, LocalTime fridayClosingHours, LocalTime saturdayOpeningHours, LocalTime saturdayClosingHours, LocalTime sundayOpeningHours, LocalTime sundayClosingHours) {
+    private  boolean mondayIsOpen;
+
+    private boolean tuesdayIsOpen;
+
+    private boolean wednesdayIsOpen;
+
+    private boolean thursdayIsOpen;
+
+    private boolean fridayIsOpen;
+
+    private boolean saturdayIsOpen;
+
+    private boolean sundayIsOpen;
+
+
+    public OpeningHoursCreationDTO(String username, LocalTime mondayOpeningHours, LocalTime mondayClosingHours, LocalTime tuesdayOpeningHours, LocalTime tuesdayClosingHours, LocalTime wednesdayOpeningHours, LocalTime wednesdayClosingHours, LocalTime thursdayOpeningHours, LocalTime thursdayClosingHours, LocalTime fridayOpeningHours, LocalTime fridayClosingHours, LocalTime saturdayOpeningHours, LocalTime saturdayClosingHours, LocalTime sundayOpeningHours, LocalTime sundayClosingHours, boolean mondayIsOpen, boolean tuesdayIsOpen, boolean wednesdayIsOpen, boolean thursdayIsOpen, boolean fridayIsOpen,  boolean saturdayIsOpen, boolean sundayIsOpen) {
         this.mondayOpeningHours = mondayOpeningHours;
         this.tuesdayOpeningHours = tuesdayOpeningHours;
         this.wednesdayOpeningHours = wednesdayOpeningHours;
@@ -37,7 +52,13 @@ public class OpeningHoursCreationDTO {
         this.saturdayClosingHours = saturdayClosingHours;
         this.sundayClosingHours = sundayClosingHours;
         this.username = username;
-
+        this.mondayIsOpen=mondayIsOpen;
+        this.tuesdayIsOpen=tuesdayIsOpen;
+        this.wednesdayIsOpen=wednesdayIsOpen;
+        this.thursdayIsOpen=thursdayIsOpen;
+        this.fridayIsOpen=fridayIsOpen;
+        this.saturdayIsOpen=saturdayIsOpen;
+        this.sundayIsOpen=sundayIsOpen;
     }
 
     public LocalTime getMondayOpeningHours() {
@@ -112,5 +133,33 @@ public class OpeningHoursCreationDTO {
                 ", saturdayOpeningHours=" + saturdayOpeningHours +
                 ", sundayOpeningHours=" + sundayOpeningHours +
                 '}';
+    }
+
+    public boolean isMondayIsOpen() {
+        return mondayIsOpen;
+    }
+
+    public boolean isTuesdayIsOpen() {
+        return tuesdayIsOpen;
+    }
+
+    public boolean isWednesdayIsOpen() {
+        return wednesdayIsOpen;
+    }
+
+    public boolean isThursdayIsOpen() {
+        return thursdayIsOpen;
+    }
+
+    public boolean isFridayIsOpen() {
+        return fridayIsOpen;
+    }
+
+    public boolean isSaturdayIsOpen() {
+        return saturdayIsOpen;
+    }
+
+    public boolean isSundayIsOpen() {
+        return sundayIsOpen;
     }
 }

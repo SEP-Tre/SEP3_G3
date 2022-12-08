@@ -56,6 +56,28 @@ public class OpeningHours {
     @Column(name = "sunday_closing_hours", columnDefinition = "TIME")
     private LocalTime sundayClosingHours;
 
+    @Column(name="monday_is_open")
+    private boolean mondayIsOpen;
+
+    @Column(name="tuesday_is_open")
+    private boolean tuesdayIsOpen;
+
+    @Column(name="wednesday_is_open")
+    private boolean wednesdayIsOpen;
+
+    @Column(name="thursday_is_open")
+    private boolean thursdayIsOpen;
+
+    @Column(name="friday_is_open")
+    private boolean fridayIsOpen;
+
+    @Column(name="saturday_is_open")
+    private boolean saturdayIsOpen;
+
+    @Column(name="sunday_is_open")
+    private boolean sundayIsOpen;
+
+
 
     @OneToOne
     @JoinColumn(name = "username")
@@ -82,9 +104,17 @@ public class OpeningHours {
         this.fridayClosingHours = dto.getFridayClosingHours();
         this.saturdayClosingHours = dto.getSaturdayClosingHours();
         this.sundayClosingHours = dto.getSundayClosingHours();
+        this.mondayIsOpen=dto.isMondayIsOpen();
+        this.tuesdayIsOpen=dto.isTuesdayIsOpen();
+        this.wednesdayIsOpen=dto.isWednesdayIsOpen();
+        this.thursdayIsOpen=dto.isThursdayIsOpen();
+        this.fridayIsOpen=dto.isFridayIsOpen();
+        this.saturdayIsOpen=dto.isSaturdayIsOpen();
+        this.sundayIsOpen=dto.isSundayIsOpen();
+
     }
 
-    public OpeningHours(int id, LocalTime mondayOpeningHours, LocalTime mondayClosingHours, LocalTime tuesdayOpeningHours, LocalTime tuesdayClosingHours, LocalTime wednesdayOpeningHours, LocalTime wednesdayClosingHours, LocalTime thursdayOpeningHours, LocalTime thursdayClosingHours, LocalTime fridayOpeningHours, LocalTime fridayClosingHours, LocalTime saturdayOpeningHours, LocalTime saturdayClosingHours, LocalTime sundayOpeningHours, LocalTime sundayClosingHours) {
+    public OpeningHours(int id, LocalTime mondayOpeningHours, LocalTime mondayClosingHours, LocalTime tuesdayOpeningHours, LocalTime tuesdayClosingHours, LocalTime wednesdayOpeningHours, LocalTime wednesdayClosingHours, LocalTime thursdayOpeningHours, LocalTime thursdayClosingHours, LocalTime fridayOpeningHours, LocalTime fridayClosingHours, LocalTime saturdayOpeningHours, LocalTime saturdayClosingHours, LocalTime sundayOpeningHours, LocalTime sundayClosingHours, boolean mondayIsOpen,boolean tuesdayIsOpen,boolean wednesdayIsOpen,boolean thursdayIsOpen, boolean fridayIsOpen, boolean saturdayIsOpen, boolean sundayIsOpen) {
         this.id = id;
         this.mondayOpeningHours = mondayOpeningHours;
         this.mondayClosingHours = mondayClosingHours;
@@ -100,6 +130,13 @@ public class OpeningHours {
         this.saturdayClosingHours = saturdayClosingHours;
         this.sundayOpeningHours = sundayOpeningHours;
         this.sundayClosingHours = sundayClosingHours;
+        this.mondayIsOpen=mondayIsOpen;
+        this.tuesdayIsOpen=tuesdayIsOpen;
+        this.wednesdayIsOpen=wednesdayIsOpen;
+        this.thursdayIsOpen=thursdayIsOpen;
+        this.fridayIsOpen=fridayIsOpen;
+        this.saturdayIsOpen=saturdayIsOpen;
+        this.sundayIsOpen=sundayIsOpen;
     }
 
     public User getUser() {
@@ -191,5 +228,33 @@ public class OpeningHours {
 
     public LocalTime getSundayClosingHours() {
         return sundayClosingHours;
+    }
+
+    public boolean isMondayIsOpen() {
+        return mondayIsOpen;
+    }
+
+    public boolean isTuesdayIsOpen() {
+        return tuesdayIsOpen;
+    }
+
+    public boolean isWednesdayIsOpen() {
+        return wednesdayIsOpen;
+    }
+
+    public boolean isThursdayIsOpen() {
+        return thursdayIsOpen;
+    }
+
+    public boolean isFridayIsOpen() {
+        return fridayIsOpen;
+    }
+
+    public boolean isSaturdayIsOpen() {
+        return saturdayIsOpen;
+    }
+
+    public boolean isSundayIsOpen() {
+        return sundayIsOpen;
     }
 }

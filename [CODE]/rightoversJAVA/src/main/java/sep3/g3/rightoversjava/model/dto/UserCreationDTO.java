@@ -5,20 +5,21 @@ public class UserCreationDTO {
     private String username;
     private String password;
     private AddressCreationDTO addressCreationDTO;
-
+    private String phoneNumber;
     private boolean isBusiness;
 
 
     public UserCreationDTO(String firstName, String userName,
                            String password, int addressId, String streetName,
                            String streetNumber,
-                           int postalCode, String cityName, double longitude, double latitude, boolean isBusiness) {
+                           int postalCode, String cityName, double longitude, double latitude, boolean isBusiness, String phoneNumber) {
         this.firstName = firstName;
         this.username = userName;
         this.password = password;
         this.addressCreationDTO = new AddressCreationDTO(addressId,
                 streetNumber, streetName, cityName, postalCode, longitude, latitude);
         this.isBusiness = isBusiness;
+        this.phoneNumber=phoneNumber;
 
     }
 
@@ -48,4 +49,10 @@ public class UserCreationDTO {
     public void setIsBusiness(boolean isBusiness) {
         this.isBusiness = isBusiness;
     }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+
 }

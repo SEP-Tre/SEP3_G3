@@ -69,51 +69,56 @@ public final class User {
   static {
     java.lang.String[] descriptorData = {
       "\n\nUser.proto\022\007sep3.g3\032\016FoodPost.proto\"\037\n" +
-      "\013UserRequest\022\020\n\010username\030\001 \001(\t\"\212\001\n\023UserC" +
+      "\013UserRequest\022\020\n\010username\030\001 \001(\t\"\237\001\n\023UserC" +
       "reationRequest\022\020\n\010username\030\001 \001(\t\022\021\n\tfirs" +
       "tname\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022(\n\007address" +
       "\030\004 \001(\0132\027.sep3.g3.AddressMessage\022\022\n\nisBus" +
-      "iness\030\005 \001(\010\"6\n\020UserLoginRequest\022\020\n\010usern" +
-      "ame\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\221\001\n\016AddressM" +
-      "essage\022\022\n\naddress_id\030\001 \001(\005\022\016\n\006street\030\002 \001" +
-      "(\t\022\025\n\rstreet_number\030\003 \001(\t\022\021\n\tpost_code\030\004" +
-      " \001(\005\022\014\n\004city\030\005 \001(\t\022\021\n\tlongitude\030\006 \001(\001\022\020\n" +
-      "\010latitude\030\007 \001(\001\"n\n\013UserMessage\022\020\n\010userna" +
-      "me\030\001 \001(\t\022\021\n\tfirstname\030\002 \001(\t\022\020\n\010password\030" +
-      "\003 \001(\t\022(\n\007address\030\004 \001(\0132\027.sep3.g3.Address" +
-      "Message\"\034\n\010UserName\022\020\n\010username\030\001 \001(\t\"\272\004" +
-      "\n\024OpeningHoursResponse\022$\n\rmondayOpening\030" +
-      "\001 \001(\0132\r.sep3.g3.Time\022$\n\rmondayClosing\030\002 " +
-      "\001(\0132\r.sep3.g3.Time\022%\n\016tuesdayOpening\030\003 \001" +
-      "(\0132\r.sep3.g3.Time\022%\n\016tuesdayClosing\030\004 \001(" +
-      "\0132\r.sep3.g3.Time\022\'\n\020wednesdayOpening\030\005 \001" +
-      "(\0132\r.sep3.g3.Time\022\'\n\020wednesdayClosing\030\006 " +
-      "\001(\0132\r.sep3.g3.Time\022&\n\017thursdayOpening\030\007 " +
-      "\001(\0132\r.sep3.g3.Time\022&\n\017thursdayClosing\030\010 " +
-      "\001(\0132\r.sep3.g3.Time\022$\n\rfridayOpening\030\t \001(" +
-      "\0132\r.sep3.g3.Time\022$\n\rfridayClosing\030\n \001(\0132" +
-      "\r.sep3.g3.Time\022&\n\017saturdayOpening\030\013 \001(\0132" +
-      "\r.sep3.g3.Time\022&\n\017saturdayClosing\030\014 \001(\0132" +
-      "\r.sep3.g3.Time\022$\n\rsundayOpening\030\r \001(\0132\r." +
-      "sep3.g3.Time\022$\n\rsundayClosing\030\016 \001(\0132\r.se" +
-      "p3.g3.Time\"\\\n\023OpeningHoursRequest\022\020\n\010use" +
-      "rname\030\001 \001(\t\0223\n\014openingHours\030\002 \001(\0132\035.sep3" +
-      ".g3.OpeningHoursResponse\"~\n\022ReservationM" +
-      "essage\022\026\n\016reservation_id\030\001 \001(\005\022,\n\tfood_p" +
-      "ost\030\002 \001(\0132\031.sep3.g3.FoodPostResponse\022\"\n\004" +
-      "user\030\003 \001(\0132\024.sep3.g3.UserMessage2\245\003\n\013Use" +
-      "rService\022;\n\rgetByUsername\022\024.sep3.g3.User" +
-      "Request\032\024.sep3.g3.UserMessage\022>\n\010registe" +
-      "r\022\034.sep3.g3.UserCreationRequest\032\024.sep3.g" +
-      "3.UserMessage\022H\n\022assignOpeningHours\022\034.se" +
-      "p3.g3.OpeningHoursRequest\032\024.sep3.g3.User" +
-      "Message\0228\n\005login\022\031.sep3.g3.UserLoginRequ" +
-      "est\032\024.sep3.g3.UserMessage\022P\n\031getReservat" +
-      "ionsByUsername\022\024.sep3.g3.UserRequest\032\033.s" +
-      "ep3.g3.ReservationMessage0\001\022C\n\017getOpenin" +
-      "gHours\022\021.sep3.g3.UserName\032\035.sep3.g3.Open" +
-      "ingHoursResponseB)\n%sep3.g3.rightoversja" +
-      "va.grpc.generatedP\001b\006proto3"
+      "iness\030\005 \001(\010\022\023\n\013phoneNumber\030\006 \001(\t\"6\n\020User" +
+      "LoginRequest\022\020\n\010username\030\001 \001(\t\022\020\n\010passwo" +
+      "rd\030\002 \001(\t\"\221\001\n\016AddressMessage\022\022\n\naddress_i" +
+      "d\030\001 \001(\005\022\016\n\006street\030\002 \001(\t\022\025\n\rstreet_number" +
+      "\030\003 \001(\t\022\021\n\tpost_code\030\004 \001(\005\022\014\n\004city\030\005 \001(\t\022" +
+      "\021\n\tlongitude\030\006 \001(\001\022\020\n\010latitude\030\007 \001(\001\"\203\001\n" +
+      "\013UserMessage\022\020\n\010username\030\001 \001(\t\022\021\n\tfirstn" +
+      "ame\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022(\n\007address\030\004" +
+      " \001(\0132\027.sep3.g3.AddressMessage\022\023\n\013phoneNu" +
+      "mber\030\005 \001(\t\"\034\n\010UserName\022\020\n\010username\030\001 \001(\t" +
+      "\"\334\005\n\024OpeningHoursResponse\022$\n\rmondayOpeni" +
+      "ng\030\001 \001(\0132\r.sep3.g3.Time\022$\n\rmondayClosing" +
+      "\030\002 \001(\0132\r.sep3.g3.Time\022%\n\016tuesdayOpening\030" +
+      "\003 \001(\0132\r.sep3.g3.Time\022%\n\016tuesdayClosing\030\004" +
+      " \001(\0132\r.sep3.g3.Time\022\'\n\020wednesdayOpening\030" +
+      "\005 \001(\0132\r.sep3.g3.Time\022\'\n\020wednesdayClosing" +
+      "\030\006 \001(\0132\r.sep3.g3.Time\022&\n\017thursdayOpening" +
+      "\030\007 \001(\0132\r.sep3.g3.Time\022&\n\017thursdayClosing" +
+      "\030\010 \001(\0132\r.sep3.g3.Time\022$\n\rfridayOpening\030\t" +
+      " \001(\0132\r.sep3.g3.Time\022$\n\rfridayClosing\030\n \001" +
+      "(\0132\r.sep3.g3.Time\022&\n\017saturdayOpening\030\013 \001" +
+      "(\0132\r.sep3.g3.Time\022&\n\017saturdayClosing\030\014 \001" +
+      "(\0132\r.sep3.g3.Time\022$\n\rsundayOpening\030\r \001(\013" +
+      "2\r.sep3.g3.Time\022$\n\rsundayClosing\030\016 \001(\0132\r" +
+      ".sep3.g3.Time\022\024\n\014mondayIsOpen\030\017 \001(\010\022\025\n\rt" +
+      "uesdayIsOpen\030\020 \001(\010\022\027\n\017wednesdayIsOpen\030\021 " +
+      "\001(\010\022\026\n\016thursdayIsOpen\030\022 \001(\010\022\024\n\014fridayIsO" +
+      "pen\030\023 \001(\010\022\026\n\016saturdayIsOpen\030\024 \001(\010\022\024\n\014sun" +
+      "dayIsOpen\030\025 \001(\010\"\\\n\023OpeningHoursRequest\022\020" +
+      "\n\010username\030\001 \001(\t\0223\n\014openingHours\030\002 \001(\0132\035" +
+      ".sep3.g3.OpeningHoursResponse\"~\n\022Reserva" +
+      "tionMessage\022\026\n\016reservation_id\030\001 \001(\005\022,\n\tf" +
+      "ood_post\030\002 \001(\0132\031.sep3.g3.FoodPostRespons" +
+      "e\022\"\n\004user\030\003 \001(\0132\024.sep3.g3.UserMessage2\245\003" +
+      "\n\013UserService\022;\n\rgetByUsername\022\024.sep3.g3" +
+      ".UserRequest\032\024.sep3.g3.UserMessage\022>\n\010re" +
+      "gister\022\034.sep3.g3.UserCreationRequest\032\024.s" +
+      "ep3.g3.UserMessage\022H\n\022assignOpeningHours" +
+      "\022\034.sep3.g3.OpeningHoursRequest\032\024.sep3.g3" +
+      ".UserMessage\0228\n\005login\022\031.sep3.g3.UserLogi" +
+      "nRequest\032\024.sep3.g3.UserMessage\022P\n\031getRes" +
+      "ervationsByUsername\022\024.sep3.g3.UserReques" +
+      "t\032\033.sep3.g3.ReservationMessage0\001\022C\n\017getO" +
+      "peningHours\022\021.sep3.g3.UserName\032\035.sep3.g3" +
+      ".OpeningHoursResponseB)\n%sep3.g3.rightov" +
+      "ersjava.grpc.generatedP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -131,7 +136,7 @@ public final class User {
     internal_static_sep3_g3_UserCreationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserCreationRequest_descriptor,
-        new java.lang.String[] { "Username", "Firstname", "Password", "Address", "IsBusiness", });
+        new java.lang.String[] { "Username", "Firstname", "Password", "Address", "IsBusiness", "PhoneNumber", });
     internal_static_sep3_g3_UserLoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_sep3_g3_UserLoginRequest_fieldAccessorTable = new
@@ -149,7 +154,7 @@ public final class User {
     internal_static_sep3_g3_UserMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_UserMessage_descriptor,
-        new java.lang.String[] { "Username", "Firstname", "Password", "Address", });
+        new java.lang.String[] { "Username", "Firstname", "Password", "Address", "PhoneNumber", });
     internal_static_sep3_g3_UserName_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_sep3_g3_UserName_fieldAccessorTable = new
@@ -161,7 +166,7 @@ public final class User {
     internal_static_sep3_g3_OpeningHoursResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sep3_g3_OpeningHoursResponse_descriptor,
-        new java.lang.String[] { "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing", });
+        new java.lang.String[] { "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing", "MondayIsOpen", "TuesdayIsOpen", "WednesdayIsOpen", "ThursdayIsOpen", "FridayIsOpen", "SaturdayIsOpen", "SundayIsOpen", });
     internal_static_sep3_g3_OpeningHoursRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_sep3_g3_OpeningHoursRequest_fieldAccessorTable = new

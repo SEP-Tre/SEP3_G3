@@ -4,13 +4,13 @@ namespace Domain.DTOs;
 
 public class OpeningHoursCreationDto
 {
-
-
     public OpeningHoursCreationDto(string username, MyTime mondayOpeningHours, MyTime mondayClosingHours,
         MyTime tuesdayOpeningHours,
         MyTime tuesdayClosingHours, MyTime wednesdayOpeningHours, MyTime wednesdayClosingHours,
         MyTime thursdayOpeningHours, MyTime thursdayClosingHours, MyTime fridayOpeningHours, MyTime fridayClosingHours,
-        MyTime saturdayOpeningHours, MyTime saturdayClosingHours, MyTime sundayOpeningHours, MyTime sundayClosingHours)
+        MyTime saturdayOpeningHours, MyTime saturdayClosingHours, MyTime sundayOpeningHours, MyTime sundayClosingHours,
+        bool isMondayOpen, bool isTuesdayOpen, bool isWednesdayOpen, bool isThursdayOpen, bool isFridayOpen,
+        bool isSaturdayOpen, bool isSundayOpen)
     {
         Username = username;
         MondayOpeningHours = mondayOpeningHours;
@@ -27,11 +27,17 @@ public class OpeningHoursCreationDto
         SaturdayClosingHours = saturdayClosingHours;
         SundayOpeningHours = sundayOpeningHours;
         SundayClosingHours = sundayClosingHours;
+        IsMondayOpen = isMondayOpen;
+        IsTuesdayOpen = isTuesdayOpen;
+        IsWednesdayOpen = isWednesdayOpen;
+        IsThursdayOpen = isThursdayOpen;
+        IsFridayOpen = isFridayOpen;
+        IsSaturdayOpen = isSaturdayOpen;
+        IsSundayOpen = isSundayOpen;
     }
 
     public OpeningHoursCreationDto()
     {
-
     }
 
     public MyTime MondayOpeningHours { get; set; }
@@ -48,5 +54,19 @@ public class OpeningHoursCreationDto
     public MyTime SaturdayClosingHours { get; set; }
     public MyTime SundayOpeningHours { get; set; }
     public MyTime SundayClosingHours { get; set; }
+
+    public bool IsMondayOpen { get; set; }
+
+    public bool IsTuesdayOpen { get; set; }
+
+    public bool IsWednesdayOpen { get; set; }
+
+    public bool IsThursdayOpen { get; set; }
+
+    public bool IsFridayOpen { get; set; }
+
+    public bool IsSaturdayOpen { get; set; }
+
+    public bool IsSundayOpen { get; set; }
     public string Username { get; set; }
 }

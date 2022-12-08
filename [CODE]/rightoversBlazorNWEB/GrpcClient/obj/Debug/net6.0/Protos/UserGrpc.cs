@@ -26,57 +26,62 @@ namespace GrpcCL {
           string.Concat(
             "ChVQcm90b3MvVXNlckdycGMucHJvdG8SB3NlcDMuZzMaGVByb3Rvcy9Gb29k",
             "UG9zdEdycGMucHJvdG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJv",
-            "dG8iHwoLVXNlclJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkiigEKE1VzZXJD",
+            "dG8iHwoLVXNlclJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkinwEKE1VzZXJD",
             "cmVhdGlvblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEQoJZmlyc3RuYW1l",
             "GAIgASgJEhAKCHBhc3N3b3JkGAMgASgJEigKB2FkZHJlc3MYBCABKAsyFy5z",
-            "ZXAzLmczLkFkZHJlc3NNZXNzYWdlEhIKCmlzQnVzaW5lc3MYBSABKAgiNgoQ",
-            "VXNlckxvZ2luUmVxdWVzdBIQCgh1c2VybmFtZRgBIAEoCRIQCghwYXNzd29y",
-            "ZBgCIAEoCSKRAQoOQWRkcmVzc01lc3NhZ2USEgoKYWRkcmVzc19pZBgBIAEo",
-            "BRIOCgZzdHJlZXQYAiABKAkSFQoNc3RyZWV0X251bWJlchgDIAEoCRIRCglw",
-            "b3N0X2NvZGUYBCABKAUSDAoEY2l0eRgFIAEoCRIRCglsb25naXR1ZGUYBiAB",
-            "KAESEAoIbGF0aXR1ZGUYByABKAEibgoLVXNlck1lc3NhZ2USEAoIdXNlcm5h",
-            "bWUYASABKAkSEQoJZmlyc3RuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJ",
-            "EigKB2FkZHJlc3MYBCABKAsyFy5zZXAzLmczLkFkZHJlc3NNZXNzYWdlIicK",
-            "Bk9DVGltZRIMCgRob3VyGAEgASgFEg8KB21pbnV0ZXMYAiABKAUi1gQKFE9w",
-            "ZW5pbmdIb3Vyc1Jlc3BvbnNlEiYKDW1vbmRheU9wZW5pbmcYASABKAsyDy5z",
-            "ZXAzLmczLk9DVGltZRImCg1tb25kYXlDbG9zaW5nGAIgASgLMg8uc2VwMy5n",
-            "My5PQ1RpbWUSJwoOdHVlc2RheU9wZW5pbmcYAyABKAsyDy5zZXAzLmczLk9D",
-            "VGltZRInCg50dWVzZGF5Q2xvc2luZxgEIAEoCzIPLnNlcDMuZzMuT0NUaW1l",
-            "EikKEHdlZG5lc2RheU9wZW5pbmcYBSABKAsyDy5zZXAzLmczLk9DVGltZRIp",
-            "ChB3ZWRuZXNkYXlDbG9zaW5nGAYgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoP",
-            "dGh1cnNkYXlPcGVuaW5nGAcgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPdGh1",
-            "cnNkYXlDbG9zaW5nGAggASgLMg8uc2VwMy5nMy5PQ1RpbWUSJgoNZnJpZGF5",
-            "T3BlbmluZxgJIAEoCzIPLnNlcDMuZzMuT0NUaW1lEiYKDWZyaWRheUNsb3Np",
-            "bmcYCiABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9zYXR1cmRheU9wZW5pbmcY",
-            "CyABKAsyDy5zZXAzLmczLk9DVGltZRIoCg9zYXR1cmRheUNsb3NpbmcYDCAB",
-            "KAsyDy5zZXAzLmczLk9DVGltZRImCg1zdW5kYXlPcGVuaW5nGA0gASgLMg8u",
-            "c2VwMy5nMy5PQ1RpbWUSJgoNc3VuZGF5Q2xvc2luZxgOIAEoCzIPLnNlcDMu",
-            "ZzMuT0NUaW1lIlwKE09wZW5pbmdIb3Vyc1JlcXVlc3QSEAoIdXNlcm5hbWUY",
-            "ASABKAkSMwoMb3BlbmluZ0hvdXJzGAIgASgLMh0uc2VwMy5nMy5PcGVuaW5n",
-            "SG91cnNSZXNwb25zZSIcCghVc2VyTmFtZRIQCgh1c2VybmFtZRgBIAEoCSJ+",
-            "ChJSZXNlcnZhdGlvbk1lc3NhZ2USFgoOcmVzZXJ2YXRpb25faWQYASABKAUS",
-            "LAoJZm9vZF9wb3N0GAIgASgLMhkuc2VwMy5nMy5Gb29kUG9zdFJlc3BvbnNl",
-            "EiIKBHVzZXIYAyABKAsyFC5zZXAzLmczLlVzZXJNZXNzYWdlMqUDCgtVc2Vy",
-            "U2VydmljZRI7Cg1nZXRCeVVzZXJuYW1lEhQuc2VwMy5nMy5Vc2VyUmVxdWVz",
-            "dBoULnNlcDMuZzMuVXNlck1lc3NhZ2USPgoIcmVnaXN0ZXISHC5zZXAzLmcz",
-            "LlVzZXJDcmVhdGlvblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlEkgK",
-            "EmFzc2lnbk9wZW5pbmdIb3VycxIcLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVx",
-            "dWVzdBoULnNlcDMuZzMuVXNlck1lc3NhZ2USOAoFbG9naW4SGS5zZXAzLmcz",
-            "LlVzZXJMb2dpblJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNzYWdlElAKGWdl",
-            "dFJlc2VydmF0aW9uc0J5VXNlcm5hbWUSFC5zZXAzLmczLlVzZXJSZXF1ZXN0",
-            "Ghsuc2VwMy5nMy5SZXNlcnZhdGlvbk1lc3NhZ2UwARJDCg9nZXRPcGVuaW5n",
-            "SG91cnMSES5zZXAzLmczLlVzZXJOYW1lGh0uc2VwMy5nMy5PcGVuaW5nSG91",
-            "cnNSZXNwb25zZUIJqgIGR3JwY0NMYgZwcm90bzM="));
+            "ZXAzLmczLkFkZHJlc3NNZXNzYWdlEhIKCmlzQnVzaW5lc3MYBSABKAgSEwoL",
+            "cGhvbmVOdW1iZXIYBiABKAkiNgoQVXNlckxvZ2luUmVxdWVzdBIQCgh1c2Vy",
+            "bmFtZRgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSKRAQoOQWRkcmVzc01lc3Nh",
+            "Z2USEgoKYWRkcmVzc19pZBgBIAEoBRIOCgZzdHJlZXQYAiABKAkSFQoNc3Ry",
+            "ZWV0X251bWJlchgDIAEoCRIRCglwb3N0X2NvZGUYBCABKAUSDAoEY2l0eRgF",
+            "IAEoCRIRCglsb25naXR1ZGUYBiABKAESEAoIbGF0aXR1ZGUYByABKAEigwEK",
+            "C1VzZXJNZXNzYWdlEhAKCHVzZXJuYW1lGAEgASgJEhEKCWZpcnN0bmFtZRgC",
+            "IAEoCRIQCghwYXNzd29yZBgDIAEoCRIoCgdhZGRyZXNzGAQgASgLMhcuc2Vw",
+            "My5nMy5BZGRyZXNzTWVzc2FnZRITCgtwaG9uZU51bWJlchgFIAEoCSInCgZP",
+            "Q1RpbWUSDAoEaG91chgBIAEoBRIPCgdtaW51dGVzGAIgASgFIvgFChRPcGVu",
+            "aW5nSG91cnNSZXNwb25zZRImCg1tb25kYXlPcGVuaW5nGAEgASgLMg8uc2Vw",
+            "My5nMy5PQ1RpbWUSJgoNbW9uZGF5Q2xvc2luZxgCIAEoCzIPLnNlcDMuZzMu",
+            "T0NUaW1lEicKDnR1ZXNkYXlPcGVuaW5nGAMgASgLMg8uc2VwMy5nMy5PQ1Rp",
+            "bWUSJwoOdHVlc2RheUNsb3NpbmcYBCABKAsyDy5zZXAzLmczLk9DVGltZRIp",
+            "ChB3ZWRuZXNkYXlPcGVuaW5nGAUgASgLMg8uc2VwMy5nMy5PQ1RpbWUSKQoQ",
+            "d2VkbmVzZGF5Q2xvc2luZxgGIAEoCzIPLnNlcDMuZzMuT0NUaW1lEigKD3Ro",
+            "dXJzZGF5T3BlbmluZxgHIAEoCzIPLnNlcDMuZzMuT0NUaW1lEigKD3RodXJz",
+            "ZGF5Q2xvc2luZxgIIAEoCzIPLnNlcDMuZzMuT0NUaW1lEiYKDWZyaWRheU9w",
+            "ZW5pbmcYCSABKAsyDy5zZXAzLmczLk9DVGltZRImCg1mcmlkYXlDbG9zaW5n",
+            "GAogASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPc2F0dXJkYXlPcGVuaW5nGAsg",
+            "ASgLMg8uc2VwMy5nMy5PQ1RpbWUSKAoPc2F0dXJkYXlDbG9zaW5nGAwgASgL",
+            "Mg8uc2VwMy5nMy5PQ1RpbWUSJgoNc3VuZGF5T3BlbmluZxgNIAEoCzIPLnNl",
+            "cDMuZzMuT0NUaW1lEiYKDXN1bmRheUNsb3NpbmcYDiABKAsyDy5zZXAzLmcz",
+            "Lk9DVGltZRIUCgxtb25kYXlJc09wZW4YDyABKAgSFQoNdHVlc2RheUlzT3Bl",
+            "bhgQIAEoCBIXCg93ZWRuZXNkYXlJc09wZW4YESABKAgSFgoOdGh1cnNkYXlJ",
+            "c09wZW4YEiABKAgSFAoMZnJpZGF5SXNPcGVuGBMgASgIEhYKDnNhdHVyZGF5",
+            "SXNPcGVuGBQgASgIEhQKDHN1bmRheUlzT3BlbhgVIAEoCCJcChNPcGVuaW5n",
+            "SG91cnNSZXF1ZXN0EhAKCHVzZXJuYW1lGAEgASgJEjMKDG9wZW5pbmdIb3Vy",
+            "cxgCIAEoCzIdLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVzcG9uc2UiHAoIVXNl",
+            "ck5hbWUSEAoIdXNlcm5hbWUYASABKAkifgoSUmVzZXJ2YXRpb25NZXNzYWdl",
+            "EhYKDnJlc2VydmF0aW9uX2lkGAEgASgFEiwKCWZvb2RfcG9zdBgCIAEoCzIZ",
+            "LnNlcDMuZzMuRm9vZFBvc3RSZXNwb25zZRIiCgR1c2VyGAMgASgLMhQuc2Vw",
+            "My5nMy5Vc2VyTWVzc2FnZTKlAwoLVXNlclNlcnZpY2USOwoNZ2V0QnlVc2Vy",
+            "bmFtZRIULnNlcDMuZzMuVXNlclJlcXVlc3QaFC5zZXAzLmczLlVzZXJNZXNz",
+            "YWdlEj4KCHJlZ2lzdGVyEhwuc2VwMy5nMy5Vc2VyQ3JlYXRpb25SZXF1ZXN0",
+            "GhQuc2VwMy5nMy5Vc2VyTWVzc2FnZRJIChJhc3NpZ25PcGVuaW5nSG91cnMS",
+            "HC5zZXAzLmczLk9wZW5pbmdIb3Vyc1JlcXVlc3QaFC5zZXAzLmczLlVzZXJN",
+            "ZXNzYWdlEjgKBWxvZ2luEhkuc2VwMy5nMy5Vc2VyTG9naW5SZXF1ZXN0GhQu",
+            "c2VwMy5nMy5Vc2VyTWVzc2FnZRJQChlnZXRSZXNlcnZhdGlvbnNCeVVzZXJu",
+            "YW1lEhQuc2VwMy5nMy5Vc2VyUmVxdWVzdBobLnNlcDMuZzMuUmVzZXJ2YXRp",
+            "b25NZXNzYWdlMAESQwoPZ2V0T3BlbmluZ0hvdXJzEhEuc2VwMy5nMy5Vc2Vy",
+            "TmFtZRodLnNlcDMuZzMuT3BlbmluZ0hvdXJzUmVzcG9uc2VCCaoCBkdycGND",
+            "TGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::GrpcCL.FoodPostGrpcReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserRequest), global::GrpcCL.UserRequest.Parser, new[]{ "Username" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserCreationRequest), global::GrpcCL.UserCreationRequest.Parser, new[]{ "Username", "Firstname", "Password", "Address", "IsBusiness" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserCreationRequest), global::GrpcCL.UserCreationRequest.Parser, new[]{ "Username", "Firstname", "Password", "Address", "IsBusiness", "PhoneNumber" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserLoginRequest), global::GrpcCL.UserLoginRequest.Parser, new[]{ "Username", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.AddressMessage), global::GrpcCL.AddressMessage.Parser, new[]{ "AddressId", "Street", "StreetNumber", "PostCode", "City", "Longitude", "Latitude" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserMessage), global::GrpcCL.UserMessage.Parser, new[]{ "Username", "Firstname", "Password", "Address" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserMessage), global::GrpcCL.UserMessage.Parser, new[]{ "Username", "Firstname", "Password", "Address", "PhoneNumber" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OCTime), global::GrpcCL.OCTime.Parser, new[]{ "Hour", "Minutes" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursResponse), global::GrpcCL.OpeningHoursResponse.Parser, new[]{ "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursResponse), global::GrpcCL.OpeningHoursResponse.Parser, new[]{ "MondayOpening", "MondayClosing", "TuesdayOpening", "TuesdayClosing", "WednesdayOpening", "WednesdayClosing", "ThursdayOpening", "ThursdayClosing", "FridayOpening", "FridayClosing", "SaturdayOpening", "SaturdayClosing", "SundayOpening", "SundayClosing", "MondayIsOpen", "TuesdayIsOpen", "WednesdayIsOpen", "ThursdayIsOpen", "FridayIsOpen", "SaturdayIsOpen", "SundayIsOpen" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.OpeningHoursRequest), global::GrpcCL.OpeningHoursRequest.Parser, new[]{ "Username", "OpeningHours" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.UserName), global::GrpcCL.UserName.Parser, new[]{ "Username" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcCL.ReservationMessage), global::GrpcCL.ReservationMessage.Parser, new[]{ "ReservationId", "FoodPost", "User" }, null, null, null, null)
@@ -314,6 +319,7 @@ namespace GrpcCL {
       password_ = other.password_;
       address_ = other.address_ != null ? other.address_.Clone() : null;
       isBusiness_ = other.isBusiness_;
+      phoneNumber_ = other.phoneNumber_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -383,6 +389,18 @@ namespace GrpcCL {
       }
     }
 
+    /// <summary>Field number for the "phoneNumber" field.</summary>
+    public const int PhoneNumberFieldNumber = 6;
+    private string phoneNumber_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string PhoneNumber {
+      get { return phoneNumber_; }
+      set {
+        phoneNumber_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -403,6 +421,7 @@ namespace GrpcCL {
       if (Password != other.Password) return false;
       if (!object.Equals(Address, other.Address)) return false;
       if (IsBusiness != other.IsBusiness) return false;
+      if (PhoneNumber != other.PhoneNumber) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -415,6 +434,7 @@ namespace GrpcCL {
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (address_ != null) hash ^= Address.GetHashCode();
       if (IsBusiness != false) hash ^= IsBusiness.GetHashCode();
+      if (PhoneNumber.Length != 0) hash ^= PhoneNumber.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -453,6 +473,10 @@ namespace GrpcCL {
         output.WriteRawTag(40);
         output.WriteBool(IsBusiness);
       }
+      if (PhoneNumber.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(PhoneNumber);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -483,6 +507,10 @@ namespace GrpcCL {
         output.WriteRawTag(40);
         output.WriteBool(IsBusiness);
       }
+      if (PhoneNumber.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(PhoneNumber);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -507,6 +535,9 @@ namespace GrpcCL {
       }
       if (IsBusiness != false) {
         size += 1 + 1;
+      }
+      if (PhoneNumber.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PhoneNumber);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -537,6 +568,9 @@ namespace GrpcCL {
       }
       if (other.IsBusiness != false) {
         IsBusiness = other.IsBusiness;
+      }
+      if (other.PhoneNumber.Length != 0) {
+        PhoneNumber = other.PhoneNumber;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -576,6 +610,10 @@ namespace GrpcCL {
             IsBusiness = input.ReadBool();
             break;
           }
+          case 50: {
+            PhoneNumber = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -612,6 +650,10 @@ namespace GrpcCL {
           }
           case 40: {
             IsBusiness = input.ReadBool();
+            break;
+          }
+          case 50: {
+            PhoneNumber = input.ReadString();
             break;
           }
         }
@@ -1296,6 +1338,7 @@ namespace GrpcCL {
       firstname_ = other.firstname_;
       password_ = other.password_;
       address_ = other.address_ != null ? other.address_.Clone() : null;
+      phoneNumber_ = other.phoneNumber_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1353,6 +1396,18 @@ namespace GrpcCL {
       }
     }
 
+    /// <summary>Field number for the "phoneNumber" field.</summary>
+    public const int PhoneNumberFieldNumber = 5;
+    private string phoneNumber_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string PhoneNumber {
+      get { return phoneNumber_; }
+      set {
+        phoneNumber_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1372,6 +1427,7 @@ namespace GrpcCL {
       if (Firstname != other.Firstname) return false;
       if (Password != other.Password) return false;
       if (!object.Equals(Address, other.Address)) return false;
+      if (PhoneNumber != other.PhoneNumber) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1383,6 +1439,7 @@ namespace GrpcCL {
       if (Firstname.Length != 0) hash ^= Firstname.GetHashCode();
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (address_ != null) hash ^= Address.GetHashCode();
+      if (PhoneNumber.Length != 0) hash ^= PhoneNumber.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1417,6 +1474,10 @@ namespace GrpcCL {
         output.WriteRawTag(34);
         output.WriteMessage(Address);
       }
+      if (PhoneNumber.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(PhoneNumber);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1443,6 +1504,10 @@ namespace GrpcCL {
         output.WriteRawTag(34);
         output.WriteMessage(Address);
       }
+      if (PhoneNumber.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(PhoneNumber);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1464,6 +1529,9 @@ namespace GrpcCL {
       }
       if (address_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Address);
+      }
+      if (PhoneNumber.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PhoneNumber);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1491,6 +1559,9 @@ namespace GrpcCL {
           Address = new global::GrpcCL.AddressMessage();
         }
         Address.MergeFrom(other.Address);
+      }
+      if (other.PhoneNumber.Length != 0) {
+        PhoneNumber = other.PhoneNumber;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1526,6 +1597,10 @@ namespace GrpcCL {
             input.ReadMessage(Address);
             break;
           }
+          case 42: {
+            PhoneNumber = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1558,6 +1633,10 @@ namespace GrpcCL {
               Address = new global::GrpcCL.AddressMessage();
             }
             input.ReadMessage(Address);
+            break;
+          }
+          case 42: {
+            PhoneNumber = input.ReadString();
             break;
           }
         }
@@ -1841,6 +1920,13 @@ namespace GrpcCL {
       saturdayClosing_ = other.saturdayClosing_ != null ? other.saturdayClosing_.Clone() : null;
       sundayOpening_ = other.sundayOpening_ != null ? other.sundayOpening_.Clone() : null;
       sundayClosing_ = other.sundayClosing_ != null ? other.sundayClosing_.Clone() : null;
+      mondayIsOpen_ = other.mondayIsOpen_;
+      tuesdayIsOpen_ = other.tuesdayIsOpen_;
+      wednesdayIsOpen_ = other.wednesdayIsOpen_;
+      thursdayIsOpen_ = other.thursdayIsOpen_;
+      fridayIsOpen_ = other.fridayIsOpen_;
+      saturdayIsOpen_ = other.saturdayIsOpen_;
+      sundayIsOpen_ = other.sundayIsOpen_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2018,6 +2104,90 @@ namespace GrpcCL {
       }
     }
 
+    /// <summary>Field number for the "mondayIsOpen" field.</summary>
+    public const int MondayIsOpenFieldNumber = 15;
+    private bool mondayIsOpen_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool MondayIsOpen {
+      get { return mondayIsOpen_; }
+      set {
+        mondayIsOpen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "tuesdayIsOpen" field.</summary>
+    public const int TuesdayIsOpenFieldNumber = 16;
+    private bool tuesdayIsOpen_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool TuesdayIsOpen {
+      get { return tuesdayIsOpen_; }
+      set {
+        tuesdayIsOpen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "wednesdayIsOpen" field.</summary>
+    public const int WednesdayIsOpenFieldNumber = 17;
+    private bool wednesdayIsOpen_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool WednesdayIsOpen {
+      get { return wednesdayIsOpen_; }
+      set {
+        wednesdayIsOpen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "thursdayIsOpen" field.</summary>
+    public const int ThursdayIsOpenFieldNumber = 18;
+    private bool thursdayIsOpen_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool ThursdayIsOpen {
+      get { return thursdayIsOpen_; }
+      set {
+        thursdayIsOpen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "fridayIsOpen" field.</summary>
+    public const int FridayIsOpenFieldNumber = 19;
+    private bool fridayIsOpen_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool FridayIsOpen {
+      get { return fridayIsOpen_; }
+      set {
+        fridayIsOpen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "saturdayIsOpen" field.</summary>
+    public const int SaturdayIsOpenFieldNumber = 20;
+    private bool saturdayIsOpen_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool SaturdayIsOpen {
+      get { return saturdayIsOpen_; }
+      set {
+        saturdayIsOpen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sundayIsOpen" field.</summary>
+    public const int SundayIsOpenFieldNumber = 21;
+    private bool sundayIsOpen_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool SundayIsOpen {
+      get { return sundayIsOpen_; }
+      set {
+        sundayIsOpen_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2047,6 +2217,13 @@ namespace GrpcCL {
       if (!object.Equals(SaturdayClosing, other.SaturdayClosing)) return false;
       if (!object.Equals(SundayOpening, other.SundayOpening)) return false;
       if (!object.Equals(SundayClosing, other.SundayClosing)) return false;
+      if (MondayIsOpen != other.MondayIsOpen) return false;
+      if (TuesdayIsOpen != other.TuesdayIsOpen) return false;
+      if (WednesdayIsOpen != other.WednesdayIsOpen) return false;
+      if (ThursdayIsOpen != other.ThursdayIsOpen) return false;
+      if (FridayIsOpen != other.FridayIsOpen) return false;
+      if (SaturdayIsOpen != other.SaturdayIsOpen) return false;
+      if (SundayIsOpen != other.SundayIsOpen) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2068,6 +2245,13 @@ namespace GrpcCL {
       if (saturdayClosing_ != null) hash ^= SaturdayClosing.GetHashCode();
       if (sundayOpening_ != null) hash ^= SundayOpening.GetHashCode();
       if (sundayClosing_ != null) hash ^= SundayClosing.GetHashCode();
+      if (MondayIsOpen != false) hash ^= MondayIsOpen.GetHashCode();
+      if (TuesdayIsOpen != false) hash ^= TuesdayIsOpen.GetHashCode();
+      if (WednesdayIsOpen != false) hash ^= WednesdayIsOpen.GetHashCode();
+      if (ThursdayIsOpen != false) hash ^= ThursdayIsOpen.GetHashCode();
+      if (FridayIsOpen != false) hash ^= FridayIsOpen.GetHashCode();
+      if (SaturdayIsOpen != false) hash ^= SaturdayIsOpen.GetHashCode();
+      if (SundayIsOpen != false) hash ^= SundayIsOpen.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2142,6 +2326,34 @@ namespace GrpcCL {
         output.WriteRawTag(114);
         output.WriteMessage(SundayClosing);
       }
+      if (MondayIsOpen != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(MondayIsOpen);
+      }
+      if (TuesdayIsOpen != false) {
+        output.WriteRawTag(128, 1);
+        output.WriteBool(TuesdayIsOpen);
+      }
+      if (WednesdayIsOpen != false) {
+        output.WriteRawTag(136, 1);
+        output.WriteBool(WednesdayIsOpen);
+      }
+      if (ThursdayIsOpen != false) {
+        output.WriteRawTag(144, 1);
+        output.WriteBool(ThursdayIsOpen);
+      }
+      if (FridayIsOpen != false) {
+        output.WriteRawTag(152, 1);
+        output.WriteBool(FridayIsOpen);
+      }
+      if (SaturdayIsOpen != false) {
+        output.WriteRawTag(160, 1);
+        output.WriteBool(SaturdayIsOpen);
+      }
+      if (SundayIsOpen != false) {
+        output.WriteRawTag(168, 1);
+        output.WriteBool(SundayIsOpen);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2208,6 +2420,34 @@ namespace GrpcCL {
         output.WriteRawTag(114);
         output.WriteMessage(SundayClosing);
       }
+      if (MondayIsOpen != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(MondayIsOpen);
+      }
+      if (TuesdayIsOpen != false) {
+        output.WriteRawTag(128, 1);
+        output.WriteBool(TuesdayIsOpen);
+      }
+      if (WednesdayIsOpen != false) {
+        output.WriteRawTag(136, 1);
+        output.WriteBool(WednesdayIsOpen);
+      }
+      if (ThursdayIsOpen != false) {
+        output.WriteRawTag(144, 1);
+        output.WriteBool(ThursdayIsOpen);
+      }
+      if (FridayIsOpen != false) {
+        output.WriteRawTag(152, 1);
+        output.WriteBool(FridayIsOpen);
+      }
+      if (SaturdayIsOpen != false) {
+        output.WriteRawTag(160, 1);
+        output.WriteBool(SaturdayIsOpen);
+      }
+      if (SundayIsOpen != false) {
+        output.WriteRawTag(168, 1);
+        output.WriteBool(SundayIsOpen);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2259,6 +2499,27 @@ namespace GrpcCL {
       }
       if (sundayClosing_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SundayClosing);
+      }
+      if (MondayIsOpen != false) {
+        size += 1 + 1;
+      }
+      if (TuesdayIsOpen != false) {
+        size += 2 + 1;
+      }
+      if (WednesdayIsOpen != false) {
+        size += 2 + 1;
+      }
+      if (ThursdayIsOpen != false) {
+        size += 2 + 1;
+      }
+      if (FridayIsOpen != false) {
+        size += 2 + 1;
+      }
+      if (SaturdayIsOpen != false) {
+        size += 2 + 1;
+      }
+      if (SundayIsOpen != false) {
+        size += 2 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2355,6 +2616,27 @@ namespace GrpcCL {
           SundayClosing = new global::GrpcCL.OCTime();
         }
         SundayClosing.MergeFrom(other.SundayClosing);
+      }
+      if (other.MondayIsOpen != false) {
+        MondayIsOpen = other.MondayIsOpen;
+      }
+      if (other.TuesdayIsOpen != false) {
+        TuesdayIsOpen = other.TuesdayIsOpen;
+      }
+      if (other.WednesdayIsOpen != false) {
+        WednesdayIsOpen = other.WednesdayIsOpen;
+      }
+      if (other.ThursdayIsOpen != false) {
+        ThursdayIsOpen = other.ThursdayIsOpen;
+      }
+      if (other.FridayIsOpen != false) {
+        FridayIsOpen = other.FridayIsOpen;
+      }
+      if (other.SaturdayIsOpen != false) {
+        SaturdayIsOpen = other.SaturdayIsOpen;
+      }
+      if (other.SundayIsOpen != false) {
+        SundayIsOpen = other.SundayIsOpen;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2469,6 +2751,34 @@ namespace GrpcCL {
             input.ReadMessage(SundayClosing);
             break;
           }
+          case 120: {
+            MondayIsOpen = input.ReadBool();
+            break;
+          }
+          case 128: {
+            TuesdayIsOpen = input.ReadBool();
+            break;
+          }
+          case 136: {
+            WednesdayIsOpen = input.ReadBool();
+            break;
+          }
+          case 144: {
+            ThursdayIsOpen = input.ReadBool();
+            break;
+          }
+          case 152: {
+            FridayIsOpen = input.ReadBool();
+            break;
+          }
+          case 160: {
+            SaturdayIsOpen = input.ReadBool();
+            break;
+          }
+          case 168: {
+            SundayIsOpen = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -2580,6 +2890,34 @@ namespace GrpcCL {
               SundayClosing = new global::GrpcCL.OCTime();
             }
             input.ReadMessage(SundayClosing);
+            break;
+          }
+          case 120: {
+            MondayIsOpen = input.ReadBool();
+            break;
+          }
+          case 128: {
+            TuesdayIsOpen = input.ReadBool();
+            break;
+          }
+          case 136: {
+            WednesdayIsOpen = input.ReadBool();
+            break;
+          }
+          case 144: {
+            ThursdayIsOpen = input.ReadBool();
+            break;
+          }
+          case 152: {
+            FridayIsOpen = input.ReadBool();
+            break;
+          }
+          case 160: {
+            SaturdayIsOpen = input.ReadBool();
+            break;
+          }
+          case 168: {
+            SundayIsOpen = input.ReadBool();
             break;
           }
         }

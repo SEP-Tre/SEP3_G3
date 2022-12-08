@@ -25,6 +25,7 @@ public class UserConverter : IUserConverter
             Password = dto.Password,
             Username = dto.UserName,
             IsBusiness = dto.IsBusiness,
+            PhoneNumber = dto.PhoneNumber,
             Address = new AddressMessage{
                 AddressId = addressDto.AddressId,
                 City = addressDto.City,
@@ -34,6 +35,7 @@ public class UserConverter : IUserConverter
                 Street = addressDto.Street,
                 StreetNumber = addressDto.StreetNumber
             }
+            
         };
 
         return userCreationRequest;
@@ -65,6 +67,7 @@ public class UserConverter : IUserConverter
             FirstName = userMessage.Firstname,
             UserName = userMessage.Username,
             Password = userMessage.Password,
+            PhoneNumber = userMessage.PhoneNumber,
             Address = new Address(addressMessage.AddressId, addressMessage.StreetNumber, addressMessage.Street,
                 addressMessage.PostCode, addressMessage.City, addressMessage.Longitude, addressMessage.Latitude)
         };

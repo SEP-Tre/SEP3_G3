@@ -62,57 +62,127 @@ else
                             <td>
                                 <h5 class="sm-text">MON</h5>
                             </td>
-                            <td>
-                                <h5 class="xs-text-days px-5">@OpeningHours.MondayOpeningHours.timeFormatter(OpeningHours.MondayOpeningHours) - @OpeningHours.MondayClosingHours.timeFormatter(OpeningHours.MondayClosingHours)</h5>
-                            </td>
+                            @if (OpeningHours.IsMondayOpen)
+
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">@OpeningHours.MondayOpeningHours.timeFormatter(OpeningHours.MondayOpeningHours) - @OpeningHours.MondayClosingHours.timeFormatter(OpeningHours.MondayClosingHours)</h5>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>
                                 <h5 class="sm-text">TUE</h5>
                             </td>
-                            <td>
-                                <h5 class="xs-text-days px-5">@OpeningHours.TuesdayOpeningHours.timeFormatter(OpeningHours.TuesdayOpeningHours) - @OpeningHours.TuesdayClosingHours.timeFormatter(OpeningHours.TuesdayClosingHours)</h5>
-                            </td>
+                            
+                            @if (OpeningHours.IsTuesdayOpen)
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">@OpeningHours.TuesdayOpeningHours.timeFormatter(OpeningHours.TuesdayOpeningHours) - @OpeningHours.TuesdayClosingHours.timeFormatter(OpeningHours.TuesdayClosingHours)</h5>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>
                                 <h5 class="sm-text">WED</h5>
                             </td>
-                            <td>
-                                <h5 class="xs-text-days px-5">@OpeningHours.WednesdayOpeningHours.timeFormatter(OpeningHours.WednesdayOpeningHours) - @OpeningHours.WednesdayClosingHours.timeFormatter(OpeningHours.WednesdayClosingHours)</h5>
-                            </td>
+                            @if (OpeningHours.IsWednesdayOpen)
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">@OpeningHours.WednesdayOpeningHours.timeFormatter(OpeningHours.WednesdayOpeningHours) - @OpeningHours.WednesdayClosingHours.timeFormatter(OpeningHours.WednesdayClosingHours)</h5>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>
                                 <h5 class="sm-text">THU</h5>
                             </td>
-                            <td>
-                                <h5 class="xs-text-days px-5">@OpeningHours.ThursdayOpeningHours.timeFormatter(OpeningHours.ThursdayOpeningHours) - @OpeningHours.ThursdayClosingHours.timeFormatter(OpeningHours.ThursdayClosingHours)</h5>
-                            </td>
+                            @if (OpeningHours.IsThursdayOpen)
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">@OpeningHours.ThursdayOpeningHours.timeFormatter(OpeningHours.ThursdayOpeningHours) - @OpeningHours.ThursdayClosingHours.timeFormatter(OpeningHours.ThursdayClosingHours)</h5>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                </td>
+                            }
                         </tr>
                         <tr>
+                            
+                           
+                                
+                            
                             <td>
                                 <h5 class="sm-text">FRI</h5>
                             </td>
-                            <td>
-                                <h5 class="xs-text-days px-5">@OpeningHours.FridayOpeningHours.timeFormatter(OpeningHours.FridayOpeningHours) - @OpeningHours.FridayClosingHours.timeFormatter(OpeningHours.FridayClosingHours)</h5>
-                            </td>
+                            
+                            @if (OpeningHours.IsFridayOpen)
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">@OpeningHours.FridayOpeningHours.timeFormatter(OpeningHours.FridayOpeningHours) - @OpeningHours.FridayClosingHours.timeFormatter(OpeningHours.FridayClosingHours)</h5>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>
                                 <h5 class="sm-text">SAT</h5>
                             </td>
-                            <td>
-                                <h5 class="xs-text-days px-5">@OpeningHours.SaturdayOpeningHours.timeFormatter(OpeningHours.SaturdayOpeningHours) - @OpeningHours.SaturdayClosingHours.timeFormatter(OpeningHours.SaturdayClosingHours)</h5>
-                            </td>
+                            @if (OpeningHours.IsSaturdayOpen)
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">@OpeningHours.SaturdayOpeningHours.timeFormatter(OpeningHours.SaturdayOpeningHours) - @OpeningHours.SaturdayClosingHours.timeFormatter(OpeningHours.SaturdayClosingHours)</h5>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                </td>
+                            }
                         </tr>
                         <tr>
                             <td>
                                 <h5 class="sm-text">SUN</h5>
                             </td>
-                            <td>
-                                <h5 class="xs-text-days px-5">@OpeningHours.SundayOpeningHours.timeFormatter(OpeningHours.SundayOpeningHours) - @OpeningHours.SundayClosingHours.timeFormatter(OpeningHours.SundayClosingHours)</h5>
-                            </td>
+                            @if (OpeningHours.IsSundayOpen)
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">@OpeningHours.SundayOpeningHours.timeFormatter(OpeningHours.SundayOpeningHours) - @OpeningHours.SundayClosingHours.timeFormatter(OpeningHours.SundayClosingHours)</h5>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <h5 class="xs-text-days px-5">CLOSED</h5>
+                                </td>
+                            }
                         </tr>
                     </table>
                 }
@@ -189,8 +259,11 @@ else
         {
             foodPost = await foodPostService.GetSingleAsync(id);
             creator = await userService.GetUserByUsername(foodPost.User.UserName);
+            
+            
             DisplayInformation();
 
+            
 
     //title = foodPost.Title;
     // foodPost = new FoodPost(5, "Chicken Tikka Masala", "Ethnic",
@@ -212,8 +285,13 @@ else
         pickupDetailsDates = $"Dates: {startDate.Day}-{endDate.Day}/{endDate.Month}/{endDate.Year} ";
         pickupDetailsTime = $"Timeframe: {startTime.Hour}:{startTime.Minutes}-{endTime.Hour}:{endTime.Minutes} ";
 
-
-        OpeningHours = await userService.GetOpeningHoursAsync(foodPost.User.UserName);
+        //if (foodPost.User.IsBusiness)
+        //{
+            OpeningHours = await userService.GetOpeningHoursAsync(foodPost.User.UserName);
+        //}
+        Console.WriteLine("MONADY OPUN??"+OpeningHours.IsMondayOpen);
+            
+        Console.WriteLine("FRIDAY OPUN???"+OpeningHours.IsFridayOpen);
 
         var dateTime = foodPost.TimestampPosted;
         creationDate = $"{dateTime.Day}/{dateTime.Month}/{dateTime.Year}";

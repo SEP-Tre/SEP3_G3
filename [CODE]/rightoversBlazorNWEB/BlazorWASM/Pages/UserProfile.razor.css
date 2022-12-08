@@ -35,3 +35,10 @@
     margin-top: -15px;
     color: dimgrey;
 }
+
+.phone {
+    line-height: 0.1em;
+    font-size: 2em;
+    margin-top: -25px;
+    color: grey;
+}

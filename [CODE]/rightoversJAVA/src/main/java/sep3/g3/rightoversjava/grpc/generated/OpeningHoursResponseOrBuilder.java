@@ -216,4 +216,46 @@ public interface OpeningHoursResponseOrBuilder extends
    * <code>.sep3.g3.Time sundayClosing = 14;</code>
    */
   sep3.g3.rightoversjava.grpc.generated.TimeOrBuilder getSundayClosingOrBuilder();
+
+  /**
+   * <code>bool mondayIsOpen = 15;</code>
+   * @return The mondayIsOpen.
+   */
+  boolean getMondayIsOpen();
+
+  /**
+   * <code>bool tuesdayIsOpen = 16;</code>
+   * @return The tuesdayIsOpen.
+   */
+  boolean getTuesdayIsOpen();
+
+  /**
+   * <code>bool wednesdayIsOpen = 17;</code>
+   * @return The wednesdayIsOpen.
+   */
+  boolean getWednesdayIsOpen();
+
+  /**
+   * <code>bool thursdayIsOpen = 18;</code>
+   * @return The thursdayIsOpen.
+   */
+  boolean getThursdayIsOpen();
+
+  /**
+   * <code>bool fridayIsOpen = 19;</code>
+   * @return The fridayIsOpen.
+   */
+  boolean getFridayIsOpen();
+
+  /**
+   * <code>bool saturdayIsOpen = 20;</code>
+   * @return The saturdayIsOpen.
+   */
+  boolean getSaturdayIsOpen();
+
+  /**
+   * <code>bool sundayIsOpen = 21;</code>
+   * @return The sundayIsOpen.
+   */
+  boolean getSundayIsOpen();
 }

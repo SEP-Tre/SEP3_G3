@@ -12,23 +12,29 @@
             <RadzenText Text="User credentials"></RadzenText>
             <RadzenTextBox Placeholder="Enter your first name..." Change="@(args => userDto.FirstName = args)" Class="w-100 my-2"/>
 
+            <RadzenTextBox Placeholder="Enter your phone number..." Change="@(args => userDto.PhoneNumber = args)" Class="w-100 my-2"/>
+
             <RadzenTextBox Placeholder="Enter your user name..." Change="@(args => userDto.UserName = args)" Class="w-100 my-2"/>
 
             <RadzenPassword Placeholder="Enter your password..." Change="@(args => userDto.Password = args)" Class="w-100 my-2"/>
         </div>
 
         <RadzenCard>
-            <RadzenCheckBox @bind-Value="@checkBoxValue" Name="CheckBox1" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
+            <RadzenCheckBox @bind-Value="@BusinessCheckbox" Name="CheckBox1" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
             <RadzenLabel Text="Register as a Business User" Component="CheckBox1" Style="margin-left: 8px; vertical-align: middle;"/>
         </RadzenCard>
     </RadzenCard>
 
-    <RadzenCard class="my-2 w-75 " Visible="checkBoxValue">
+    <RadzenCard class="my-2 w-75 " Visible="BusinessCheckbox">
         <div class="d-flex flex-column justify-content-around">
             <RadzenText Text="Take a deep breath, then enter your opening hours"></RadzenText>
             <br>
 
-            <RadzenCard >
+        <RadzenCard >
+            <RadzenCheckBox @bind-Value="@IsMondayOpenCheckBox" Name="Monday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
+            <RadzenLabel Text="Open on Monday" Component="MondayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
+        </RadzenCard>
+        <RadzenCard Visible="@IsMondayOpenCheckBox">
                 <div class="row">
                     <RadzenText Text="Monday"></RadzenText>
                     <div class="col-lg-6 ">
@@ -42,7 +48,12 @@
                 </div>
             </RadzenCard>
 
+            
             <RadzenCard >
+                        <RadzenCheckBox @bind-Value="@IsTuesdayOpenCheckBox" Name="Tuesday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
+                        <RadzenLabel Text="Open on Tuesday" Component="TuesdayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
+                    </RadzenCard>
+            <RadzenCard Visible="@IsTuesdayOpenCheckBox">
                 <div class="row">
                     <RadzenText Text="Tuesday"></RadzenText>
                     <div class="col-lg-6 ">
@@ -56,7 +67,13 @@
                 </div>
             </RadzenCard>
 
+            
+            
             <RadzenCard >
+                        <RadzenCheckBox @bind-Value="@IsWednesdayOpenCheckBox" Name="Wednesday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
+                        <RadzenLabel Text="Open on Wednesday" Component="WednesdayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
+                    </RadzenCard>
+            <RadzenCard Visible="@IsWednesdayOpenCheckBox">
                 <div class="row">
                     <RadzenText Text="Wednesday"></RadzenText>
                     <div class="col-lg-6 ">
@@ -70,7 +87,12 @@
                 </div>
             </RadzenCard>
 
+            
             <RadzenCard >
+                        <RadzenCheckBox @bind-Value="@IsThursdayOpenCheckBox" Name="Thursday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
+                        <RadzenLabel Text="Open on Thursday" Component="ThursdayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
+                    </RadzenCard>
+            <RadzenCard Visible="@IsThursdayOpenCheckBox">
                 <div class="row">
                     <RadzenText Text="Thursday"></RadzenText>
                     <div class="col-lg-6 ">
@@ -84,7 +106,13 @@
                 </div>
             </RadzenCard>
 
+            
+            
             <RadzenCard >
+                        <RadzenCheckBox @bind-Value="@IsFridayOpenCheckBox" Name="Friday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
+                        <RadzenLabel Text="Open on Friday" Component="FridayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
+                    </RadzenCard>
+            <RadzenCard Visible="@IsFridayOpenCheckBox">
                 <div class="row">
                     <RadzenText Text="Friday"></RadzenText>
                     <div class="col-lg-6 ">
@@ -98,7 +126,13 @@
                 </div>
             </RadzenCard>
 
-            <RadzenCard>
+            
+            
+            <RadzenCard >
+                        <RadzenCheckBox @bind-Value="@IsSaturdayOpenCheckBox" Name="Saturday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
+                        <RadzenLabel Text="Open on Saturday" Component="SaturdayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
+                    </RadzenCard>
+            <RadzenCard Visible="@IsSaturdayOpenCheckBox">
                 <div class="row">
                     <RadzenText Text="Saturday"></RadzenText>
                     <div class="col-lg-6 ">
@@ -112,7 +146,12 @@
                 </div>
             </RadzenCard>
 
+            
             <RadzenCard >
+                        <RadzenCheckBox @bind-Value="@IsSundayOpenCheckBox" Name="Sunday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
+                        <RadzenLabel Text="Open on Sunday" Component="SundayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
+                    </RadzenCard>
+            <RadzenCard Visible="@IsSundayOpenCheckBox">
                 <div class="row">
                     <RadzenText Text="Sunday"></RadzenText>
                     <div class="col-lg-6 ">
@@ -157,28 +196,22 @@
 
 
 @code {
-    bool checkBoxValue;
+    private bool BusinessCheckbox;
+    private bool IsMondayOpenCheckBox;
+    private bool IsTuesdayOpenCheckBox;
+    private bool IsWednesdayOpenCheckBox;
+    private bool IsThursdayOpenCheckBox;
+    private bool IsFridayOpenCheckBox;
+    private bool IsSaturdayOpenCheckBox;
+    private bool IsSundayOpenCheckBox;
     private UserCreationDto userDto;
     private AddressCreationDto addressDto;
     private OpeningHoursCreationDto hoursDto;
     private string msg;
     private string errorMsg;
     private bool showModal;
-    private DateTime? MondayOpening;
-    private DateTime? MondayClosing;
-    private DateTime? TuesdayOpening;
-    private DateTime? TuesdayClosing;
-    private DateTime? WednesdayOpening;
-    private DateTime? WednesdayClosing;
-    private DateTime? ThursdayOpening;
-    private DateTime? ThursdayClosing;
-    private DateTime? FridayOpening;
-    private DateTime? FridayClosing;
-    private DateTime? SaturdayOpening;
-    private DateTime? SaturdayClosing;
-    private DateTime? SundayOpening;
-    private DateTime? SundayClosing;
 
+    //dont merge with all those nullable Times, we will use the opening hours creation dto above instead :) -R
 
     protected override Task OnInitializedAsync()
     {
@@ -195,7 +228,7 @@
         {
             if (ValidDto())
             {
-                if (checkBoxValue)
+                if (BusinessCheckbox)
                 {
                     userDto.IsBusiness = true;
                     hoursDto.Username = userDto.UserName;
@@ -204,13 +237,10 @@
                 Console.WriteLine(userDto.toString());
                 var user = await userService.RegisterAsync(userDto);
 
-                Console.WriteLine("HERE IS THE HOURS DTO :  username" + hoursDto.Username);
-                Console.WriteLine("AND SOME TIME: mondayO Hour" + hoursDto.MondayOpeningHours.Hour + " mondayO minute " + hoursDto.MondayOpeningHours.Minutes);
-                if (checkBoxValue)
+                if (BusinessCheckbox)
                 {
-
+                    setOpenDays();
                     await userService.AssignOpeningHoursAsync(hoursDto);
-                    Console.WriteLine("Here we are");
                 }
                 msg = $"Great! {user.FirstName}, you have been successfully registered!";
                 showModal = true;
@@ -228,7 +258,9 @@
     {
         if (string.IsNullOrEmpty(userDto.FirstName)
             || string.IsNullOrEmpty(userDto.UserName)
-            || string.IsNullOrEmpty(userDto.Password))
+            || string.IsNullOrEmpty(userDto.Password) || string.IsNullOrEmpty(userDto.PhoneNumber)
+            )
+
         {
             errorMsg = "Fields cannot be empty.";
             return false;
@@ -261,7 +293,7 @@
             {
                 case "Monday":
                     hoursDto.MondayOpeningHours = new MyTime(value.Value.Hour, value.Value.Minute);
-                    Console.WriteLine("MONDAY OPENING SET TO" + value);
+                    
                     break;
                 case "Tuesday":
                     hoursDto.TuesdayOpeningHours = new MyTime(value.Value.Hour, value.Value.Minute);
@@ -310,6 +342,61 @@
                     break;
             }
         }
+    }
+
+    private void setOpenDays()
+    {
+        hoursDto.IsMondayOpen = IsMondayOpenCheckBox;
+        hoursDto.IsTuesdayOpen = IsTuesdayOpenCheckBox;
+        hoursDto.IsWednesdayOpen = IsWednesdayOpenCheckBox;
+        hoursDto.IsThursdayOpen = IsThursdayOpenCheckBox;
+        hoursDto.IsFridayOpen = IsFridayOpenCheckBox;
+        hoursDto.IsSaturdayOpen = IsSaturdayOpenCheckBox;
+        hoursDto.IsSundayOpen = IsSundayOpenCheckBox;
+
+        if (IsMondayOpenCheckBox==false)
+        {
+            hoursDto.MondayOpeningHours = new MyTime(0, 0);
+            hoursDto.MondayClosingHours = new MyTime(0, 0);
+        }
+        
+        if (IsTuesdayOpenCheckBox==false)
+        {
+            hoursDto.TuesdayOpeningHours = new MyTime(0, 0);
+            hoursDto.TuesdayClosingHours = new MyTime(0, 0);
+        }
+        
+        if (IsWednesdayOpenCheckBox==false)
+        {
+            hoursDto.WednesdayOpeningHours = new MyTime(0, 0);
+            hoursDto.WednesdayClosingHours = new MyTime(0, 0);
+        }
+        
+        if (IsThursdayOpenCheckBox==false)
+        {
+            hoursDto.ThursdayOpeningHours = new MyTime(0, 0);
+            hoursDto.ThursdayClosingHours = new MyTime(0, 0);
+        }
+        
+        if (IsFridayOpenCheckBox==false)
+        {
+            hoursDto.FridayOpeningHours = new MyTime(0, 0);
+            hoursDto.FridayClosingHours = new MyTime(0, 0);
+        }
+        
+        if (IsSaturdayOpenCheckBox==false)
+        {
+            hoursDto.SaturdayOpeningHours = new MyTime(0, 0);
+            hoursDto.SaturdayClosingHours = new MyTime(0, 0);
+        }
+        
+        if (IsSundayOpenCheckBox==false)
+        {
+            hoursDto.SundayOpeningHours = new MyTime(0, 0);
+            hoursDto.SundayClosingHours = new MyTime(0, 0);
+        }
+
+        
     }
 
 }

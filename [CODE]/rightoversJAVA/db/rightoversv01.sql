@@ -16,13 +16,6 @@ CREATE TABLE food_post
     days_until_expired int,
     post_state         post_state
 );
-ALTER TABLE food_post
-    ADD timestamp_posted  timestamp,
-    ADD pickup_start_date date,
-    ADD pickup_end_date   date,
-    ADD pickup_start_time time,
-    ADD pickup_end_time   time,
-    ADD username          varchar(50) references user_ (username);
 
 
 CREATE TABLE address
@@ -35,6 +28,24 @@ CREATE TABLE address
     longitude     numeric,
     latitude      numeric
 );
+DROP TABLE IF EXISTS user_;
+CREATE TABLE user_
+(
+    username   varchar(50) primary key,
+    firstname  varchar(50),
+    password_  varchar(100),
+    address_id int references address (address_id),
+    is_business bool,
+    phone_number VARCHAR(15)
+);
+
+ALTER TABLE food_post
+    ADD timestamp_posted  timestamp,
+    ADD pickup_start_date date,
+    ADD pickup_end_date   date,
+    ADD pickup_start_time time,
+    ADD pickup_end_time   time,
+    ADD username          varchar(50) references user_ (username);
 
 
 DROP TABLE IF EXISTS opening_hours;
@@ -55,7 +66,14 @@ CREATE TABLE opening_hours
     saturday_opening_hours time,
     saturday_closing_hours time,
     sunday_opening_hours time,
-    sunday_closing_hours time
+    sunday_closing_hours time,
+    monday_is_open bool,
+    tuesday_is_open bool,
+    wednesday_is_open bool,
+    thursday_is_open bool,
+    friday_is_open bool,
+    saturday_is_open bool,
+    sunday_is_open bool
 );
 
 DROP TABLE IF EXISTS reservation;
@@ -87,13 +105,5 @@ UPDATE food_post
 SET post_state = 'posted'
 WHERE post_id = 2;
 
-DROP TABLE IF EXISTS user_;
-CREATE TABLE user_
-(
-    username   varchar(50) primary key,
-    firstname  varchar(50),
-    password_  varchar(100),
-    address_id int references address (address_id),
-    is_business bool
-);
+
 

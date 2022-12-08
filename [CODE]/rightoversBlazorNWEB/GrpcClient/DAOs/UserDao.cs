@@ -82,8 +82,17 @@ public class UserDao : IUserDao
         openingHours.SaturdayClosingHours = converter.TimeConverter(response.SaturdayClosing);
         openingHours.SundayOpeningHours = converter.TimeConverter(response.SundayOpening);
         openingHours.SundayClosingHours = converter.TimeConverter(response.SundayClosing);
+        openingHours.IsMondayOpen = response.MondayIsOpen;
+        openingHours.IsTuesdayOpen = response.TuesdayIsOpen;
+        openingHours.IsWednesdayOpen = response.WednesdayIsOpen;
+        openingHours.IsThursdayOpen = response.ThursdayIsOpen;
+        openingHours.IsFridayOpen = response.FridayIsOpen;
+        openingHours.IsSaturdayOpen = response.SaturdayIsOpen;
+        openingHours.IsSundayOpen = response.SundayIsOpen;
+        
+        Console.WriteLine("USERDAO: THEY TOLD ME MONDAY IS "+openingHours.IsMondayOpen);
+        Console.WriteLine("USERDAO: THEY TOLD ME FRIDAY IS "+openingHours.IsFridayOpen);
 
-        Console.WriteLine("USERDAO: MONDAY OPENING: "+openingHours.MondayOpeningHours.Hour+":"+openingHours.MondayOpeningHours.Minutes);
         return openingHours;
     }
 
@@ -92,6 +101,9 @@ public class UserDao : IUserDao
         var response = await client.assignOpeningHoursAsync(new OpeningHoursRequest{
             Username = dto.Username,
             OpeningHours = new OpeningHoursResponse{
+                
+           
+                
                 MondayOpening = new OCTime{
                     Hour = dto.MondayOpeningHours.Hour,
                     Minutes = dto.MondayOpeningHours.Minutes
@@ -147,7 +159,15 @@ public class UserDao : IUserDao
                 SundayClosing = new OCTime{
                     Hour = dto.SundayClosingHours.Hour,
                     Minutes = dto.SundayClosingHours.Minutes
-                }
+                },
+                
+                MondayIsOpen = dto.IsMondayOpen,
+                TuesdayIsOpen = dto.IsTuesdayOpen,
+                WednesdayIsOpen = dto.IsWednesdayOpen,
+                ThursdayIsOpen = dto.IsThursdayOpen,
+                FridayIsOpen = dto.IsFridayOpen,
+                SaturdayIsOpen = dto.IsSaturdayOpen,
+                SundayIsOpen = dto.IsSundayOpen
             }
         });
         var user = converter.GetUserFromUserMessage(response);

@@ -13,6 +13,9 @@ public class User {
     public String firstName;
     @Column(name = "password_")
     public String password;
+
+    @Column(name="phone_number")
+    public String phoneNumber;
     @Column(name = "is_business")
     public boolean isBusiness;
     @ManyToOne(cascade = {CascadeType.MERGE})
@@ -25,6 +28,7 @@ public class User {
         this.password = dto.getPassword();
         this.address = new Address(dto.getAddressCreationDTO());
         this.isBusiness = dto.isBusiness();
+        this.phoneNumber=dto.getPhoneNumber();
     }
 
     public User(String username) {
@@ -72,5 +76,13 @@ public class User {
 
     public void setBusiness(boolean business) {
         isBusiness = business;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

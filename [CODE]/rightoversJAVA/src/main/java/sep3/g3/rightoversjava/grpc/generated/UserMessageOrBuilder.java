@@ -57,4 +57,16 @@ public interface UserMessageOrBuilder extends
    * <code>.sep3.g3.AddressMessage address = 4;</code>
    */
   sep3.g3.rightoversjava.grpc.generated.AddressMessageOrBuilder getAddressOrBuilder();
+
+  /**
+   * <code>string phoneNumber = 5;</code>
+   * @return The phoneNumber.
+   */
+  java.lang.String getPhoneNumber();
+  /**
+   * <code>string phoneNumber = 5;</code>
+   * @return The bytes for phoneNumber.
+   */
+  com.google.protobuf.ByteString
+      getPhoneNumberBytes();
 }

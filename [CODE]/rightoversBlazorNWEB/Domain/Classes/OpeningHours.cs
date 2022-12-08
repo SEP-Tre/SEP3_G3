@@ -7,7 +7,7 @@ public class OpeningHours
         MyTime tuesdayClosingHours, MyTime wednesdayOpeningHours, MyTime wednesdayClosingHours,
         MyTime thursdayOpeningHours, MyTime thursdayClosingHours, MyTime fridayOpeningHours, MyTime fridayClosingHours,
         MyTime saturdayOpeningHours, MyTime saturdayClosingHours, MyTime sundayOpeningHours, MyTime sundayClosingHours,
-        int id, User user)
+        int id, User user, bool isMondayOpen,bool isTuesdayOpen, bool isWednesdayOpen, bool isThursdayOpen, bool isFridayOpen, bool isSaturdayOpen, bool isSundayOpen)
     {
         MondayOpeningHours = mondayOpeningHours;
         MondayClosingHours = mondayClosingHours;
@@ -23,6 +23,15 @@ public class OpeningHours
         SaturdayClosingHours = saturdayClosingHours;
         SundayOpeningHours = sundayOpeningHours;
         SundayClosingHours = sundayClosingHours;
+
+        IsMondayOpen = isMondayOpen;
+        IsTuesdayOpen = isTuesdayOpen;
+        IsWednesdayOpen = isWednesdayOpen;
+        IsThursdayOpen = isThursdayOpen;
+        IsFridayOpen = isFridayOpen;
+        IsSaturdayOpen = isSaturdayOpen;
+        IsSundayOpen = isSundayOpen;
+        
         Id = id;
         User = user;
     }
@@ -48,5 +57,23 @@ public class OpeningHours
     public MyTime SundayClosingHours { get; set; }
     public User User { get; set; }
     
- 
+    public bool IsMondayOpen { get; set; }
+    
+    public bool IsTuesdayOpen { get; set; }
+    
+    public bool IsWednesdayOpen { get; set; }
+
+    public bool IsThursdayOpen
+    {
+        get;
+        set;
+    }
+    
+    public bool IsFridayOpen { get; set; }
+    
+    public bool IsSaturdayOpen { get; set; }
+    
+    public bool IsSundayOpen { get; set; }
+
+
 }

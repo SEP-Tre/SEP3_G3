@@ -230,6 +230,41 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 120: {
+
+            mondayIsOpen_ = input.readBool();
+            break;
+          }
+          case 128: {
+
+            tuesdayIsOpen_ = input.readBool();
+            break;
+          }
+          case 136: {
+
+            wednesdayIsOpen_ = input.readBool();
+            break;
+          }
+          case 144: {
+
+            thursdayIsOpen_ = input.readBool();
+            break;
+          }
+          case 152: {
+
+            fridayIsOpen_ = input.readBool();
+            break;
+          }
+          case 160: {
+
+            saturdayIsOpen_ = input.readBool();
+            break;
+          }
+          case 168: {
+
+            sundayIsOpen_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -628,6 +663,83 @@ private static final long serialVersionUID = 0L;
     return getSundayClosing();
   }
 
+  public static final int MONDAYISOPEN_FIELD_NUMBER = 15;
+  private boolean mondayIsOpen_;
+  /**
+   * <code>bool mondayIsOpen = 15;</code>
+   * @return The mondayIsOpen.
+   */
+  @java.lang.Override
+  public boolean getMondayIsOpen() {
+    return mondayIsOpen_;
+  }
+
+  public static final int TUESDAYISOPEN_FIELD_NUMBER = 16;
+  private boolean tuesdayIsOpen_;
+  /**
+   * <code>bool tuesdayIsOpen = 16;</code>
+   * @return The tuesdayIsOpen.
+   */
+  @java.lang.Override
+  public boolean getTuesdayIsOpen() {
+    return tuesdayIsOpen_;
+  }
+
+  public static final int WEDNESDAYISOPEN_FIELD_NUMBER = 17;
+  private boolean wednesdayIsOpen_;
+  /**
+   * <code>bool wednesdayIsOpen = 17;</code>
+   * @return The wednesdayIsOpen.
+   */
+  @java.lang.Override
+  public boolean getWednesdayIsOpen() {
+    return wednesdayIsOpen_;
+  }
+
+  public static final int THURSDAYISOPEN_FIELD_NUMBER = 18;
+  private boolean thursdayIsOpen_;
+  /**
+   * <code>bool thursdayIsOpen = 18;</code>
+   * @return The thursdayIsOpen.
+   */
+  @java.lang.Override
+  public boolean getThursdayIsOpen() {
+    return thursdayIsOpen_;
+  }
+
+  public static final int FRIDAYISOPEN_FIELD_NUMBER = 19;
+  private boolean fridayIsOpen_;
+  /**
+   * <code>bool fridayIsOpen = 19;</code>
+   * @return The fridayIsOpen.
+   */
+  @java.lang.Override
+  public boolean getFridayIsOpen() {
+    return fridayIsOpen_;
+  }
+
+  public static final int SATURDAYISOPEN_FIELD_NUMBER = 20;
+  private boolean saturdayIsOpen_;
+  /**
+   * <code>bool saturdayIsOpen = 20;</code>
+   * @return The saturdayIsOpen.
+   */
+  @java.lang.Override
+  public boolean getSaturdayIsOpen() {
+    return saturdayIsOpen_;
+  }
+
+  public static final int SUNDAYISOPEN_FIELD_NUMBER = 21;
+  private boolean sundayIsOpen_;
+  /**
+   * <code>bool sundayIsOpen = 21;</code>
+   * @return The sundayIsOpen.
+   */
+  @java.lang.Override
+  public boolean getSundayIsOpen() {
+    return sundayIsOpen_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -683,6 +795,27 @@ private static final long serialVersionUID = 0L;
     }
     if (sundayClosing_ != null) {
       output.writeMessage(14, getSundayClosing());
+    }
+    if (mondayIsOpen_ != false) {
+      output.writeBool(15, mondayIsOpen_);
+    }
+    if (tuesdayIsOpen_ != false) {
+      output.writeBool(16, tuesdayIsOpen_);
+    }
+    if (wednesdayIsOpen_ != false) {
+      output.writeBool(17, wednesdayIsOpen_);
+    }
+    if (thursdayIsOpen_ != false) {
+      output.writeBool(18, thursdayIsOpen_);
+    }
+    if (fridayIsOpen_ != false) {
+      output.writeBool(19, fridayIsOpen_);
+    }
+    if (saturdayIsOpen_ != false) {
+      output.writeBool(20, saturdayIsOpen_);
+    }
+    if (sundayIsOpen_ != false) {
+      output.writeBool(21, sundayIsOpen_);
     }
     unknownFields.writeTo(output);
   }
@@ -748,6 +881,34 @@ private static final long serialVersionUID = 0L;
     if (sundayClosing_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getSundayClosing());
+    }
+    if (mondayIsOpen_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(15, mondayIsOpen_);
+    }
+    if (tuesdayIsOpen_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(16, tuesdayIsOpen_);
+    }
+    if (wednesdayIsOpen_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(17, wednesdayIsOpen_);
+    }
+    if (thursdayIsOpen_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(18, thursdayIsOpen_);
+    }
+    if (fridayIsOpen_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(19, fridayIsOpen_);
+    }
+    if (saturdayIsOpen_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(20, saturdayIsOpen_);
+    }
+    if (sundayIsOpen_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(21, sundayIsOpen_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -834,6 +995,20 @@ private static final long serialVersionUID = 0L;
       if (!getSundayClosing()
           .equals(other.getSundayClosing())) return false;
     }
+    if (getMondayIsOpen()
+        != other.getMondayIsOpen()) return false;
+    if (getTuesdayIsOpen()
+        != other.getTuesdayIsOpen()) return false;
+    if (getWednesdayIsOpen()
+        != other.getWednesdayIsOpen()) return false;
+    if (getThursdayIsOpen()
+        != other.getThursdayIsOpen()) return false;
+    if (getFridayIsOpen()
+        != other.getFridayIsOpen()) return false;
+    if (getSaturdayIsOpen()
+        != other.getSaturdayIsOpen()) return false;
+    if (getSundayIsOpen()
+        != other.getSundayIsOpen()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -901,6 +1076,27 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUNDAYCLOSING_FIELD_NUMBER;
       hash = (53 * hash) + getSundayClosing().hashCode();
     }
+    hash = (37 * hash) + MONDAYISOPEN_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getMondayIsOpen());
+    hash = (37 * hash) + TUESDAYISOPEN_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getTuesdayIsOpen());
+    hash = (37 * hash) + WEDNESDAYISOPEN_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getWednesdayIsOpen());
+    hash = (37 * hash) + THURSDAYISOPEN_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getThursdayIsOpen());
+    hash = (37 * hash) + FRIDAYISOPEN_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getFridayIsOpen());
+    hash = (37 * hash) + SATURDAYISOPEN_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSaturdayIsOpen());
+    hash = (37 * hash) + SUNDAYISOPEN_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSundayIsOpen());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1118,6 +1314,20 @@ private static final long serialVersionUID = 0L;
         sundayClosing_ = null;
         sundayClosingBuilder_ = null;
       }
+      mondayIsOpen_ = false;
+
+      tuesdayIsOpen_ = false;
+
+      wednesdayIsOpen_ = false;
+
+      thursdayIsOpen_ = false;
+
+      fridayIsOpen_ = false;
+
+      saturdayIsOpen_ = false;
+
+      sundayIsOpen_ = false;
+
       return this;
     }
 
@@ -1214,6 +1424,13 @@ private static final long serialVersionUID = 0L;
       } else {
         result.sundayClosing_ = sundayClosingBuilder_.build();
       }
+      result.mondayIsOpen_ = mondayIsOpen_;
+      result.tuesdayIsOpen_ = tuesdayIsOpen_;
+      result.wednesdayIsOpen_ = wednesdayIsOpen_;
+      result.thursdayIsOpen_ = thursdayIsOpen_;
+      result.fridayIsOpen_ = fridayIsOpen_;
+      result.saturdayIsOpen_ = saturdayIsOpen_;
+      result.sundayIsOpen_ = sundayIsOpen_;
       onBuilt();
       return result;
     }
@@ -1303,6 +1520,27 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasSundayClosing()) {
         mergeSundayClosing(other.getSundayClosing());
+      }
+      if (other.getMondayIsOpen() != false) {
+        setMondayIsOpen(other.getMondayIsOpen());
+      }
+      if (other.getTuesdayIsOpen() != false) {
+        setTuesdayIsOpen(other.getTuesdayIsOpen());
+      }
+      if (other.getWednesdayIsOpen() != false) {
+        setWednesdayIsOpen(other.getWednesdayIsOpen());
+      }
+      if (other.getThursdayIsOpen() != false) {
+        setThursdayIsOpen(other.getThursdayIsOpen());
+      }
+      if (other.getFridayIsOpen() != false) {
+        setFridayIsOpen(other.getFridayIsOpen());
+      }
+      if (other.getSaturdayIsOpen() != false) {
+        setSaturdayIsOpen(other.getSaturdayIsOpen());
+      }
+      if (other.getSundayIsOpen() != false) {
+        setSundayIsOpen(other.getSundayIsOpen());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2997,6 +3235,223 @@ private static final long serialVersionUID = 0L;
         sundayClosing_ = null;
       }
       return sundayClosingBuilder_;
+    }
+
+    private boolean mondayIsOpen_ ;
+    /**
+     * <code>bool mondayIsOpen = 15;</code>
+     * @return The mondayIsOpen.
+     */
+    @java.lang.Override
+    public boolean getMondayIsOpen() {
+      return mondayIsOpen_;
+    }
+    /**
+     * <code>bool mondayIsOpen = 15;</code>
+     * @param value The mondayIsOpen to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMondayIsOpen(boolean value) {
+      
+      mondayIsOpen_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool mondayIsOpen = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMondayIsOpen() {
+      
+      mondayIsOpen_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean tuesdayIsOpen_ ;
+    /**
+     * <code>bool tuesdayIsOpen = 16;</code>
+     * @return The tuesdayIsOpen.
+     */
+    @java.lang.Override
+    public boolean getTuesdayIsOpen() {
+      return tuesdayIsOpen_;
+    }
+    /**
+     * <code>bool tuesdayIsOpen = 16;</code>
+     * @param value The tuesdayIsOpen to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTuesdayIsOpen(boolean value) {
+      
+      tuesdayIsOpen_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool tuesdayIsOpen = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTuesdayIsOpen() {
+      
+      tuesdayIsOpen_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean wednesdayIsOpen_ ;
+    /**
+     * <code>bool wednesdayIsOpen = 17;</code>
+     * @return The wednesdayIsOpen.
+     */
+    @java.lang.Override
+    public boolean getWednesdayIsOpen() {
+      return wednesdayIsOpen_;
+    }
+    /**
+     * <code>bool wednesdayIsOpen = 17;</code>
+     * @param value The wednesdayIsOpen to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWednesdayIsOpen(boolean value) {
+      
+      wednesdayIsOpen_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool wednesdayIsOpen = 17;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWednesdayIsOpen() {
+      
+      wednesdayIsOpen_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean thursdayIsOpen_ ;
+    /**
+     * <code>bool thursdayIsOpen = 18;</code>
+     * @return The thursdayIsOpen.
+     */
+    @java.lang.Override
+    public boolean getThursdayIsOpen() {
+      return thursdayIsOpen_;
+    }
+    /**
+     * <code>bool thursdayIsOpen = 18;</code>
+     * @param value The thursdayIsOpen to set.
+     * @return This builder for chaining.
+     */
+    public Builder setThursdayIsOpen(boolean value) {
+      
+      thursdayIsOpen_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool thursdayIsOpen = 18;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearThursdayIsOpen() {
+      
+      thursdayIsOpen_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean fridayIsOpen_ ;
+    /**
+     * <code>bool fridayIsOpen = 19;</code>
+     * @return The fridayIsOpen.
+     */
+    @java.lang.Override
+    public boolean getFridayIsOpen() {
+      return fridayIsOpen_;
+    }
+    /**
+     * <code>bool fridayIsOpen = 19;</code>
+     * @param value The fridayIsOpen to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFridayIsOpen(boolean value) {
+      
+      fridayIsOpen_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool fridayIsOpen = 19;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFridayIsOpen() {
+      
+      fridayIsOpen_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean saturdayIsOpen_ ;
+    /**
+     * <code>bool saturdayIsOpen = 20;</code>
+     * @return The saturdayIsOpen.
+     */
+    @java.lang.Override
+    public boolean getSaturdayIsOpen() {
+      return saturdayIsOpen_;
+    }
+    /**
+     * <code>bool saturdayIsOpen = 20;</code>
+     * @param value The saturdayIsOpen to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSaturdayIsOpen(boolean value) {
+      
+      saturdayIsOpen_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool saturdayIsOpen = 20;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSaturdayIsOpen() {
+      
+      saturdayIsOpen_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean sundayIsOpen_ ;
+    /**
+     * <code>bool sundayIsOpen = 21;</code>
+     * @return The sundayIsOpen.
+     */
+    @java.lang.Override
+    public boolean getSundayIsOpen() {
+      return sundayIsOpen_;
+    }
+    /**
+     * <code>bool sundayIsOpen = 21;</code>
+     * @param value The sundayIsOpen to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSundayIsOpen(boolean value) {
+      
+      sundayIsOpen_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool sundayIsOpen = 21;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSundayIsOpen() {
+      
+      sundayIsOpen_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

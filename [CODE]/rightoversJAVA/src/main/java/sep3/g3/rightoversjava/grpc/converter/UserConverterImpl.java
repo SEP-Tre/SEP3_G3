@@ -32,7 +32,7 @@ public class UserConverterImpl implements UserConverter {
                 .setUsername(user.getUsername())
                 .setFirstname(user.getFirstName())
                 .setPassword(user.getPassword())
-                .setAddress(addressMessage)
+                .setAddress(addressMessage).setPhoneNumber(user.phoneNumber)
                 .build();
 
         return userMessage;
@@ -51,7 +51,8 @@ public class UserConverterImpl implements UserConverter {
                 request.getAddress().getCity(),
                 request.getAddress().getLongitude(),
                 request.getAddress().getLatitude(),
-                request.getIsBusiness()
+                request.getIsBusiness(),
+                request.getPhoneNumber()
         );
         return dto;
     }
@@ -97,7 +98,7 @@ public class UserConverterImpl implements UserConverter {
                 .setThursdayOpening(thursdayOpening).setThursdayClosing(thursdayClosing)
                 .setFridayOpening(fridayOpening).setFridayClosing(fridayClosing)
                 .setSaturdayOpening(saturdayOpening).setSaturdayClosing(saturdayClosing)
-                .setSundayOpening(sundayOpening).setSundayClosing(sundayClosing).build();
+                .setSundayOpening(sundayOpening).setSundayClosing(sundayClosing).setMondayIsOpen(openingHours.isMondayIsOpen()).setTuesdayIsOpen(openingHours.isTuesdayIsOpen()).setWednesdayIsOpen(openingHours.isWednesdayIsOpen()).setThursdayIsOpen(openingHours.isThursdayIsOpen()).setFridayIsOpen(openingHours.isFridayIsOpen()).setSaturdayIsOpen(openingHours.isSaturdayIsOpen()).setSundayIsOpen(openingHours.isSundayIsOpen()).build();
 
         return response;
 
@@ -155,8 +156,14 @@ public class UserConverterImpl implements UserConverter {
                 saturdayOpeningTime,
                 saturdayClosingTime,
                 sundayOpeningTime,
-                sundayClosingTime
-
+                sundayClosingTime,
+                request.getOpeningHours().getMondayIsOpen(),
+                request.getOpeningHours().getTuesdayIsOpen(),
+                request.getOpeningHours().getWednesdayIsOpen(),
+                request.getOpeningHours().getThursdayIsOpen(),
+                request.getOpeningHours().getFridayIsOpen(),
+                request.getOpeningHours().getSaturdayIsOpen(),
+                request.getOpeningHours().getSundayIsOpen()
         );
 
         return dto;

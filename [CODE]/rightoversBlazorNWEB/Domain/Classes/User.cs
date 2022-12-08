@@ -3,7 +3,7 @@
 public class User
 {
 
-    public User(int id, string firstName, string userName, string password, Address address, bool isBusiness)
+    public User(int id, string firstName, string userName, string password, Address address, bool isBusiness, string phoneNumber)
     {
         Id = id;
         FirstName = firstName;
@@ -11,6 +11,7 @@ public class User
         Password = password;
         Address = address;
         IsBusiness = isBusiness;
+        PhoneNumber = phoneNumber;
     }
 
     public User(string userName)
@@ -33,4 +34,6 @@ public class User
     public Address Address { get; set; }
 
     public bool IsBusiness { get; set; }
+    
+    public string PhoneNumber { get; set; }
 }

@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     username_ = "";
     firstname_ = "";
     password_ = "";
+    phoneNumber_ = "";
   }
 
   @java.lang.Override
@@ -85,6 +86,12 @@ private static final long serialVersionUID = 0L;
           case 40: {
 
             isBusiness_ = input.readBool();
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            phoneNumber_ = s;
             break;
           }
           default: {
@@ -272,6 +279,44 @@ private static final long serialVersionUID = 0L;
     return isBusiness_;
   }
 
+  public static final int PHONENUMBER_FIELD_NUMBER = 6;
+  private volatile java.lang.Object phoneNumber_;
+  /**
+   * <code>string phoneNumber = 6;</code>
+   * @return The phoneNumber.
+   */
+  @java.lang.Override
+  public java.lang.String getPhoneNumber() {
+    java.lang.Object ref = phoneNumber_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      phoneNumber_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string phoneNumber = 6;</code>
+   * @return The bytes for phoneNumber.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPhoneNumberBytes() {
+    java.lang.Object ref = phoneNumber_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      phoneNumber_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -301,6 +346,9 @@ private static final long serialVersionUID = 0L;
     if (isBusiness_ != false) {
       output.writeBool(5, isBusiness_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, phoneNumber_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -326,6 +374,9 @@ private static final long serialVersionUID = 0L;
     if (isBusiness_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, isBusiness_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, phoneNumber_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -355,6 +406,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getIsBusiness()
         != other.getIsBusiness()) return false;
+    if (!getPhoneNumber()
+        .equals(other.getPhoneNumber())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -379,6 +432,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ISBUSINESS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsBusiness());
+    hash = (37 * hash) + PHONENUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getPhoneNumber().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -526,6 +581,8 @@ private static final long serialVersionUID = 0L;
       }
       isBusiness_ = false;
 
+      phoneNumber_ = "";
+
       return this;
     }
 
@@ -561,6 +618,7 @@ private static final long serialVersionUID = 0L;
         result.address_ = addressBuilder_.build();
       }
       result.isBusiness_ = isBusiness_;
+      result.phoneNumber_ = phoneNumber_;
       onBuilt();
       return result;
     }
@@ -626,6 +684,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getIsBusiness() != false) {
         setIsBusiness(other.getIsBusiness());
+      }
+      if (!other.getPhoneNumber().isEmpty()) {
+        phoneNumber_ = other.phoneNumber_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1030,6 +1092,82 @@ private static final long serialVersionUID = 0L;
     public Builder clearIsBusiness() {
       
       isBusiness_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object phoneNumber_ = "";
+    /**
+     * <code>string phoneNumber = 6;</code>
+     * @return The phoneNumber.
+     */
+    public java.lang.String getPhoneNumber() {
+      java.lang.Object ref = phoneNumber_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        phoneNumber_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string phoneNumber = 6;</code>
+     * @return The bytes for phoneNumber.
+     */
+    public com.google.protobuf.ByteString
+        getPhoneNumberBytes() {
+      java.lang.Object ref = phoneNumber_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        phoneNumber_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string phoneNumber = 6;</code>
+     * @param value The phoneNumber to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPhoneNumber(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      phoneNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string phoneNumber = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPhoneNumber() {
+      
+      phoneNumber_ = getDefaultInstance().getPhoneNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string phoneNumber = 6;</code>
+     * @param value The bytes for phoneNumber to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPhoneNumberBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      phoneNumber_ = value;
       onChanged();
       return this;
     }

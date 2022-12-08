@@ -118,12 +118,12 @@ public class UserHttpClient : IUserService
             throw new Exception(content);
         }
 
-        Console.WriteLine("USERHTTPCLIENT IS TRYING TO CREATE THE OPENING HOURS OBJECT");
+        
         var openingHours = JsonSerializer.Deserialize<OpeningHours>(content, new JsonSerializerOptions{
             PropertyNameCaseInsensitive = true
         })!;
     
-        Console.WriteLine("USERHTTPCLIENT IS RETURNING THE OPENINGHRS OBJECT "+openingHours.MondayOpeningHours.Hour+":"+openingHours.MondayOpeningHours.Minutes);
+        
         return openingHours;
     }
 
