@@ -48,13 +48,13 @@ else
                                         <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
                                             <strong>Where?</strong>
                                         </RadzenText>
-                                        <div>@reservation.User.Address.ToString()</div>
+                                        <div>@reservation.FoodPost.User.Address</div>
                                     </div>
                                     <div class="mt-2">
                                         <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
                                             <strong>Cook's Contact</strong>
                                         </RadzenText>
-                                        <div>+NU MB ER HE RE</div>
+                                        <div>@reservation.FoodPost.User.PhoneNumber</div>
                                     </div>
                                     <div class="mt-2">
                                         <RadzenButton Click="@(() => ShowConfirmationDialog(@reservation))" ButtonStyle="ButtonStyle.Dark">Confirm Pickup</RadzenButton>
@@ -145,8 +145,14 @@ else
     private async Task InitReservations()
     {
         allReservations = await userService.GetAllReservationsByUser(name);
+        foreach (var reservation in allReservations)
+        {
+            string posterName = reservation.FoodPost.User.UserName;
+            reservation.User = await userService.GetUserByUsername(posterName);
+        }
         activeReservations = allReservations.Where(r => r.FoodPost.PostState.Equals("reserved"));
         oldReservations = allReservations.Where(r => r.FoodPost.PostState.Equals("closed"));
+        
     }
 
     private async Task ConfirmPickup(Reservation reservation)

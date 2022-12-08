@@ -206,10 +206,9 @@ public class FoodPostHttpClient : IFoodPostService
         var body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
         Console.Write(body);
         
-        var response = await client.PatchAsync("FoodPosts/Edit", body);
-        Console.Write(response);
+        var response = await client.PatchAsync("/FoodPosts/Edit", body);
         string result = await response.Content.ReadAsStringAsync();
-
+        Console.Write(result);
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(result);
@@ -218,7 +217,7 @@ public class FoodPostHttpClient : IFoodPostService
         var fp = JsonSerializer.Deserialize<FoodPost>(result, new JsonSerializerOptions{
             PropertyNameCaseInsensitive = true
         })!;
-
+        Console.WriteLine(fp.Title);
         return fp;
     }
     

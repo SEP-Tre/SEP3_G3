@@ -174,11 +174,11 @@ else
                     @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
                     {
                         <h1>Reports</h1>
-                        <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                        <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="false" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
                                         Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
                             <Columns>
-                                <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="160px"/>
-                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="170px"/>
+                                <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="20%"/>
+                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="80%"/>
                             </Columns>
                         </RadzenDataGrid>
                     }

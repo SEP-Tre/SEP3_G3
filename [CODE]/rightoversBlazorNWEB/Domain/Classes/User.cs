@@ -22,6 +22,7 @@ public class User
         Password = "12345";
         Address = new Address("2", "Torvet", 8700, "Horsens");
         IsBusiness = false;
+        PhoneNumber = "1233123";
     }
 
     public User()
