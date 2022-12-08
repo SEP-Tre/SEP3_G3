@@ -97,6 +97,11 @@
     margin-top: 20px;
 }
 
+.creator, .creator:hover {
+    font-weight: bolder;
+    color: darkslategrey;
+}
+
 .acceptbtn {
     background-color: lightgreen;
     border-radius: 5px;

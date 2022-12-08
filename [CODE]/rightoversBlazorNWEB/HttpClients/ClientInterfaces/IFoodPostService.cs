@@ -14,4 +14,5 @@ public interface IFoodPostService
 
     Task<Report> ReportAsync(Report report);
 
+    Task PickUpAsync(PickUpDto dto);
 }

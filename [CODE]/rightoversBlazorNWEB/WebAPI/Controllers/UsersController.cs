@@ -140,6 +140,51 @@ public class UsersController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    
+    [HttpPatch]
+    [Route("FirstName")]
+    public async Task<ActionResult> ChangeFirstName(UserUpdateFirstNameDto dto)
+    {
+        try
+        {
+            var user = await userLogic.ChangeFirstName(dto);
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
+    [HttpPatch]
+    [Route("Password")]
+    public async Task<ActionResult> ChangePassword(UserUpdatePasswordDto dto)
+    {
+        try
+        {
+            var user = await userLogic.ChangePassword(dto);
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    
+    [HttpPatch]
+    [Route("Address")]
+    public async Task<ActionResult> ChangeAddress(UserUpdateAddressDto dto)
+    {
+        try
+        {
+            var user = await userLogic.ChangeAddress(dto);
+            return Ok(user);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 
 
     private List<Claim> GenerateClaims(User user)

@@ -45,3 +45,16 @@
     margin-top: -25px;
     color: grey;
 }
+
+.post-title[b-wiwjy8u4u7] {
+    font-weight: bolder;
+}
+
+.post-title:hover[b-wiwjy8u4u7] {
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.pointer[b-wiwjy8u4u7] {
+    cursor: pointer !important;
+}

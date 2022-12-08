@@ -39,11 +39,16 @@
                     <RadzenText Text="Monday"></RadzenText>
                     <div class="col-lg-6 ">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Opening</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Monday", "Opening")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@MondayOpening"/>
                     </div>
                     <div class="col-lg-6">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Closing</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Monday", "Closing")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@MondayClosing"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-3">
+                        <RadzenButton ButtonStyle="ButtonStyle.Warning" Click="PutMondayHoursForEveryBusinessDay">Duplicate Monday Hours for Every Business Day</RadzenButton>
                     </div>
                 </div>
             </RadzenCard>
@@ -58,11 +63,11 @@
                     <RadzenText Text="Tuesday"></RadzenText>
                     <div class="col-lg-6 ">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Opening</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Tuesday", "Opening")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@TuesdayOpening"/>
                     </div>
                     <div class="col-lg-6">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Closing</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Tuesday", "Closing")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@TuesdayClosing"/>
                     </div>
                 </div>
             </RadzenCard>
@@ -78,16 +83,15 @@
                     <RadzenText Text="Wednesday"></RadzenText>
                     <div class="col-lg-6 ">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Opening</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Wednesday", "Opening")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@WednesdayOpening"/>
                     </div>
                     <div class="col-lg-6">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Closing</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Wednesday", "Closing")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@WednesdayClosing"/>
                     </div>
                 </div>
             </RadzenCard>
 
-            
             <RadzenCard >
                         <RadzenCheckBox @bind-Value="@IsThursdayOpenCheckBox" Name="Thursday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
                         <RadzenLabel Text="Open on Thursday" Component="ThursdayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
@@ -97,17 +101,15 @@
                     <RadzenText Text="Thursday"></RadzenText>
                     <div class="col-lg-6 ">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Opening</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Thursday", "Opening")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@ThursdayOpening"/>
                     </div>
                     <div class="col-lg-6">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Closing</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Thursday", "Closing")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@ThursdayClosing"/>
                     </div>
                 </div>
             </RadzenCard>
 
-            
-            
             <RadzenCard >
                         <RadzenCheckBox @bind-Value="@IsFridayOpenCheckBox" Name="Friday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
                         <RadzenLabel Text="Open on Friday" Component="FridayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
@@ -117,11 +119,11 @@
                     <RadzenText Text="Friday"></RadzenText>
                     <div class="col-lg-6 ">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Opening</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Friday", "Opening")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@FridayOpening"/>
                     </div>
                     <div class="col-lg-6">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Closing</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Friday", "Closing")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@FridayClosing"/>
                     </div>
                 </div>
             </RadzenCard>
@@ -137,16 +139,15 @@
                     <RadzenText Text="Saturday"></RadzenText>
                     <div class="col-lg-6 ">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Opening</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Saturday", "Opening")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@SaturdayOpening"/>
                     </div>
                     <div class="col-lg-6">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Closing</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Saturday", "Closing")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@SaturdayClosing"/>
                     </div>
                 </div>
             </RadzenCard>
 
-            
             <RadzenCard >
                         <RadzenCheckBox @bind-Value="@IsSundayOpenCheckBox" Name="Sunday" TValue="bool" Change=@(args => OnChange(args, "CheckBox1 CheckBox"))></RadzenCheckBox>
                         <RadzenLabel Text="Open on Sunday" Component="SundayCheckBox" Style="margin-left: 8px; vertical-align: middle;"/>
@@ -156,11 +157,11 @@
                     <RadzenText Text="Sunday"></RadzenText>
                     <div class="col-lg-6 ">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Opening</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Sunday", "Opening")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@SundayOpening"/>
                     </div>
                     <div class="col-lg-6">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Closing</RadzenText>
-                        <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" Change=@(args => OnChangeTime(args, "Sunday", "Closing")) Class="w-100"></RadzenDatePicker>
+                        <input type="time" @bind="@SundayClosing"/>
                     </div>
                 </div>
             </RadzenCard>
@@ -211,7 +212,23 @@
     private string errorMsg;
     private bool showModal;
 
-    //dont merge with all those nullable Times, we will use the opening hours creation dto above instead :) -R
+    private TimeOnly MondayOpening;
+    private TimeOnly MondayClosing;
+    private TimeOnly TuesdayOpening;
+    private TimeOnly TuesdayClosing;
+    private TimeOnly WednesdayOpening;
+    private TimeOnly WednesdayClosing;
+    private TimeOnly ThursdayOpening;
+    private TimeOnly ThursdayClosing;
+    private TimeOnly FridayOpening;
+    private TimeOnly FridayClosing;
+    private TimeOnly SaturdayOpening;
+    private TimeOnly SaturdayClosing;
+    private TimeOnly SundayOpening;
+    private TimeOnly SundayClosing;
+
+   
+
 
     protected override Task OnInitializedAsync()
     {
@@ -219,6 +236,44 @@
         addressDto = new AddressCreationDto();
         hoursDto = new OpeningHoursCreationDto();
         return Task.CompletedTask;
+    }
+
+    private MyTime ToMyTime(TimeOnly timeonly)
+    {
+        return new MyTime(timeonly.Hour, timeonly.Minute);
+    }
+
+    private void PutHoursIntoHoursDto()
+    {
+        hoursDto.MondayOpeningHours = ToMyTime(MondayOpening);
+        hoursDto.MondayClosingHours = ToMyTime(MondayClosing);
+        hoursDto.TuesdayOpeningHours = ToMyTime(TuesdayOpening);
+        hoursDto.TuesdayClosingHours = ToMyTime(TuesdayClosing);
+        hoursDto.WednesdayOpeningHours = ToMyTime(WednesdayOpening);
+        hoursDto.WednesdayClosingHours = ToMyTime(WednesdayClosing);
+        hoursDto.ThursdayOpeningHours = ToMyTime(ThursdayOpening);
+        hoursDto.ThursdayClosingHours = ToMyTime(ThursdayClosing);
+        hoursDto.FridayOpeningHours = ToMyTime(FridayOpening);
+        hoursDto.FridayClosingHours = ToMyTime(FridayClosing);
+        hoursDto.SaturdayOpeningHours = ToMyTime(SaturdayOpening);
+        hoursDto.SaturdayClosingHours = ToMyTime(SaturdayClosing);
+        hoursDto.SundayOpeningHours = ToMyTime(SundayOpening);
+        hoursDto.SundayClosingHours = ToMyTime(SundayClosing);
+    }
+
+    private void PutMondayHoursForEveryBusinessDay()
+    {
+        TuesdayOpening = MondayOpening;
+        TuesdayClosing = MondayClosing;
+
+        WednesdayOpening = MondayOpening;
+        WednesdayClosing = MondayClosing;
+
+        ThursdayOpening = MondayOpening;
+        ThursdayClosing = MondayClosing;
+
+        FridayOpening = MondayOpening;
+        FridayClosing = MondayClosing;
     }
 
 
@@ -232,6 +287,7 @@
                 {
                     userDto.IsBusiness = true;
                     hoursDto.Username = userDto.UserName;
+                    PutHoursIntoHoursDto();
                 }
                 userDto.AddressCreationDto = addressDto;
                 Console.WriteLine(userDto.toString());
@@ -240,6 +296,9 @@
                 if (BusinessCheckbox)
                 {
                     setOpenDays();
+                    userDto.IsBusiness = true;
+                    hoursDto.Username = userDto.UserName;
+                    PutHoursIntoHoursDto();
                     await userService.AssignOpeningHoursAsync(hoursDto);
                 }
                 msg = $"Great! {user.FirstName}, you have been successfully registered!";

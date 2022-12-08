@@ -7,7 +7,7 @@
 @inject NavigationManager navMgr
 @inject DialogService DialogService
 
-@if (foodPosts == null)
+@if (activeFoodPosts == null)
 {
     <p>Loading food posts...</p>
 }
@@ -30,7 +30,11 @@ else
             </div>
             <AuthorizeView>
                 <Authorized>
-                     <RadzenButton ButtonStyle="ButtonStyle.Dark" Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value; await ShowRateDialog();}">Rate</RadzenButton>
+                    <RadzenButton
+                        ButtonStyle="ButtonStyle.Dark"
+                        Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value; await ShowRateDialog();}">
+                        Rate
+                    </RadzenButton>
                 </Authorized>
             </AuthorizeView>
 
@@ -54,7 +58,7 @@ else
         <RadzenTabs TabPosition="@tabPosition" Class="w-75 my-5 mx-auto" RenderMode="TabRenderMode.Client">
             <Tabs>
                 <RadzenTabsItem Text="Food Posts">
-                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@foodPosts" TItem="FoodPost">
+                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@activeFoodPosts" TItem="FoodPost">
                         <Template Context="foodPost">
                             <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
                                 <div class="row mb-3">
@@ -63,62 +67,18 @@ else
                                     </div>
                                     <div class="col-md-6 text-end">
                                         <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@(foodPost.StartTime.ToString() + " - " + foodPost.EndTime.ToString()) Class="me-1" IsPill="true"/>
-                                        @* <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@(foodPost.Category)</RadzenText> *@
                                     </div>
-                                    @*
-                                    <div class="col-md-4 text-end">
-                                        <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@("USERNAME") IsPill="true" />
-                                    </div>
-                                    *@
                                 </div>
-                                @*<hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;" />*@
                                 <div class="d-flex flex-row align-items-center">
                                     @* pfp and username *@
                                     <div class="d-flex flex-column me-3">
-                                        <RadzenImage Path=@foodPost.PictureUrl Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px;"/>
-                                        <RadzenBadge class="mt-2" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@(foodPost.User.UserName) IsPill="true"/>
+                                        <RadzenImage onclick="@(() => GoToFoodPost(foodPost.PostId))" Path=@foodPost.PictureUrl Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px; cursor: pointer;"/>
+                                        <RadzenBadge onclick="@(() => GoToUserProfile(foodPost.User.UserName))" class="mt-2 pointer" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@(foodPost.User.UserName) IsPill="true"/>
                                     </div>
                                     <div>
-                                        <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                            <strong>@(foodPost.Title)</strong>
-                                        </RadzenText>
+                                        <a class="post-title" onclick="@(() => GoToFoodPost(foodPost.PostId))">@foodPost.Title</a>
                                         <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@foodPost.Category</RadzenText>
                                         <RadzenText TextStyle="TextStyle.Caption" class="mb-0">@($"Expires in {foodPost.DaysUntilExpired} days")</RadzenText>
-                                    </div>
-                                </div>
-                            </RadzenCard>
-                        </Template>
-                    </RadzenDataList>
-                </RadzenTabsItem>
-                <RadzenTabsItem Text="Reservations">
-                    <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@reservations" TItem="Reservation">
-                        <Template Context="reservation">
-                            <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
-                                <div class="d-flex d-table-row">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <RadzenImage Path="@reservation.FoodPost.PictureUrl" Class="rz-border-radius-10 float-start me-3" Style="width: 80px; height: 80px;"/>
-                                        <div>
-                                            <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                                <strong>@reservation.FoodPost.Title</strong>
-                                            </RadzenText>
-                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.User.UserName </RadzenText>
-                                        </div>
-                                    </div>
-                                    <hr style="border: none; background-color: rgba(0,0,0,.08); height: 1px; margin: 1rem 0;"/>
-
-                                    <div class="d-flex flex-column align-items-center ms-5">
-                                        <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                            <strong>When?</strong>
-                                        </RadzenText>
-                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.StartDate.DayAndMonth() - @reservation.FoodPost.EndDate.DayAndMonth()</RadzenText>
-                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0">@reservation.FoodPost.StartTime.ToString() - @reservation.FoodPost.EndTime.ToString()</RadzenText>
-
-                                        <div class="mt-3">
-                                            <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                                <strong>Where?</strong>
-                                            </RadzenText>
-                                            <div>MAP HERE</div>
-                                        </div>
                                     </div>
                                 </div>
                             </RadzenCard>
@@ -165,7 +125,8 @@ else
 
 @code {
     private String claimUsername = "UserName"; // pls ignore i have some problems
-    private IEnumerable<FoodPost> foodPosts;
+    private IEnumerable<FoodPost> allFoodPosts;
+    private IEnumerable<FoodPost> activeFoodPosts;
     private IEnumerable<Reservation> reservations;
     private List<Rating> ratings;
 
@@ -204,22 +165,35 @@ else
         InitCookPicUrls();
         InitPickerPicUrls();
         user = await userService.GetUserByUsername(username);
-        foodPosts = await foodPostService.GetAllFoodPostsByUser(username);
-        ratings = await ratingService.GetAllByUserRated(username);
+        await InitFoodPosts();
         reservations = await userService.GetAllReservationsByUser(username);
-
-        avgCookerRating = GetAvgCookerRating();
-        avgPickerRating = GetAvgPickerRating();
-        
-        
+        await InitRatings();
     }
 
-    protected async Task RefetchRatings()
+    private async Task InitFoodPosts()
+    {
+        allFoodPosts = await foodPostService.GetAllFoodPostsByUser(username);
+        activeFoodPosts = allFoodPosts.Where(fp => fp.PostState.Equals("posted"));
+    }
+
+    private async Task InitRatings()
     {
         ratings = await ratingService.GetAllByUserRated(username);
+        avgCookerRating = GetAvgCookerRating();
+        avgPickerRating = GetAvgPickerRating();
+    }
+
+    private void GoToFoodPost(int fpId)
+    {
+        navMgr.NavigateTo($"/PostDetails/{fpId}");
     }
 
     protected void NavigateToProfile(string username)
+    {
+        navMgr.NavigateTo($"/UserProfile/{username}");
+    }
+    
+    private void GoToUserProfile(string username)
     {
         navMgr.NavigateTo($"/UserProfile/{username}");
     }
@@ -282,9 +256,15 @@ else
         return avg;
     }
 
+    private void clearRating()
+    {
+        ratingType = 1;
+        ratingValue = 1;
+        ratingComment = "";
+    }
+
     private async Task SubmitRating()
     {
-        Console.WriteLine("Entered submit rating.");
         String type = "";
         switch (ratingType)
         {
@@ -295,11 +275,14 @@ else
                 type = "picker";
                 break;
         }
-        Rating newRating = new Rating(loggedInUsername, username, ratingValue, ratingComment, type);
-        
-        Console.WriteLine(newRating);
+        Rating newRating = new Rating(
+            loggedInUsername,
+            username, ratingValue,
+            ratingComment, type);
         await ratingService.AddRating(newRating);
-        await RefetchRatings();
+        await InitRatings();
+        clearRating();
+        
     }
 
     async Task ShowRateDialog()
@@ -323,7 +306,7 @@ else
                 </div>
                 <div class="d-flex flex-row justify-content-evenly">
                     <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
-                    <RadzenButton Text="Rate" Click="async () => { await SubmitRating(); ds.Close(true);  }" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Rate" Click="async () => { await SubmitRating(); ds.Close(true); }" Class="me-1" Style="width: 80px;"/>
                 </div>
             </div>);
     }

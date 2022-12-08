@@ -1,12 +1,12 @@
 package sep3.g3.rightoversjava.service.impl;
 
+import com.sun.xml.bind.v2.runtime.unmarshaller.IntArrayData;
 import org.springframework.stereotype.Service;
+import sep3.g3.rightoversjava.model.Address;
 import sep3.g3.rightoversjava.model.OpeningHours;
-import sep3.g3.rightoversjava.model.dto.OpeningHoursCreationDTO;
+import sep3.g3.rightoversjava.model.dto.*;
 import sep3.g3.rightoversjava.model.Reservation;
 import sep3.g3.rightoversjava.model.User;
-import sep3.g3.rightoversjava.model.dto.UserCreationDTO;
-import sep3.g3.rightoversjava.model.dto.UserLoginDTO;
 import sep3.g3.rightoversjava.repository.*;
 import sep3.g3.rightoversjava.service.interaces.UserService;
 
@@ -65,6 +65,35 @@ public class UserServiceImp implements UserService {
         } else throw new IllegalAccessException("Only businesses may have opening hours.");
 
     }
+
+    @Override
+    public User changeFirstName(UserUpdateFirstNameDto dto) throws Exception {
+        User user = getByUsername(dto.getUsername());
+        user.setFirstName(dto.getNewFirstName());
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User changePassword(UserUpdatePasswordDto dto) throws Exception {
+        User user = getByUsername(dto.getUsername());
+
+        if (!dto.getOldPassword().equals(user.password)) {
+            throw new IllegalArgumentException("Wrong old password.");
+        }
+
+        user.setPassword(dto.getNewPassword());
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User changeAddress(UserUpdateAddressDto dto) throws Exception {
+       User user = getByUsername(dto.getUsername());
+
+        Address newAddress = new Address(user.address.getAddressId(), dto.getNewStreetNumber(), dto.getNewStreetName(), dto.getNewCity(), dto.getNewPostalCode());
+        user.setAddress(newAddress);
+        return userRepository.save(user);
+    }
+
 
 
     @Override

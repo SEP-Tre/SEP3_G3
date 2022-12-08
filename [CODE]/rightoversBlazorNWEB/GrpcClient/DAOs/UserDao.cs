@@ -175,6 +175,60 @@ public class UserDao : IUserDao
         return user;
     }
 
+    public async Task<User> ChangeFirstName(UserUpdateFirstNameDto dto)
+    {
+        try
+        {
+            var request = converter.GetChangeFirstNameRequestFromDto(dto);
+            var userMessage = await client.changeFirstNameAsync(request);
+            var user = converter.GetUserFromUserMessage(userMessage);
+
+            return user;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("GRPC CLIENT: " + e);
+
+            throw;
+        }
+    }
+
+    public async Task<User> ChangePassword(UserUpdatePasswordDto dto)
+    {
+        try
+        {
+            var request = converter.GetChangePasswordRequestFromDto(dto);
+            var userMessage = await client.changePasswordAsync(request);
+            var user = converter.GetUserFromUserMessage(userMessage);
+
+            return user;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("GRPC CLIENT: " + e);
+
+            throw;
+        }
+    }
+
+    public async Task<User> ChangeAddress(UserUpdateAddressDto dto)
+    {
+        try
+        {
+            var request = converter.GetChangeAddressRequestFromDto(dto);
+            var userMessage = await client.changeAddressAsync(request);
+            var user = converter.GetUserFromUserMessage(userMessage);
+
+            return user;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("GRPC CLIENT: " + e);
+
+            throw;
+        }
+    }
+
     public async Task<User> GetByUsername(string username)
     {
         var userRequest = converter.GetUserRequestFromUsername(username);

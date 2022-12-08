@@ -45,3 +45,16 @@
     margin-top: -25px;
     color: grey;
 }
+
+.post-title {
+    font-weight: bolder;
+}
+
+.post-title:hover {
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer !important;
+}

@@ -8,6 +8,11 @@ main {
     flex: 1;
 
 }
+.header-username {
+    color: darkslategrey;
+    font-size: 1.3em;
+    font-weight: bold;
+}
 
 .sidebar {
     background-image: linear-gradient(180deg, rgb(5, 163, 47) 0%, rgb(4, 102, 56) 70%);

@@ -97,6 +97,11 @@
     margin-top: 20px;
 }
 
+.creator[b-jixqs6uerm], .creator:hover[b-jixqs6uerm] {
+    font-weight: bolder;
+    color: darkslategrey;
+}
+
 .acceptbtn[b-jixqs6uerm] {
     background-color: lightgreen;
     border-radius: 5px;

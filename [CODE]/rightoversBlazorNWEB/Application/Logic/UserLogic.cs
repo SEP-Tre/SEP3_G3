@@ -51,6 +51,21 @@ public class UserLogic : IUserLogic
         return user;
     }
 
+    public Task<User> ChangeFirstName(UserUpdateFirstNameDto dto)
+    {
+        return userDao.ChangeFirstName(dto);
+    }
+
+    public Task<User> ChangePassword(UserUpdatePasswordDto dto)
+    {
+        return userDao.ChangePassword(dto);
+    }
+
+    public Task<User> ChangeAddress(UserUpdateAddressDto dto)
+    {
+        return userDao.ChangeAddress(dto);
+    }
+
     public async Task<OpeningHours> GetOpeningHoursAsync(string username)
     {
         OpeningHours openingHours = await userDao.GetOpeningHoursAsync(username);

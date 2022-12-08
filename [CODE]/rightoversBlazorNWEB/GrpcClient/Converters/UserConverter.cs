@@ -85,4 +85,36 @@ public class UserConverter : IUserConverter
 
         return request;
     }
+
+    public ChangeFirstNameRequest GetChangeFirstNameRequestFromDto(UserUpdateFirstNameDto dto)
+    {
+        var request = new ChangeFirstNameRequest
+        {
+            Username = dto.Username,
+            NewFirstName = dto.NewFirstName
+        };
+        return request;
+    }
+    public ChangePasswordRequest GetChangePasswordRequestFromDto(UserUpdatePasswordDto dto)
+    {
+        var request = new ChangePasswordRequest()
+        {
+            Username = dto.Username,
+            OldPassword = dto.OldPassword,
+            NewPassword = dto.NewPassword
+        };
+        return request;
+    }
+    public ChangeAddressRequest GetChangeAddressRequestFromDto(UserUpdateAddressDto dto)
+    {
+        var request = new ChangeAddressRequest()
+        {
+            Username = dto.Username,
+            StreetName = dto.NewStreetName,
+            StreetNumber = dto.NewStreetNumber,
+            City = dto.NewCity,
+            PostalCode = dto.NewPostalCode
+        };
+        return request;
+    }
 }
