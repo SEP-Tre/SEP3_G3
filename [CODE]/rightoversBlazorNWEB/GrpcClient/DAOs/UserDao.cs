@@ -241,7 +241,7 @@ public class UserDao : IUserDao
         var userRequest = converter.GetUserRequestFromUsername(username);
         var userMessage = await client.getByUsernameAsync(userRequest);
         var user = converter.GetUserFromUserMessage(userMessage);
-
+        Console.WriteLine(user.PhoneNumber);
         return user;
     }
 

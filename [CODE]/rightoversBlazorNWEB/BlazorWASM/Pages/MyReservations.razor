@@ -148,7 +148,7 @@ else
         foreach (var reservation in allReservations)
         {
             string posterName = reservation.FoodPost.User.UserName;
-            reservation.User = await userService.GetUserByUsername(posterName);
+            reservation.FoodPost.User = await userService.GetUserByUsername(posterName);
         }
         activeReservations = allReservations.Where(r => r.FoodPost.PostState.Equals("reserved"));
         oldReservations = allReservations.Where(r => r.FoodPost.PostState.Equals("closed"));
