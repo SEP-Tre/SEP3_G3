@@ -2,6 +2,7 @@
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using Domain.Classes;
 using Domain.DTOs;
 using HttpClients.ClientInterfaces;
 
@@ -142,5 +143,52 @@ public class AddressServiceHttpClient : IAddressService
         ;
 
         return addressDto;
+    }
+    
+    // TODO: Persist this correctly
+    public async Task<Address> SetCoordsOnExisting(Address addressIn)
+    {
+        string address =
+            addressIn.Street + "+" +
+            addressIn.StreetNumber + ",+" +
+            addressIn.PostCode + "+" +
+            addressIn.City;
+        string requestUri =
+            string.Format("https://maps.googleapis.com/maps/api/geocode/xml?key={1}&address={0}&sensor=false",
+                Uri.EscapeDataString(address), GEOCODE_API_KEY);
+
+        var response = await client.GetStreamAsync(requestUri);
+        var encode = Encoding.GetEncoding("utf-8");
+
+        var readstream = new StreamReader(response, encode);
+
+        var dsResult = new DataSet();
+
+        dsResult.ReadXml(readstream);
+
+        response.Close();
+        readstream.Close();
+
+        var output = new Tuple<double, double>(0, 0);
+
+        var dt = new DataTable();
+
+        foreach (DataRow row in dsResult.Tables["result"].Rows)
+        {
+            string geometry_id =
+                dsResult.Tables["geometry"].Select("result_id = " + row["result_id"])[0]["geometry_id"]
+                    .ToString();
+
+            var location = dsResult.Tables["location"].Select("geometry_id=" + geometry_id)[0];
+
+            output = Tuple.Create(Convert.ToDouble(location["lat"]), Convert.ToDouble(location["lng"]));
+
+            Console.WriteLine(output);
+
+            addressIn.Latitude = Convert.ToDouble(location["lat"]);
+            addressIn.Longitude = Convert.ToDouble(location["lng"]);
+        }
+        
+        return addressIn;
     }
 }

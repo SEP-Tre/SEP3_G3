@@ -2,7 +2,10 @@
 @using HttpClients.ClientInterfaces
 @using Domain.DTOs
 @using Microsoft.VisualBasic.CompilerServices
+@using Domain.Classes
 @inject IAddressService addressService
+@inject IUserService userService
+@inject IFoodPostService foodPostService
 @inject NavigationManager navMgr
 @inject IJSRuntime JSRuntime
 <div class="container-fluid">
@@ -11,89 +14,34 @@
             <RadzenCard Class="mb-4">
                 @msg
             </RadzenCard>
-            <RadzenGoogleMap @ref="map" style="height: 400px" Options=@(new Dictionary<string, object>{{"disableDoubleClickZoom", true}})
-                             Zoom="@zoom" ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center="@(new GoogleMapPosition{Lat = 55.863352, Lng = 9.838155})" MapClick="@OnMapClick" MarkerClick="@OnMarkerClick">
+            <RadzenGoogleMap @ref="map" style="height: 400px" Options=@(new Dictionary<string, object> { { "disableDoubleClickZoom", true } })
+                             Zoom="@zoom" ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center="@(new GoogleMapPosition { Lat = 55.863352, Lng = 9.838155 })" MapClick="@OnMapClick" MarkerClick="@OnMarkerClick">
                 <Markers>
-                    @if (addressDtos != null)
+                    @if (postedPosts != null)
                     {
-                        @foreach (var item in addressDtos)
+                        @foreach (var item in postedPosts)
                         {
-                            <RadzenGoogleMapMarker Position=@(new GoogleMapPosition{Lat = item.Latitude, Lng = item.Longitude})></RadzenGoogleMapMarker>
+                            item.Title = item.Title + " by " + item.User.UserName;
+                            <RadzenGoogleMapMarker
+                                Label=@item.PostId.ToString()
+                                Position=@(new GoogleMapPosition { Lat = item.User.Address.Latitude, Lng = item.User.Address.Longitude })
+                                Title=@item.Title>
+                            </RadzenGoogleMapMarker>
                         }
                     }
                 </Markers>
             </RadzenGoogleMap>
         </div>
     </div>
-</div>
+    <div>
+        <div class="card-back mx-3">
+            <div class="card d-flex align-items-start flex-column">
+                
 
-<div class="card">
-    <h3>Mark New Address</h3>
-    <div class="form-group field">
-        <label>Street:</label>
-        <br/>
-        <input type="text" @bind="street" @bind:event="oninput"/>
-    </div>
-    <div class="form-group field">
-        <label>Street Number:</label>
-        <br/>
-        <input type="text" @bind="streetNumber" @bind:event="oninput"/>
-    </div>
-    <div class="form-group field">
-        <label>Post Code:</label>
-        <br/>
-        <input type="text" @bind="postCode" @bind:event="oninput"/>
-    </div>
-    <div class="form-group field">
-        <label>City: </label>
-        <br/>
-        <input type="text" @bind="city" @bind:event="oninput"/>
-
-    </div>
-    <div class="button-row">
-        <button @onclick="CreateAsync" class="acceptbtn">Mark</button>
+            </div>
+        </div>
     </div>
 </div>
-
-<div class="d-flex justify-content-center">
-    <h3>Food Posts</h3>
-</div>
-@if (addressDtos == null)
-{
-    <p>Loading...</p>
-}
-else if (!addressDtos.Any())
-{
-    <p>No addresses to display. Sorry :(</p>
-}
-else
-{
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Street</th>
-            <th>Street Number</th>
-            <th>Post Code</th>
-            <th>City</th>
-            <th>Latitude</th>
-            <th>Longtitude</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in addressDtos)
-        {
-            <tr>
-                <td>@item.Street</td>
-                <td>@item.StreetNumber</td>
-                <td>@item.PostCode</td>
-                <td>@item.City</td>
-                <td>@item.Latitude</td>
-                <td>@item.Longitude</td>
-            </tr>
-        }
-        </tbody>
-    </table>
-}
 
 
 @code {
@@ -109,6 +57,10 @@ else
     private string city;
     private bool showModal;
     private string createdDtoString;
+    private ICollection<FoodPost> allFoodPosts;
+    private ICollection<FoodPost> postedPosts;
+    private string spacer = " \n by ";
+    private FoodPost? selectedFoodPost;
 
     private async Task clear()
     {
@@ -122,14 +74,22 @@ else
     {
         try
         {
-            addressDtos = await addressService.GetAsync();
-            foreach (var addressDto in addressDtos)
+            postedPosts = new List<FoodPost>();
+            allFoodPosts = await foodPostService.GetAsync();
+            foreach (var foodPost in allFoodPosts)
             {
-                if (addressDto.Longitude == 0)
+                if (foodPost.PostState == "posted")
                 {
-                    var coordDto = await addressService.GetCoordsAsync(addressDto);
-                    addressDto.Latitude = coordDto.Latitude;
-                    addressDto.Longitude = coordDto.Longitude;
+                    Console.WriteLine("I added the post: " + foodPost.Title);
+                    foodPost.User = await userService.GetUserByUsername(foodPost.User.UserName);
+                    Console.WriteLine("Here is the address: " + foodPost.User.Address);
+                    if (foodPost.User.Address.Latitude == 0)
+                    {
+                        Address preAddress = foodPost.User.Address;
+                        foodPost.User.Address = await addressService.SetCoordsOnExisting(preAddress);
+                    }
+                    Console.WriteLine("Here are the coords: " + foodPost.User.Address.Latitude + ", " + foodPost.User.Address.Longitude);
+                    postedPosts.Add(foodPost);
                 }
             }
 
@@ -149,6 +109,11 @@ else
     }
 
     async Task OnMarkerClick(RadzenGoogleMapMarker marker)
+    {
+        navMgr.NavigateTo($"/PostDetails/{marker.Label}");
+    }
+
+    async Task OnMarkerEnter(RadzenGoogleMapMarker marker)
     {
         string message = $"Custom information about <b>{marker.Title}</b>";
 
@@ -175,7 +140,8 @@ setTimeout(() => window.infoWindow.open(map, marker), 200);
         try
         {
             int postCodeInt = IntegerType.FromString(postCode);
-            var newAddress = await addressService.CreateAsync(new AddressCreationDto{
+            var newAddress = await addressService.CreateAsync(new AddressCreationDto
+            {
                 Street = street,
                 StreetNumber = streetNumber,
                 PostCode = postCodeInt,
@@ -191,6 +157,27 @@ setTimeout(() => window.infoWindow.open(map, marker), 200);
             Console.WriteLine(e);
             msg = e.Message;
         }
+    }
+
+    async Task onHover(FoodPost foodPost)
+    {
+        string message = $"Custom information about <b>{foodPost.Title}</b>";
+
+        string code = $@"
+var map = Radzen['{map.UniqueID}'].instance;
+
+if(window.infoWindow) {{window.infoWindow.close();}}
+window.infoWindow = new google.maps.InfoWindow({{content: '{message}'}});
+setTimeout(() => window.infoWindow.open(map, marker), 200);
+";
+
+        await JSRuntime.InvokeVoidAsync("eval", code);
+    }
+
+    public void SetSelectedFoodPost(FoodPost? foodPost)
+    {
+        Console.WriteLine("I set the post to " + foodPost?.Title);
+        selectedFoodPost = foodPost;
     }
 
 }
