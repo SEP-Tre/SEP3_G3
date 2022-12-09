@@ -143,6 +143,7 @@ public class FoodPostServiceImp implements FoodPostService
         }
 
         Reservation reservation = reservationRepository.findByFoodPost(fpToBeUpdated);
+
         if (!dto.getUsername().equals(reservation.getUser().getUsername()))
         {
             throw new IllegalAccessException("The user trying to pick up is not the one who reserved!");

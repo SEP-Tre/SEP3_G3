@@ -3,8 +3,8 @@
 public class UserUpdatePasswordDto
 {
     public string Username { get; }
-    public string OldPassword { get; private set; }
-    public string NewPassword { get; private set; }
+    public string OldPassword { get; }
+    public string NewPassword { get; }
 
     public UserUpdatePasswordDto(string username, string oldPassword, string newPassword)
     {

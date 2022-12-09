@@ -24,8 +24,6 @@ else
                 <div class="d-flex flex-column">
                     <h2 class="firstname">@user.FirstName</h2>
                     <h3 class="username">@user.UserName</h3>
-                    <br>
-                    <h4 class="phone">@user.PhoneNumber</h4>
                 </div>
             </div>
             <AuthorizeView>
@@ -73,7 +71,7 @@ else
                                     @* pfp and username *@
                                     <div class="d-flex flex-column me-3">
                                         <RadzenImage onclick="@(() => GoToFoodPost(foodPost.PostId))" Path=@foodPost.PictureUrl Class="rz-border-radius-10 float-start" Style="width: 80px; height: 80px; cursor: pointer;"/>
-                                        <RadzenBadge onclick="@(() => GoToUserProfile(foodPost.User.UserName))" class="mt-2 pointer" BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@(foodPost.User.UserName) IsPill="true"/>
+                                        <RadzenBadge BadgeStyle="BadgeStyle.Secondary" Shade="Shade.Lighter" Text=@(foodPost.User.UserName) IsPill="true"/>
                                     </div>
                                     <div>
                                         <a class="post-title" onclick="@(() => GoToFoodPost(foodPost.PostId))">@foodPost.Title</a>
@@ -186,16 +184,6 @@ else
     private void GoToFoodPost(int fpId)
     {
         navMgr.NavigateTo($"/PostDetails/{fpId}");
-    }
-
-    protected void NavigateToProfile(string username)
-    {
-        navMgr.NavigateTo($"/UserProfile/{username}");
-    }
-    
-    private void GoToUserProfile(string username)
-    {
-        navMgr.NavigateTo($"/UserProfile/{username}");
     }
 
     protected void InitCookPicUrls()
