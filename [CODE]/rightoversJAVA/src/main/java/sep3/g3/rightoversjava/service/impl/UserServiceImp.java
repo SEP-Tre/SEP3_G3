@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-public class UserServiceImp implements UserService {
+public class UserServiceImp implements UserService
+{
 
     private final UserRepository userRepository;
     private final AddressRepository addressRepository;
@@ -31,7 +32,8 @@ public class UserServiceImp implements UserService {
 
     public UserServiceImp(UserRepository userRepository, AddressRepository addressRepository,
                           FoodPostRepository foodPostRepository, OpeningHoursRepository openingHoursRepository,
-                          ReservationRepository reservationRepository, ReportRepository reportRepository, RatingRepository ratingRepository) {
+                          ReservationRepository reservationRepository, ReportRepository reportRepository, RatingRepository ratingRepository)
+    {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
         this.foodPostRepository = foodPostRepository;
@@ -42,21 +44,25 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User registerUser(UserCreationDTO dto) {
+    public User registerUser(UserCreationDTO dto)
+    {
         User user = new User(dto);
         user.setBusiness(dto.isBusiness());
         return userRepository.save(user);
     }
 
     @Override
-    public User login(UserLoginDTO dto) throws Exception {
+    public User login(UserLoginDTO dto) throws Exception
+    {
         Optional<User> user = userRepository.findById(dto.getUsername());
 
-        if (user.isEmpty()) {
+        if (user.isEmpty())
+        {
             throw new Exception("There is no such user.");
         }
 
-        if (!user.get().password.equals(dto.getPassword())) {
+        if (!user.get().password.equals(dto.getPassword()))
+        {
             throw new Exception("Password mismatch");
         }
 
@@ -64,9 +70,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User assignOpeningHours(OpeningHoursCreationDTO dto) throws IllegalAccessException {
+    public User assignOpeningHours(OpeningHoursCreationDTO dto) throws IllegalAccessException
+    {
         Optional<User> user = userRepository.findById(dto.username);
-        if (user.get().isBusiness()) {
+        if (user.get().isBusiness())
+        {
             OpeningHours openingHours = new OpeningHours(dto, user.get());
             openingHoursRepository.save(openingHours);
             return user.get();
@@ -75,17 +83,20 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User changeFirstName(UserUpdateFirstNameDto dto) throws Exception {
+    public User changeFirstName(UserUpdateFirstNameDto dto) throws Exception
+    {
         User user = getByUsername(dto.getUsername());
         user.setFirstName(dto.getNewFirstName());
         return userRepository.save(user);
     }
 
     @Override
-    public User changePassword(UserUpdatePasswordDto dto) throws Exception {
+    public User changePassword(UserUpdatePasswordDto dto) throws Exception
+    {
         User user = getByUsername(dto.getUsername());
 
-        if (!dto.getOldPassword().equals(user.password)) {
+        if (!dto.getOldPassword().equals(user.password))
+        {
             throw new IllegalArgumentException("Wrong old password.");
         }
 
@@ -94,8 +105,9 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User changeAddress(UserUpdateAddressDto dto) throws Exception {
-       User user = getByUsername(dto.getUsername());
+    public User changeAddress(UserUpdateAddressDto dto) throws Exception
+    {
+        User user = getByUsername(dto.getUsername());
 
         Address newAddress = new Address(user.address.getAddressId(), dto.getNewStreetNumber(), dto.getNewStreetName(), dto.getNewCity(), dto.getNewPostalCode());
         user.setAddress(newAddress);
@@ -104,7 +116,8 @@ public class UserServiceImp implements UserService {
 
 
     @Override
-    public void deleteUser(String username) {
+    public void deleteUser(String username)
+    {
         // For cascade
         /*
         if (userRepository.existsById(username))
@@ -127,6 +140,7 @@ public class UserServiceImp implements UserService {
             {
                 reportRepository.deleteAll(reports);
             }
+
             ArrayList<Reservation> reservations = (ArrayList<Reservation>) reservationRepository.findAllByUser(user.get());
             if (reservations.size() > 0)
             {
@@ -146,6 +160,20 @@ public class UserServiceImp implements UserService {
             ArrayList<FoodPost> foodPosts = (ArrayList<FoodPost>) foodPostRepository.getFoodPostsByUser(user.get());
             if (foodPosts.size() > 0)
             {
+                for (FoodPost fp : foodPosts)
+                {
+                    ArrayList<Report> reportsFoodPost = reportRepository.findAllByFoodPost(fp);
+                    if (reports.size() > 0)
+                    {
+                        reportRepository.deleteAll(reportsFoodPost);
+                    }
+                    Reservation reservationsOf = reservationRepository.findByFoodPost(fp);
+                    if (reservationsOf!=null)
+                    {
+                        reservationRepository.delete(reservationsOf);
+                    }
+                }
+
                 foodPostRepository.deleteAll(foodPosts);
             }
             userRepository.deleteById(username);
@@ -153,15 +181,18 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public ArrayList<Report> getAllReportsAgainstUser(String username) {
+    public ArrayList<Report> getAllReportsAgainstUser(String username)
+    {
         return reportRepository.findAllByFoodPost_User_Username(username);
     }
 
 
     @Override
-    public User getByUsername(String username) throws Exception {
+    public User getByUsername(String username) throws Exception
+    {
         Optional<User> existingUser = userRepository.findById(username);
-        if (existingUser.isEmpty()) {
+        if (existingUser.isEmpty())
+        {
             throw new Exception("User not found.");
         }
         User user = existingUser.get();
@@ -169,15 +200,17 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public ArrayList<Reservation> getReservationsByUsername(String username) {
+    public ArrayList<Reservation> getReservationsByUsername(String username)
+    {
         User user = userRepository.findById(username).get();
         ArrayList<Reservation> reservations = (ArrayList<Reservation>) reservationRepository.findAllByUser(user);
         return reservations;
     }
 
     @Override
-    public OpeningHours getOpeningHours(String username){
-        Optional<User> user=userRepository.findById(username);
+    public OpeningHours getOpeningHours(String username)
+    {
+        Optional<User> user = userRepository.findById(username);
 
         return openingHoursRepository.getOpeningHoursByUser(user.get());
     }
