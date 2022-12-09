@@ -9,6 +9,10 @@ public class MyTime
         Minutes = minutes;
     }
 
+    public MyTime()
+    {
+    }
+
     public int Hour { get; set; }
     public int Minutes { get; set; }
 

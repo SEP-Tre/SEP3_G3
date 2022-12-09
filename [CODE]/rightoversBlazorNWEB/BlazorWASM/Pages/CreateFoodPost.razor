@@ -9,68 +9,63 @@
 
 <AuthorizeView>
     <Authorized>
-        <div class="card">
-            <h3>Create Food Post</h3>
-            <div class="form-group field">
-                <label>Title:</label>
-                <br/>
-                <input type="text" @bind="title" @bind:event="oninput"/>
-            </div>
-            <div class="form-group field">
-                <label>Description:</label>
-                <br/>
-                <input type="text" @bind="description" @bind:event="oninput"/>
-            </div>
-            <div class="form-group field">
-                <label>Category:</label>
-                <br/>
-                <input type="text" @bind="category" @bind:event="oninput"/>
-            </div>
-            <div class="form-group field">
-                <label>Days left to consume: </label>
-                <input type="text" @bind="daysLeftToEat" @bind:event="oninput"/>
-
-            </div>
-            <div class="form-group field">
-                <label>Image url:</label>
-                <input id="imageUrl" type="url" @bind="@pictureUrl"/>
+        <div class="d-flex justify-content-around" onmouseenter="@(() => setIsBusiness(context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value))">
+            <div class="card-back d-flex justify-content-center">
+                <div class="card">
+                    <h1 align="center">Food Post details</h1>
+                    <div class="form-group field">
+                        <RadzenTextBox Placeholder="Enter the title..." Change="@(args => title = args)" Class="w-100 my-2"/>
+                    </div>
+                    <div class="form-group field">
+                        <RadzenTextBox Placeholder="Enter the description..." Change="@(args => description = args)" Class="w-100 my-2"/>
+                    </div>
+                    <div class="form-group field">
+                        <RadzenTextBox Placeholder="Enter the category..." Change="@(args => category = args)" Class="w-100 my-2"/>
+                    </div>
+                    <div class="form-group field">
+                        <RadzenTextBox Placeholder="Enter the days to consume..." Change="@(args => daysLeftToEat = args)" Class="w-100 my-2"/>
+                    </div>
+                    <div class="form-group field">
+                        <RadzenTextBox Placeholder="Enter the image URL..." type="url" Change="@(args => pictureUrl = args)" Class="w-100 my-2"/>
+                    </div>
+                    @if (!context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value.Equals("False"))
+                    {
+                        <div class="form-group field">
+                            <p>People can pick up the food during your business' opening hours.</p>
+                        </div>
+                    }
+                </div>
             </div>
             @if (context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value.Equals("False"))
             {
-                <div class="form-group field">
-                    <label>Start Date for Pickup</label>
-                    <input id="start_date" type="date" @bind="@startDate"/>
-                </div>
+                <div class="card-back d-flex justify-content-center">
+                    <div class="card">
+                        <h1 class="margin-bot">Pickup details</h1>
+                        <div class="form-group field d-flex flex-column margin-pickup">
+                            <label>Start Date for Pickup</label>
+                            <input id="start_date" type="date" @bind="@startDate"/>
+                        </div>
 
-                <div class="form-group field">
-                    <label>End Date for Pickup</label>
-                    <input id="end_date" type="date" @bind="@endDate"/>
-                </div>
+                        <div class="form-group field  d-flex flex-column margin-pickup">
+                            <label>End Date for Pickup</label>
+                            <input id="end_date" type="date" @bind="@endDate"/>
+                        </div>
 
-                <div class="form-group field">
-                    <label>Start Time for Pickup</label>
-                    <input id="start_time" type="time" @bind="@startTime"/>
-                </div>
+                        <div class="form-group field d-flex flex-column margin-pickup">
+                            <label>Start Time for Pickup</label>
+                            <input id="start_time" type="time" @bind="@startTime"/>
+                        </div>
 
-                <div class="form-group field">
-                    <label>End Time for Pickup</label>
-                    <input id="end_time" type="time" @bind="@endTime"/>
+                        <div class="form-group field d-flex flex-column margin-pickup">
+                            <label>End Time for Pickup</label>
+                            <input id="end_time" type="time" @bind="@endTime"/>
+                        </div>
+                    </div>
                 </div>
             }
-            else
-            {
-                <div>
-                    <p>People can pick up the food during your business' opening hours.</p>
-                </div>
-            }
-
-            <div class="button-row">
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => CreateAsync())" MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Create" ButtonStyle="ButtonStyle.Dark"/>
-            </div>
-            <Modal ShowModal="showModal">
-                <p class="text-center">@resultMsg</p>
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Wonderful!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
-            </Modal>
+        </div>
+        <div class="d-flex justify-content-center align-items-around flex-column my-4">
+                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(async () => await CreateAsync())" Text="Create Post" ButtonStyle="ButtonStyle.Success"/>
         </div>
     </Authorized>
     <NotAuthorized>
@@ -83,6 +78,11 @@
 
 </AuthorizeView>
 
+<Modal ShowModal="showModal">
+    <p class="text-center">@resultMsg</p>
+    <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Wonderful!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
+</Modal>
+
 @code {
     private string title;
     private string description;
@@ -94,6 +94,7 @@
     private TimeOnly startTime;
     private TimeOnly endTime;
     private string creatorUsername;
+    private string isBussiness;
 
     private string color = "red";
     private bool showModal;
@@ -134,10 +135,24 @@
         try
         {
             int howManyDays = IntegerType.FromString(daysLeftToEat);
-            var myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
-            var myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
-            var myStartTime = new MyTime(startTime.Hour, startTime.Minute);
-            var myEndTime = new MyTime(endTime.Hour, endTime.Minute);
+            var myStartDate = new MyDate();
+            var myEndDate = new MyDate();
+            var myStartTime = new MyTime();
+            var myEndTime = new MyTime();
+            if (isBussiness.Equals("True"))
+            {
+                myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
+                myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
+                myStartTime = new MyTime(startTime.Hour, startTime.Minute);
+                myEndTime = new MyTime(endTime.Hour, endTime.Minute);
+            }
+            else
+            {
+                myStartDate = new MyDate(1, 1, 1);
+                myEndDate = new MyDate(1, 1, 1);
+                myStartTime = new MyTime(1, 1);
+                myEndTime = new MyTime(1, 1);
+            }
 
 
             var newFoodPost = await fpService.Create(
@@ -153,11 +168,13 @@
                     myEndTime,
                     creatorUsername
                     ));
+
             clear();
             resultMsg = $"Food Post with a title '{newFoodPost.Title}' successfully created!";
             color = "green";
     // createdDtoString = "Your Food Post <" + newFoodPost.Title + "> was created.";
             showModal = true;
+            StateHasChanged();
         }
         catch (Exception e)
         {
@@ -175,6 +192,11 @@
     private void SetUsername(string? username)
     {
         creatorUsername = username;
+    }
+
+    private void setIsBusiness(string s)
+    {
+        this.isBussiness = s;
     }
 
 
