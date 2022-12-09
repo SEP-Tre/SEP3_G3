@@ -349,7 +349,7 @@ else
 
     public async Task DeleteUser()
     {
-        var confirm = await DialogService.Confirm("Are you sure?", "MyTitle",
+        var confirm = await DialogService.Confirm("Are you sure?", "Deleting " + username,
             new ConfirmOptions() { OkButtonText = "Yes", CancelButtonText = "No" });
         if (confirm.Value)
         {
