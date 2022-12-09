@@ -29,10 +29,8 @@ else
                             <div class="d-flex row">
                                 <div class="d-flex flex-row align-items-center col-6">
                                     <RadzenImage onclick="@(() => GoToFoodPost(reservation.FoodPost.PostId))" Path="@reservation.FoodPost.PictureUrl" Class="rz-border-radius-10 float-start me-3" Style="width: 80px; height: 80px; cursor: pointer;"/>
-                                    <div>
-                                        <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
-                                            <strong>@reservation.FoodPost.Title</strong>
-                                        </RadzenText>
+                                    <div class="d-flex flex-column">
+                                        <a class="post-title hover-underlined" onclick="@(() => GoToFoodPost(reservation.FoodPost.PostId))">@reservation.FoodPost.Title</a>
                                         <a onclick="@(() => @GoToUserProfile(@reservation.FoodPost.User.UserName))" class="mb-0 hover-underlined">@reservation.FoodPost.User.UserName </a>
                                     </div>
                                 </div>
@@ -197,5 +195,7 @@ else
     {
         navMgr.NavigateTo($"/PostDetails/{fpId}");
     }
+
+}
 
 }

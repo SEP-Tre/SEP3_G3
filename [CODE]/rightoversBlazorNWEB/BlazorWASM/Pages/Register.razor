@@ -263,6 +263,11 @@
 
     private void PutMondayHoursForEveryBusinessDay()
     {
+        IsTuesdayOpenCheckBox = true;
+        IsWednesdayOpenCheckBox = true;
+        IsThursdayOpenCheckBox = true;
+        IsFridayOpenCheckBox = true;
+        
         TuesdayOpening = MondayOpening;
         TuesdayClosing = MondayClosing;
 
@@ -287,7 +292,6 @@
                 {
                     userDto.IsBusiness = true;
                     hoursDto.Username = userDto.UserName;
-                    PutHoursIntoHoursDto();
                 }
                 userDto.AddressCreationDto = addressDto;
                 Console.WriteLine(userDto.toString());

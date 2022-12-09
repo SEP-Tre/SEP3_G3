@@ -2,3 +2,7 @@
     text-decoration: underline !important;
     cursor: pointer;
 }
+
+.post-title {
+    font-weight: bolder;
+}

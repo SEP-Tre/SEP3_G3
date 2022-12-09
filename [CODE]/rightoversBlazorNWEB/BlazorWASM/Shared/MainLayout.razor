@@ -11,7 +11,10 @@
         <AuthorizeView>
             <Authorized>
                 <div class="top-row px-4">
-                    <a class="me-3 header-username" href="/UserProfile/@context.User.Claims.First(claim => claim.Type.Equals(claimsUsername)).Value">@context.User.Claims.First(claim => claim.Type.Equals(claimsUsername)).Value</a>
+                    <a class="me-3 header-username"
+                       href="/UserProfile/@context.User.Claims.First( claim => claim.Type.Equals(claimsUsername)).Value">
+                        @context.User.Claims.First(claim => claim.Type.Equals(claimsUsername)).Value
+                    </a>
                     <LoginButtons/>
                 </div>
             </Authorized>

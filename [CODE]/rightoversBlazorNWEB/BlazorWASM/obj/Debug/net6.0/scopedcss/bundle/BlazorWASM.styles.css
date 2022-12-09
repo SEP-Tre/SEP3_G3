@@ -149,6 +149,10 @@
     text-decoration: underline !important;
     cursor: pointer;
 }
+
+.post-title[b-w1tifvojrv] {
+    font-weight: bolder;
+}
 /* /Pages/PostDetails.razor.rz.scp.css */
 .card[b-jixqs6uerm] {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
