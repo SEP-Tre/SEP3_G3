@@ -256,16 +256,38 @@ else
         </div>
     </div>
     </div>
+    
+    <div>
+        <AuthorizeView>
+            <Authorized>
+                <div>
+                    @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
+                    {
+                        <div class="d-flex justify-content-center my-2">
+                            <h1>Reports</h1>
+                        </div>
+                        <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="false" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                                        Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="Report" Property="UsernameReporting" Title="Reporter" Frozen="true" Width="20%"/>
+                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Comment" Width="60%"/>
+                                <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Resolve" Width="10%">
+                                    <Template Context="data">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="delete_forever" class="m-1 align-content-center" Click="async () => await ResolveAsync(data.ReportId)"></RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    }
+                </div>
+            </Authorized>
+        </AuthorizeView>
+    </div>
 
     <div>
         <h2>
             @errorMsg
         </h2>
-    </div>
-    <div>
-        <h3>
-            @msg
-        </h3>
     </div>
 
     <Modal ShowModal="showModal">
@@ -291,6 +313,7 @@ else
     private bool showModal;
     private User? creator;
     private string reportComment;
+    public IEnumerable<Report>? reports;
 
     protected override async Task OnInitializedAsync()
     {
@@ -300,6 +323,9 @@ else
 
             creator = await userService.GetUserByUsername(foodPost.User.UserName);
 
+            // TODO: Only load the reports if it is an admin that is looking
+            await LoadReports();
+            
             DisplayInformation();
         }
         catch (Exception e)
@@ -347,7 +373,7 @@ else
             var dto = new FoodPostReservationDto(username, foodPostId);
             await foodPostService.ReserveAsync(dto);
             showModal = true;
-            msg = foodPost.Title + " is reserved";
+            msg = foodPost.Title + " is reserved.";
         }
         catch (Exception e)
         {
@@ -406,6 +432,20 @@ else
     public void Edit()
     {
         navMgr.NavigateTo($"/EditFoodPost/{id}");
+    }
+    
+    private async Task ResolveAsync(int id)
+    {
+        await foodPostService.ResolveReportAsync(id);
+        Report reportToDelete =reports.FirstOrDefault(report => report.ReportId ==id);
+        List<Report> reportList = new List<Report>(reports);
+        reportList.Remove(reportToDelete);
+        reports = reportList.AsEnumerable();
+    }
+    
+    private async Task LoadReports()
+    {
+        reports =  await foodPostService.GetReportsOnPostAsync(id);
     }
 
 }}
