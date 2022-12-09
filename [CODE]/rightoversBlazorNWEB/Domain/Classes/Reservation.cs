@@ -18,4 +18,9 @@ public class Reservation
     public int ReservationId { get; set; }
     public FoodPost FoodPost { get; set; }
     public User User { get; set; }
+
+    public override string ToString()
+    {
+        return $"ReservationId: {ReservationId}, FoodPost: {FoodPost}, User: {User}";
+    }
 }

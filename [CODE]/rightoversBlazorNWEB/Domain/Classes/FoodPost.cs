@@ -43,4 +43,9 @@ public class FoodPost
     public MyTime EndTime { get; set; }
 
     public User User { get; set; }
+
+    public override string ToString()
+    {
+        return $"PostId: {PostId}, Title: {Title}, Category: {Category}, Description: {Description}, PictureUrl: {PictureUrl}, DaysUntilExpired: {DaysUntilExpired}, PostState: {PostState}, TimestampPosted: {TimestampPosted}, StartDate: {StartDate}, EndDate: {EndDate}, StartTime: {StartTime}, EndTime: {EndTime}, User: {User}";
+    }
 }

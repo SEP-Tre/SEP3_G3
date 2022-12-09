@@ -257,7 +257,6 @@ public class UserDao : IUserDao
                 var reservation = converter.GetReservationFromReservationMessage(message);
                 listHolder.Add(reservation);
             }
-
         return listHolder;
     }
 

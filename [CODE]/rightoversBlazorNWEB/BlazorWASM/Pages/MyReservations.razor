@@ -41,8 +41,15 @@ else
                                         <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
                                             <strong>When?</strong>
                                         </RadzenText>
-                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0"><strong>DATES: </strong>@reservation.FoodPost.StartDate.DayAndMonth() - @reservation.FoodPost.EndDate.DayAndMonth()</RadzenText>
-                                        <RadzenText TextStyle="TextStyle.Body2" class="mb-0"><strong>TIME: </strong>@reservation.FoodPost.StartTime.ToString() - @reservation.FoodPost.EndTime.ToString()</RadzenText>
+                                        @if (reservation.FoodPost.User.IsBusiness)
+                                        {
+                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0">Click on the Food Post to see the Business's opening hours for pickup.</RadzenText>
+                                        }
+                                        else
+                                        {
+                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0"><strong>DATES: </strong>@reservation.FoodPost.StartDate.DayAndMonth() - @reservation.FoodPost.EndDate.DayAndMonth()</RadzenText>
+                                            <RadzenText TextStyle="TextStyle.Body2" class="mb-0"><strong>TIME: </strong>@reservation.FoodPost.StartTime.ToString() - @reservation.FoodPost.EndTime.ToString()</RadzenText>
+                                        }
                                     </div>
                                     <div class="mt-2">
                                         <RadzenText TextStyle="TextStyle.Subtitle1" class="mb-0">
@@ -184,6 +191,7 @@ else
     }
     
     
+
 
     private void GoToFoodPost(int fpId)
     {
