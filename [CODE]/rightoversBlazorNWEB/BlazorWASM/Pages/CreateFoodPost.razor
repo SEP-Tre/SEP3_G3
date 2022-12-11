@@ -65,7 +65,10 @@
             }
         </div>
         <div class="d-flex justify-content-center align-items-around flex-column my-4">
-                <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(async () => await CreateAsync())" Text="Create Post" ButtonStyle="ButtonStyle.Success"/>
+            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" 
+                          Click="@(async () => await CreateAsync())" 
+                          MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) 
+                          Text="Create post" ButtonStyle="ButtonStyle.Dark"/>
         </div>
     </Authorized>
     <NotAuthorized>
@@ -139,8 +142,9 @@
             var myEndDate = new MyDate();
             var myStartTime = new MyTime();
             var myEndTime = new MyTime();
-            if (isBussiness.Equals("True"))
+            if (isBussiness.Equals("False"))
             {
+                Console.WriteLine("I am here, private");
                 myStartDate = new MyDate(startDate.Day, startDate.Month, startDate.Year);
                 myEndDate = new MyDate(endDate.Day, endDate.Month, endDate.Year);
                 myStartTime = new MyTime(startTime.Hour, startTime.Minute);
@@ -148,6 +152,7 @@
             }
             else
             {
+                Console.WriteLine("I am here, biz");
                 myStartDate = new MyDate(1, 1, 1);
                 myEndDate = new MyDate(1, 1, 1);
                 myStartTime = new MyTime(1, 1);
@@ -196,6 +201,7 @@
 
     private void setIsBusiness(string s)
     {
+        Console.WriteLine("I am here");
         this.isBussiness = s;
     }
 
