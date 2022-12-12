@@ -313,10 +313,18 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
-            errorMsg = e.Message;
+            errorMsg = FormatError(e.Message);
         }
     }
+    private string FormatError(string error)
+    {
+        string[] splitOne = error.Split(',');
+        Console.WriteLine(splitOne[1]);
+        string[] splitTwo = splitOne[1].Split('"');
+        Console.WriteLine(splitTwo[1]);
+        return splitTwo[1];
 
+    }
     private bool ValidDto()
     {
         if (string.IsNullOrEmpty(userDto.FirstName)

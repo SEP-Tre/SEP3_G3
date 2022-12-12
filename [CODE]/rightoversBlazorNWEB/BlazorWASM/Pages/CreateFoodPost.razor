@@ -200,11 +200,19 @@
         }
         catch (Exception e)
         {
-            resultMsg = e.Message;
+            resultMsg = FormatError(e.Message);
             color = "red";
         }
     }
+    private string FormatError(string error)
+    {
+        string[] splitOne = error.Split(',');
+        Console.WriteLine(splitOne[1]);
+        string[] splitTwo = splitOne[1].Split('"');
+        Console.WriteLine(splitTwo[1]);
+        return splitTwo[1];
 
+    }
     private void Proceed()
     {
         showModal = false;
