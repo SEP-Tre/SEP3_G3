@@ -20,10 +20,12 @@
                         <RadzenTextBox Placeholder="Enter the description..." Change="@(args => description = args)" Class="w-100 my-2"/>
                     </div>
                     <div class="form-group field">
-                        <RadzenTextBox Placeholder="Enter the category..." Change="@(args => category = args)" Class="w-100 my-2"/>
+                        <RadzenDropDown AllowClear="true" TValue="string" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowFiltering="true" Class="w-100 text-start"
+                                        Placeholder="Select category..." Data=@categories  @bind-Value=@category>
+                        </RadzenDropDown>
                     </div>
                     <div class="form-group field">
-                        <RadzenTextBox Placeholder="Enter the days to consume..." Change="@(args => daysLeftToEat = args)" Class="w-100 my-2"/>
+                        <RadzenTextBox Placeholder="Enter the days to consume..."  Change="@(args => daysLeftToEat = args)" Class="w-100 my-2"/>
                     </div>
                     <div class="form-group field">
                         <RadzenTextBox Placeholder="Enter the image URL..." type="url" Change="@(args => pictureUrl = args)" Class="w-100 my-2"/>
@@ -65,9 +67,9 @@
             }
         </div>
         <div class="d-flex justify-content-center align-items-around flex-column my-4">
-            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" 
-                          Click="@(async () => await CreateAsync())" 
-                          MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) 
+            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter"
+                          Click="@(async () => await CreateAsync())"
+                          MouseEnter=@(args => SetUsername(creatorUsername = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value))
                           Text="Create post" ButtonStyle="ButtonStyle.Dark"/>
         </div>
     </Authorized>
@@ -82,14 +84,17 @@
 </AuthorizeView>
 
 <Modal ShowModal="showModal">
+    <div class="d-flex flex-column justify-content-center align-items-center">
     <p class="text-center">@resultMsg</p>
     <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Wonderful!" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
+    </div>
 </Modal>
 
 @code {
     private string title;
     private string description;
     private string daysLeftToEat;
+    private List<string> categories;
     private string category;
     private string pictureUrl;
     private DateOnly startDate;
@@ -108,6 +113,7 @@
     protected override void OnInitialized()
     {
         initDates();
+        initCategories();
     }
 
     private void initDates()
@@ -126,6 +132,18 @@
         pictureUrl = "";
         daysLeftToEat = "";
         initDates();
+    }
+
+    private void initCategories()
+    {
+        categories = new List<string>();
+        categories.Add("Baked goods");
+        categories.Add("Desserts");
+        categories.Add("Meat");
+        categories.Add("Soup");
+        categories.Add("Vegan");
+        categories.Add("Vegetarian");
+        categories.Add("Other");
     }
 
     private void SeeDate()
@@ -175,9 +193,8 @@
                     ));
 
             clear();
-            resultMsg = $"Food Post with a title '{newFoodPost.Title}' successfully created!";
+            resultMsg = $"Food Post with a title '{newFoodPost.Title}' was successfully created!";
             color = "green";
-    // createdDtoString = "Your Food Post <" + newFoodPost.Title + "> was created.";
             showModal = true;
             StateHasChanged();
         }
@@ -191,7 +208,7 @@
     private void Proceed()
     {
         showModal = false;
-        navMgr.NavigateTo("/");
+        navMgr.NavigateTo($"/UserProfile/{creatorUsername}");
     }
 
     private void SetUsername(string? username)
