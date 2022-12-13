@@ -128,7 +128,7 @@
         category = foodPost.Category;
         pictureUrl = foodPost.PictureUrl;
         startDate = DateOnly.FromDayNumber(startDate.DayNumber);
-        endDate = DateOnly.FromDayNumber(startDate.DayNumber);
+        endDate = DateOnly.FromDayNumber(endDate.DayNumber);
         startTime = TimeOnly.Parse(foodPost.StartTime.ToString());
         endTime = TimeOnly.Parse(foodPost.EndTime.ToString());
         creatorUsername = foodPost.User.UserName;
@@ -187,11 +187,19 @@
         }
         catch (Exception e)
         {
-            resultMsg = e.Message;
+            resultMsg = FormatError(e.Message);
             color = "red";
         }
     }
+    private string FormatError(string error)
+    {
+        string[] splitOne = error.Split(',');
+        Console.WriteLine(splitOne[1]);
+        string[] splitTwo = splitOne[1].Split('"');
+        Console.WriteLine(splitTwo[1]);
+        return splitTwo[1];
 
+    }
     private void Proceed()
     {
         showModal = false;

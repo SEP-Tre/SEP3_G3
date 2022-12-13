@@ -68,8 +68,18 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
-            msg = e.Message;
+            msg = FormatError(e.Message);
         }
+    }
+    
+    private string FormatError(string error)
+    {
+        string[] splitOne = error.Split(',');
+        Console.WriteLine(splitOne[1]);
+        string[] splitTwo = splitOne[1].Split('"');
+        Console.WriteLine(splitTwo[1]);
+        return splitTwo[1];
+
     }
 
     private void ViewPost(int postId)

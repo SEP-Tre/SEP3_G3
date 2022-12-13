@@ -67,6 +67,7 @@
     private string newPostalCode = "";
     private string newCity = "";
 
+    private User loggedInUser;
     private string loggedInUsername;
     private string passwordErrorMessage = "";
 
@@ -82,6 +83,12 @@
 
         userClaims = user.Claims;
         loggedInUsername = userClaims.First(claim => claim.Type.Equals("UserName")).Value;
+        loggedInUser =await userService.GetUserByUsername(loggedInUsername);
+        Address address = loggedInUser.Address;
+        newStreetName = address.Street;
+        newPostalCode = address.PostCode.ToString();
+        newStreetNumber = address.StreetNumber;
+        newCity = address.City;
     }
 
     public async Task ChangeName()
