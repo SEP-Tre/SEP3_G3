@@ -3,6 +3,7 @@
 @using Domain.Classes
 @using Domain.DTOs
 @using BlazorWASM.Pages.UIComponents
+@using System.Security.Claims
 @inject IFoodPostService foodPostService
 @inject NavigationManager navMgr
 @inject IUserService userService;
@@ -206,7 +207,14 @@ else
                     <div class="d-flex justify-content-around my-2">
 
                         <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
-                        <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                        @if (!creator.UserName.Equals(context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value) 
+                            
+                            && foodPost.PostState.Equals("posted") && context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value.Equals("False"))
+                        {
+                            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username
+                                                                                                                                   = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                            
+                        }
                     </div>
                 </Authorized>
             </AuthorizeView>
@@ -373,7 +381,6 @@ else
             var dto = new FoodPostReservationDto(username, foodPostId);
             await foodPostService.ReserveAsync(dto);
             showModal = true;
-            msg = foodPost.Title + " is reserved.";
         }
         catch (Exception e)
         {
@@ -461,3 +468,5 @@ else
 
 
 }}
+    
+

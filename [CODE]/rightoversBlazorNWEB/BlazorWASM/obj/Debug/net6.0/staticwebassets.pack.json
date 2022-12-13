@@ -77,12 +77,20 @@
       "PackagePath": "staticwebassets\\img\\Logout.png"
     },
     {
-      "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\logo.png",
-      "PackagePath": "staticwebassets\\img\\logo.png"
+      "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\deliciousfood.png",
+      "PackagePath": "staticwebassets\\img\\deliciousfood.png"
     },
     {
-      "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\yummysammy.jpg",
-      "PackagePath": "staticwebassets\\img\\yummysammy.jpg"
+      "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\foodandpeople.png",
+      "PackagePath": "staticwebassets\\img\\foodandpeople.png"
+    },
+    {
+      "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\foodsafety.png",
+      "PackagePath": "staticwebassets\\img\\foodsafety.png"
+    },
+    {
+      "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
       "Id": "O:\\VIA\\3RD SEMESTER\\SDJ3\\SEP3_G3\\[CODE]\\rightoversBlazorNWEB\\BlazorWASM\\wwwroot\\index.html",
