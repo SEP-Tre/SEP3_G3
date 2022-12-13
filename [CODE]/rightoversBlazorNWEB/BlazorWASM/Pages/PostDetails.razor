@@ -3,6 +3,7 @@
 @using Domain.Classes
 @using Domain.DTOs
 @using BlazorWASM.Pages.UIComponents
+@using System.Security.Claims
 @inject IFoodPostService foodPostService
 @inject NavigationManager navMgr
 @inject IUserService userService;
@@ -30,7 +31,7 @@ else
             </div>
         </NotAuthorized>
     </AuthorizeView>
-    <div class="d-flex justify-content-around my-1">
+    <div class="d-flex justify-content-around my-1" onmouseenter="">
 
     <div class="card-back mx-3">
         <div class="card d-flex align-items-start flex-column">
@@ -206,7 +207,14 @@ else
                     <div class="d-flex justify-content-around my-2">
 
                         <!-- NOTE: The post that is reserved is hard coded because the page currently shows a hardcoded item -->
-                        <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                        @if (!creator.UserName.Equals(context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value) 
+                            
+                            && foodPost.PostState.Equals("posted") && context.User.Claims.First(claim => claim.Type.Equals("IsBusiness")).Value.Equals("False"))
+                        {
+                            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click=@(args => Reserve(id)) MouseEnter=@(args => SetUsername(username
+                                                                                                                                   = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value)) Text="Reserve" ButtonStyle="ButtonStyle.Dark"/>
+                            
+                        }
                     </div>
                 </Authorized>
             </AuthorizeView>
@@ -291,6 +299,7 @@ else
     private bool showModal;
     private User? creator;
     private string reportComment;
+    private bool viewerIsBusiness;
 
     protected override async Task OnInitializedAsync()
     {
@@ -316,7 +325,7 @@ else
         var startTime = foodPost.StartTime;
         var endTime = foodPost.EndTime;
         pickupDetailsDates = $"Dates: {startDate.Day}-{endDate.Day}/{endDate.Month}/{endDate.Year} ";
-        pickupDetailsTime = $"Timeframe: {startTime.Hour}:{startTime.Minutes}-{endTime.Hour}:{endTime.Minutes} ";
+        pickupDetailsTime = $"Timeframe: {startTime.timeFormatter(startTime)}-{endTime.timeFormatter(endTime)} ";
         if (creator != null)
         {
             if (creator.IsBusiness)
@@ -347,7 +356,6 @@ else
             var dto = new FoodPostReservationDto(username, foodPostId);
             await foodPostService.ReserveAsync(dto);
             showModal = true;
-            msg = foodPost.Title + " is reserved";
         }
         catch (Exception e)
         {
@@ -407,6 +415,7 @@ else
     {
         navMgr.NavigateTo($"/EditFoodPost/{id}");
     }
-
-}}
     
+
+}    
+}

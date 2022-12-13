@@ -52,6 +52,28 @@
 .button-row[b-k60enmo6oc] {
     margin-top: 15px;
 }
+/* /Pages/Index.razor.rz.scp.css */
+.greenheader[b-ge7fcwz0nr] {
+    color: #149660;
+    text-align: center;
+}
+
+.centerpic[b-ge7fcwz0nr] {
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height:30%;
+}
+
+.foodsafety[b-ge7fcwz0nr]{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height:100%;
+}
 /* /Pages/Login.razor.rz.scp.css */
 .card[b-xm4hp2nt19] {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
