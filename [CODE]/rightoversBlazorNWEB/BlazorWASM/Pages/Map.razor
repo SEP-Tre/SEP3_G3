@@ -15,16 +15,17 @@
             <RadzenCard Class="mb-4">
                 @msg
             </RadzenCard>
-            <RadzenGoogleMap @ref="map" style="height: 400px" Options=@(new Dictionary<string, object>{{"disableDoubleClickZoom", true}})
+            <RadzenGoogleMap @ref="map" style="height: 400px"
                              Zoom="@zoom" ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center="@(new GoogleMapPosition{Lat = 55.863352, Lng = 9.838155})" MapClick="@OnMapClick" MarkerClick="@OnMarkerClick">
                 <Markers>
-                    @if (postedPosts != null)
+                    @if (postedPosts.Count != 0)
                     {
                         @foreach (var item in postedPosts)
                         {
                             <RadzenGoogleMapMarker
+                                Title=@item.User.UserName
                                 Position=@(new GoogleMapPosition{Lat = item.User.Address.Latitude, Lng = item.User.Address.Longitude})
-                                Title= @item.User.UserName>
+                                >
                             </RadzenGoogleMapMarker>
                     }
                     }
