@@ -163,7 +163,7 @@ public class UserServiceImp implements UserService
                 for (FoodPost fp : foodPosts)
                 {
                     ArrayList<Report> reportsFoodPost = reportRepository.findAllByFoodPost(fp);
-                    if (reports.size() > 0)
+                    if (reportsFoodPost.size()!=0)
                     {
                         reportRepository.deleteAll(reportsFoodPost);
                     }

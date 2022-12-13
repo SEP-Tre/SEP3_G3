@@ -7,6 +7,8 @@
 @inject NavigationManager navMgr
 @inject IUserService userService;
 
+@* This page is no longer used. See post details instead *@
+
 @*
 <div class="card-back-title d-flex justify-content-center align-items-center">
     <div class="card-title d-flex justify-content-center my-1">
@@ -173,6 +175,7 @@ else
                 <div>
                     @if (context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals("admin"))
                     {
+                        @LoadReports();
                         <div class="d-flex justify-content-center my-2">
                                             <h1>Reports</h1>
                                     </div>
@@ -238,7 +241,8 @@ else
 
             creator = await userService.GetUserByUsername(foodPost.User.UserName);
 
-            reports = await foodPostService.GetReportsOnPostAsync(id);
+            // TODO: Do this only when an admin is viewing
+            await LoadReports();
 
             DisplayInformation();
         }
@@ -294,10 +298,19 @@ else
         }
         catch (Exception e)
         {
-            errorMsg = "Error: " + e.Message;
+            errorMsg = FormatError(e.Message);
         }
     }
 
+    private string FormatError(string error)
+    {
+        string[] splitOne = error.Split(',');
+        Console.WriteLine(splitOne[1]);
+        string[] splitTwo = splitOne[1].Split('"');
+        Console.WriteLine(splitTwo[1]);
+        return splitTwo[1];
+
+    }
     public void Proceed()
     {
     // Change to move to the user's reservations once profile is ready
@@ -317,6 +330,18 @@ else
         List<Report> reportList = new List<Report>(reports);
         reportList.Remove(reportToDelete);
         reports = reportList.AsEnumerable();
+    }
+
+    private async Task LoadReports()
+    {
+        try
+        {
+            reports = await foodPostService.GetReportsOnPostAsync(id);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
 
 }}
