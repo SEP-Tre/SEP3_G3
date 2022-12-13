@@ -21,9 +21,10 @@
                     @if (postedPosts != null)
                     {
                         @foreach (var item in postedPosts)
+                        {
                             <RadzenGoogleMapMarker
                                 Position=@(new GoogleMapPosition{Lat = item.User.Address.Latitude, Lng = item.User.Address.Longitude})
-                                Title=@item.User.UserName>
+                                Title= @item.User.UserName>
                             </RadzenGoogleMapMarker>
                     }
                     }
@@ -59,7 +60,7 @@
     private ICollection<FoodPost> postedPosts;
     private string spacer = " \n by ";
     private FoodPost? selectedFoodPost;
-    private ICollection<Address> addresses;
+    private ICollection<Address> addresses = new List<Address>();
 
     private async Task clear()
     {
@@ -106,11 +107,18 @@
     
     private string FormatError(string error)
     {
-        string[] splitOne = error.Split(',');
-        Console.WriteLine(splitOne[1]);
-        string[] splitTwo = splitOne[1].Split('"');
-        Console.WriteLine(splitTwo[1]);
-        return splitTwo[1];
+        if (error.Length != 0)
+        {
+            string[] splitOne = error.Split(',');
+            Console.WriteLine(splitOne[1]);
+            string[] splitTwo = splitOne[1].Split('"');
+            Console.WriteLine(splitTwo[1]);
+            return splitTwo[1];
+        }
+        else
+        {
+            return error;
+        }
 
     }
 
