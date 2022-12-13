@@ -1,3 +1,3 @@
 obj\Debug\net6.0\Protos/FoodPostGrpc.cs \
-obj\Debug\net6.0\Protos/FoodPostGrpcGrpc.cs: C:/Users/chrfoyer/.nuget/packages/grpc.tools/2.50.0/build/native/include/google/protobuf/timestamp.proto\
+obj\Debug\net6.0\Protos/FoodPostGrpcGrpc.cs: C:/Users/laura/.nuget/packages/grpc.tools/2.50.0/build/native/include/google/protobuf/timestamp.proto\
  Protos/FoodPostGrpc.proto
