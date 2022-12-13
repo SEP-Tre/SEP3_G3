@@ -342,7 +342,7 @@ else
         var startTime = foodPost.StartTime;
         var endTime = foodPost.EndTime;
         pickupDetailsDates = $"Dates: {startDate.Day}-{endDate.Day}/{endDate.Month}/{endDate.Year} ";
-        pickupDetailsTime = $"Timeframe: {startTime.Hour}:{startTime.Minutes}-{endTime.Hour}:{endTime.Minutes} ";
+        pickupDetailsTime = $"Timeframe: {startTime.timeFormatter(startTime)}-{endTime.timeFormatter(endTime)} ";
         if (creator != null)
         {
             if (creator.IsBusiness)
@@ -377,7 +377,8 @@ else
         }
         catch (Exception e)
         {
-            errorMsg = "Error: " + e.Message;
+            
+            errorMsg = FormatError(e.Message);
         }
     }
 
@@ -429,7 +430,7 @@ else
     }
 
 
-    public void Edit()
+    private void Edit()
     {
         navMgr.NavigateTo($"/EditFoodPost/{id}");
     }
@@ -448,5 +449,15 @@ else
         reports =  await foodPostService.GetReportsOnPostAsync(id);
     }
 
+    private string FormatError(string error)
+    {
+        string[] splitOne = error.Split(',');
+        Console.WriteLine(splitOne[1]);
+        string[] splitTwo = splitOne[1].Split('"');
+        Console.WriteLine(splitTwo[1]);
+        return splitTwo[1];
+
+    }
+
+
 }}
-    

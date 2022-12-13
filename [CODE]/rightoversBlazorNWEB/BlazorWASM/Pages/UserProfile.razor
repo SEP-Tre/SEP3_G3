@@ -354,7 +354,7 @@ else
         if (confirm.Value)
         {
             await userService.DeleteUserAsync(username);
-        }
+        }navMgr.NavigateTo("/ReportedPosts");
     }
 
     private void ViewPost(int postId)
