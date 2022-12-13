@@ -4280,3 +4280,4 @@ D:\Users\chrfoyer\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debu
 C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\EditFoodPost.razor.rz.scp.css
 C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\MyReservations.razor.rz.scp.css
 C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\ReportedPostDetails.razor.rz.scp.css
+C:\Users\thanks\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\obj\Debug\net6.0\scopedcss\Pages\Index.razor.rz.scp.css
