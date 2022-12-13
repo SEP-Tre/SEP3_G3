@@ -20,7 +20,8 @@
                 <Markers>
                     @if (postedPosts != null)
                     {
-                        @foreach (var item in postedPosts)
+                        @foreach (var item in postedPosts) 
+                        {
                             <RadzenGoogleMapMarker
                                 Position=@(new GoogleMapPosition{Lat = item.User.Address.Latitude, Lng = item.User.Address.Longitude})
                                 Title=@item.User.UserName>

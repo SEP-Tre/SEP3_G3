@@ -1,17 +1,57 @@
 ﻿@page "/"
 
+
 <PageTitle>Index</PageTitle>
 
-<h1>
+<h1 style="text-align: center">
     <img src="img/logo.png" alt="logo" width="100" height="100"/>
-    RightOvers
+    Welcome to RightOvers!
 </h1>
-<AuthorizeView>
-    <NotAuthorized>
-        Saving food made simple.
-    </NotAuthorized>
-    <Authorized>
-        Saving food made simple. Espescially for you
-        @context.User.Claims.First(claim => claim.Type.Equals("FirstName")).Value!
-    </Authorized>
-</AuthorizeView>
+
+<img  src="img/deliciousfood.png" class="centerpic" />
+<br>
+<h1 class="greenheader"><i>OUR MISSION</i></h1>
+
+<RadzenText TextStyle="TextStyle.Body1" Class="my-4" TextAlign="TextAlign.Center" >
+    To make sure good food gets eaten, not wasted. It is estimated that around 88 million tons of food waste are generated solely in the EU.
+    This means that about one third of the food produced is lost or wasted – and more than half of it occurs within households.
+</RadzenText>
+
+<h1 class="greenheader"><i>THE SOLUTION</i></h1>
+
+<RadzenText TextStyle="TextStyle.Body1" Class="my-4"   TextAlign="TextAlign.Center">
+    There are no leftovers on this platform - only <b>RightOvers</b>. Businesses and households are sharing their rightovers for <b>FREE</b>. All you have to do is to <a href="/Login/">Create an account</a>.
+</RadzenText>
+
+
+<h1 class="greenheader"><i>HOW YOU CAN CONTRIBUTE</i></h1>
+
+<RadzenText TextStyle="TextStyle.Body1" Class="my-4"  TextAlign="TextAlign.Center">
+    Browse through food posts households and businesses, or use the map to find RightOvers close to your location. 
+</RadzenText>
+
+<br>
+
+<img  src="img/foodandpeople.png" class="centerpic" />
+
+<br>
+
+<RadzenText TextStyle="TextStyle.Body1" Class="my-4 "  TextAlign="TextAlign.Center">
+     Publish your food with the desired pick-up time and date, details, and a picture so that others can view it and hopefully reserve it. Your phone number will be shared with the person who reserved your food post, so expect a call if the picker cannot find you. :)
+</RadzenText>
+
+<h1 class="greenheader">IMPORTANT!</h1>
+
+
+<RadzenText TextStyle="TextStyle.Body1" Class="my-4" TextAlign="TextAlign.Center">
+    <b>Make sure you are following the below listed food safety tips:</b> 
+</RadzenText>
+
+<img  src="img/foodsafety.png" class="foodsafety" />
+
+
+
+
+
+
+
