@@ -15,17 +15,17 @@
             <RadzenCard Class="mb-4">
                 @msg
             </RadzenCard>
-            <RadzenGoogleMap @ref="map" style="height: 400px"
+            <RadzenGoogleMap @ref="map" style="height: 400px" Options=@(new Dictionary<string, object>{{"disableDoubleClickZoom", true}})
                              Zoom="@zoom" ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center="@(new GoogleMapPosition{Lat = 55.863352, Lng = 9.838155})" MapClick="@OnMapClick" MarkerClick="@OnMarkerClick">
                 <Markers>
-                    @if (postedPosts.Count != 0)
+                    @if (postedPosts != null)
                     {
                         @foreach (var item in postedPosts)
                         {
+                            
                             <RadzenGoogleMapMarker
-                                Title=@item.User.UserName
                                 Position=@(new GoogleMapPosition{Lat = item.User.Address.Latitude, Lng = item.User.Address.Longitude})
-                                >
+                                Title=@item.User.UserName>
                             </RadzenGoogleMapMarker>
                     }
                     }
@@ -61,7 +61,7 @@
     private ICollection<FoodPost> postedPosts;
     private string spacer = " \n by ";
     private FoodPost? selectedFoodPost;
-    private ICollection<Address> addresses = new List<Address>();
+    private ICollection<Address> addresses;
 
     private async Task clear()
     {
@@ -108,18 +108,11 @@
     
     private string FormatError(string error)
     {
-        if (error.Length != 0)
-        {
-            string[] splitOne = error.Split(',');
-            Console.WriteLine(splitOne[1]);
-            string[] splitTwo = splitOne[1].Split('"');
-            Console.WriteLine(splitTwo[1]);
-            return splitTwo[1];
-        }
-        else
-        {
-            return error;
-        }
+        string[] splitOne = error.Split(',');
+        Console.WriteLine(splitOne[1]);
+        string[] splitTwo = splitOne[1].Split('"');
+        Console.WriteLine(splitTwo[1]);
+        return splitTwo[1];
 
     }
 
