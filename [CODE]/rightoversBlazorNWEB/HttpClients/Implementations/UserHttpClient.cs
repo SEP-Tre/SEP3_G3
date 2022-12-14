@@ -136,7 +136,7 @@ public class UserHttpClient : IUserService
         var createdAddress = await addressService.CreateAsync(addressToBeCreated);
 
         dto.AddressCreationDto = createdAddress;
-        var response = await client.PostAsJsonAsync("/Users/register", dto);
+        var response = await client.PostAsJsonAsync("/Users/", dto);
         string content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
