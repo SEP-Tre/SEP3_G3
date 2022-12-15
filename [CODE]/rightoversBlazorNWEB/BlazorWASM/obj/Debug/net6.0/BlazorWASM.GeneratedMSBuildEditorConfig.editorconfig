@@ -5,107 +5,105 @@ build_property.UsingMicrosoftNETSdkWeb =
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = browser
-build_property.EnableSingleFileAnalyzer = 
-build_property.EnableTrimAnalyzer = true
-build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = BlazorWASM
 build_property.RootNamespace = BlazorWASM
-build_property.ProjectDir = C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\
+build_property.ProjectDir = O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\laura\OneDrive\Documents\GitHub\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM
+build_property.MSBuildProjectDirectory = O:\VIA\3RD SEMESTER\SDJ3\SEP3_G3\[CODE]\rightoversBlazorNWEB\BlazorWASM
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/App.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/DialogCardPage.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/DialogCardPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlhbG9nQ2FyZFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/EditProfile.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/EditProfile.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFByb2ZpbGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Map.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Map.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/PrivacyPolicy.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/PrivacyPolicy.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeVBvbGljeS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPosts.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPosts.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0ZWRQb3N0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/SeeAllUsers.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/SeeAllUsers.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VlQWxsVXNlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UIComponents/LoginButtons.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UIComponents/LoginButtons.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVUlDb21wb25lbnRzXExvZ2luQnV0dG9ucy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ViewFoodPosts.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ViewFoodPosts.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld0Zvb2RQb3N0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Shared/SurveyPrompt.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/_Imports.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/CreateFoodPost.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/CreateFoodPost.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlRm9vZFBvc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xauouoch9k
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/EditFoodPost.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/EditFoodPost.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEZvb2RQb3N0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-k60enmo6oc
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Index.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ge7fcwz0nr
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Login.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xm4hp2nt19
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/MyReservations.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/MyReservations.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlSZXNlcnZhdGlvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-w1tifvojrv
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/PostDetails.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/PostDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-jixqs6uerm
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Register.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hyqv80bnnt
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPostDetails.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/ReportedPostDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0ZWRQb3N0RGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ej807hrmdi
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UIComponents/Modal.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UIComponents/Modal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVUlDb21wb25lbnRzXE1vZGFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-sp2tgkowl2
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UserProfile.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Pages/UserProfile.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclByb2ZpbGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-wiwjy8u4u7
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Shared/MainLayout.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-jk00ermrez
 
-[C:/Users/laura/OneDrive/Documents/GitHub/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Shared/NavMenu.razor]
+[O:/VIA/3RD SEMESTER/SDJ3/SEP3_G3/\[CODE\]/rightoversBlazorNWEB/BlazorWASM/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-69rflur3ak
