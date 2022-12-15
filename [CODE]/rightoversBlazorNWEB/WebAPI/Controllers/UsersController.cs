@@ -126,7 +126,6 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    [Route("register")]
     public async Task<ActionResult> RegisterAsync(UserCreationDto dto)
     {
         try

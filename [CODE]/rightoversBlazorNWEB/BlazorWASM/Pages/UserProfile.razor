@@ -1,6 +1,7 @@
 ﻿@page "/UserProfile/{username}"
 @using HttpClients.ClientInterfaces
 @using Domain.Classes
+@using BlazorWASM.Pages.UIComponents
 @inject IFoodPostService foodPostService
 @inject IUserService userService
 @inject IRatingService ratingService
@@ -26,26 +27,33 @@ else
                     <h3 class="username">@user.UserName</h3>
                 </div>
             </div>
-            <AuthorizeView>
-                <Authorized>
-                    <RadzenButton
-                        ButtonStyle="ButtonStyle.Dark"
-                        Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value; await ShowRateDialog();}">
-                        Rate
-                    </RadzenButton>
-                </Authorized>
-            </AuthorizeView>
 
 
-            <div class="d-flex flex-column justify-content-center ratings">
-                <div class="d-flex flex-row ">
-                    <iconify-icon class="pt-1" icon="tabler:chef-hat" width="25" height="25"></iconify-icon>
-                    <p> cook rating: </p><span class="d-inline px-2" id="cook_rating">@avgCookerRating</span>
+            <div class="d-flex flex-column justify-content-center">
+                <div class="d-flex flex-column justify-content-center ratings">
+                    <div class="d-flex flex-row ">
+                        <iconify-icon class="pt-1" icon="tabler:chef-hat" width="25" height="25"></iconify-icon>
+                        <p> cook rating: </p><span class="d-inline px-2" id="cook_rating">@avgCookerRating</span>
+                    </div>
+                    <div id="picker_rating" class="d-flex flex-row ">
+                        <iconify-icon class="pt-1" icon="icon-park-solid:knife-fork" width="25" height="25" style="color: white;"></iconify-icon>
+                        <p> picker rating: </p><span class="d-inline px-2"> @avgPickerRating</span>
+                    </div>
                 </div>
-                <div id="picker_rating" class="d-flex flex-row ">
-                    <iconify-icon class="pt-1" icon="icon-park-solid:knife-fork" width="25" height="25" style="color: white;"></iconify-icon>
-                    <p> picker rating: </p><span class="d-inline px-2"> @avgPickerRating</span>
-                </div>
+                <AuthorizeView>
+                    <Authorized>
+                        @if (!context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value.Equals(username))
+                        {
+                            <RadzenButton
+                                ButtonStyle="ButtonStyle.Warning"
+                                class="mt-2"
+                                Click="async () => { loggedInUsername = context.User.Claims.First(claim => claim.Type.Equals(claimUsername)).Value; await ShowRateDialog();}">
+                                Rate
+                            </RadzenButton>
+                        }
+                    </Authorized>
+                </AuthorizeView>
+
 
             </div>
         </div>
@@ -59,14 +67,18 @@ else
                     <RadzenDataList PageSize="6" WrapItems="true" AllowPaging="true" Data="@activeFoodPosts" TItem="FoodPost">
                         <Template Context="foodPost">
                             <RadzenCard Style="width: 250px;" Class="rz-border-radius-3">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@(foodPost.StartDate.DayAndMonth() + "-" + foodPost.EndDate.DayAndMonth()) Class="me-1" IsPill="true"/>
+                                @if (!user.IsBusiness)
+                                {
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <RadzenBadge BadgeStyle="BadgeStyle.Light" Text=@(foodPost.StartDate.DayAndMonth() + "-" + foodPost.EndDate.DayAndMonth()) Class="me-1" IsPill="true"/>
+                                        </div>
+                                        <div class="col-md-6 text-end">
+                                            <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@(foodPost.StartTime.ToString() + " - " + foodPost.EndTime.ToString()) Class="me-1" IsPill="true"/>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 text-end">
-                                        <RadzenBadge BadgeStyle="BadgeStyle.Dark" Text=@(foodPost.StartTime.ToString() + " - " + foodPost.EndTime.ToString()) Class="me-1" IsPill="true"/>
-                                    </div>
-                                </div>
+                                }
+                                
                                 <div class="d-flex flex-row align-items-center">
                                     @* pfp and username *@
                                     <div class="d-flex flex-column me-3">
@@ -126,7 +138,7 @@ else
             {
                 <div class="d-flex justify-content-center my-4">
                     <h1>Reports</h1>
-            </div>
+                </div>
                 <RadzenDataGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
                                 Data="@reports" TItem="Report" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
                     <Columns>
@@ -143,6 +155,11 @@ else
                                 <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="delete_forever" class="m-1 align-content-center" Click="async () => await ResolveAsync(data.ReportId)"></RadzenButton>
                             </Template>
                         </RadzenDataGridColumn>
+                        <RadzenDataGridColumn Width="20%" TItem="Report" Property="Comment" Title="See Details">
+                                                            <Template Context="data">
+                                                                <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="async () => await OpenReportDetails(data)"></RadzenButton>
+                                                            </Template>
+                                                        </RadzenDataGridColumn>
                     </Columns>
                 </RadzenDataGrid>
                 <div class="d-flex justify-content-center align-items-around flex-column my-4">
@@ -153,6 +170,12 @@ else
             }
         </Authorized>
     </AuthorizeView>
+    <Modal ShowModal=@showModal>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="text-center">@resultMsg</p>
+            <RadzenButton Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(args => Proceed())" Text="Okay" Class="w-auto btn-text" ButtonStyle="ButtonStyle.Dark"/>
+        </div>
+    </Modal>
 }
 
 @code {
@@ -185,6 +208,9 @@ else
     private int ratingType = 1;
     private String ratingComment = "";
     private int ratingValue = 1;
+
+    private String resultMsg = "";
+    private bool showModal = false;
 
     private String loggedInUsername = "";
 
@@ -287,7 +313,7 @@ else
             total += rating.Value;
         }
         double avg = total / Convert.ToDouble(pickerRatings.Count());
-        avg = Math.Truncate(avg * 100)/100;
+        avg = Math.Truncate(avg * 100) / 100;
         return avg;
     }
 
@@ -317,17 +343,28 @@ else
         await ratingService.AddRating(newRating);
         await InitRatings();
         clearRating();
-        
+        showModal = true;
+    }
+
+    private void Proceed()
+    {
+        showModal = false;
     }
 
     async Task ShowRateDialog()
     {
+        User loggedInUser = await userService.GetUserByUsername(loggedInUsername);
+        bool isBusinessRating = loggedInUser.IsBusiness;
+        
         var result = await DialogService.OpenAsync($"Rate {username}.", ds =>
             @<div class="d-flex flex-column">
                 <div class="d-flex flex-row justify-content-center">
                     <RadzenRadioButtonList @bind-Value=@ratingType TValue="int">
                         <Items>
-                            <RadzenRadioButtonListItem Text="Cook" Value="1"/>
+                            @if (!isBusinessRating)
+                            {
+                                <RadzenRadioButtonListItem Text="Cook" Value="1"/>
+                            }
                             <RadzenRadioButtonListItem Text="Picker" Value="2"/>
                         </Items>
                     </RadzenRadioButtonList>
@@ -354,7 +391,8 @@ else
         if (confirm.Value)
         {
             await userService.DeleteUserAsync(username);
-        }navMgr.NavigateTo("/ReportedPosts");
+        }
+        navMgr.NavigateTo("/ReportedPosts");
     }
 
     private void ViewPost(int postId)
@@ -368,6 +406,23 @@ else
             Console.WriteLine(e);
             throw;
         }
+    }
+    
+    private async Task OpenReportDetails(Report report)
+    {
+        var result = await DialogService.OpenAsync($"Report details.", ds =>
+            @<div class="d-flex flex-column">
+                <div class="d-flex flex-column px-5 py-2">
+                    <p>
+                        <strong>@report.UsernameReporting</strong>
+                    </p>
+                    <p>@report.Comment</p>
+                </div>
+                <div class="d-flex flex-row justify-content-evenly">
+                    <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Resolve" Click="async () => { await ResolveAsync(report.ReportId); ds.Close(true); }" Class="me-1" Style="width: 100px;"/>
+                </div>
+            </div>);
     }
 
     private async Task ResolveAsync(int id)

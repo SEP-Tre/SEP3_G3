@@ -250,7 +250,7 @@ else
                                 <RadzenButton class="mx-4" Variant="Variant.Flat" Shade="Shade.Lighter"
                                               Click="async () => await ShowRateDialog()"
                                               MouseEnter=@(args => SetUsername(username = context.User.Claims.First(claim => claim.Type.Equals("UserName")).Value))
-                                              Text="Report" ButtonStyle="ButtonStyle.Dark"/>
+                                              Text="Report" ButtonStyle="ButtonStyle.Dark" Style="width: 100px;"/>
                             }
                         }
                     </div>
@@ -264,7 +264,7 @@ else
         </div>
     </div>
     </div>
-    
+
     <div>
         <AuthorizeView>
             <Authorized>
@@ -282,6 +282,11 @@ else
                                 <RadzenDataGridColumn TItem="Report" Property="Comment" Title="Resolve" Width="10%">
                                     <Template Context="data">
                                         <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="delete_forever" class="m-1 align-content-center" Click="async () => await ResolveAsync(data.ReportId)"></RadzenButton>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn Width="20%" TItem="Report" Property="Comment" Title="See Details">
+                                    <Template Context="data">
+                                        <RadzenButton ButtonStyle="ButtonStyle.Info" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="info" class="m-1 align-content-center" Click="async () => await OpenReportDetails(data)"></RadzenButton>
                                     </Template>
                                 </RadzenDataGridColumn>
                             </Columns>
@@ -331,9 +336,9 @@ else
 
             creator = await userService.GetUserByUsername(foodPost.User.UserName);
 
-            // TODO: Only load the reports if it is an admin that is looking
+    // TODO: Only load the reports if it is an admin that is looking
             await LoadReports();
-            
+
             DisplayInformation();
         }
         catch (Exception e)
@@ -341,6 +346,23 @@ else
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private async Task OpenReportDetails(Report report)
+    {
+        var result = await DialogService.OpenAsync($"Report details.", ds =>
+            @<div class="d-flex flex-column">
+                <div class="d-flex flex-column px-5 py-2">
+                    <p>
+                        <strong>@report.UsernameReporting</strong>
+                    </p>
+                    <p>@report.Comment</p>
+                </div>
+                <div class="d-flex flex-row justify-content-evenly">
+                    <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Resolve" Click="async () => { await ResolveAsync(report.ReportId); ds.Close(true); }" Class="me-1" Style="width: 100px;"/>
+                </div>
+            </div>);
     }
 
     private async void DisplayInformation()
@@ -384,7 +406,6 @@ else
         }
         catch (Exception e)
         {
-            
             errorMsg = FormatError(e.Message);
         }
     }
@@ -413,7 +434,7 @@ else
                 </div>
                 <div class="d-flex flex-row justify-content-evenly">
                     <RadzenButton Text="Cancel" Click="() => ds.Close(false)" ButtonStyle="ButtonStyle.Light" Class="me-1" Style="width: 80px;"/>
-                    <RadzenButton Text="Report" Click="async () => { await ReportAsync(); ds.Close(true); }" Class="me-1" Style="width: 80px;"/>
+                    <RadzenButton Text="Report" Click="async () => { await ReportAsync(); ds.Close(true); }" Class="me-1" Style="width: 100px;"/>
                 </div>
             </div>);
     }
@@ -441,19 +462,19 @@ else
     {
         navMgr.NavigateTo($"/EditFoodPost/{id}");
     }
-    
+
     private async Task ResolveAsync(int id)
     {
         await foodPostService.ResolveReportAsync(id);
-        Report reportToDelete =reports.FirstOrDefault(report => report.ReportId ==id);
+        Report reportToDelete = reports.FirstOrDefault(report => report.ReportId == id);
         List<Report> reportList = new List<Report>(reports);
         reportList.Remove(reportToDelete);
         reports = reportList.AsEnumerable();
     }
-    
+
     private async Task LoadReports()
     {
-        reports =  await foodPostService.GetReportsOnPostAsync(id);
+        reports = await foodPostService.GetReportsOnPostAsync(id);
     }
 
     private string FormatError(string error)
@@ -463,7 +484,6 @@ else
         string[] splitTwo = splitOne[1].Split('"');
         Console.WriteLine(splitTwo[1]);
         return splitTwo[1];
-
     }
 
 
