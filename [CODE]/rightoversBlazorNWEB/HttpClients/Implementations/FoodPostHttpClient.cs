@@ -95,7 +95,7 @@ public class FoodPostHttpClient : IFoodPostService
         var body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
         Console.Write(body);
 
-        var response = await client.PatchAsync("/FoodPosts/", body);
+        var response = await client.PatchAsync("/FoodPosts/Reservations", body);
         Console.Write(response);
         if (!response.IsSuccessStatusCode)
         {
@@ -137,7 +137,7 @@ public class FoodPostHttpClient : IFoodPostService
 
     public async Task<ICollection<FoodPost>> GetAllReportedPostsAsync()
     {
-        var response = await client.GetAsync("/FoodPosts/Reported");
+        var response = await client.GetAsync("/FoodPosts/Reports");
         string content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
@@ -156,7 +156,7 @@ public class FoodPostHttpClient : IFoodPostService
 
     public async Task<Report> ReportAsync(Report report)
     {
-        var response = await client.PostAsJsonAsync("/FoodPosts/Report", report);
+        var response = await client.PostAsJsonAsync("/FoodPosts/Reports", report);
         string content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
@@ -179,7 +179,7 @@ public class FoodPostHttpClient : IFoodPostService
         var body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
         Console.Write(body);
 
-        var response = await client.PostAsync("/FoodPosts/Pick", body);
+        var response = await client.PostAsync("/FoodPosts/Picked", body);
         Console.Write(response);
         if (!response.IsSuccessStatusCode)
         {
@@ -190,7 +190,7 @@ public class FoodPostHttpClient : IFoodPostService
 
     public async Task ResolveReportAsync(int id)
     {
-        var response = await client.DeleteAsync($"/FoodPosts/Report/?id={id}");
+        var response = await client.DeleteAsync($"/FoodPosts/Reports/?id={id}");
         if (!response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();
@@ -223,7 +223,7 @@ public class FoodPostHttpClient : IFoodPostService
         var body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
         Console.Write(body);
 
-        var response = await client.PatchAsync("/FoodPosts/Edit", body);
+        var response = await client.PatchAsync("/FoodPosts/", body);
         string result = await response.Content.ReadAsStringAsync();
         Console.Write(result);
         if (!response.IsSuccessStatusCode)
