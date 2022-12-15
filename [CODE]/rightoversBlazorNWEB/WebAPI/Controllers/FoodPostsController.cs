@@ -67,10 +67,9 @@ public class FoodPostsController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-
-    // TODO: Preemptively solve conflict
-    // Could conflict with a later need to update the post
+    
     [HttpPatch]
+    [Route("Reservations")]
     public async Task<ActionResult> ReserveAsync([FromBody] FoodPostReservationDto dto)
     {
         try
@@ -104,7 +103,7 @@ public class FoodPostsController : ControllerBase
     }
 
     [HttpPost]
-    [Route("Pick")]
+    [Route("Picked")]
     public async Task<ActionResult<FoodPost>> PickUpAsync(PickUpDto dto)
     {
         try
@@ -133,7 +132,7 @@ public class FoodPostsController : ControllerBase
     }
 
     [HttpGet]
-    [Route("Reported")]
+    [Route("Reports")]
     public async Task<ActionResult<IEnumerable<FoodPost>>> GetAllReportedPostsAsync()
     {
         try
@@ -165,7 +164,7 @@ public class FoodPostsController : ControllerBase
     }
 
     [HttpPost]
-    [Route("Report")]
+    [Route("Reports")]
     public async Task<ActionResult<Report>> ReportAsync(Report report)
     {
         try
@@ -182,7 +181,6 @@ public class FoodPostsController : ControllerBase
     }
 
     [HttpPatch]
-    [Route("Edit")]
     public async Task<ActionResult<FoodPost>> EditAsync([FromBody] FoodPost foodPost)
     {
         try
@@ -198,7 +196,7 @@ public class FoodPostsController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("Report")]
+    [Route("Reports")]
     public async Task<ActionResult> ResolveReportAsync([FromQuery] int id)
     {
         try

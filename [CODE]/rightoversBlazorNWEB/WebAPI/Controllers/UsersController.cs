@@ -109,7 +109,7 @@ public class UsersController : ControllerBase
     
 
     [HttpPost]
-    [Route("login")]
+    [Route("auth/login")]
     public async Task<ActionResult> LoginAsync(UserLoginDto dto)
     {
         try

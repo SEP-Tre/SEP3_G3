@@ -127,11 +127,16 @@
         daysLeftToEat = foodPost.DaysUntilExpired.ToString();
         category = foodPost.Category;
         pictureUrl = foodPost.PictureUrl;
-        startDate = DateOnly.FromDayNumber(startDate.DayNumber);
-        endDate = DateOnly.FromDayNumber(endDate.DayNumber);
+        startDate = FromMyDate(foodPost.StartDate);
+        endDate = FromMyDate(foodPost.EndDate);
         startTime = TimeOnly.Parse(foodPost.StartTime.ToString());
         endTime = TimeOnly.Parse(foodPost.EndTime.ToString());
         creatorUsername = foodPost.User.UserName;
+    }
+
+    DateOnly FromMyDate(MyDate date)
+    {
+        return new DateOnly(date.Year, date.Month, date.Day);
     }
 
     private void initDates()

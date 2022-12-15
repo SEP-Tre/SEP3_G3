@@ -25,7 +25,7 @@ public class UserHttpClient : IUserService
 
     public async Task LoginAsync(UserLoginDto dto)
     {
-        var response = await client.PostAsJsonAsync("/Users/login", dto);
+        var response = await client.PostAsJsonAsync("/Users/auth/login", dto);
         string content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
