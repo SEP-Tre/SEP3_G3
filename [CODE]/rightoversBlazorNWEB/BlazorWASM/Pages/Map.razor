@@ -8,46 +8,56 @@
 @inject IFoodPostService foodPostService
 @inject NavigationManager navMgr
 @inject IJSRuntime JSRuntime
-<div class="container-fluid">
-    <div class="row p-3">
-        <div class="col">
-            <h1>Users with available posts</h1>
-            <RadzenCard Class="mb-4">
-                @msg
-            </RadzenCard>
-            <RadzenGoogleMap @ref="map" style="height: 400px" Options=@(new Dictionary<string, object>{{"disableDoubleClickZoom", true}})
-                             Zoom="@zoom" ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center="@(new GoogleMapPosition{Lat = 55.863352, Lng = 9.838155})" MapClick="@OnMapClick" MarkerClick="@OnMarkerClick">
-                <Markers>
-                    @if (postedPosts != null)
-                    {
-                        @foreach (var item in postedPosts)
-                        {
-                            
-                            <RadzenGoogleMapMarker
-                                Position=@(new GoogleMapPosition{Lat = item.User.Address.Latitude, Lng = item.User.Address.Longitude})
-                                Title=@item.User.UserName>
-                            </RadzenGoogleMapMarker>
-                    }
-                    }
-                </Markers>
-            </RadzenGoogleMap>
-        </div>
-    </div>
-    <div>
-        <div class="card-back mx-3">
-            <div class="card d-flex align-items-start flex-column">
-                
 
+@if (postedPosts == null)
+{
+    <p>Loading reservations...</p>
+}
+else
+{
+    <div class="container-fluid">
+        <div class="row p-3">
+            <div class="col">
+                <h1>Users with available posts</h1>
+                @if (msg != null)
+                {
+                    <RadzenCard Class="mb-4">
+                        @msg
+                    </RadzenCard>
+                }
+                <RadzenGoogleMap style="height: 400px" Options=@(new Dictionary<string, object> { { "disableDoubleClickZoom", true } })
+                                 Zoom="@zoom" ApiKey="AIzaSyBiS9FGsUm7TmTcbAcxD3G0HLrUrm1gHG8" Center="@(new GoogleMapPosition { Lat = 55.863352, Lng = 9.838155 })" MapClick="@OnMapClick" MarkerClick="@OnMarkerClick">
+                    <Markers>
+                        @if (postedPosts.Any())
+                        {
+                            @foreach (var item in postedPosts)
+                            {
+
+                                <RadzenGoogleMapMarker
+                                    Position=@(new GoogleMapPosition { Lat = item.User.Address.Latitude, Lng = item.User.Address.Longitude })
+                                    Title=@item.User.UserName>
+                                </RadzenGoogleMapMarker>
+                            }
+                        }
+                    </Markers>
+                </RadzenGoogleMap>
+            </div>
+        </div>
+        <div>
+            <div class="card-back mx-3">
+                <div class="card d-flex align-items-start flex-column">
+
+
+                </div>
             </div>
         </div>
     </div>
-</div>
+}
 
 
 @code {
     private readonly int zoom = 12;
     private bool showHorsensMarker;
-    private RadzenGoogleMap map;
     private ICollection<AddressCreationDto>? addressDtos;
     private ICollection<AddressCoords>? coordinates;
     private string msg;
@@ -126,21 +136,7 @@
     {
         navMgr.NavigateTo($"/UserProfile/{marker.Title}");
     }
-
-    async Task OnMarkerEnter(RadzenGoogleMapMarker marker)
-    {
-        string message = $"Custom information about <b>{marker.Title}</b>";
-
-        string code = $@"
-var map = Radzen['{map.UniqueID}'].instance;
-var marker = map.markers.find(m => m.title == '{marker.Title}');
-if(window.infoWindow) {{window.infoWindow.close();}}
-window.infoWindow = new google.maps.InfoWindow({{content: '{message}'}});
-setTimeout(() => window.infoWindow.open(map, marker), 200);
-";
-
-        await JSRuntime.InvokeVoidAsync("eval", code);
-    }
+    
 
     private async Task Proceed()
     {
@@ -172,21 +168,7 @@ setTimeout(() => window.infoWindow.open(map, marker), 200);
             msg = FormatError(e.Message);
         }
     }
-
-    async Task onHover(FoodPost foodPost)
-    {
-        string message = $"Custom information about <b>{foodPost.Title}</b>";
-
-        string code = $@"
-var map = Radzen['{map.UniqueID}'].instance;
-
-if(window.infoWindow) {{window.infoWindow.close();}}
-window.infoWindow = new google.maps.InfoWindow({{content: '{message}'}});
-setTimeout(() => window.infoWindow.open(map, marker), 200);
-";
-
-        await JSRuntime.InvokeVoidAsync("eval", code);
-    }
+    
 
     public void SetSelectedFoodPost(FoodPost? foodPost)
     {
