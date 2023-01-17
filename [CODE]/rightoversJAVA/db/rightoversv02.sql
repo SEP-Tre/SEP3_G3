@@ -26,7 +26,7 @@ CREATE TABLE user_
     username     username primary key,
     firstname    varchar(50),
     password_    varchar(100),
-    address_id   int references address (address_id),
+    address_id   int references address (address_id) ON DELETE CASCADE,
     is_business  bool,
     phone_number varchar(15)
 );
@@ -93,17 +93,17 @@ CREATE TABLE rating
     value_          int,
     comment_        varchar,
     rating_type     varchar,
-    username_rating username REFERENCES user_ (username),
-    username_rated  username REFERENCES user_ (username)
+    username_rating username REFERENCES user_ (username) ON DELETE CASCADE,
+    username_rated  username REFERENCES user_ (username) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS report;
 CREATE TABLE report
 (
     report_id          SERIAL PRIMARY KEY,
-    post_id            int REFERENCES food_post (post_id),
+    post_id            int REFERENCES food_post (post_id) ON DELETE CASCADE,
     comment_           varchar,
-    username_reporting username REFERENCES user_ (username)
+    username_reporting username REFERENCES user_ (username) ON DELETE CASCADE
 );
 
 
